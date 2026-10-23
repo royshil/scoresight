@@ -145,9 +145,11 @@ def has_foreground(patch) -> bool:
 
 # A PP-OCR box whose gray crop has less contrast than this (the spread between
 # its 2nd and 98th percentile gray levels) has nothing to read: a switched-off
-# display, a black frame, a box over plain background with camera noise.
+# display, a black frame, a box over plain background with camera noise, the
+# unlit LEDs of a dot-matrix display (19-20 on a handball board's penalty
+# timer filmed by a camera, #140, where 20 let PP-OCR read 0:10 on them).
 # Every labelled crop of the OCR evaluation's datasets has 37 or more.
-MIN_CROP_CONTRAST = 20
+MIN_CROP_CONTRAST = 30
 
 
 def has_contrast(gray_patch) -> bool:
