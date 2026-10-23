@@ -82,7 +82,7 @@ Each box is processed on its own copy of the picture, so overlapping boxes never
 With a **PP-OCR** model, ScoreSight skips the Image cleanup steps (2–6, 9 and 10) for every box but a *Count lights* box, which is processed as above. For the others it:
 
 1. takes the part of the box that is inside the processed picture, **in colour**,
-2. reports the box as `Empty` without running OCR if the picture has almost no contrast (a display that is off, a black frame, a box over plain background: less than 20 gray levels between its darkest and brightest parts, ignoring the 2% extremes), since a model would guess,
+2. reports the box as `Empty` without running OCR if the picture has almost no contrast (a display that is off, the unlit LEDs of a dot-matrix display, a black frame, a box over plain background: less than 30 gray levels between its darkest and brightest parts, ignoring the 2% extremes), since a model would guess,
 3. skips OCR if the picture hasn't changed (*Skip OCR while image is unchanged*; the picture is compared thresholded on its own, so a change is seen on a dim display too),
 4. reads every box of the frame together with the character set of each box's *Type*,
 5. continues with steps 12–14 above: *Format*, *Minimum confidence* (PP-OCR's confidence), smoothing, leading zeros, ordinal suffix.

@@ -15,6 +15,7 @@ Release tags are the bare version number (for example `0.1.0`).
 
 ### Fixed
 
+- **No digits read on a dot-matrix display that is off.** The unlit LEDs of a dot-matrix display, faintly visible on camera, could be read as digits by PP-OCR: on a handball board, the penalty timer's box sent *0:10* while the operator was setting up a penalty. A box needs a bit more contrast now (30 gray levels instead of 20) before it is read, which also lets **When blank** clear such a box on time ([#140](https://github.com/royshil/scoresight/discussions/140)).
 - **Auto layout's model downloads on macOS.** The first ✨ Auto crop or ✨ Auto layout on a Mac failed with *CERTIFICATE_VERIFY_FAILED*: the download didn't use the certificates bundled with ScoreSight, and the Mac app has no others. The user guide now also says where to put the model if you download it yourself ([#140](https://github.com/royshil/scoresight/discussions/140)).
 
 ## [0.4.1] - 2026-10-22
