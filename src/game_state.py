@@ -316,7 +316,8 @@ class _Tracker:
         self.value = None
         self.text: str | None = None
         self.changed_at: float | None = None  # when the value last changed
-        self.seen_at: float | None = None  # when the role was last read
+        # when the role's value was last read (the clock's small moves)
+        self.seen_at: float | None = None
         self.candidate = None
         self.candidate_text: str | None = None
         self.candidate_since = 0.0
@@ -734,8 +735,13 @@ class GameEngine:
         seconds, small = judged
         tracker = self._trackers[CLOCK]
         old = tracker.value
-        tracker.seen_at = now
-        if not tracker.offer(seconds, text, now, small, 1):
+        counted = tracker.offer(seconds, text, now, small, 1)
+        if counted or seconds == old:
+            # the clock's value was read: a reading held back doesn't count,
+            # or the clock, judged against a stale value from just now, could
+            # never catch up while it runs
+            tracker.seen_at = now
+        if not counted:
             return
         if old is None:
             return

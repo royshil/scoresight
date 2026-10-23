@@ -865,6 +865,28 @@ def test_held_back_judges_every_followed_field(game, cycle):
     assert cycle(g, step=1.0, Time="7:59")[0] == {}
 
 
+def test_a_running_clock_held_back_catches_up(game, cycle):
+    # read 5 times a second; 5:26 was taken for 5:25 (skip similar image), so
+    # 5:27 comes 0.2 s after a 5:25: held back, but the clock runs on and is
+    # sent again a reading later, not judged against 5:25 "just read" forever
+    # (#140)
+    g = game(sports.SOCCER)
+    for _ in range(6):
+        cycle(g, step=0.2, Time="5:25")
+    held, _ = cycle(g, step=0.2, Time="5:27")
+    assert held == {
+        "Time": "the clock jumping from 5:25 to 5:27, which Soccer doesn't allow"
+    }
+    held, events = cycle(g, step=0.2, Time="5:27")
+    assert held == {} and g.kinds(events) == [CLOCK_START]
+    for clock in ("5:27", "5:27", "5:28", "5:28", "5:28", "5:28", "5:28", "5:29"):
+        assert cycle(g, step=0.2, Time=clock)[0] == {}
+    assert g.engine.state().clock == "5:29"
+    # a misread is still held back
+    held, _ = cycle(g, step=0.2, Time="5:39")
+    assert "Time" in held and g.engine.state().clock == "5:29"
+
+
 def test_held_back_skips_and_follows_no_sport(game, cycle, make_result):
     g = start_basketball(game, home="21")
     assert cycle(g, skip={"Home Score"}, Home_Score="81")[0] == {}
