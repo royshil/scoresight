@@ -687,6 +687,12 @@ def test_a_box_without_contrast_isnt_read(ppocr_detector, make_target):
     assert result.state == State.Empty
     assert ppocr_detector.choice.calls == []
     assert tesseract.has_contrast(seven_segment("8", fg=120, bg=80))
+    # the unlit LEDs of a dot-matrix display (a handball penalty timer, #140)
+    unlit = np.full((100, 230), 44, np.uint8)
+    for dy in (0, 1):
+        for dx in (0, 1):
+            unlit[2 + dy :: 6, 2 + dx :: 6] = 64
+    assert not tesseract.has_contrast(unlit)
 
 
 def test_a_failed_ppocr_no_longer_counts_as_reading(ppocr_detector):
