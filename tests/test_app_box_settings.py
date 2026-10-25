@@ -29,7 +29,7 @@ def test_other_expressions_are_custom(regex):
     assert matching_preset(regex) == CUSTOM_PRESET_INDEX
 
 
-@pytest.mark.parametrize(("old", "index"), [("^[0-5]\\d$", 3), ("^[0-3]\\d$", 4)])
+@pytest.mark.parametrize(("old", "index"), [("^[0-5]\\d$", 4), ("^[0-3]\\d$", 5)])
 def test_migrated_two_digit_formats_show_their_preset(old, index):
     # boxes stored with Time 0-59's or Shotclock 0-39's two-digit expression
     # (up to 0.3.0) are migrated to the preset's expression, so the Format list

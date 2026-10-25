@@ -331,15 +331,15 @@ def test_field_type_box_settings_follow_scoresight_defaults():
     defaults = import_defaults()
     score = box_settings("score")
     assert score["type"] == defaults.FieldType.NUMBER
-    assert score["format_regex"] == defaults.format_prefixes[5]
+    assert score["format_regex"] == defaults.format_prefixes[6]
     assert box_settings("clock")["type"] == defaults.FieldType.TIME
     period = box_settings("period")
-    assert period["format_regex"] == defaults.format_prefixes[7]
+    assert period["format_regex"] == defaults.format_prefixes[8]
     assert period["ordinal_indicator"] is False  # output formatting is off
-    assert box_settings("number")["format_regex"] == defaults.format_prefixes[11]
+    assert box_settings("number")["format_regex"] == defaults.format_prefixes[12]
     text = box_settings("text")
     assert text["type"] == defaults.FieldType.TEXT
-    assert text["format_regex"] == defaults.format_prefixes[10]
+    assert text["format_regex"] == defaults.format_prefixes[11]
     assert box_settings("score")["binarization_method"] == 0
     assert box_settings("score", binarization_method=1)["binarization_method"] == 1
     assert whitelist("clock") == "0123456789:."
@@ -381,7 +381,7 @@ def test_a_role_with_a_preset_is_read_with_it():
     assert box_name("number", "shot_clock") == "Shot Clock"
     assert box_name("number", "down") == "Eval number"
     shot_clock = box_settings("number", "shot_clock", dilate=0)
-    assert shot_clock["format_regex"] == defaults.format_prefixes[4]
+    assert shot_clock["format_regex"] == defaults.format_prefixes[5]
     assert shot_clock["dilate"] == 0
     # the Shot Clock preset's format takes one or two digits, 0-39
     assert scoresight_postfilter("07", "number", "shot_clock") == "07"

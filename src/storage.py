@@ -49,8 +49,8 @@ BOXES_SCHEMA_VERSION = 3
 # up to ScoreSight 0.3.0 (schema 2), which took exactly two digits -> the
 # presets' expressions now (one or two digits).
 TWO_DIGIT_FORMATS = {
-    "^[0-5]\\d$": format_prefixes[3],
-    "^[0-3]\\d$": format_prefixes[4],
+    "^[0-5]\\d$": format_prefixes[4],
+    "^[0-3]\\d$": format_prefixes[5],
 }
 
 

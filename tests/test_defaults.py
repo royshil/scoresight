@@ -14,7 +14,7 @@ from defaults import (
 CANONICAL_SETTINGS = {
     "is_custom": True,
     "obs_source_name": "",
-    "format_regex": format_prefixes[11],
+    "format_regex": format_prefixes[12],
     "type": FieldType.NUMBER,
     "smoothing": False,
     "clear_value": "never",
@@ -47,7 +47,7 @@ def test_normalize_settings_uses_box_info_for_missing_keys():
     period = normalize_settings_dict({}, default_info_for_box_name("Period"))
     assert period["is_custom"] is False
     assert period["ordinal_indicator"] is True
-    assert period["format_regex"] == format_prefixes[7]
+    assert period["format_regex"] == format_prefixes[8]
     assert period["obs_source_name"] == "Period"
     assert period["type"] == FieldType.NUMBER
 
@@ -109,7 +109,7 @@ def test_default_info_for_box_name():
 
 
 def test_format_prefixes_compile():
-    assert len(format_prefixes) == 13
+    assert len(format_prefixes) == 14
     for pattern in format_prefixes:
         re.compile(pattern)
 
@@ -120,32 +120,42 @@ def test_format_prefixes_compile():
         (0, "12:34", True),
         (0, "9.5", True),
         (0, "60:00", False),
-        (1, "5:07", True),
-        (1, "5.7", False),
-        (2, "59.9", True),
-        (3, "07", True),
+        # a colon then one digit: tenths, only in Time MM:ss and ss:m
+        (0, "59:8", False),
+        (1, "59:8", True),
+        (1, "8:9", True),
+        (1, "59.8", True),
+        (1, "1:00", True),
+        (1, "12:34", True),
+        (1, "60:0", False),
+        (1, "1:0:0", False),
+        (1, "1:", False),
+        (2, "5:07", True),
+        (2, "5.7", False),
+        (3, "59.9", True),
+        (4, "07", True),
         # clocks show 7, not 07
-        (3, "7", True),
-        (3, "60", False),
-        (3, "007", False),
-        (4, "39", True),
-        (4, "8", True),
-        (4, "08", True),
-        (4, "0", True),
-        (4, "40", False),
-        (4, "", False),
-        (4, "100", False),
-        (5, "199", True),
-        (5, "200", False),
-        (6, "999", True),
-        (7, "4", True),
-        (7, "5", False),
-        (8, "7", True),
-        (9, "Home1", True),
-        (9, "Home 1", False),
-        (10, "anything at all", True),
-        (11, "", True),
-        (11, "12a", False),
+        (4, "7", True),
+        (4, "60", False),
+        (4, "007", False),
+        (5, "39", True),
+        (5, "8", True),
+        (5, "08", True),
+        (5, "0", True),
+        (5, "40", False),
+        (5, "", False),
+        (5, "100", False),
+        (6, "199", True),
+        (6, "200", False),
+        (7, "999", True),
+        (8, "4", True),
+        (8, "5", False),
+        (9, "7", True),
+        (10, "Home1", True),
+        (10, "Home 1", False),
+        (11, "anything at all", True),
+        (12, "", True),
+        (12, "12a", False),
     ],
 )
 def test_format_prefix_presets(index, text, matches):
@@ -160,5 +170,5 @@ def test_shot_clock_accepts_a_single_digit(text, matches):
     # A shot clock shows 9, 8, ... 0 in its last ten seconds, not 09: a format
     # of exactly two digits rejected them and the outputs stayed at 10.
     shot_clock = normalize_settings_dict({}, default_info_for_box_name("Shot Clock"))
-    assert shot_clock["format_regex"] == format_prefixes[4]
+    assert shot_clock["format_regex"] == format_prefixes[5]
     assert (re.fullmatch(shot_clock["format_regex"], text) is not None) == matches
