@@ -4132,6 +4132,21 @@ def visible_rows(window):
     ]
 
 
+def settled_pane_widths(window, qtbot):
+    """The panes' widths once the layout requests are handled: the Box tab's
+    content sets the Inspector's minimum width on its layout request
+    (fitBoxSettingsWidth), and the splitter follows on another one."""
+    widths = []
+
+    def stable():
+        QCoreApplication.sendPostedEvents(None, QEvent.Type.LayoutRequest)
+        widths.append(window.ui.splitter_main.sizes())
+        return len(widths) >= 2 and widths[-1] == widths[-2]
+
+    qtbot.waitUntil(stable)
+    return widths[-1]
+
+
 def test_the_live_layout(make_window, qtbot, patched, make_target, make_result):
     from defaults import default_boxes
 
@@ -4145,8 +4160,7 @@ def test_the_live_layout(make_window, qtbot, patched, make_target, make_result):
     storage.add_item(make_target("Time"))
     # (the Box tab's content sets the Inspector's minimum width)
     window.itemSelected("Time")
-    qtbot.wait(10)
-    setup_sizes = ui.splitter_main.sizes()
+    setup_sizes = settled_pane_widths(window, qtbot)
     assert setup_sizes[2] > 0
     setup_row = window.readingDelegate.rowHeight(ui.tableWidget_boxes.font())
     assert len(visible_rows(window)) == len(default_boxes)
@@ -4200,7 +4214,7 @@ def test_the_live_layout(make_window, qtbot, patched, make_target, make_result):
 
     # Setup: the widths it had, every field, the adjustments
     ui.actionSetupLayout.trigger()  # Ctrl+1
-    assert ui.splitter_main.sizes() == setup_sizes
+    assert settled_pane_widths(window, qtbot) == setup_sizes
     assert window.readingDelegate.density == "setup"
     assert len(visible_rows(window)) == len(default_boxes) + 1
     # every row has the Setup height, also those that were hidden in Live
