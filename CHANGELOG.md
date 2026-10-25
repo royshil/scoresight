@@ -8,6 +8,13 @@ Release tags are the bare version number (for example `0.1.0`).
 
 ## [Unreleased]
 
+## [0.4.2] - 2026-10-25
+
+Requests and fixes from the 0.4.0 discussion: a penalty timer's value can
+be cleared when it goes out, closing asks first, and clocks that show the
+tenths after a colon have a format. The first release an installed Windows
+0.4.1 can get with **Update now**.
+
 ### Added
 
 - **When blank: clear the value.** A new box setting, under Filtering: when the box has shown nothing for 2 seconds, the outputs can get an empty value instead of keeping its last one, which clears the text in vMix, OBS, the overlays, the files and every other output. **Clear the value, also at zero** also clears a box that reads zero (`0`, `0:00`) for 2 seconds. For a handball or hockey penalty timer that goes out at the end of the penalty; a shorter blank (a flicker, a hand in front of the board) keeps the value ([#140](https://github.com/royshil/scoresight/discussions/140)). It replaces **Skip empty values**, which had no effect since 0.2.0.
@@ -1122,7 +1129,8 @@ end to end on every platform before it ships. Highlights:
 
 - First open-source release of ScoreSight.
 
-[Unreleased]: https://github.com/royshil/scoresight/compare/0.4.1...HEAD
+[Unreleased]: https://github.com/royshil/scoresight/compare/0.4.2...HEAD
+[0.4.2]: https://github.com/royshil/scoresight/compare/0.4.1...0.4.2
 [0.4.1]: https://github.com/royshil/scoresight/compare/0.4.0...0.4.1
 [0.4.0]: https://github.com/royshil/scoresight/compare/0.3.4...0.4.0
 [0.3.4]: https://github.com/royshil/scoresight/compare/0.3.3...0.3.4
