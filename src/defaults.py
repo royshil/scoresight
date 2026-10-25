@@ -27,20 +27,26 @@ CLEAR_AFTER_SECONDS = 2.0
 
 
 # 0 - Time MM:ss and ss.m
-# 1 - Time MM:ss
-# 2 - Time ss.m
-# 3 - Time 0-59
-# 4 - Shotclock 0-39
-# 5 - Score 1dd
-# 6 - Score ddd
-# 7 - Period 1-4
-# 8 - Period d
-# 9 - Alphanumeric
-# 10 - Any text
-# 11 - Any number
-# 12 - Custom
+# 1 - Time MM:ss and ss:m
+# 2 - Time MM:ss
+# 3 - Time ss.m
+# 4 - Time 0-59
+# 5 - Shotclock 0-39
+# 6 - Score 1dd
+# 7 - Score ddd
+# 8 - Period 1-4
+# 9 - Period d
+# 10 - Alphanumeric
+# 11 - Any text
+# 12 - Any number
+# 13 - Custom
 format_prefixes = [
     "^(?:(?:[0-5]?\\d:[0-5]\\d)|(?:[0-5]?\\d\\.\\d))$",  # Time MM:ss and ss.m
+    # for boards that show the tenths after a colon below a minute (59:8): one
+    # digit after the colon is tenths, as a minutes clock always shows two. Not
+    # in the preset above: Tesseract drops a digit of a clock (12:04 -> 12:0)
+    # often enough that it would let those misreads through.
+    "^(?:(?:[0-5]?\\d:[0-5]\\d)|(?:[0-5]?\\d[.:]\\d))$",  # Time MM:ss and ss:m
     "^[0-5]?\\d:[0-5]\\d$",  # Time MM:ss
     "^[0-5]?\\d\\.\\d$",  # Time ss.m
     # one or two digits: clocks show 9, not 09 (up to 0.3.0 these took exactly
@@ -68,7 +74,7 @@ default_boxes = [
         "width": 120,
         "height": 100,
         "obs_source_name": "Home score",
-        "format_regex": format_prefixes[5],
+        "format_regex": format_prefixes[6],
         "ordinal_indicator": False,
         "is_custom": False,
     },
@@ -80,7 +86,7 @@ default_boxes = [
         "width": 120,
         "height": 100,
         "obs_source_name": "Away score",
-        "format_regex": format_prefixes[5],
+        "format_regex": format_prefixes[6],
         "ordinal_indicator": False,
         "is_custom": False,
     },
@@ -104,7 +110,7 @@ default_boxes = [
         "width": 50,
         "height": 80,
         "obs_source_name": "Period",
-        "format_regex": format_prefixes[7],
+        "format_regex": format_prefixes[8],
         "ordinal_indicator": True,
         "is_custom": False,
     },
@@ -116,7 +122,7 @@ default_boxes = [
         "width": 80,
         "height": 80,
         "obs_source_name": "#Home Fouls",
-        "format_regex": format_prefixes[11],
+        "format_regex": format_prefixes[12],
         "ordinal_indicator": False,
         "is_custom": False,
     },
@@ -128,7 +134,7 @@ default_boxes = [
         "width": 80,
         "height": 80,
         "obs_source_name": "#Away Fouls",
-        "format_regex": format_prefixes[11],
+        "format_regex": format_prefixes[12],
         "ordinal_indicator": False,
         "is_custom": False,
     },
@@ -140,7 +146,7 @@ default_boxes = [
         "width": 150,
         "height": 100,
         "obs_source_name": "shotclock",
-        "format_regex": format_prefixes[4],
+        "format_regex": format_prefixes[5],
         "ordinal_indicator": False,
         "is_custom": False,
     },
@@ -152,7 +158,7 @@ default_custom_box_info = {
     "width": 150,
     "height": 100,
     "obs_source_name": "",
-    "format_regex": format_prefixes[11],
+    "format_regex": format_prefixes[12],
     "ordinal_indicator": False,
     "is_custom": True,
 }
@@ -173,7 +179,7 @@ def normalize_settings_dict(settings, box_info):
     if not box_info:
         box_info = {
             "obs_source_name": "",
-            "format_regex": format_prefixes[11],
+            "format_regex": format_prefixes[12],
             "type": FieldType.NUMBER,
             "ordinal_indicator": False,
             "is_custom": True,

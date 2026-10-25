@@ -1267,18 +1267,21 @@ def test_the_format_shows_its_preset_and_an_invalid_expression(
     main_window.itemSelected("Home Score")
     combo = ui.comboBox_formatPrefix
     assert combo.currentText() == "Score 1dd"  # the field's default format
+    # the list's items are the presets, in their order, then Custom
+    assert combo.count() == len(format_prefixes)
+    assert combo.itemText(1) == "Time mm:ss or ss:d"
     ui.lineEdit_format.setText("^[0-3]\\d\\d$")
     assert combo.currentText() == "Custom"
-    combo.setCurrentIndex(1)
-    assert ui.lineEdit_format.text() == format_prefixes[1]
+    combo.setCurrentIndex(2)
+    assert ui.lineEdit_format.text() == format_prefixes[2]
     assert (
         storage.find_item_by_name("Home Score").settings["format_regex"]
-        == (format_prefixes[1])
+        == (format_prefixes[2])
     )
     assert combo.currentText() == "Time mm:ss"
     # "Custom" keeps the expression, to edit it
     combo.setCurrentIndex(combo.count() - 1)
-    assert ui.lineEdit_format.text() == format_prefixes[1]
+    assert ui.lineEdit_format.text() == format_prefixes[2]
 
     # an expression the OCR can't use (it ignores it) is marked
     assert ui.label_formatStatus.isHidden()
@@ -1314,7 +1317,7 @@ def test_a_shot_clock_saved_by_0_3_0_shows_its_preset(make_window):
     window = make_window()
     window.itemSelected("Shot Clock")
     assert window.ui.comboBox_formatPrefix.currentText() == "Shotclock 0-39"
-    assert window.ui.lineEdit_format.text() == format_prefixes[4]
+    assert window.ui.lineEdit_format.text() == format_prefixes[5]
     assert fetch_data("scoresight.json", storage.BOXES_SCHEMA_KEY) == 3
 
 

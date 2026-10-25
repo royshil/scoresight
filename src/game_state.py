@@ -98,6 +98,7 @@ _COUNT = re.compile(r"\d{1,3}")
 _CLOCK = re.compile(
     r"(?:(?:(?P<h>\d{1,2}):)?(?P<m>\d{1,3}):)?(?P<s>\d{1,2})(?:[.,](?P<f>\d{1,2}))?"
 )
+_TENTHS_AFTER_COLON = re.compile(r"(\d{1,2}):(\d)")
 _OVERTIME = re.compile(r"(?:OT|O)\s*(\d?)")
 
 
@@ -109,8 +110,15 @@ def parse_count(text: str) -> int | None:
 
 def parse_clock(text: str) -> float | None:
     """The clock in seconds: "4:32" 272, "12:00" 720, "45.3" 45.3, "0:09.8"
-    9.8, "1:02:03" 3723, "45" (seconds only) 45."""
-    match = _CLOCK.fullmatch(text.strip().replace(" ", ""))
+    9.8, "1:02:03" 3723, "45" (seconds only) 45, "59:8" (the tenths after a
+    colon, as some boards show them below a minute) 59.8."""
+    text = text.strip().replace(" ", "")
+    tenths = _TENTHS_AFTER_COLON.fullmatch(text)
+    if tenths is not None:
+        # one digit after the colon: tenths (a minutes clock shows two)
+        seconds = int(tenths[1])
+        return seconds + int(tenths[2]) / 10 if seconds <= 59 else None
+    match = _CLOCK.fullmatch(text)
     if match is None:
         return None
     hours = int(match["h"] or 0)

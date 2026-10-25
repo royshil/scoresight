@@ -2037,6 +2037,11 @@
                        </item>
                        <item>
                         <property name="text">
+                         <string>Time mm:ss or ss:d</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
                          <string>Time mm:ss</string>
                         </property>
                        </item>

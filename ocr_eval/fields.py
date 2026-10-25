@@ -106,7 +106,7 @@ def box_settings(field_type: str, role: str | None = None, **overrides) -> dict:
     settings = {}
     if field_type in ("text", "other"):
         settings["type"] = defaults.FieldType.TEXT
-        settings["format_regex"] = defaults.format_prefixes[10]  # Any text
+        settings["format_regex"] = defaults.format_prefixes[11]  # Any text
     settings = defaults.normalize_settings_dict(settings, info)
     settings.update(EVAL_SETTING_OVERRIDES)
     settings.update(overrides)

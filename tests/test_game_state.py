@@ -95,6 +95,12 @@ def test_parse_count(text, expected):
         ("0.0", 0.0),
         ("90:00", 5400.0),
         ("1:02:03", 3723.0),
+        # tenths after a colon, as some boards show them below a minute
+        ("59:8", 59.8),
+        ("8:9", 8.9),
+        ("0:0", 0.0),
+        ("60:0", None),
+        ("1:00", 60.0),
         ("4:72", None),
         ("abc", None),
         ("", None),
@@ -311,6 +317,17 @@ def test_a_second_back_does_not_start_the_clock(game):
     assert g.read(step=1.0, Time="4:33") == []
     assert g.engine.state().clock == "4:33"
     assert g.kinds(g.read(step=1.0, Time="4:32")) == [CLOCK_START]
+
+
+def test_a_clock_with_the_tenths_after_a_colon_keeps_running(game):
+    # a board that shows 59:8 below a minute (discussion #154): 59.8 seconds,
+    # not 59 minutes, so the clock runs on rather than jumping
+    g = start_basketball(game, time="1:01")
+    assert g.kinds(g.read(step=1.0, Time="1:00")) == [CLOCK_START]
+    assert g.read(step=0.5, Time="59:5") == []
+    assert g.read(step=0.5, Time="59:0") == []
+    assert g.engine.state().clock == "59:0"
+    assert g.engine.state().clock_running
 
 
 def test_a_clock_jump_waits(game):

@@ -664,15 +664,15 @@ def test_two_digit_clock_formats_are_migrated(data_dir, memory_storage, caplog):
     # digits, so a shot clock showing 9 (not 09) failed the filter and the
     # outputs froze at 10. Boxes that stored those presets get the new ones.
     assert storage.BOXES_SCHEMA_VERSION == 3
-    assert format_prefixes[4] == "^[0-3]?\\d$"
-    assert format_prefixes[3] == "^[0-5]?\\d$"
+    assert format_prefixes[5] == "^[0-3]?\\d$"
+    assert format_prefixes[4] == "^[0-5]?\\d$"
     store_data(
         SETTINGS,
         "boxes",
         [
             old_box("Shot Clock", 0.5, format_regex=OLD_SHOT_CLOCK),
             old_box("Seconds", 0.4, format_regex=OLD_TIME_0_59, is_custom=True),
-            old_box("Home Score", 0.3, format_regex=format_prefixes[5]),
+            old_box("Home Score", 0.3, format_regex=format_prefixes[6]),
             old_box("Countdown", 0.2, format_regex="^[0-3]\\d\\d$", is_custom=True),
             old_box("Away Score", 0.1),
         ],
@@ -680,12 +680,12 @@ def test_two_digit_clock_formats_are_migrated(data_dir, memory_storage, caplog):
     store_data(SETTINGS, storage.BOXES_SCHEMA_KEY, 2)
     assert memory_storage.loadBoxesFromStorage() is True
     assert formats(memory_storage) == {
-        "Shot Clock": format_prefixes[4],
-        "Seconds": format_prefixes[3],
+        "Shot Clock": format_prefixes[5],
+        "Seconds": format_prefixes[4],
         # other formats, and boxes without one (their preset's), are untouched
-        "Home Score": format_prefixes[5],
+        "Home Score": format_prefixes[6],
         "Countdown": "^[0-3]\\d\\d$",
-        "Away Score": format_prefixes[5],
+        "Away Score": format_prefixes[6],
     }
     # schema 2 boxes keep their confidence threshold (that migration is 0.1.x's)
     assert conf_thresholds(memory_storage) == {
@@ -700,13 +700,13 @@ def test_two_digit_clock_formats_are_migrated(data_dir, memory_storage, caplog):
     # saved back once, with the new schema version
     assert fetch_data(SETTINGS, storage.BOXES_SCHEMA_KEY) == 3
     saved = {box["name"]: box["settings"] for box in fetch_data(SETTINGS, "boxes")}
-    assert saved["Shot Clock"]["format_regex"] == format_prefixes[4]
-    assert saved["Seconds"]["format_regex"] == format_prefixes[3]
+    assert saved["Shot Clock"]["format_regex"] == format_prefixes[5]
+    assert saved["Seconds"]["format_regex"] == format_prefixes[4]
 
     caplog.clear()
     memory_storage.clear()
     assert memory_storage.loadBoxesFromStorage() is True
-    assert formats(memory_storage)["Shot Clock"] == format_prefixes[4]
+    assert formats(memory_storage)["Shot Clock"] == format_prefixes[5]
     assert "Migrated" not in caplog.text
 
 
@@ -716,7 +716,7 @@ def test_boxes_from_0_1_x_get_both_migrations(memory_storage):
     )
     assert memory_storage.loadBoxesFromStorage() is True
     assert conf_thresholds(memory_storage) == {"Shot Clock": 0.0}
-    assert formats(memory_storage) == {"Shot Clock": format_prefixes[4]}
+    assert formats(memory_storage) == {"Shot Clock": format_prefixes[5]}
 
 
 @pytest.mark.parametrize(
@@ -735,7 +735,7 @@ def test_exported_two_digit_clock_formats_are_migrated(
     assert memory_storage.loadBoxesFromFile(str(export)) is True
     assert conf_thresholds(memory_storage) == {"Shot Clock": conf_thresh}
     # a schema 3 file was exported after the upgrade: its format is the user's
-    expected = OLD_SHOT_CLOCK if schema_version == 3 else format_prefixes[4]
+    expected = OLD_SHOT_CLOCK if schema_version == 3 else format_prefixes[5]
     assert formats(memory_storage) == {"Shot Clock": expected}
 
 

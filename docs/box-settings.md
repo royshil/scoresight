@@ -115,6 +115,7 @@ The **Format** list shows the preset whose expression is in the field under it, 
 | Preset | Expression | Default for |
 |---|---|---|
 | Time mm:ss.d | `mm:ss` or `ss.d` (expression below) | Time |
+| Time mm:ss or ss:d | `mm:ss`, or `ss:d` or `ss.d` (expression below) | |
 | Time mm:ss | `^[0-5]?\d:[0-5]\d$` | |
 | Time ss.d | `^[0-5]?\d\.\d$` | |
 | Time 0-59 | `^[0-5]?\d$` | |
@@ -132,6 +133,14 @@ The *Time mm:ss.d* expression is:
 ```
 ^(?:(?:[0-5]?\d:[0-5]\d)|(?:[0-5]?\d\.\d))$
 ```
+
+Some boards show the tenths after a **colon** below a minute: `1:00`, then `59:8`, `59:7`... *Time mm:ss.d* rejects those readings (yellow), so the clock stops at `1:00` in the outputs. Choose **Time mm:ss or ss:d** for such a board: one digit after the colon is tenths (a minutes clock always shows two), and the readings are sent as the board shows them. Its expression is:
+
+```
+^(?:(?:[0-5]?\d:[0-5]\d)|(?:[0-5]?\d[.:]\d))$
+```
+
+It isn't the default, because with Tesseract a digit of a clock is sometimes missed (`12:04` read as `12:0`): *Time mm:ss.d* rejects that misread, *Time mm:ss or ss:d* would send it. With PP-OCR this is rare. A [sport](game.md) reads `59:8` as 59.8 seconds.
 
 **Use**: always. A tight format is the most effective protection against wrong values reaching your graphics. Examples of custom formats: `^[0-3]?\d$` (shot clock with or without a leading zero), `^(1[0-2]|[1-9]):[0-5]\d$` (12-minute quarters), `^[0-4]$` (downs).
 
