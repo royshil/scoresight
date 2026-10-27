@@ -438,7 +438,7 @@ _server_port: int | None = None
 _start_error: str | None = None
 
 
-def _bind_socket(host: str, port: int) -> socket.socket:
+def bind_socket(host: str, port: int) -> socket.socket:
     """Bind and listen on (host, port). Raises OSError if the port is taken."""
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
@@ -491,7 +491,7 @@ def start_http_server(port: int = DEFAULT_PORT) -> None:
             logger.warning("HTTP server is already running on port %s", _server_port)
             return
         try:
-            sock = _bind_socket(HOST, port)
+            sock = bind_socket(HOST, port)
         except OSError as e:
             _start_error = f"{type(e).__name__}: {e}"
             logger.error(

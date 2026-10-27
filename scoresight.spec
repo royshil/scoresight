@@ -103,6 +103,8 @@ DATA_GLOBS = [
     ("overlays/*.js", "overlays"),
     ("overlays/*.css", "overlays"),
     ("overlays/*.html", "overlays"),
+    # the phone camera's page (phone_camera.py)
+    ("phone/*.html", "phone"),
 ]
 
 datas = []

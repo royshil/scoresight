@@ -7,6 +7,7 @@ class CameraInfo:
         FILE = "File"
         URL = "URL"
         SCREEN_CAPTURE = "Screen Capture"
+        PHONE = "Phone"
 
     def __init__(self, description: str, uuid: str, id: str | int, type: str):
         self.description = description

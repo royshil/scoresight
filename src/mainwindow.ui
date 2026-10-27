@@ -558,6 +558,11 @@
                  <string>Screen capture…</string>
                 </property>
                </item>
+               <item>
+                <property name="text">
+                 <string>Phone camera</string>
+                </property>
+               </item>
               </widget>
              </item>
              <item>

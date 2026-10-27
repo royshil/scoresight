@@ -27,9 +27,10 @@ ScoreSight reads one video source per window. Choose it from the **Source** drop
 | NDI® | ✔ | ✔ | ✔ | Sources on your network are discovered automatically |
 | URL: RTSP / HTTP stream | ✔ | ✔ | ✔ | IP cameras, MediaMTX, encoders, HLS/HTTP streams that FFmpeg can open. RTSP tries TCP first |
 | Screen Capture (window or whole screen) | ✔ | ✔ | ✘ | macOS needs the Screen Recording permission |
+| Phone camera (iPhone or Android, over Wi-Fi) | ✔ | ✔ | ✔ | The phone's browser sends its camera; no app to install. See [Phone camera](#phone-camera) |
 | Video file (`.mp4`, `.avi`, `.mov`) | ✔ | ✔ | ✔ | Loops automatically; playback speed x1 to x32 |
 
-ScoreSight remembers the last source and its type, and reopens it at the next start: a URL stream, a video file, a camera or NDI source (found again by its name), or screen capture. If the source isn't available (for example a camera that is unplugged), ScoreSight starts without a source.
+ScoreSight remembers the last source and its type, and reopens it at the next start: a URL stream, a video file, a camera or NDI source (found again by its name), screen capture, or the phone camera. If the source isn't available (for example a camera that is unplugged), ScoreSight starts without a source.
 
 Cameras and NDI sources are discovered in the background, so the window appears right away and the **Source** list fills in a moment later.
 
@@ -140,6 +141,27 @@ Choose **Screen capture…** and pick a window from the list, or **Capture the e
 
 {: .tip }
 Keep the captured window at a fixed size and position. Boxes are positioned in pixels, so resizing the window moves the content out from under them.
+
+## Phone camera
+
+Choose **Phone camera** to use an iPhone or Android phone as the camera, over Wi-Fi, with no app to install: the phone's browser sends what its camera sees to ScoreSight.
+
+1. Connect the phone to the same network as the computer.
+2. Choose **Phone camera** in the **Source** list. The picture shows a QR code and an address.
+3. Scan the code with the phone's camera (or type the address into its browser).
+4. The browser warns that **the connection isn't private**. That's expected: phone browsers open the camera only on an HTTPS page, and ScoreSight's certificate is its own, not one from a public authority. Continue to the page: on an iPhone tap **Show Details**, then **visit this website**; in Chrome on Android tap **Advanced**, then **Proceed**.
+5. Point the phone at the scoreboard and tap **Start**. Allow the camera when asked. If the phone has several cameras, pick one in the list next to **Start/Stop**.
+
+The phone sends a picture for each detection (**Detections / s**, at most 10 a second), at up to 1920 pixels wide. While no phone sends, the picture shows the code again and the boxes aren't read, so the outputs keep their last values.
+
+- **Keep the page open, with the screen on.** The page asks the phone to keep the screen on while it sends; a phone that locks or switches apps stops its camera. Plug the phone in for a whole game.
+- **One phone at a time.** A phone that opens the page later takes over, and the first one stops.
+- **The address has a key.** Only a phone that scanned the code (or has the address) can send pictures. The key and the certificate are kept, so the phone's page works again after ScoreSight restarts.
+- **The port** is the one after the HTTP server's (**18100** with the default 18099), or a free one if that is taken. The computer's firewall must let the phone reach it: on Windows, allow ScoreSight on private networks when Windows asks.
+- Mount the phone so it doesn't move: boxes are placed in pixels. A tripod or a clamp on a railing works.
+
+{: .note }
+The phone camera is new. Tell us how it works with your phone in [Discussions](https://github.com/royshil/scoresight/discussions).
 
 ## Video files
 

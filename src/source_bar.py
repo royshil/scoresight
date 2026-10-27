@@ -88,15 +88,22 @@ def source_full_name(
     return str(camera_info.description)
 
 
-def chooser_texts() -> tuple[str, str, str, str]:
-    """The source combo box's first items: no source, and the choosers of a
-    video file, a stream URL and a screen capture."""
+def chooser_texts() -> tuple[str, str, str, str, str]:
+    """The source combo box's first items: no source, the choosers of a
+    video file, a stream URL and a screen capture, and the phone camera."""
     return (
         QCoreApplication.translate("MainWindow", "No source"),
         QCoreApplication.translate("MainWindow", "Video file…"),
         QCoreApplication.translate("MainWindow", "Stream URL (RTSP, HTTP)…"),
         QCoreApplication.translate("MainWindow", "Screen capture…"),
+        QCoreApplication.translate("MainWindow", "Phone camera"),
     )
+
+
+def phone_camera_info() -> CameraInfo:
+    """The phone camera source (phone_camera.py)."""
+    name = QCoreApplication.translate("MainWindow", "Phone camera")
+    return CameraInfo(name, "phone", "phone", CameraInfo.CameraType.PHONE)
 
 
 def source_error_text(
@@ -137,6 +144,17 @@ def source_error_text(
             ),
             QCoreApplication.translate(
                 "SourceBar", "The window may have been closed or minimized."
+            ),
+        )
+    if kind == CameraInfo.CameraType.PHONE:
+        return (
+            QCoreApplication.translate(
+                "SourceBar", "Can't start the phone camera's page."
+            ),
+            QCoreApplication.translate(
+                "SourceBar",
+                "ScoreSight serves it over HTTPS on the port after the HTTP "
+                "server's. The log says why it failed.",
             ),
         )
     if kind == CameraInfo.CameraType.NDI:

@@ -62,6 +62,7 @@ def test_the_chooser_items_keep_their_order():
         "Video file…",
         "Stream URL (RTSP, HTTP)…",
         "Screen capture…",
+        "Phone camera",
     )
 
 
@@ -72,6 +73,7 @@ def test_the_chooser_items_keep_their_order():
         (CameraInfo.CameraType.URL, "rtsp://u:p@cam/1", "Can't open the stream"),
         (CameraInfo.CameraType.SCREEN_CAPTURE, 7, "Can't capture"),
         (CameraInfo.CameraType.NDI, "NDI Scoreboard", "Can't receive the NDI"),
+        (CameraInfo.CameraType.PHONE, "phone", "Can't start the phone camera"),
         (CameraInfo.CameraType.OPENCV, "Capture Card", "Can't open Capture Card"),
     ],
 )

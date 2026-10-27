@@ -16,6 +16,10 @@ pillow==13.0.0
 platformdirs==4.13.5
 python-dotenv==1.2.4
 requests==2.34.2
+# The phone camera source (src/phone_camera.py): its HTTPS page's self-signed
+# certificate, and the QR code that opens it.
+cryptography==50.0.2
+segno==1.6.6
 # The PP-OCR engine (src/ppocr_engine.py). onnxruntime has shipped no macOS
 # x86_64 wheels since 1.24.0: Intel Macs get 1.23.2, the last release with them
 # (CPython 3.10-3.13; without it the app reads with Tesseract only).
