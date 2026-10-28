@@ -202,7 +202,8 @@ SOURCE_INDEX_NONE = 0
 SOURCE_INDEX_FILE = 1
 SOURCE_INDEX_URL = 2
 SOURCE_INDEX_SCREEN_CAPTURE = 3
-FIRST_CAMERA_SOURCE_INDEX = 4
+SOURCE_INDEX_PHONE = 4
+FIRST_CAMERA_SOURCE_INDEX = 5
 # the items that open a chooser (a file dialog, the URL or the window)
 CHOOSER_SOURCE_INDEXES = (
     SOURCE_INDEX_FILE,
@@ -3535,6 +3536,8 @@ class MainWindow(QMainWindow):
             if value == source_bar.ENTIRE_SCREEN or value in windows:
                 index = SOURCE_INDEX_SCREEN_CAPTURE
                 self.sourceWindowTitle = windows.get(value)
+        elif source_type == CameraInfo.CameraType.PHONE:
+            index = SOURCE_INDEX_PHONE
         else:
             index = self.findCameraSourceIndex(source)
         if index is None:
@@ -3595,6 +3598,7 @@ class MainWindow(QMainWindow):
             CameraInfo.CameraType.FILE,
             CameraInfo.CameraType.URL,
             CameraInfo.CameraType.SCREEN_CAPTURE,
+            CameraInfo.CameraType.PHONE,
         ):
             return {"type": camera_info.type, "value": camera_info.id}
         return {
@@ -3811,6 +3815,9 @@ class MainWindow(QMainWindow):
                 self.source_name,
                 CameraInfo.CameraType.SCREEN_CAPTURE,
             )
+        elif self.ui.comboBox_camera_source.currentIndex() == SOURCE_INDEX_PHONE:
+            logger.info("Loading the phone camera")
+            camera_info = source_bar.phone_camera_info()
         else:
             if self.ui.comboBox_camera_source.currentData() is None:
                 return
@@ -4654,6 +4661,9 @@ class MainWindow(QMainWindow):
                 QCoreApplication.translate("MainWindow", "No camera found")
             )
             none.setEnabled(False)
+        menu.addSeparator()
+        phone = menu.addAction(combo.itemText(SOURCE_INDEX_PHONE))
+        phone.triggered.connect(lambda: self.chooseSource(SOURCE_INDEX_PHONE))
         menu.addSeparator()
         menu.addAction(self.ui.actionReloadSources)
 

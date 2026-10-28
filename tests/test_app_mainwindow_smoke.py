@@ -3240,6 +3240,29 @@ def test_camera_source_is_stored_and_restored(make_window, patched):
     assert restored.image_viewer.camera_info.type == "NDI"
 
 
+def test_phone_camera_source_is_stored_and_restored(make_window, patched):
+    patched["cameras"].append(
+        CameraInfo("Capture Card", "0", 0, CameraInfo.CameraType.OPENCV)
+    )
+    window = make_window()
+    combo = window.ui.comboBox_camera_source
+    # the phone camera comes before the cameras found
+    assert combo.itemText(4) == "Phone camera"
+    assert combo.itemText(5) == "Capture Card"
+    combo.setCurrentIndex(4)
+    camera_info = window.image_viewer.camera_info
+    assert (camera_info.type, camera_info.description) == ("Phone", "Phone camera")
+    assert fetch_data("scoresight.json", "source_selected") == {
+        "type": "Phone",
+        "value": "phone",
+    }
+    window.close()
+
+    restored = make_window()
+    assert restored.ui.comboBox_camera_source.currentIndex() == 4
+    assert restored.image_viewer.camera_info.type == "Phone"
+
+
 @pytest.fixture
 def no_dialogs(monkeypatch):
     """Record (instead of showing) the modal dialogs the main window opens."""

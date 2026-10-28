@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B1220">
+<title>ScoreSight camera</title>
+<style>
+  :root {
+    --ink: #0B1220; --ink-2: #15213A; --ink-3: #1E2C4A;
+    --amber: #FFB020; --blue: #3DA5FF; --white: #F5F7FA;
+    --muted: #9AA7BD; --red: #FF4B3E; --green: #3DDC84;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--ink); color: var(--white);
+    font: 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex; flex-direction: column;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px;
+  }
+  .logo { font-weight: 700; font-size: 20px; }
+  .logo b { color: var(--blue); }
+  .pill {
+    font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+    background: var(--ink-3); color: var(--muted);
+  }
+  .pill.sending { background: rgba(61, 220, 132, 0.15); color: var(--green); }
+  .pill.trouble { background: rgba(255, 176, 32, 0.15); color: var(--amber); }
+  .pill.stopped { background: rgba(255, 75, 62, 0.15); color: var(--red); }
+  .stage {
+    flex: 1; min-height: 0; margin: 0 16px; border-radius: 12px; overflow: hidden;
+    background: #000; display: flex; align-items: center; justify-content: center;
+  }
+  video { width: 100%; height: 100%; object-fit: contain; }
+  .panel { padding: 12px 16px 16px; }
+  #message { margin: 0 0 12px; color: var(--muted); min-height: 1.4em; }
+  #message.error { color: var(--amber); }
+  .controls { display: flex; gap: 12px; }
+  button, select {
+    font: inherit; font-weight: 600; border-radius: 10px; border: 0;
+    padding: 14px 16px; color: var(--white); background: var(--ink-3);
+  }
+  button#start { flex: 1; background: var(--blue); color: var(--ink); font-size: 18px; }
+  button#start.stop { background: var(--ink-3); color: var(--white); }
+  button:disabled { opacity: 0.5; }
+  select { max-width: 45%; }
+  #stats { margin: 10px 0 0; font-size: 13px; color: var(--muted); min-height: 1.4em; }
+</style>
+</head>
+<body>
+<header>
+  <span class="logo">Score<b>Sight</b> camera</span>
+  <span id="state" class="pill">Not sending</span>
+</header>
+<div class="stage"><video id="video" playsinline muted autoplay></video></div>
+<div class="panel">
+  <p id="message">Point the phone at the scoreboard, then tap Start.</p>
+  <div class="controls">
+    <button id="start">Start</button>
+    <select id="camera" hidden aria-label="Camera"></select>
+  </div>
+  <p id="stats"></p>
+</div>
+<script>
+"use strict";
+// Sends the camera to ScoreSight: a JPEG frame at a time (POST /camera/frame),
+// as often as ScoreSight asks (its detection cadence), one frame in flight.
+const MAX_SIDE = 1920;  // frames are scaled down to this many pixels at most
+const QUALITY = 0.85;   // JPEG quality
+
+const key = new URLSearchParams(location.search).get("k") || "";
+const session = (crypto.randomUUID && crypto.randomUUID()) ||
+  String(Math.random()).slice(2) + String(Date.now());
+
+const video = document.getElementById("video");
+const startButton = document.getElementById("start");
+const cameraSelect = document.getElementById("camera");
+const stateEl = document.getElementById("state");
+const messageEl = document.getElementById("message");
+const statsEl = document.getElementById("stats");
+const canvas = document.createElement("canvas");
+const context = canvas.getContext("2d");
+
+let stream = null;
+let sending = false;
+let timer = null;
+let wakeLock = null;
+let failures = 0;
+let intervalMs = 200;
+let sentTimes = [];
+
+function setState(text, kind) {
+  stateEl.textContent = text;
+  stateEl.className = "pill" + (kind ? " " + kind : "");
+}
+
+function setMessage(text, isError) {
+  messageEl.textContent = text;
+  messageEl.className = isError ? "error" : "";
+}
+
+function cameraError(error) {
+  const name = error && error.name;
+  if (name === "NotAllowedError" || name === "SecurityError") {
+    return "The camera is blocked for this page. Allow it in the browser's " +
+      "settings for this site, then reload the page.";
+  }
+  if (name === "NotFoundError" || name === "OverconstrainedError") {
+    return "No camera was found.";
+  }
+  if (name === "NotReadableError") {
+    return "The camera is in use by another app. Close it, then tap Start.";
+  }
+  return "The camera can't be opened: " + (error && error.message || error);
+}
+
+async function openCamera(deviceId) {
+  closeCamera();
+  const constraints = deviceId
+    ? { deviceId: { exact: deviceId } }
+    : { facingMode: { ideal: "environment" } };
+  constraints.width = { ideal: 1920 };
+  constraints.height = { ideal: 1080 };
+  stream = await navigator.mediaDevices.getUserMedia({ video: constraints, audio: false });
+  video.srcObject = stream;
+  await video.play().catch(() => {});
+  await listCameras();
+}
+
+function closeCamera() {
+  if (stream) {
+    stream.getTracks().forEach((track) => track.stop());
+    stream = null;
+  }
+}
+
+function cameraEnded() {
+  return !stream || stream.getVideoTracks().every((t) => t.readyState === "ended");
+}
+
+async function listCameras() {
+  const devices = (await navigator.mediaDevices.enumerateDevices())
+    .filter((d) => d.kind === "videoinput");
+  if (devices.length < 2) {
+    cameraSelect.hidden = true;
+    return;
+  }
+  const current = stream && stream.getVideoTracks()[0].getSettings().deviceId;
+  cameraSelect.replaceChildren(...devices.map((d, i) => {
+    const option = document.createElement("option");
+    option.value = d.deviceId;
+    option.textContent = d.label || "Camera " + (i + 1);
+    return option;
+  }));
+  if (current) cameraSelect.value = current;
+  cameraSelect.hidden = false;
+}
+
+cameraSelect.addEventListener("change", () => {
+  openCamera(cameraSelect.value).catch((e) => setMessage(cameraError(e), true));
+});
+
+async function requestWakeLock() {
+  // keeps the screen on: the browser stops the camera when it turns off
+  try {
+    if ("wakeLock" in navigator && !wakeLock) {
+      wakeLock = await navigator.wakeLock.request("screen");
+      wakeLock.addEventListener("release", () => { wakeLock = null; });
+    }
+  } catch (e) {
+    // not available (e.g. low battery): the screen may turn off
+  }
+}
+
+document.addEventListener("visibilitychange", async () => {
+  if (document.visibilityState !== "visible" || !sending) return;
+  requestWakeLock();
+  if (cameraEnded()) {
+    try {
+      await openCamera(cameraSelect.hidden ? undefined : cameraSelect.value);
+    } catch (e) {
+      setMessage(cameraError(e), true);
+    }
+  }
+});
+
+function grabFrame() {
+  const width = video.videoWidth, height = video.videoHeight;
+  if (!width || !height) return Promise.resolve(null);
+  const scale = Math.min(1, MAX_SIDE / Math.max(width, height));
+  canvas.width = Math.round(width * scale);
+  canvas.height = Math.round(height * scale);
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", QUALITY));
+}
+
+function showStats() {
+  const now = performance.now();
+  sentTimes = sentTimes.filter((t) => now - t < 3000);
+  const fps = sentTimes.length / 3;
+  statsEl.textContent = canvas.width
+    ? `${canvas.width}×${canvas.height} · ${fps.toFixed(1)} frames/s`
+    : "";
+}
+
+async function sendLoop() {
+  timer = null;
+  if (!sending) return;
+  const started = performance.now();
+  try {
+    const frame = await grabFrame();
+    if (frame) {
+      const response = await fetch("/camera/frame", {
+        method: "POST",
+        headers: {
+          "Content-Type": "image/jpeg",
+          "X-Access-Key": key,
+          "X-Session": session,
+        },
+        body: frame,
+        cache: "no-store",
+      });
+      if (response.status === 403) {
+        stop("ScoreSight didn't accept this page. Scan the code ScoreSight " +
+          "shows for the phone camera again.", "stopped");
+        return;
+      }
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      const reply = await response.json();
+      if (!reply.active) {
+        stop("Another phone is sending to ScoreSight now.", "stopped");
+        return;
+      }
+      intervalMs = reply.interval_ms || intervalMs;
+      if (failures) setMessage("Sending to ScoreSight.");
+      failures = 0;
+      sentTimes.push(performance.now());
+      setState("Sending", "sending");
+      showStats();
+    }
+  } catch (e) {
+    failures += 1;
+    setState("Reconnecting…", "trouble");
+    setMessage("Can't reach ScoreSight. Is it still running, and is this " +
+      "phone on the same network?", true);
+  }
+  if (!sending) return;
+  const wait = failures
+    ? Math.min(5000, 500 * failures)
+    : Math.max(0, intervalMs - (performance.now() - started));
+  timer = setTimeout(sendLoop, wait);
+}
+
+async function start() {
+  startButton.disabled = true;
+  try {
+    if (cameraEnded()) await openCamera();
+  } catch (e) {
+    setMessage(cameraError(e), true);
+    startButton.disabled = false;
+    return;
+  }
+  startButton.disabled = false;
+  sending = true;
+  failures = 0;
+  startButton.textContent = "Stop";
+  startButton.classList.add("stop");
+  setMessage("Sending to ScoreSight. Keep this page open, with the screen on.");
+  requestWakeLock();
+  sendLoop();
+}
+
+function stop(message, kind) {
+  sending = false;
+  if (timer) clearTimeout(timer);
+  timer = null;
+  if (wakeLock) wakeLock.release().catch(() => {});
+  startButton.textContent = "Start";
+  startButton.classList.remove("stop");
+  setState(kind === "stopped" ? "Stopped" : "Not sending", kind);
+  setMessage(message || "Not sending. Tap Start to send again.", kind === "stopped");
+  statsEl.textContent = "";
+}
+
+startButton.addEventListener("click", () => (sending ? stop() : start()));
+
+if (!window.isSecureContext || !navigator.mediaDevices ||
+    !navigator.mediaDevices.getUserMedia) {
+  startButton.disabled = true;
+  setMessage("This browser can't use the camera on this page. Open the code " +
+    "ScoreSight shows in Safari (iPhone) or Chrome (Android).", true);
+} else if (!key) {
+  startButton.disabled = true;
+  setMessage("Scan the code ScoreSight shows for the phone camera.", true);
+} else {
+  // show the camera right away where it's already allowed
+  navigator.permissions && navigator.permissions.query({ name: "camera" })
+    .then((p) => { if (p.state === "granted") return openCamera(); })
+    .catch(() => {});
+}
+</script>
+</body>
+</html>

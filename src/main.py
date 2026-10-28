@@ -67,6 +67,7 @@ SELF_TEST_MODULES = (
     "overlay_feed",
     "overlay_ui_handler",
     "overlays",
+    "phone_camera",
     "plausibility_holds",
     "ppocr_engine",
     "readings_view",
@@ -407,6 +408,9 @@ def run_app(args: argparse.Namespace, qt_args: list[str]) -> int:
     startup_timing.finish()
     logger.info("Exiting...")
     stop_http_server()
+    phone_camera = sys.modules.get("phone_camera")
+    if phone_camera is not None:
+        phone_camera.stop_server()
     # The output threads are daemons and never block the exit; give a send in
     # flight (vMix, UNO, OBS, outbound API) a moment to finish.
     stop_all_workers(timeout=2)
@@ -588,6 +592,14 @@ def _self_test_steps():
     # resolves uvicorn's dynamically imported protocol/loop modules
     uvicorn.Config(asgi_app, loop="asyncio", ws="none", log_config=None).load()
     yield f"HTTP server (uvicorn {uvicorn.__version__}) loads"
+
+    import tempfile
+    from pathlib import Path
+
+    import phone_camera
+
+    with tempfile.TemporaryDirectory() as directory:
+        yield f"phone camera: {phone_camera.self_test(Path(directory))}"
 
     from get_camera_info import get_camera_info
 

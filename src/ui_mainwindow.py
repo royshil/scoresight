@@ -398,6 +398,7 @@ class Ui_MainWindow(object):
         self.comboBox_camera_source.addItem("")
         self.comboBox_camera_source.addItem("")
         self.comboBox_camera_source.addItem("")
+        self.comboBox_camera_source.addItem("")
         self.comboBox_camera_source.setObjectName(u"comboBox_camera_source")
         sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
         sizePolicy5.setHorizontalStretch(1)
@@ -2615,6 +2616,7 @@ class Ui_MainWindow(object):
         self.comboBox_camera_source.setItemText(1, QCoreApplication.translate("MainWindow", u"Video file\u2026", None))
         self.comboBox_camera_source.setItemText(2, QCoreApplication.translate("MainWindow", u"Stream URL (RTSP, HTTP)\u2026", None))
         self.comboBox_camera_source.setItemText(3, QCoreApplication.translate("MainWindow", u"Screen capture\u2026", None))
+        self.comboBox_camera_source.setItemText(4, QCoreApplication.translate("MainWindow", u"Phone camera", None))
 
 #if QT_CONFIG(accessibility)
         self.comboBox_camera_source.setAccessibleName(QCoreApplication.translate("MainWindow", u"Source", None))

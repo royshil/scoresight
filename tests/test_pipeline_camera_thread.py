@@ -1014,3 +1014,34 @@ def test_the_ocr_gets_the_detection_interval(make_thread, make_target):
     thread.detectionTargetsStorage.add_item(make_target("Home Score"))
     thread.process_frame(color_frame())
     assert thread.textDetector.cycle_interval_ms == 250.0
+
+
+# --- the phone camera's waiting picture ------------------------------------------
+
+
+class WaitingCapture:
+    """A capture showing its waiting picture (phone_camera.PhoneCapture)."""
+
+    showing_placeholder = True
+
+
+def test_a_waiting_picture_is_previewed_but_never_read(make_thread, make_target):
+    thread = make_thread(cadence=5)
+    thread.detectionTargetsStorage.add_item(make_target("Home Score"))
+    thread.crop.rotation = 90
+    thread.video_capture = WaitingCapture()
+    picture = color_frame()
+    for i in range(90):
+        thread._clock.now = 1000.0 + i / 30
+        thread.process_frame(picture)
+    # previewed about once a second, as it is (not rotated), and never read
+    assert len(thread.previews) == 3
+    assert all(preview is picture for preview in thread.previews)
+    assert thread.results == []
+
+    # the phone sends: its frames are read
+    thread.video_capture.showing_placeholder = False
+    for i in range(30):
+        thread._clock.now = 1003.0 + i / 30
+        thread.process_frame(color_frame())
+    assert len(thread.results) == 5

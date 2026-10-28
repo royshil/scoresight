@@ -663,6 +663,11 @@ class TimerThread(QThread):
             from screen_capture_source import ScreenCapture
 
             return ScreenCapture(self.camera_info.id)
+        if camera_type == CameraInfo.CameraType.PHONE:
+            # imported when first used: it starts the phone's HTTPS server
+            from phone_camera import PhoneCapture
+
+            return PhoneCapture(interval_ms=lambda: self.update_frame_interval)
         if camera_type == CameraInfo.CameraType.URL:
             url = str(self.camera_info.id).strip()
             ensure_ffmpeg_capture_options()
@@ -847,6 +852,10 @@ class TimerThread(QThread):
         dropped (they may still be previewed). Without a running capture (the
         tests) the OCR runs here, on the calling thread."""
         now = self._clock()
+        if getattr(self.video_capture, "showing_placeholder", False):
+            # the phone camera's waiting picture: shown as it is, never read
+            self._preview_placeholder(frame_rgb, now)
+            return
         self.frame_size = (frame_rgb.shape[1], frame_rgb.shape[0])
 
         # calculate the frame rate
@@ -931,6 +940,18 @@ class TimerThread(QThread):
                 self.update_signal.emit(display)
             else:
                 self.update_signal.emit(frame_rgb)
+
+    def _preview_placeholder(self, picture, now):
+        """Show a picture that isn't the source's (not rotated, cropped or
+        corrected, and not read) about once per preview interval."""
+        self.last_frame_timestamp = None
+        if (
+            self.last_emit_time is not None
+            and (now - self.last_emit_time) * 1000.0 < self.preview_frame_interval
+        ):
+            return
+        self.last_emit_time = now
+        self.update_signal.emit(picture)
 
     def latestRotatedFrame(self):
         """The last frame transformed, rotated only (the picture Drag to crop
