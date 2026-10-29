@@ -43,7 +43,7 @@ _PROFILE_UNSAFE_CHARS = re.compile(r"[^A-Za-z0-9._-]")
 # and in exported configuration files. Boxes without it (saved by ScoreSight
 # 0.1.x) or with an older version are migrated once (see migrate_boxes).
 BOXES_SCHEMA_KEY = "boxes_schema_version"
-BOXES_SCHEMA_VERSION = 3
+BOXES_SCHEMA_VERSION = 4
 
 # Schema 3: the expressions of the Time 0-59 and Shotclock 0-39 format presets
 # up to ScoreSight 0.3.0 (schema 2), which took exactly two digits -> the
@@ -51,6 +51,15 @@ BOXES_SCHEMA_VERSION = 3
 TWO_DIGIT_FORMATS = {
     "^[0-5]\\d$": format_prefixes[4],
     "^[0-3]\\d$": format_prefixes[5],
+}
+
+# Schema 4: the expressions of the Time presets with minutes up to ScoreSight
+# 0.4.2 (schema 3), which took minutes 0-59 -> the presets' expressions now (up
+# to three digits of minutes).
+MINUTES_0_59_FORMATS = {
+    "^(?:(?:[0-5]?\\d:[0-5]\\d)|(?:[0-5]?\\d\\.\\d))$": format_prefixes[0],
+    "^(?:(?:[0-5]?\\d:[0-5]\\d)|(?:[0-5]?\\d[.:]\\d))$": format_prefixes[1],
+    "^[0-5]?\\d:[0-5]\\d$": format_prefixes[2],
 }
 
 
@@ -353,6 +362,9 @@ def migrate_boxes(boxes: list, origin: str, schema_version=None) -> list:
     digits up to 0.3.0, so a clock that shows 9 rather than 09 failed the
     filter. A format that is one of those old expressions becomes the preset's
     new one (TWO_DIGIT_FORMATS); any other format is kept.
+    Schema 4: the Time presets with minutes took minutes 0-59 up to 0.4.2, so
+    a soccer clock was rejected from 60:00 on. A format that is one of those
+    old expressions becomes the preset's new one (MINUTES_0_59_FORMATS).
     Returns migrated copies; origin names where the boxes came from, for the log.
     Malformed entries are left for loadBoxesFromDict to reject.
     """
@@ -360,6 +372,7 @@ def migrate_boxes(boxes: list, origin: str, schema_version=None) -> list:
         schema_version = 1
     migrated = []
     formats_updated = 0
+    minutes_updated = 0
     for box in boxes:
         if isinstance(box, dict):
             settings = box.get("settings")
@@ -376,6 +389,14 @@ def migrate_boxes(boxes: list, origin: str, schema_version=None) -> list:
             ):
                 settings["format_regex"] = TWO_DIGIT_FORMATS[old_format]
                 formats_updated += 1
+                changed = True
+            if (
+                schema_version < 4
+                and isinstance(old_format, str)
+                and old_format in MINUTES_0_59_FORMATS
+            ):
+                settings["format_regex"] = MINUTES_0_59_FORMATS[old_format]
+                minutes_updated += 1
                 changed = True
             if changed:
                 box = {**box, "settings": settings}
@@ -394,6 +415,14 @@ def migrate_boxes(boxes: list, origin: str, schema_version=None) -> list:
             "ScoreSight: Time 0-59 and Shotclock 0-39 now also accept a single "
             "digit (9 as well as 09)",
             formats_updated,
+            origin,
+        )
+    if minutes_updated:
+        logger.info(
+            "Migrated the format of %d box(es) from %s, saved by an older "
+            "ScoreSight: the Time mm:ss formats now also accept minutes past 59 "
+            "(60:00 and up)",
+            minutes_updated,
             origin,
         )
     return migrated

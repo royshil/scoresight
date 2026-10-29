@@ -40,14 +40,18 @@ CLEAR_AFTER_SECONDS = 2.0
 # 11 - Any text
 # 12 - Any number
 # 13 - Custom
+# The minutes of the MM:ss presets take up to three digits, for clocks that
+# count up past an hour (soccer's 2nd half and extra time). Up to 0.4.2 they
+# took 0-59, so a soccer clock froze at 59:59; storage.migrate_boxes updates the
+# boxes that stored those.
 format_prefixes = [
-    "^(?:(?:[0-5]?\\d:[0-5]\\d)|(?:[0-5]?\\d\\.\\d))$",  # Time MM:ss and ss.m
+    "^(?:(?:\\d{1,3}:[0-5]\\d)|(?:[0-5]?\\d\\.\\d))$",  # Time MM:ss and ss.m
     # for boards that show the tenths after a colon below a minute (59:8): one
     # digit after the colon is tenths, as a minutes clock always shows two. Not
     # in the preset above: Tesseract drops a digit of a clock (12:04 -> 12:0)
     # often enough that it would let those misreads through.
-    "^(?:(?:[0-5]?\\d:[0-5]\\d)|(?:[0-5]?\\d[.:]\\d))$",  # Time MM:ss and ss:m
-    "^[0-5]?\\d:[0-5]\\d$",  # Time MM:ss
+    "^(?:(?:\\d{1,3}:[0-5]\\d)|(?:[0-5]?\\d[.:]\\d))$",  # Time MM:ss and ss:m
+    "^\\d{1,3}:[0-5]\\d$",  # Time MM:ss
     "^[0-5]?\\d\\.\\d$",  # Time ss.m
     # one or two digits: clocks show 9, not 09 (up to 0.3.0 these took exactly
     # two; storage.migrate_boxes updates the boxes that stored those)

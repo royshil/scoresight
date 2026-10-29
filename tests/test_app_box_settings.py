@@ -41,6 +41,19 @@ def test_migrated_two_digit_formats_show_their_preset(old, index):
     assert matching_preset(old) == CUSTOM_PRESET_INDEX
 
 
+@pytest.mark.parametrize("index", [0, 1, 2])
+def test_migrated_time_formats_show_their_preset(index):
+    # boxes stored with a Time preset's minutes 0-59 expression (up to 0.4.2)
+    # are migrated to the preset's expression, so the Format list shows it
+    from storage import MINUTES_0_59_FORMATS
+
+    old = next(
+        o for o, new in MINUTES_0_59_FORMATS.items() if new == format_prefixes[index]
+    )
+    assert matching_preset(MINUTES_0_59_FORMATS[old]) == index
+    assert matching_preset(old) == CUSTOM_PRESET_INDEX
+
+
 def test_regex_error():
     assert regex_error("^1?\\d{1,2}$") is None
     assert regex_error("") is None

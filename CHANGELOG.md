@@ -12,6 +12,11 @@ Release tags are the bare version number (for example `0.1.0`).
 
 - **Phone camera.** A new source: an iPhone or Android phone sends its camera to ScoreSight over Wi-Fi, from its browser, with no app to install. Choose **Phone camera** in the Source list and scan the QR code the picture shows. ScoreSight serves the phone's page over HTTPS (phone browsers open the camera only on a secure page) on the port after the HTTP server's, with a certificate of its own, so the phone warns once that the connection isn't private. The phone sends a picture per detection; while none comes, the boxes aren't read ([Video Sources: Phone camera](https://royshil.github.io/scoresight/sources.html#phone-camera)).
 
+### Fixed
+
+- **Soccer clocks past 59 minutes.** The Time formats with minutes (*Time mm:ss.d*, the Time field's default, *Time mm:ss or ss:d* and *Time mm:ss*) took minutes 0–59, so a clock that counts up was rejected from `60:00` on and the outputs stayed at `59:59`. They now take up to three digits of minutes (`90:00`, `120:00`). Boxes that use those formats are updated once when you open this version; a custom format is kept ([#163](https://github.com/royshil/scoresight/discussions/163), [Box Settings: Format](https://royshil.github.io/scoresight/box-settings.html#format)).
+- The UNO page no longer says that overlays take the match time as `mm:ss`: the Soccer Scorebug's `SetMatchTime` takes seconds. The page says what ScoreSight sends and what to do when a command takes something else ([#162](https://github.com/royshil/scoresight/discussions/162), [Overlays.uno](https://royshil.github.io/scoresight/uno.html#troubleshooting)).
+
 ## [0.4.2] - 2026-10-25
 
 Requests and fixes from the 0.4.0 discussion: a penalty timer's value can

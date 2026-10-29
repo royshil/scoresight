@@ -647,21 +647,21 @@
             ]
           },
           "cer": {
-            "value": 0.8846866889136077,
-            "edits": 2386,
+            "value": 0.8824619948090471,
+            "edits": 2380,
             "chars": 2697,
             "ci95": [
-              0.8633,
-              0.9071
+              0.8606,
+              0.905
             ]
           },
           "empty_rate": {
-            "value": 0.15595611285266459,
-            "k": 199,
+            "value": 0.15438871473354232,
+            "k": 197,
             "n": 1276,
             "ci95": [
-              0.1371,
-              0.1769
+              0.1356,
+              0.1752
             ]
           },
           "by_field_type": {
@@ -686,21 +686,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8988391376451078,
-                "edits": 542,
+                "value": 0.8888888888888888,
+                "edits": 536,
                 "chars": 603,
                 "ci95": [
-                  0.8517,
-                  0.9398
+                  0.843,
+                  0.9324
                 ]
               },
               "empty_rate": {
-                "value": 0.8345323741007195,
-                "k": 116,
+                "value": 0.8201438848920863,
+                "k": 114,
                 "n": 139,
                 "ci95": [
-                  0.7639,
-                  0.8871
+                  0.748,
+                  0.8751
                 ]
               }
             },
@@ -922,21 +922,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8933823529411765,
-                "edits": 729,
+                "value": 0.8909313725490197,
+                "edits": 727,
                 "chars": 816,
                 "ci95": [
-                  0.8553,
-                  0.9333
+                  0.8518,
+                  0.931
                 ]
               },
               "empty_rate": {
-                "value": 0.13973799126637554,
-                "k": 64,
+                "value": 0.13755458515283842,
+                "k": 63,
                 "n": 458,
                 "ci95": [
-                  0.111,
-                  0.1745
+                  0.109,
+                  0.1721
                 ]
               }
             },
@@ -1039,21 +1039,21 @@
                 ]
               },
               "cer": {
-                "value": 0.745398773006135,
-                "edits": 486,
+                "value": 0.7392638036809815,
+                "edits": 482,
                 "chars": 652,
                 "ci95": [
-                  0.6935,
-                  0.7972
+                  0.6869,
+                  0.79
                 ]
               },
               "empty_rate": {
-                "value": 0.17847025495750707,
-                "k": 63,
+                "value": 0.17563739376770537,
+                "k": 62,
                 "n": 353,
                 "ci95": [
-                  0.1421,
-                  0.2218
+                  0.1395,
+                  0.2188
                 ]
               }
             },
@@ -1119,21 +1119,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8896551724137931,
-                "edits": 516,
+                "value": 0.8793103448275862,
+                "edits": 510,
                 "chars": 580,
                 "ci95": [
-                  0.8454,
-                  0.934
+                  0.8318,
+                  0.9258
                 ]
               },
               "empty_rate": {
-                "value": 0.208955223880597,
-                "k": 56,
+                "value": 0.20149253731343283,
+                "k": 54,
                 "n": 268,
                 "ci95": [
-                  0.1646,
-                  0.2616
+                  0.1578,
+                  0.2536
                 ]
               }
             },
@@ -1223,7 +1223,7 @@
         {"id":"02dc60e7b13e6dda_3","truth":"8:52","text":"8:52","conf":0.87,"ms":3.233,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"02dc60e7b13e6dda_7","truth":"33.9","text":"33:.9","conf":0.4,"ms":3.051,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"02dc60e7b13e6dda_9","truth":"63","text":"63","conf":0.89,"ms":1.624,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"031733473703e84a_6","truth":"12:59","text":"132:08","conf":0.08,"ms":4.103,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"031733473703e84a_6","truth":"12:59","text":"132:08","conf":0.08,"ms":4.103,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"03286a77f1a9da12_1","truth":"1","text":"1","conf":0.9,"ms":3.943,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"03286a77f1a9da12_10","truth":"0","text":"0","conf":0.92,"ms":5.355,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"03286a77f1a9da12_11","truth":"3","text":"0","conf":0.69,"ms":4.311,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -1272,7 +1272,7 @@
         {"id":"043b0ecb06fe4449_41","truth":"00.0","text":"0:4","conf":0.904,"ms":5.398,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"04d8d2a90fa1e971_26","truth":"47","text":"14","conf":0.37,"ms":1.692,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"04d8d2a90fa1e971_33","truth":"29","text":"249","conf":0.61,"ms":1.354,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"04d8d2a90fa1e971_34","truth":"14:33","text":"94:33","conf":0.6,"ms":2.311,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"04d8d2a90fa1e971_34","truth":"14:33","text":"94:33","conf":0.6,"ms":2.311,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"04d8d2a90fa1e971_43","truth":"GUEST","text":"099","conf":0.25,"ms":2.817,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"04d8d2a90fa1e971_44","truth":"3","text":"3","conf":0.92,"ms":1.445,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"04d8d2a90fa1e971_45","truth":"1","text":"0","conf":0.92,"ms":2.56,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -10357,21 +10357,21 @@
             ]
           },
           "cer": {
-            "value": 0.8628105302187616,
-            "edits": 2327,
+            "value": 0.8598442714126807,
+            "edits": 2319,
             "chars": 2697,
             "ci95": [
-              0.8401,
-              0.8839
+              0.837,
+              0.8819
             ]
           },
           "empty_rate": {
-            "value": 0.16222570532915362,
-            "k": 207,
+            "value": 0.15987460815047022,
+            "k": 204,
             "n": 1276,
             "ci95": [
-              0.143,
-              0.1835
+              0.1408,
+              0.181
             ]
           },
           "by_field_type": {
@@ -10396,21 +10396,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8341625207296849,
-                "edits": 503,
+                "value": 0.8208955223880597,
+                "edits": 495,
                 "chars": 603,
                 "ci95": [
-                  0.7823,
-                  0.8819
+                  0.7692,
+                  0.8686
                 ]
               },
               "empty_rate": {
-                "value": 0.6474820143884892,
-                "k": 90,
+                "value": 0.6258992805755396,
+                "k": 87,
                 "n": 139,
                 "ci95": [
-                  0.5651,
-                  0.722
+                  0.5431,
+                  0.7019
                 ]
               }
             },
@@ -10632,21 +10632,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8676470588235294,
-                "edits": 708,
+                "value": 0.8651960784313726,
+                "edits": 706,
                 "chars": 816,
                 "ci95": [
-                  0.8291,
-                  0.9032
+                  0.8253,
+                  0.9015
                 ]
               },
               "empty_rate": {
-                "value": 0.13973799126637554,
-                "k": 64,
+                "value": 0.13755458515283842,
+                "k": 63,
                 "n": 458,
                 "ci95": [
-                  0.111,
-                  0.1745
+                  0.109,
+                  0.1721
                 ]
               }
             },
@@ -10710,21 +10710,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8252427184466019,
-                "edits": 170,
+                "value": 0.8155339805825242,
+                "edits": 168,
                 "chars": 206,
                 "ci95": [
-                  0.7514,
-                  0.89
+                  0.7423,
+                  0.88
                 ]
               },
               "empty_rate": {
-                "value": 0.28378378378378377,
-                "k": 21,
+                "value": 0.2702702702702703,
+                "k": 20,
                 "n": 74,
                 "ci95": [
-                  0.1937,
-                  0.3952
+                  0.1823,
+                  0.3809
                 ]
               }
             },
@@ -10749,21 +10749,21 @@
                 ]
               },
               "cer": {
-                "value": 0.6932515337423313,
-                "edits": 452,
+                "value": 0.6871165644171779,
+                "edits": 448,
                 "chars": 652,
                 "ci95": [
-                  0.6361,
-                  0.7451
+                  0.6299,
+                  0.7394
                 ]
               },
               "empty_rate": {
-                "value": 0.1501416430594901,
-                "k": 53,
+                "value": 0.14730878186968838,
+                "k": 52,
                 "n": 353,
                 "ci95": [
-                  0.1167,
-                  0.1912
+                  0.1141,
+                  0.1881
                 ]
               }
             },
@@ -10868,21 +10868,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8639584317430326,
-                "edits": 1829,
+                "value": 0.8601794992914502,
+                "edits": 1821,
                 "chars": 2117,
                 "ci95": [
-                  0.838,
-                  0.8891
+                  0.8341,
+                  0.8857
                 ]
               },
               "empty_rate": {
-                "value": 0.1527777777777778,
-                "k": 154,
+                "value": 0.1498015873015873,
+                "k": 151,
                 "n": 1008,
                 "ci95": [
-                  0.1319,
-                  0.1763
+                  0.1291,
+                  0.1732
                 ]
               }
             }
@@ -11144,7 +11144,7 @@
         {"id":"100f84ebfb59f852_69","truth":"1","text":"4","conf":0.82,"ms":1.801,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"100f84ebfb59f852_7","truth":"24","text":"","conf":null,"ms":0.422,"exact":false,"pf_exact":false,"info":{"state":"Empty"}},
         {"id":"100f84ebfb59f852_96","truth":"2","text":"27","conf":0.9,"ms":2.806,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"112cfdfdeeea5d2f_7","truth":"05:57","text":"85:33","conf":0.31,"ms":5.351,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"112cfdfdeeea5d2f_7","truth":"05:57","text":"85:33","conf":0.31,"ms":5.351,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"1131058b7fae34b0_18","truth":"28","text":"28","conf":0.91,"ms":4.226,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"1131058b7fae34b0_23","truth":"BONUS","text":"0 0","conf":0.48,"ms":9.948,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"1131058b7fae34b0_27","truth":"GAME","text":"100.1","conf":0.24,"ms":16.281,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -11779,7 +11779,7 @@
         {"id":"8049a614132d818a_70","truth":"5","text":"0","conf":0.5,"ms":2.311,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"8049a614132d818a_71","truth":"1","text":"7","conf":0.57,"ms":1.623,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"8049a614132d818a_74","truth":"120","text":"122","conf":0.39,"ms":2.159,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"8881c8b57c8ce156_2","truth":"00:00","text":"190:50","conf":0.26,"ms":4.863,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"8881c8b57c8ce156_2","truth":"00:00","text":"190:50","conf":0.26,"ms":4.863,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"88c555915e88b495_1","truth":"00:00","text":"128","conf":0.751,"ms":4.029,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"8948be040946c0b8_11","truth":"33","text":"22","conf":0.85,"ms":2.579,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"8948be040946c0b8_19","truth":"0","text":"0","conf":0.46,"ms":12.426,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -11837,7 +11837,7 @@
         {"id":"8e0ad10cf4f6d4fb_7","truth":"124","text":"29","conf":0.8,"ms":1.852,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"8fa02f00eeeeb5c3_12","truth":"0","text":"7","conf":0.43,"ms":2.399,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"8fa02f00eeeeb5c3_15","truth":"1","text":"3","conf":0.18,"ms":2.01,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"8fa02f00eeeeb5c3_2","truth":"20:00","text":"208:00","conf":0.41,"ms":2.747,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"8fa02f00eeeeb5c3_2","truth":"20:00","text":"208:00","conf":0.41,"ms":2.747,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"8fa02f00eeeeb5c3_8","truth":"0","text":"10","conf":0.61,"ms":2.52,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"8fa02f00eeeeb5c3_9","truth":"0","text":"10","conf":0.69,"ms":2.68,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"8fe66ea8c7e2a60e_46","truth":"H","text":"4","conf":0.92,"ms":1.062,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -12786,21 +12786,21 @@
             ]
           },
           "cer": {
-            "value": 0.9117538005190953,
-            "edits": 2459,
+            "value": 0.9091583240637746,
+            "edits": 2452,
             "chars": 2697,
             "ci95": [
-              0.8897,
-              0.9337
+              0.8869,
+              0.932
             ]
           },
           "empty_rate": {
-            "value": 0.1755485893416928,
-            "k": 224,
+            "value": 0.1731974921630094,
+            "k": 221,
             "n": 1276,
             "ci95": [
-              0.1557,
-              0.1974
+              0.1534,
+              0.1949
             ]
           },
           "by_field_type": {
@@ -12825,21 +12825,21 @@
                 ]
               },
               "cer": {
-                "value": 0.9038142620232172,
-                "edits": 545,
+                "value": 0.8922056384742952,
+                "edits": 538,
                 "chars": 603,
                 "ci95": [
-                  0.8614,
-                  0.9422
+                  0.846,
+                  0.9316
                 ]
               },
               "empty_rate": {
-                "value": 0.8129496402877698,
-                "k": 113,
+                "value": 0.7913669064748201,
+                "k": 110,
                 "n": 139,
                 "ci95": [
-                  0.74,
-                  0.869
+                  0.7164,
+                  0.8506
                 ]
               }
             },
@@ -13178,21 +13178,21 @@
                 ]
               },
               "cer": {
-                "value": 0.7730061349693251,
-                "edits": 504,
+                "value": 0.7622699386503068,
+                "edits": 497,
                 "chars": 652,
                 "ci95": [
-                  0.7189,
-                  0.8245
+                  0.7084,
+                  0.815
                 ]
               },
               "empty_rate": {
-                "value": 0.16997167138810199,
-                "k": 60,
+                "value": 0.16147308781869688,
+                "k": 57,
                 "n": 353,
                 "ci95": [
-                  0.1344,
-                  0.2127
+                  0.1268,
+                  0.2035
                 ]
               }
             },
@@ -13258,21 +13258,21 @@
                 ]
               },
               "cer": {
-                "value": 0.906896551724138,
-                "edits": 526,
+                "value": 0.9017241379310345,
+                "edits": 523,
                 "chars": 580,
                 "ci95": [
-                  0.8522,
-                  0.9607
+                  0.8472,
+                  0.9573
                 ]
               },
               "empty_rate": {
-                "value": 0.208955223880597,
-                "k": 56,
+                "value": 0.20149253731343283,
+                "k": 54,
                 "n": 268,
                 "ci95": [
-                  0.1646,
-                  0.2616
+                  0.1578,
+                  0.2536
                 ]
               }
             },
@@ -13297,21 +13297,21 @@
                 ]
               },
               "cer": {
-                "value": 0.9130845536136042,
-                "edits": 1933,
+                "value": 0.911195087387813,
+                "edits": 1929,
                 "chars": 2117,
                 "ci95": [
-                  0.8893,
-                  0.9352
+                  0.8871,
+                  0.9334
                 ]
               },
               "empty_rate": {
-                "value": 0.16666666666666666,
-                "k": 168,
+                "value": 0.16567460317460317,
+                "k": 167,
                 "n": 1008,
                 "ci95": [
-                  0.1449,
-                  0.1909
+                  0.144,
+                  0.1899
                 ]
               }
             }
@@ -13376,7 +13376,7 @@
         {"id":"03286a77f1a9da12_7","truth":"7","text":"33","conf":0.57,"ms":3.404,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"03286a77f1a9da12_8","truth":"8","text":"2","conf":0.9,"ms":3.36,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"032a1bbda0389235_7","truth":"69:49","text":"3.3","conf":0.48,"ms":9.236,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"034ab6f9af333146_34","truth":"89:41","text":"83:41","conf":0.45,"ms":8.589,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"034ab6f9af333146_34","truth":"89:41","text":"83:41","conf":0.45,"ms":8.589,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"034ab6f9af333146_36","truth":"2","text":"3","conf":0.73,"ms":3.877,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"034ab6f9af333146_38","truth":"2","text":"5","conf":0.52,"ms":6.106,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"034ab6f9af333146_41","truth":"0","text":"0","conf":0.71,"ms":5.766,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -13479,7 +13479,7 @@
         {"id":"073f8898c62f14c1_2","truth":"13","text":"73","conf":0.74,"ms":4.399,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"073f8898c62f14c1_9","truth":"12","text":"19","conf":0.59,"ms":7.93,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"075bdbd708ff66a7_24","truth":"0","text":"0","conf":0.87,"ms":5.624,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"075bdbd708ff66a7_25","truth":"14:33","text":"377:59","conf":0.42,"ms":7.294,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"075bdbd708ff66a7_25","truth":"14:33","text":"377:59","conf":0.42,"ms":7.294,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"075bdbd708ff66a7_27","truth":"PERIOD","text":"57 :2","conf":0.31,"ms":7.695,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"075bdbd708ff66a7_30","truth":"0","text":"0","conf":0.66,"ms":6.215,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"07f3049deeb13d8a_65","truth":"07","text":"12","conf":0.23,"ms":15.239,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -14165,7 +14165,7 @@
         {"id":"74484aeddcb41154_13","truth":"08.7","text":"33.3","conf":0.47,"ms":12.229,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"74484aeddcb41154_14","truth":"BONUS","text":"26.03","conf":0.9202,"ms":9.25,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"74484aeddcb41154_15","truth":"59","text":"33","conf":0.7,"ms":12.254,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"7554ff91ce09fe1e_1","truth":"15:35","text":"135:32","conf":0.73,"ms":9.592,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"7554ff91ce09fe1e_1","truth":"15:35","text":"135:32","conf":0.73,"ms":9.592,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"767b432857176f5a_1","truth":"15:06","text":"13:22","conf":0.52,"ms":9.3,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"769c433124cb646b_8","truth":"169","text":"12","conf":0.36,"ms":3.713,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"7734f0e9b1efe8e5_16","truth":"4","text":"4","conf":0.56,"ms":6.299,"exact":true,"pf_exact":true,"info":{"state":"Success"}},

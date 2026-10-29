@@ -662,15 +662,6 @@
         "postfilter": {
           "n": 1044,
           "exact": {
-            "value": 0.40325670498084293,
-            "k": 421,
-            "n": 1044,
-            "ci95": [
-              0.3739,
-              0.4333
-            ]
-          },
-          "digits": {
             "value": 0.4042145593869732,
             "k": 422,
             "n": 1044,
@@ -679,37 +670,37 @@
               0.4343
             ]
           },
+          "digits": {
+            "value": 0.4051724137931034,
+            "k": 423,
+            "n": 1044,
+            "ci95": [
+              0.3758,
+              0.4352
+            ]
+          },
           "cer": {
-            "value": 0.7302018633540373,
-            "edits": 1881,
+            "value": 0.7267080745341615,
+            "edits": 1872,
             "chars": 2576,
             "ci95": [
-              0.6971,
-              0.7593
+              0.6931,
+              0.7569
             ]
           },
           "empty_rate": {
-            "value": 0.16283524904214558,
-            "k": 170,
+            "value": 0.16091954022988506,
+            "k": 168,
             "n": 1044,
             "ci95": [
-              0.1417,
-              0.1865
+              0.1399,
+              0.1844
             ]
           },
           "by_field_type": {
             "clock": {
               "n": 156,
               "exact": {
-                "value": 0.15384615384615385,
-                "k": 24,
-                "n": 156,
-                "ci95": [
-                  0.1056,
-                  0.2187
-                ]
-              },
-              "digits": {
                 "value": 0.16025641025641027,
                 "k": 25,
                 "n": 156,
@@ -718,22 +709,31 @@
                   0.2259
                 ]
               },
+              "digits": {
+                "value": 0.16666666666666666,
+                "k": 26,
+                "n": 156,
+                "ci95": [
+                  0.1164,
+                  0.233
+                ]
+              },
               "cer": {
-                "value": 0.746031746031746,
-                "edits": 517,
+                "value": 0.733044733044733,
+                "edits": 508,
                 "chars": 693,
                 "ci95": [
-                  0.6811,
-                  0.8069
+                  0.6686,
+                  0.7945
                 ]
               },
               "empty_rate": {
-                "value": 0.6217948717948718,
-                "k": 97,
+                "value": 0.6089743589743589,
+                "k": 95,
                 "n": 156,
                 "ci95": [
-                  0.5436,
-                  0.6941
+                  0.5307,
+                  0.6821
                 ]
               }
             },
@@ -1033,21 +1033,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8328173374613003,
-                "edits": 807,
+                "value": 0.8286893704850361,
+                "edits": 803,
                 "chars": 969,
                 "ci95": [
-                  0.7834,
-                  0.8756
+                  0.7797,
+                  0.8727
                 ]
               },
               "empty_rate": {
-                "value": 0.14802631578947367,
-                "k": 45,
+                "value": 0.14473684210526316,
+                "k": 44,
                 "n": 304,
                 "ci95": [
-                  0.1125,
-                  0.1923
+                  0.1096,
+                  0.1887
                 ]
               }
             },
@@ -1093,39 +1093,39 @@
             "led7": {
               "n": 411,
               "exact": {
-                "value": 0.5888077858880778,
-                "k": 242,
+                "value": 0.5912408759124088,
+                "k": 243,
                 "n": 411,
                 "ci95": [
-                  0.5406,
-                  0.6353
+                  0.5431,
+                  0.6377
                 ]
               },
               "digits": {
-                "value": 0.5888077858880778,
-                "k": 242,
+                "value": 0.5912408759124088,
+                "k": 243,
                 "n": 411,
                 "ci95": [
-                  0.5406,
-                  0.6353
+                  0.5431,
+                  0.6377
                 ]
               },
               "cer": {
-                "value": 0.442257217847769,
-                "edits": 337,
+                "value": 0.4356955380577428,
+                "edits": 332,
                 "chars": 762,
                 "ci95": [
-                  0.3893,
-                  0.4943
+                  0.3828,
+                  0.488
                 ]
               },
               "empty_rate": {
-                "value": 0.13138686131386862,
-                "k": 54,
+                "value": 0.12895377128953772,
+                "k": 53,
                 "n": 411,
                 "ci95": [
-                  0.1021,
-                  0.1675
+                  0.1,
+                  0.1648
                 ]
               }
             },
@@ -1212,15 +1212,6 @@
             "test": {
               "n": 902,
               "exact": {
-                "value": 0.40465631929046564,
-                "k": 365,
-                "n": 902,
-                "ci95": [
-                  0.3731,
-                  0.437
-                ]
-              },
-              "digits": {
                 "value": 0.4057649667405765,
                 "k": 366,
                 "n": 902,
@@ -1229,22 +1220,31 @@
                   0.4381
                 ]
               },
+              "digits": {
+                "value": 0.40687361419068735,
+                "k": 367,
+                "n": 902,
+                "ci95": [
+                  0.3753,
+                  0.4393
+                ]
+              },
               "cer": {
-                "value": 0.728025770823746,
-                "edits": 1582,
+                "value": 0.7238840312931432,
+                "edits": 1573,
                 "chars": 2173,
                 "ci95": [
-                  0.6913,
-                  0.7647
+                  0.6878,
+                  0.7612
                 ]
               },
               "empty_rate": {
-                "value": 0.16851441241685144,
-                "k": 152,
+                "value": 0.1662971175166297,
+                "k": 150,
                 "n": 902,
                 "ci95": [
-                  0.1455,
-                  0.1943
+                  0.1434,
+                  0.192
                 ]
               }
             }
@@ -1392,7 +1392,7 @@
         {"id":"cm13742585_penalty_time_2","truth":"0:35","text":"0:35","conf":0.78,"ms":2.319,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm13742585_period","truth":"3","text":"2","conf":0.72,"ms":1.84,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm140144439_away_score","truth":"1","text":"1","conf":0.93,"ms":0.761,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.76,"ms":2.827,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.76,"ms":2.827,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm140144439_home_score","truth":"0","text":"0","conf":0.93,"ms":1.057,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm141410584_away_score","truth":"3","text":"3","conf":0.92,"ms":1.278,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm141410584_clock","truth":"45:00","text":"","conf":null,"ms":2.302,"exact":false,"pf_exact":false,"info":{"state":"Empty"}},
@@ -1413,7 +1413,7 @@
         {"id":"cm14522151_penalty_time","truth":"0:36","text":"0:36","conf":0.51,"ms":2.337,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm14522151_period","truth":"1","text":"","conf":null,"ms":0.241,"exact":false,"pf_exact":false,"info":{"state":"Empty"}},
         {"id":"cm14522202_away_score","truth":"3","text":"00","conf":0.68,"ms":2.989,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"cm14522202_clock","truth":"16:29","text":"166:29","conf":0.48,"ms":2.612,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm14522202_clock","truth":"16:29","text":"166:29","conf":0.48,"ms":2.612,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm14522202_home_score","truth":"3","text":"00","conf":0.17,"ms":1.764,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm14522202_penalty_time","truth":"2:00","text":"2:00","conf":0.49,"ms":2.241,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm14522202_period","truth":"2","text":"2","conf":0.91,"ms":1.063,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -2935,78 +2935,78 @@
         "postfilter": {
           "n": 1044,
           "exact": {
-            "value": 0.33620689655172414,
-            "k": 351,
+            "value": 0.3381226053639847,
+            "k": 353,
             "n": 1044,
             "ci95": [
-              0.3082,
-              0.3654
+              0.3101,
+              0.3674
             ]
           },
           "digits": {
-            "value": 0.33620689655172414,
-            "k": 351,
+            "value": 0.3381226053639847,
+            "k": 353,
             "n": 1044,
             "ci95": [
-              0.3082,
-              0.3654
+              0.3101,
+              0.3674
             ]
           },
           "cer": {
-            "value": 0.7593167701863354,
-            "edits": 1956,
+            "value": 0.7519409937888198,
+            "edits": 1937,
             "chars": 2576,
             "ci95": [
-              0.73,
-              0.7888
+              0.7222,
+              0.7817
             ]
           },
           "empty_rate": {
-            "value": 0.1724137931034483,
-            "k": 180,
+            "value": 0.16666666666666666,
+            "k": 174,
             "n": 1044,
             "ci95": [
-              0.1507,
-              0.1965
+              0.1453,
+              0.1905
             ]
           },
           "by_field_type": {
             "clock": {
               "n": 156,
               "exact": {
-                "value": 0.07692307692307693,
-                "k": 12,
+                "value": 0.08974358974358974,
+                "k": 14,
                 "n": 156,
                 "ci95": [
-                  0.0445,
-                  0.1296
+                  0.0542,
+                  0.145
                 ]
               },
               "digits": {
-                "value": 0.07692307692307693,
-                "k": 12,
+                "value": 0.08974358974358974,
+                "k": 14,
                 "n": 156,
                 "ci95": [
-                  0.0445,
-                  0.1296
+                  0.0542,
+                  0.145
                 ]
               },
               "cer": {
-                "value": 0.7676767676767676,
-                "edits": 532,
+                "value": 0.7402597402597403,
+                "edits": 513,
                 "chars": 693,
                 "ci95": [
-                  0.7061,
-                  0.8266
+                  0.678,
+                  0.7997
                 ]
               },
               "empty_rate": {
-                "value": 0.6602564102564102,
-                "k": 103,
+                "value": 0.6217948717948718,
+                "k": 97,
                 "n": 156,
                 "ci95": [
-                  0.5829,
-                  0.7299
+                  0.5436,
+                  0.6941
                 ]
               }
             },
@@ -3228,21 +3228,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8488372093023255,
-                "edits": 438,
+                "value": 0.8313953488372093,
+                "edits": 429,
                 "chars": 516,
                 "ci95": [
-                  0.7975,
-                  0.8962
+                  0.7778,
+                  0.8811
                 ]
               },
               "empty_rate": {
-                "value": 0.25462962962962965,
-                "k": 55,
+                "value": 0.2361111111111111,
+                "k": 51,
                 "n": 216,
                 "ci95": [
-                  0.2012,
-                  0.3167
+                  0.1844,
+                  0.2971
                 ]
               }
             },
@@ -3288,39 +3288,39 @@
             "dotmatrix": {
               "n": 304,
               "exact": {
-                "value": 0.2565789473684211,
-                "k": 78,
+                "value": 0.2598684210526316,
+                "k": 79,
                 "n": 304,
                 "ci95": [
-                  0.2107,
-                  0.3085
+                  0.2138,
+                  0.3119
                 ]
               },
               "digits": {
-                "value": 0.2565789473684211,
-                "k": 78,
+                "value": 0.2598684210526316,
+                "k": 79,
                 "n": 304,
                 "ci95": [
-                  0.2107,
-                  0.3085
+                  0.2138,
+                  0.3119
                 ]
               },
               "cer": {
-                "value": 0.8575851393188855,
-                "edits": 831,
+                "value": 0.8524251805985552,
+                "edits": 826,
                 "chars": 969,
                 "ci95": [
-                  0.8113,
-                  0.9018
+                  0.8071,
+                  0.8955
                 ]
               },
               "empty_rate": {
-                "value": 0.18092105263157895,
-                "k": 55,
+                "value": 0.17763157894736842,
+                "k": 54,
                 "n": 304,
                 "ci95": [
-                  0.1417,
-                  0.2281
+                  0.1388,
+                  0.2245
                 ]
               }
             },
@@ -3366,39 +3366,39 @@
             "led7": {
               "n": 411,
               "exact": {
-                "value": 0.45498783454987834,
-                "k": 187,
+                "value": 0.45742092457420924,
+                "k": 188,
                 "n": 411,
                 "ci95": [
-                  0.4075,
-                  0.5033
+                  0.4099,
+                  0.5058
                 ]
               },
               "digits": {
-                "value": 0.45498783454987834,
-                "k": 187,
+                "value": 0.45742092457420924,
+                "k": 188,
                 "n": 411,
                 "ci95": [
-                  0.4075,
-                  0.5033
+                  0.4099,
+                  0.5058
                 ]
               },
               "cer": {
-                "value": 0.5393700787401575,
-                "edits": 411,
+                "value": 0.5328083989501312,
+                "edits": 406,
                 "chars": 762,
                 "ci95": [
-                  0.4873,
-                  0.5926
+                  0.4823,
+                  0.5862
                 ]
               },
               "empty_rate": {
-                "value": 0.14841849148418493,
-                "k": 61,
+                "value": 0.145985401459854,
+                "k": 60,
                 "n": 411,
                 "ci95": [
-                  0.1173,
-                  0.186
+                  0.1151,
+                  0.1834
                 ]
               }
             },
@@ -3485,39 +3485,39 @@
             "test": {
               "n": 902,
               "exact": {
-                "value": 0.34146341463414637,
-                "k": 308,
+                "value": 0.3436807095343681,
+                "k": 310,
                 "n": 902,
                 "ci95": [
-                  0.3112,
-                  0.373
+                  0.3134,
+                  0.3753
                 ]
               },
               "digits": {
-                "value": 0.34146341463414637,
-                "k": 308,
+                "value": 0.3436807095343681,
+                "k": 310,
                 "n": 902,
                 "ci95": [
-                  0.3112,
-                  0.373
+                  0.3134,
+                  0.3753
                 ]
               },
               "cer": {
-                "value": 0.7560975609756098,
-                "edits": 1643,
+                "value": 0.7473538886332259,
+                "edits": 1624,
                 "chars": 2173,
                 "ci95": [
-                  0.7236,
-                  0.7904
+                  0.7132,
+                  0.7826
                 ]
               },
               "empty_rate": {
-                "value": 0.18292682926829268,
-                "k": 165,
+                "value": 0.1762749445676275,
+                "k": 159,
                 "n": 902,
                 "ci95": [
-                  0.1591,
-                  0.2095
+                  0.1528,
+                  0.2025
                 ]
               }
             }
@@ -3561,12 +3561,12 @@
         {"id":"cm11219820_home_score","truth":"2","text":"1","conf":0.92,"ms":1.809,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_away_name","truth":"LEBANON","text":"03 2 2 2 1.4","conf":0.36,"ms":28.944,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_away_score","truth":"0","text":"0","conf":0.59,"ms":5.328,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm116522946_clock","truth":"89:38","text":"338:38","conf":0.9455,"ms":9.604,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm116522946_clock","truth":"89:38","text":"338:38","conf":0.9455,"ms":9.604,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_home_name","truth":"I.R.IRAN","text":"19700 3 :07","conf":0.31,"ms":12.687,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_home_score","truth":"2","text":"35","conf":0.77,"ms":3.011,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_away_name","truth":"KARAGÜMRÜK","text":"1:002033090.33","conf":0.9339,"ms":32.882,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_away_score","truth":"0","text":"8","conf":0.89,"ms":5.122,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"cm118158456_clock","truth":"90:00","text":"90:00","conf":0.57,"ms":7.317,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm118158456_clock","truth":"90:00","text":"90:00","conf":0.57,"ms":7.317,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm118158456_home_name","truth":"FATIHVATAN","text":"19 6 :040:..:04","conf":0.43,"ms":19.623,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_home_score","truth":"0","text":"8","conf":0.84,"ms":5.904,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_period","truth":"2","text":"2","conf":0.69,"ms":2.893,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -3665,7 +3665,7 @@
         {"id":"cm13742585_penalty_time_2","truth":"0:35","text":"0:35","conf":0.79,"ms":7.524,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm13742585_period","truth":"3","text":"3","conf":0.87,"ms":3.919,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm140144439_away_score","truth":"1","text":"1","conf":0.91,"ms":2.173,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.8,"ms":7.334,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.8,"ms":7.334,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm140144439_home_score","truth":"0","text":"0","conf":0.91,"ms":2.859,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm141410584_away_score","truth":"3","text":"9","conf":0.79,"ms":2.646,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm141410584_clock","truth":"45:00","text":"45:08","conf":0.24,"ms":12.96,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -3870,7 +3870,7 @@
         {"id":"cm19509079_clock","truth":"19:00","text":"2:82","conf":0.8902,"ms":12.029,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm19509079_home_score","truth":"0","text":"0","conf":0.62,"ms":5.82,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20125234_away_score","truth":"1","text":"1","conf":0.7875,"ms":4.994,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm20125234_clock","truth":"82:30","text":"253:38","conf":0.27,"ms":8.259,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm20125234_clock","truth":"82:30","text":"253:38","conf":0.27,"ms":8.259,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm20125234_home_score","truth":"1","text":"31","conf":0.913,"ms":2.993,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm20583511_away_score","truth":"0","text":"8","conf":0.84,"ms":5.442,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm20583511_clock","truth":"0:00","text":"8:08","conf":0.81,"ms":7.254,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -4181,7 +4181,7 @@
         {"id":"cm54685522_period","truth":"3","text":"19","conf":0.04,"ms":4.658,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm54685953_away_name","truth":"PHANTOMS","text":"7 1508","conf":0.34,"ms":29.112,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm54685953_away_score","truth":"0","text":"4","conf":0.41,"ms":10.165,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"cm54685953_clock","truth":"13:39","text":"733:36","conf":0.39,"ms":9.489,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm54685953_clock","truth":"13:39","text":"733:36","conf":0.39,"ms":9.489,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm54685953_home_name","truth":"BEARS","text":"13.3","conf":0.21,"ms":9.941,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm54685953_home_score","truth":"1","text":"31","conf":0.68,"ms":2.863,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm54685953_other","truth":"3","text":"3","conf":0.79,"ms":5.017,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -4245,7 +4245,7 @@
         {"id":"cm58690386_other","truth":"33","text":"33","conf":0.59,"ms":6.117,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm58690386_period","truth":"4","text":"0","conf":0.48,"ms":6.332,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm59524304_away_score","truth":"1","text":"1","conf":0.78,"ms":3.973,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm59524304_clock","truth":"90:00","text":"80:00","conf":0.73,"ms":8.141,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm59524304_clock","truth":"90:00","text":"80:00","conf":0.73,"ms":8.141,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm59524304_home_score","truth":"1","text":"1","conf":0.6,"ms":2.221,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm5962450_clock","truth":"0:00","text":"13.8","conf":0.25,"ms":12.917,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm5962450_clock_2","truth":"0:00","text":"1","conf":0.6461,"ms":18.23,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
@@ -5226,21 +5226,21 @@
             ]
           },
           "cer": {
-            "value": 0.8722826086956522,
-            "edits": 2247,
+            "value": 0.8718944099378882,
+            "edits": 2246,
             "chars": 2576,
             "ci95": [
-              0.8531,
-              0.8907
+              0.8527,
+              0.8903
             ]
           },
           "empty_rate": {
-            "value": 0.210727969348659,
-            "k": 220,
+            "value": 0.20977011494252873,
+            "k": 219,
             "n": 1044,
             "ci95": [
-              0.1871,
-              0.2365
+              0.1862,
+              0.2355
             ]
           },
           "by_field_type": {
@@ -5265,21 +5265,21 @@
                 ]
               },
               "cer": {
-                "value": 0.9581529581529582,
-                "edits": 664,
+                "value": 0.9567099567099567,
+                "edits": 663,
                 "chars": 693,
                 "ci95": [
-                  0.933,
-                  0.9797
+                  0.9315,
+                  0.9778
                 ]
               },
               "empty_rate": {
-                "value": 0.8717948717948718,
-                "k": 136,
+                "value": 0.8653846153846154,
+                "k": 135,
                 "n": 156,
                 "ci95": [
-                  0.8103,
-                  0.9155
+                  0.803,
+                  0.9102
                 ]
               }
             },
@@ -5579,21 +5579,21 @@
                 ]
               },
               "cer": {
-                "value": 0.9184726522187823,
-                "edits": 890,
+                "value": 0.9174406604747162,
+                "edits": 889,
                 "chars": 969,
                 "ci95": [
-                  0.8941,
-                  0.9392
+                  0.8924,
+                  0.9382
                 ]
               },
               "empty_rate": {
-                "value": 0.21710526315789475,
-                "k": 66,
+                "value": 0.2138157894736842,
+                "k": 65,
                 "n": 304,
                 "ci95": [
-                  0.1744,
-                  0.2668
+                  0.1714,
+                  0.2633
                 ]
               }
             },
@@ -5776,21 +5776,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8716060745513116,
-                "edits": 1894,
+                "value": 0.8711458812701335,
+                "edits": 1893,
                 "chars": 2173,
                 "ci95": [
-                  0.8505,
-                  0.8921
+                  0.8499,
+                  0.8916
                 ]
               },
               "empty_rate": {
-                "value": 0.21840354767184036,
-                "k": 197,
+                "value": 0.21729490022172948,
+                "k": 196,
                 "n": 902,
                 "ci95": [
-                  0.1927,
-                  0.2465
+                  0.1916,
+                  0.2454
                 ]
               }
             }
@@ -6041,7 +6041,7 @@
         {"id":"cm17320235_home_score","truth":"0","text":"20","conf":0.93,"ms":3.407,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm17320235_period","truth":"1","text":"","conf":null,"ms":0.226,"exact":false,"pf_exact":false,"info":{"state":"Empty"}},
         {"id":"cm17582630_away_name","truth":"GER","text":"000","conf":0.47,"ms":2.811,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"cm17582630_clock","truth":"00:35","text":"018:11","conf":0.45,"ms":2.845,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm17582630_clock","truth":"00:35","text":"018:11","conf":0.45,"ms":2.845,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm17582630_home_name","truth":"KOR","text":"0","conf":0.63,"ms":2.853,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm17582630_other","truth":"2","text":"","conf":null,"ms":1.47,"exact":false,"pf_exact":false,"info":{"state":"Empty"}},
         {"id":"cm17582630_other_2","truth":"0","text":"0","conf":0.91,"ms":1.03,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -7481,78 +7481,78 @@
         "postfilter": {
           "n": 1044,
           "exact": {
-            "value": 0.4674329501915709,
-            "k": 488,
+            "value": 0.4731800766283525,
+            "k": 494,
             "n": 1044,
             "ci95": [
-              0.4373,
-              0.4978
+              0.443,
+              0.5035
             ]
           },
           "digits": {
-            "value": 0.4674329501915709,
-            "k": 488,
+            "value": 0.4731800766283525,
+            "k": 494,
             "n": 1044,
             "ci95": [
-              0.4373,
-              0.4978
+              0.443,
+              0.5035
             ]
           },
           "cer": {
-            "value": 0.5042701863354038,
-            "edits": 1299,
+            "value": 0.49107142857142855,
+            "edits": 1265,
             "chars": 2576,
             "ci95": [
-              0.4675,
-              0.5415
+              0.4547,
+              0.5278
             ]
           },
           "empty_rate": {
-            "value": 0.21168582375478928,
-            "k": 221,
+            "value": 0.2049808429118774,
+            "k": 214,
             "n": 1044,
             "ci95": [
-              0.188,
-              0.2375
+              0.1816,
+              0.2305
             ]
           },
           "by_field_type": {
             "clock": {
               "n": 156,
               "exact": {
-                "value": 0.1858974358974359,
-                "k": 29,
+                "value": 0.22435897435897437,
+                "k": 35,
                 "n": 156,
                 "ci95": [
-                  0.1327,
-                  0.2542
+                  0.166,
+                  0.296
                 ]
               },
               "digits": {
-                "value": 0.1858974358974359,
-                "k": 29,
+                "value": 0.22435897435897437,
+                "k": 35,
                 "n": 156,
                 "ci95": [
-                  0.1327,
-                  0.2542
+                  0.166,
+                  0.296
                 ]
               },
               "cer": {
-                "value": 0.7777777777777778,
-                "edits": 539,
+                "value": 0.7287157287157288,
+                "edits": 505,
                 "chars": 693,
                 "ci95": [
-                  0.7147,
-                  0.841
+                  0.6604,
+                  0.796
                 ]
               },
               "empty_rate": {
-                "value": 0.7564102564102564,
-                "k": 118,
+                "value": 0.7115384615384616,
+                "k": 111,
                 "n": 156,
                 "ci95": [
-                  0.6834,
-                  0.8171
+                  0.636,
+                  0.7769
                 ]
               }
             },
@@ -7756,39 +7756,39 @@
             "broadcast": {
               "n": 216,
               "exact": {
-                "value": 0.5972222222222222,
-                "k": 129,
+                "value": 0.6157407407407407,
+                "k": 133,
                 "n": 216,
                 "ci95": [
-                  0.5307,
-                  0.6604
+                  0.5494,
+                  0.678
                 ]
               },
               "digits": {
-                "value": 0.5972222222222222,
-                "k": 129,
+                "value": 0.6157407407407407,
+                "k": 133,
                 "n": 216,
                 "ci95": [
-                  0.5307,
-                  0.6604
+                  0.5494,
+                  0.678
                 ]
               },
               "cer": {
-                "value": 0.4437984496124031,
-                "edits": 229,
+                "value": 0.4050387596899225,
+                "edits": 209,
                 "chars": 516,
                 "ci95": [
-                  0.36,
-                  0.5308
+                  0.3213,
+                  0.489
                 ]
               },
               "empty_rate": {
-                "value": 0.26851851851851855,
-                "k": 58,
+                "value": 0.25,
+                "k": 54,
                 "n": 216,
                 "ci95": [
-                  0.2138,
-                  0.3313
+                  0.197,
+                  0.3118
                 ]
               }
             },
@@ -7834,39 +7834,39 @@
             "dotmatrix": {
               "n": 304,
               "exact": {
-                "value": 0.4309210526315789,
-                "k": 131,
+                "value": 0.4342105263157895,
+                "k": 132,
                 "n": 304,
                 "ci95": [
-                  0.3765,
-                  0.4871
+                  0.3797,
+                  0.4904
                 ]
               },
               "digits": {
-                "value": 0.4309210526315789,
-                "k": 131,
+                "value": 0.4342105263157895,
+                "k": 132,
                 "n": 304,
                 "ci95": [
-                  0.3765,
-                  0.4871
+                  0.3797,
+                  0.4904
                 ]
               },
               "cer": {
-                "value": 0.5056759545923633,
-                "edits": 490,
+                "value": 0.49638802889576883,
+                "edits": 481,
                 "chars": 969,
                 "ci95": [
-                  0.4426,
-                  0.5676
+                  0.4321,
+                  0.5582
                 ]
               },
               "empty_rate": {
-                "value": 0.22039473684210525,
-                "k": 67,
+                "value": 0.2138157894736842,
+                "k": 65,
                 "n": 304,
                 "ci95": [
-                  0.1774,
-                  0.2703
+                  0.1714,
+                  0.2633
                 ]
               }
             },
@@ -7912,39 +7912,39 @@
             "led7": {
               "n": 411,
               "exact": {
-                "value": 0.4257907542579075,
-                "k": 175,
+                "value": 0.4282238442822384,
+                "k": 176,
                 "n": 411,
                 "ci95": [
-                  0.3789,
-                  0.4741
+                  0.3813,
+                  0.4765
                 ]
               },
               "digits": {
-                "value": 0.4257907542579075,
-                "k": 175,
+                "value": 0.4282238442822384,
+                "k": 176,
                 "n": 411,
                 "ci95": [
-                  0.3789,
-                  0.4741
+                  0.3813,
+                  0.4765
                 ]
               },
               "cer": {
-                "value": 0.5800524934383202,
-                "edits": 442,
+                "value": 0.573490813648294,
+                "edits": 437,
                 "chars": 762,
                 "ci95": [
-                  0.5259,
-                  0.6334
+                  0.5187,
+                  0.6272
                 ]
               },
               "empty_rate": {
-                "value": 0.18491484184914841,
-                "k": 76,
+                "value": 0.18248175182481752,
+                "k": 75,
                 "n": 411,
                 "ci95": [
-                  0.1504,
-                  0.2253
+                  0.1481,
+                  0.2227
                 ]
               }
             },
@@ -8010,60 +8010,60 @@
                 ]
               },
               "cer": {
-                "value": 0.41687344913151364,
-                "edits": 168,
+                "value": 0.40694789081885857,
+                "edits": 164,
                 "chars": 403,
                 "ci95": [
-                  0.3233,
-                  0.5105
+                  0.3144,
+                  0.5025
                 ]
               },
               "empty_rate": {
-                "value": 0.14788732394366197,
-                "k": 21,
+                "value": 0.14084507042253522,
+                "k": 20,
                 "n": 142,
                 "ci95": [
-                  0.0988,
-                  0.2155
+                  0.0931,
+                  0.2075
                 ]
               }
             },
             "test": {
               "n": 902,
               "exact": {
-                "value": 0.4534368070953437,
-                "k": 409,
+                "value": 0.46008869179600886,
+                "k": 415,
                 "n": 902,
                 "ci95": [
-                  0.4212,
-                  0.4861
+                  0.4278,
+                  0.4927
                 ]
               },
               "digits": {
-                "value": 0.4534368070953437,
-                "k": 409,
+                "value": 0.46008869179600886,
+                "k": 415,
                 "n": 902,
                 "ci95": [
-                  0.4212,
-                  0.4861
+                  0.4278,
+                  0.4927
                 ]
               },
               "cer": {
-                "value": 0.5204786010124253,
-                "edits": 1131,
+                "value": 0.5066728025770824,
+                "edits": 1101,
                 "chars": 2173,
                 "ci95": [
-                  0.4809,
-                  0.5599
+                  0.4667,
+                  0.5464
                 ]
               },
               "empty_rate": {
-                "value": 0.22172949002217296,
-                "k": 200,
+                "value": 0.21507760532150777,
+                "k": 194,
                 "n": 902,
                 "ci95": [
-                  0.1958,
-                  0.25
+                  0.1895,
+                  0.2431
                 ]
               }
             }
@@ -8107,12 +8107,12 @@
         {"id":"cm11219820_home_score","truth":"2","text":"2","conf":0.8517,"ms":1.448,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm116522946_away_name","truth":"LEBANON","text":"LEBANON","conf":0.89,"ms":9.537,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm116522946_away_score","truth":"0","text":"0","conf":0.93,"ms":3.442,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm116522946_clock","truth":"89:38","text":"89:38","conf":0.91,"ms":5.117,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm116522946_clock","truth":"89:38","text":"89:38","conf":0.91,"ms":5.117,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm116522946_home_name","truth":"I.R.IRAN","text":"I.R.IRAN","conf":0.42,"ms":7.3,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm116522946_home_score","truth":"2","text":"2","conf":0.96,"ms":1.918,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm118158456_away_name","truth":"KARAGÜMRÜK","text":"KARAGUMROK","conf":0.54,"ms":17.829,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_away_score","truth":"0","text":"0","conf":0.9,"ms":2.931,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm118158456_clock","truth":"90:00","text":"90:00","conf":0.9,"ms":4.17,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm118158456_clock","truth":"90:00","text":"90:00","conf":0.9,"ms":4.17,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm118158456_home_name","truth":"FATIHVATAN","text":"FATIHVATAN","conf":0.89,"ms":11.99,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm118158456_home_score","truth":"0","text":"1","conf":0.01,"ms":2.102,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_period","truth":"2","text":"2","conf":0.96,"ms":1.765,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -8211,7 +8211,7 @@
         {"id":"cm13742585_penalty_time_2","truth":"0:35","text":":35","conf":0.8172,"ms":4.332,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm13742585_period","truth":"3","text":"3","conf":0.65,"ms":1.467,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm140144439_away_score","truth":"1","text":"1","conf":0.66,"ms":1.763,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.9,"ms":3.927,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.9,"ms":3.927,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm140144439_home_score","truth":"0","text":"1","conf":0.3177,"ms":1.52,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm141410584_away_score","truth":"3","text":"3","conf":0.95,"ms":0.834,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm141410584_clock","truth":"45:00","text":"45:00","conf":0.86,"ms":2.263,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -8416,7 +8416,7 @@
         {"id":"cm19509079_clock","truth":"19:00","text":"","conf":null,"ms":0.359,"exact":false,"pf_exact":false,"info":{"state":"Empty"}},
         {"id":"cm19509079_home_score","truth":"0","text":"0","conf":0.86,"ms":2.529,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20125234_away_score","truth":"1","text":"1","conf":0.93,"ms":1.899,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm20125234_clock","truth":"82:30","text":"82:30","conf":0.92,"ms":4.623,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm20125234_clock","truth":"82:30","text":"82:30","conf":0.92,"ms":4.623,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20125234_home_score","truth":"1","text":"1","conf":0.92,"ms":1.575,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20583511_away_score","truth":"0","text":"0","conf":0.94,"ms":2.928,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20583511_clock","truth":"0:00","text":"0:00","conf":0.92,"ms":3.922,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -8620,7 +8620,7 @@
         {"id":"cm39399668_home_score","truth":"15","text":"15","conf":0.96,"ms":2.848,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm39399668_other","truth":"17:24:52","text":"17:24:52","conf":0.37,"ms":6.67,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm4129985_away_score","truth":"2","text":"2","conf":0.47,"ms":1.959,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm4129985_clock","truth":"90:00","text":"90:00","conf":0.45,"ms":5.515,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm4129985_clock","truth":"90:00","text":"90:00","conf":0.45,"ms":5.515,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm4129985_home_score","truth":"3","text":"3","conf":0.94,"ms":1.429,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm45373188_away_fouls","truth":"0","text":"0","conf":0.6,"ms":2.117,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm45373188_away_name","truth":"BETHEL","text":"BETI,","conf":0.34,"ms":5.617,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -8791,7 +8791,7 @@
         {"id":"cm58690386_other","truth":"33","text":"3","conf":0.86,"ms":2.545,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm58690386_period","truth":"4","text":"1","conf":0.3865,"ms":2.62,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm59524304_away_score","truth":"1","text":"1","conf":0.96,"ms":1.391,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm59524304_clock","truth":"90:00","text":"90:00","conf":0.84,"ms":4.308,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm59524304_clock","truth":"90:00","text":"90:00","conf":0.84,"ms":4.308,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm59524304_home_score","truth":"1","text":"1","conf":0.96,"ms":1.301,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm5962450_clock","truth":"0:00","text":"","conf":null,"ms":4.122,"exact":false,"pf_exact":false,"info":{"state":"Empty"}},
         {"id":"cm5962450_clock_2","truth":"0:00","text":"","conf":null,"ms":4.146,"exact":false,"pf_exact":false,"info":{"state":"Empty"}},
@@ -8962,7 +8962,7 @@
         {"id":"cm73782393_to_go","truth":"10","text":"0","conf":0.04,"ms":1.931,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm74281246_away_name","truth":"KDZ.EREGLI","text":"KDZ.EREGLT","conf":0.65,"ms":8.48,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm74281246_away_score","truth":"3","text":"3","conf":0.96,"ms":1.645,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm74281246_clock","truth":"69:20","text":"69:21","conf":0.26,"ms":4.114,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm74281246_clock","truth":"69:20","text":"69:21","conf":0.26,"ms":4.114,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm74281246_home_score","truth":"0","text":"1","conf":0.8356,"ms":1.627,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm75673188_away_name","truth":"DUKE","text":"DUKE","conf":0.9,"ms":4.197,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm75673188_away_score","truth":"0","text":"0","conf":0.91,"ms":2.633,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -9774,21 +9774,21 @@
             ]
           },
           "cer": {
-            "value": 0.6968167701863354,
-            "edits": 1795,
+            "value": 0.6929347826086957,
+            "edits": 1785,
             "chars": 2576,
             "ci95": [
-              0.6601,
-              0.7329
+              0.6567,
+              0.7289
             ]
           },
           "empty_rate": {
-            "value": 0.1360153256704981,
-            "k": 142,
+            "value": 0.1331417624521073,
+            "k": 139,
             "n": 1044,
             "ci95": [
-              0.1166,
-              0.1581
+              0.1139,
+              0.1551
             ]
           },
           "by_field_type": {
@@ -9813,21 +9813,21 @@
                 ]
               },
               "cer": {
-                "value": 0.6940836940836941,
-                "edits": 481,
+                "value": 0.6796536796536796,
+                "edits": 471,
                 "chars": 693,
                 "ci95": [
-                  0.6289,
-                  0.7623
+                  0.6124,
+                  0.7464
                 ]
               },
               "empty_rate": {
-                "value": 0.5576923076923077,
-                "k": 87,
+                "value": 0.5384615384615384,
+                "k": 84,
                 "n": 156,
                 "ci95": [
-                  0.4793,
-                  0.6333
+                  0.4602,
+                  0.6148
                 ]
               }
             },
@@ -10049,21 +10049,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8507751937984496,
-                "edits": 439,
+                "value": 0.8449612403100775,
+                "edits": 436,
                 "chars": 516,
                 "ci95": [
-                  0.7992,
-                  0.8991
+                  0.7924,
+                  0.8938
                 ]
               },
               "empty_rate": {
-                "value": 0.24074074074074073,
-                "k": 52,
+                "value": 0.2361111111111111,
+                "k": 51,
                 "n": 216,
                 "ci95": [
-                  0.1886,
-                  0.302
+                  0.1844,
+                  0.2971
                 ]
               }
             },
@@ -10127,21 +10127,21 @@
                 ]
               },
               "cer": {
-                "value": 0.7977296181630547,
-                "edits": 773,
+                "value": 0.7905056759545923,
+                "edits": 766,
                 "chars": 969,
                 "ci95": [
-                  0.7453,
-                  0.8464
+                  0.737,
+                  0.8408
                 ]
               },
               "empty_rate": {
-                "value": 0.13486842105263158,
-                "k": 41,
+                "value": 0.12828947368421054,
+                "k": 39,
                 "n": 304,
                 "ci95": [
-                  0.101,
-                  0.1779
+                  0.0953,
+                  0.1706
                 ]
               }
             },
@@ -10324,21 +10324,21 @@
                 ]
               },
               "cer": {
-                "value": 0.689369535204786,
-                "edits": 1498,
+                "value": 0.684767602393005,
+                "edits": 1488,
                 "chars": 2173,
                 "ci95": [
-                  0.6511,
-                  0.7288
+                  0.646,
+                  0.7244
                 ]
               },
               "empty_rate": {
-                "value": 0.1352549889135255,
-                "k": 122,
+                "value": 0.1319290465631929,
+                "k": 119,
                 "n": 902,
                 "ci95": [
-                  0.1145,
-                  0.1591
+                  0.1114,
+                  0.1556
                 ]
               }
             }
@@ -10382,12 +10382,12 @@
         {"id":"cm11219820_home_score","truth":"2","text":"1","conf":0.92,"ms":0.741,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_away_name","truth":"LEBANON","text":"16 :000 4","conf":0.61,"ms":4.533,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_away_score","truth":"0","text":"0","conf":0.92,"ms":4.672,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm116522946_clock","truth":"89:38","text":"800:38","conf":0.43,"ms":3.945,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm116522946_clock","truth":"89:38","text":"800:38","conf":0.43,"ms":3.945,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_home_name","truth":"I.R.IRAN","text":"13: .0100:04","conf":0.29,"ms":3.88,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_home_score","truth":"2","text":"2","conf":0.92,"ms":1.087,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm118158456_away_name","truth":"KARAGÜMRÜK","text":"2 2 2 2 2 32","conf":0.34,"ms":8.603,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_away_score","truth":"0","text":"0","conf":0.92,"ms":1.665,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm118158456_clock","truth":"90:00","text":"530:00","conf":0.37,"ms":2.402,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm118158456_clock","truth":"90:00","text":"530:00","conf":0.37,"ms":2.402,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_home_name","truth":"FATIHVATAN","text":"14: :5043 1 44","conf":0.37,"ms":5.509,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_home_score","truth":"0","text":"0","conf":0.92,"ms":1.641,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm118158456_period","truth":"2","text":"2","conf":0.88,"ms":0.97,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -10589,7 +10589,7 @@
         {"id":"cm17320235_home_score","truth":"0","text":"4","conf":0.7674,"ms":2.316,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm17320235_period","truth":"1","text":"4","conf":0.93,"ms":0.91,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm17582630_away_name","truth":"GER","text":"8898","conf":0.63,"ms":1.655,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"cm17582630_clock","truth":"00:35","text":"80:35","conf":0.9479,"ms":3.88,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm17582630_clock","truth":"00:35","text":"80:35","conf":0.9479,"ms":3.88,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm17582630_home_name","truth":"KOR","text":"108","conf":0.84,"ms":2.18,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm17582630_other","truth":"2","text":"2","conf":0.92,"ms":1.487,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm17582630_other_2","truth":"0","text":"0","conf":0.86,"ms":1.134,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -12031,78 +12031,78 @@
         "postfilter": {
           "n": 1044,
           "exact": {
-            "value": 0.3726053639846743,
-            "k": 389,
+            "value": 0.3735632183908046,
+            "k": 390,
             "n": 1044,
             "ci95": [
-              0.3438,
-              0.4024
+              0.3447,
+              0.4033
             ]
           },
           "digits": {
-            "value": 0.3726053639846743,
-            "k": 389,
+            "value": 0.3735632183908046,
+            "k": 390,
             "n": 1044,
             "ci95": [
-              0.3438,
-              0.4024
+              0.3447,
+              0.4033
             ]
           },
           "cer": {
-            "value": 0.7360248447204969,
-            "edits": 1896,
+            "value": 0.7290372670807453,
+            "edits": 1878,
             "chars": 2576,
             "ci95": [
-              0.7053,
-              0.7662
+              0.6983,
+              0.7595
             ]
           },
           "empty_rate": {
-            "value": 0.15996168582375478,
-            "k": 167,
+            "value": 0.15517241379310345,
+            "k": 162,
             "n": 1044,
             "ci95": [
-              0.139,
-              0.1834
+              0.1345,
+              0.1784
             ]
           },
           "by_field_type": {
             "clock": {
               "n": 156,
               "exact": {
-                "value": 0.11538461538461539,
-                "k": 18,
+                "value": 0.12179487179487179,
+                "k": 19,
                 "n": 156,
                 "ci95": [
-                  0.0742,
-                  0.175
+                  0.0794,
+                  0.1824
                 ]
               },
               "digits": {
-                "value": 0.11538461538461539,
-                "k": 18,
+                "value": 0.12179487179487179,
+                "k": 19,
                 "n": 156,
                 "ci95": [
-                  0.0742,
-                  0.175
+                  0.0794,
+                  0.1824
                 ]
               },
               "cer": {
-                "value": 0.746031746031746,
-                "edits": 517,
+                "value": 0.7200577200577201,
+                "edits": 499,
                 "chars": 693,
                 "ci95": [
-                  0.6811,
-                  0.8061
+                  0.6541,
+                  0.7816
                 ]
               },
               "empty_rate": {
-                "value": 0.6474358974358975,
-                "k": 101,
+                "value": 0.6153846153846154,
+                "k": 96,
                 "n": 156,
                 "ci95": [
-                  0.5697,
-                  0.718
+                  0.5371,
+                  0.6881
                 ]
               }
             },
@@ -12324,21 +12324,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8507751937984496,
-                "edits": 439,
+                "value": 0.8333333333333334,
+                "edits": 430,
                 "chars": 516,
                 "ci95": [
-                  0.8016,
-                  0.8991
+                  0.7827,
+                  0.8849
                 ]
               },
               "empty_rate": {
-                "value": 0.25,
-                "k": 54,
+                "value": 0.2361111111111111,
+                "k": 51,
                 "n": 216,
                 "ci95": [
-                  0.197,
-                  0.3118
+                  0.1844,
+                  0.2971
                 ]
               }
             },
@@ -12402,21 +12402,21 @@
                 ]
               },
               "cer": {
-                "value": 0.8359133126934984,
-                "edits": 810,
+                "value": 0.8317853457172343,
+                "edits": 806,
                 "chars": 969,
                 "ci95": [
-                  0.7865,
-                  0.8781
+                  0.7821,
+                  0.8753
                 ]
               },
               "empty_rate": {
-                "value": 0.17434210526315788,
-                "k": 53,
+                "value": 0.17105263157894737,
+                "k": 52,
                 "n": 304,
                 "ci95": [
-                  0.1358,
-                  0.221
+                  0.1329,
+                  0.2174
                 ]
               }
             },
@@ -12462,39 +12462,39 @@
             "led7": {
               "n": 411,
               "exact": {
-                "value": 0.5085158150851582,
-                "k": 209,
+                "value": 0.5109489051094891,
+                "k": 210,
                 "n": 411,
                 "ci95": [
-                  0.4603,
-                  0.5565
+                  0.4627,
+                  0.559
                 ]
               },
               "digits": {
-                "value": 0.5085158150851582,
-                "k": 209,
+                "value": 0.5109489051094891,
+                "k": 210,
                 "n": 411,
                 "ci95": [
-                  0.4603,
-                  0.5565
+                  0.4627,
+                  0.559
                 ]
               },
               "cer": {
-                "value": 0.4671916010498688,
-                "edits": 356,
+                "value": 0.46062992125984253,
+                "edits": 351,
                 "chars": 762,
                 "ci95": [
-                  0.417,
-                  0.517
+                  0.41,
+                  0.511
                 ]
               },
               "empty_rate": {
-                "value": 0.12165450121654502,
-                "k": 50,
+                "value": 0.1192214111922141,
+                "k": 49,
                 "n": 411,
                 "ci95": [
-                  0.0935,
-                  0.1568
+                  0.0914,
+                  0.1541
                 ]
               }
             },
@@ -12581,39 +12581,39 @@
             "test": {
               "n": 902,
               "exact": {
-                "value": 0.37583148558758317,
-                "k": 339,
+                "value": 0.376940133037694,
+                "k": 340,
                 "n": 902,
                 "ci95": [
-                  0.3448,
-                  0.4079
+                  0.3459,
+                  0.409
                 ]
               },
               "digits": {
-                "value": 0.37583148558758317,
-                "k": 339,
+                "value": 0.376940133037694,
+                "k": 340,
                 "n": 902,
                 "ci95": [
-                  0.3448,
-                  0.4079
+                  0.3459,
+                  0.409
                 ]
               },
               "cer": {
-                "value": 0.7326277036355269,
-                "edits": 1592,
+                "value": 0.7243442245743212,
+                "edits": 1574,
                 "chars": 2173,
                 "ci95": [
-                  0.6973,
-                  0.7669
+                  0.6885,
+                  0.7592
                 ]
               },
               "empty_rate": {
-                "value": 0.1674057649667406,
-                "k": 151,
+                "value": 0.16186252771618626,
+                "k": 146,
                 "n": 902,
                 "ci95": [
-                  0.1445,
-                  0.1932
+                  0.1393,
+                  0.1873
                 ]
               }
             }
@@ -12657,7 +12657,7 @@
         {"id":"cm11219820_home_score","truth":"2","text":"1","conf":0.65,"ms":1.869,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_away_name","truth":"LEBANON","text":"128 9644","conf":0.19,"ms":15.623,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_away_score","truth":"0","text":"0","conf":0.77,"ms":5.695,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm116522946_clock","truth":"89:38","text":"88:38","conf":0.09,"ms":8.366,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm116522946_clock","truth":"89:38","text":"88:38","conf":0.09,"ms":8.366,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_home_name","truth":"I.R.IRAN","text":"1.0.0 04","conf":0.3,"ms":12.128,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_home_score","truth":"2","text":"3","conf":0.79,"ms":4.897,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_away_name","truth":"KARAGÜMRÜK","text":"1:04.26.9909","conf":0.9498,"ms":16.729,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -12761,7 +12761,7 @@
         {"id":"cm13742585_penalty_time_2","truth":"0:35","text":"0:35","conf":0.86,"ms":7.634,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm13742585_period","truth":"3","text":"3","conf":0.91,"ms":3.514,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm140144439_away_score","truth":"1","text":"1","conf":0.92,"ms":2.395,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.57,"ms":7.291,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.57,"ms":7.291,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm140144439_home_score","truth":"0","text":"0","conf":0.59,"ms":4.545,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm141410584_away_score","truth":"3","text":"1","conf":0.72,"ms":4.758,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm141410584_clock","truth":"45:00","text":"77","conf":0.49,"ms":7.413,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
@@ -12777,7 +12777,7 @@
         {"id":"cm14522096_home_score","truth":"0","text":"171","conf":0.04,"ms":20.241,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm14522096_period","truth":"1","text":"1","conf":0.37,"ms":4.963,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm14522151_away_score","truth":"1","text":"0","conf":0.6792,"ms":12.778,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"cm14522151_clock","truth":"18:47","text":"88:47","conf":0.62,"ms":9.411,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm14522151_clock","truth":"18:47","text":"88:47","conf":0.62,"ms":9.411,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm14522151_home_score","truth":"0","text":"8","conf":0.64,"ms":10.532,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm14522151_penalty_time","truth":"0:36","text":"0:36.","conf":0.75,"ms":8.175,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm14522151_period","truth":"1","text":"","conf":null,"ms":0.511,"exact":false,"pf_exact":false,"info":{"state":"Empty"}},
@@ -12966,7 +12966,7 @@
         {"id":"cm19509079_clock","truth":"19:00","text":"12:1","conf":0.09,"ms":12.299,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm19509079_home_score","truth":"0","text":"0","conf":0.87,"ms":4.896,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20125234_away_score","truth":"1","text":"37","conf":0.8703,"ms":5.309,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"cm20125234_clock","truth":"82:30","text":"353:38","conf":0.41,"ms":8.565,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm20125234_clock","truth":"82:30","text":"353:38","conf":0.41,"ms":8.565,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm20125234_home_score","truth":"1","text":"371","conf":0.46,"ms":5.545,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm20583511_away_score","truth":"0","text":"8","conf":0.87,"ms":5.471,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm20583511_clock","truth":"0:00","text":"8:08","conf":0.73,"ms":7.006,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -13341,7 +13341,7 @@
         {"id":"cm58690386_other","truth":"33","text":"33","conf":0.25,"ms":4.014,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm58690386_period","truth":"4","text":"4","conf":0.22,"ms":3.664,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm59524304_away_score","truth":"1","text":"1","conf":0.88,"ms":3.523,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm59524304_clock","truth":"90:00","text":"80:00","conf":0.91,"ms":7.294,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm59524304_clock","truth":"90:00","text":"80:00","conf":0.91,"ms":7.294,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm59524304_home_score","truth":"1","text":"1","conf":0.84,"ms":3.564,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm5962450_clock","truth":"0:00","text":"18.0","conf":0.9468,"ms":10.601,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm5962450_clock_2","truth":"0:00","text":"19","conf":0.31,"ms":19.629,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
@@ -16581,78 +16581,78 @@
         "postfilter": {
           "n": 1044,
           "exact": {
-            "value": 0.5201149425287356,
-            "k": 543,
+            "value": 0.5258620689655172,
+            "k": 549,
             "n": 1044,
             "ci95": [
-              0.4898,
-              0.5503
+              0.4955,
+              0.556
             ]
           },
           "digits": {
-            "value": 0.5201149425287356,
-            "k": 543,
+            "value": 0.5258620689655172,
+            "k": 549,
             "n": 1044,
             "ci95": [
-              0.4898,
-              0.5503
+              0.4955,
+              0.556
             ]
           },
           "cer": {
-            "value": 0.41847826086956524,
-            "edits": 1078,
+            "value": 0.40683229813664595,
+            "edits": 1048,
             "chars": 2576,
             "ci95": [
-              0.3828,
-              0.4558
+              0.3735,
+              0.4431
             ]
           },
           "empty_rate": {
-            "value": 0.18773946360153257,
-            "k": 196,
+            "value": 0.18199233716475097,
+            "k": 190,
             "n": 1044,
             "ci95": [
-              0.1652,
-              0.2126
+              0.1598,
+              0.2065
             ]
           },
           "by_field_type": {
             "clock": {
               "n": 156,
               "exact": {
-                "value": 0.28205128205128205,
-                "k": 44,
+                "value": 0.32051282051282054,
+                "k": 50,
                 "n": 156,
                 "ci95": [
-                  0.2173,
-                  0.3572
+                  0.2524,
+                  0.3973
                 ]
               },
               "digits": {
-                "value": 0.28205128205128205,
-                "k": 44,
+                "value": 0.32051282051282054,
+                "k": 50,
                 "n": 156,
                 "ci95": [
-                  0.2173,
-                  0.3572
+                  0.2524,
+                  0.3973
                 ]
               },
               "cer": {
-                "value": 0.6695526695526696,
-                "edits": 464,
+                "value": 0.6262626262626263,
+                "edits": 434,
                 "chars": 693,
                 "ci95": [
-                  0.5968,
-                  0.7412
+                  0.5533,
+                  0.7036
                 ]
               },
               "empty_rate": {
-                "value": 0.6474358974358975,
-                "k": 101,
+                "value": 0.6089743589743589,
+                "k": 95,
                 "n": 156,
                 "ci95": [
-                  0.5697,
-                  0.718
+                  0.5307,
+                  0.6821
                 ]
               }
             },
@@ -16856,39 +16856,39 @@
             "broadcast": {
               "n": 216,
               "exact": {
-                "value": 0.7037037037037037,
-                "k": 152,
+                "value": 0.7222222222222222,
+                "k": 156,
                 "n": 216,
                 "ci95": [
-                  0.6397,
-                  0.7606
+                  0.659,
+                  0.7777
                 ]
               },
               "digits": {
-                "value": 0.7037037037037037,
-                "k": 152,
+                "value": 0.7222222222222222,
+                "k": 156,
                 "n": 216,
                 "ci95": [
-                  0.6397,
-                  0.7606
+                  0.659,
+                  0.7777
                 ]
               },
               "cer": {
-                "value": 0.32751937984496127,
-                "edits": 169,
+                "value": 0.28875968992248063,
+                "edits": 149,
                 "chars": 516,
                 "ci95": [
-                  0.251,
-                  0.4092
+                  0.2149,
+                  0.3658
                 ]
               },
               "empty_rate": {
-                "value": 0.18981481481481483,
-                "k": 41,
+                "value": 0.1712962962962963,
+                "k": 37,
                 "n": 216,
                 "ci95": [
-                  0.1431,
-                  0.2474
+                  0.1269,
+                  0.2272
                 ]
               }
             },
@@ -16934,39 +16934,39 @@
             "dotmatrix": {
               "n": 304,
               "exact": {
-                "value": 0.5,
-                "k": 152,
+                "value": 0.5032894736842105,
+                "k": 153,
                 "n": 304,
                 "ci95": [
-                  0.4441,
-                  0.5559
+                  0.4474,
+                  0.5591
                 ]
               },
               "digits": {
-                "value": 0.5,
-                "k": 152,
+                "value": 0.5032894736842105,
+                "k": 153,
                 "n": 304,
                 "ci95": [
-                  0.4441,
-                  0.5559
+                  0.4474,
+                  0.5591
                 ]
               },
               "cer": {
-                "value": 0.40350877192982454,
-                "edits": 391,
+                "value": 0.39834881320949433,
+                "edits": 386,
                 "chars": 969,
                 "ci95": [
-                  0.3436,
-                  0.4662
+                  0.339,
+                  0.4613
                 ]
               },
               "empty_rate": {
-                "value": 0.19736842105263158,
-                "k": 60,
+                "value": 0.19407894736842105,
+                "k": 59,
                 "n": 304,
                 "ci95": [
-                  0.1565,
-                  0.2458
+                  0.1536,
+                  0.2422
                 ]
               }
             },
@@ -17012,39 +17012,39 @@
             "led7": {
               "n": 411,
               "exact": {
-                "value": 0.44525547445255476,
-                "k": 183,
+                "value": 0.44768856447688565,
+                "k": 184,
                 "n": 411,
                 "ci95": [
-                  0.3979,
-                  0.4936
+                  0.4003,
+                  0.496
                 ]
               },
               "digits": {
-                "value": 0.44525547445255476,
-                "k": 183,
+                "value": 0.44768856447688565,
+                "k": 184,
                 "n": 411,
                 "ci95": [
-                  0.3979,
-                  0.4936
+                  0.4003,
+                  0.496
                 ]
               },
               "cer": {
-                "value": 0.5236220472440944,
-                "edits": 399,
+                "value": 0.5170603674540682,
+                "edits": 394,
                 "chars": 762,
                 "ci95": [
-                  0.4707,
-                  0.5756
+                  0.4649,
+                  0.5703
                 ]
               },
               "empty_rate": {
-                "value": 0.17518248175182483,
-                "k": 72,
+                "value": 0.17274939172749393,
+                "k": 71,
                 "n": 411,
                 "ci95": [
-                  0.1415,
-                  0.2149
+                  0.1393,
+                  0.2123
                 ]
               }
             },
@@ -17131,39 +17131,39 @@
             "test": {
               "n": 902,
               "exact": {
-                "value": 0.5077605321507761,
-                "k": 458,
+                "value": 0.5144124168514412,
+                "k": 464,
                 "n": 902,
                 "ci95": [
-                  0.4752,
-                  0.5403
+                  0.4818,
+                  0.5469
                 ]
               },
               "digits": {
-                "value": 0.5077605321507761,
-                "k": 458,
+                "value": 0.5144124168514412,
+                "k": 464,
                 "n": 902,
                 "ci95": [
-                  0.4752,
-                  0.5403
+                  0.4818,
+                  0.5469
                 ]
               },
               "cer": {
-                "value": 0.4275195582144501,
-                "edits": 929,
+                "value": 0.41371375977910724,
+                "edits": 899,
                 "chars": 2173,
                 "ci95": [
-                  0.3905,
-                  0.466
+                  0.3773,
+                  0.4515
                 ]
               },
               "empty_rate": {
-                "value": 0.19290465631929046,
-                "k": 174,
+                "value": 0.18625277161862527,
+                "k": 168,
                 "n": 902,
                 "ci95": [
-                  0.1685,
-                  0.2199
+                  0.1622,
+                  0.213
                 ]
               }
             }
@@ -17207,12 +17207,12 @@
         {"id":"cm11219820_home_score","truth":"2","text":"0","conf":0.17,"ms":1.31,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_away_name","truth":"LEBANON","text":"LEBANON","conf":0.9,"ms":8.592,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm116522946_away_score","truth":"0","text":"0","conf":0.93,"ms":3.332,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm116522946_clock","truth":"89:38","text":"89:38","conf":0.9,"ms":4.965,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm116522946_clock","truth":"89:38","text":"89:38","conf":0.9,"ms":4.965,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm116522946_home_name","truth":"I.R.IRAN","text":"I.LR.IRAN","conf":0.46,"ms":7.465,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm116522946_home_score","truth":"2","text":"2","conf":0.96,"ms":1.938,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm118158456_away_name","truth":"KARAGÜMRÜK","text":"KARAGUMROK","conf":0.44,"ms":9.095,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_away_score","truth":"0","text":"1","conf":0.4028,"ms":1.678,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
-        {"id":"cm118158456_clock","truth":"90:00","text":"90:00","conf":0.91,"ms":5.26,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm118158456_clock","truth":"90:00","text":"90:00","conf":0.91,"ms":5.26,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm118158456_home_name","truth":"FATIHVATAN","text":"FATIHVATAN","conf":0.89,"ms":10.978,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm118158456_home_score","truth":"0","text":"1","conf":0.8293,"ms":2.024,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm118158456_period","truth":"2","text":"2","conf":0.93,"ms":1.906,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -17311,7 +17311,7 @@
         {"id":"cm13742585_penalty_time_2","truth":"0:35","text":":35","conf":0.852,"ms":4.355,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm13742585_period","truth":"3","text":"3","conf":0.64,"ms":1.204,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm140144439_away_score","truth":"1","text":"1","conf":0.63,"ms":1.579,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.87,"ms":4.335,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.87,"ms":4.335,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm140144439_home_score","truth":"0","text":"1","conf":0.5052,"ms":2.707,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm141410584_away_score","truth":"3","text":"3","conf":0.8,"ms":2.109,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm141410584_clock","truth":"45:00","text":"45:00","conf":0.91,"ms":2.869,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -17516,7 +17516,7 @@
         {"id":"cm19509079_clock","truth":"19:00","text":"19:00","conf":0.9079,"ms":3.514,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm19509079_home_score","truth":"0","text":"0","conf":0.76,"ms":2.976,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20125234_away_score","truth":"1","text":"1","conf":0.89,"ms":1.895,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm20125234_clock","truth":"82:30","text":"82:30","conf":0.91,"ms":6.163,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm20125234_clock","truth":"82:30","text":"82:30","conf":0.91,"ms":6.163,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20125234_home_score","truth":"1","text":"1","conf":0.57,"ms":2.374,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20583511_away_score","truth":"0","text":"0","conf":0.94,"ms":4.923,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20583511_clock","truth":"0:00","text":"0:00","conf":0.92,"ms":4.461,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -17891,7 +17891,7 @@
         {"id":"cm58690386_other","truth":"33","text":"3","conf":0.81,"ms":2.327,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm58690386_period","truth":"4","text":"1","conf":0.47,"ms":3.737,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm59524304_away_score","truth":"1","text":"1","conf":0.86,"ms":1.399,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm59524304_clock","truth":"90:00","text":"90:00","conf":0.91,"ms":4.371,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm59524304_clock","truth":"90:00","text":"90:00","conf":0.91,"ms":4.371,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm59524304_home_score","truth":"1","text":"1","conf":0.96,"ms":2.101,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm5962450_clock","truth":"0:00","text":"","conf":null,"ms":5.54,"exact":false,"pf_exact":false,"info":{"state":"Empty"}},
         {"id":"cm5962450_clock_2","truth":"0:00","text":"1:1","conf":0.5019,"ms":6.65,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
@@ -18147,7 +18147,7 @@
         {"id":"cm81003822_home_score","truth":"1","text":"7","conf":0.64,"ms":2.545,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm81003822_other","truth":"94","text":"9","conf":0.2614,"ms":2.665,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm81364754_away_score","truth":"6","text":"6","conf":0.96,"ms":1.804,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm81364754_clock","truth":"85:43","text":"85:43","conf":0.7735,"ms":3.643,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm81364754_clock","truth":"85:43","text":"85:43","conf":0.7735,"ms":3.643,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm81364754_home_score","truth":"1","text":"1","conf":0.94,"ms":0.93,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm81970372_batter_runs","truth":"22","text":"28","conf":0.06,"ms":2.295,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm81970372_batter_runs_2","truth":"6","text":"8","conf":0.9,"ms":1.394,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -18862,78 +18862,78 @@
         "postfilter": {
           "n": 1044,
           "exact": {
-            "value": 0.5727969348659003,
-            "k": 598,
+            "value": 0.5775862068965517,
+            "k": 603,
             "n": 1044,
             "ci95": [
-              0.5426,
-              0.6025
+              0.5474,
+              0.6072
             ]
           },
           "digits": {
-            "value": 0.5727969348659003,
-            "k": 598,
+            "value": 0.5775862068965517,
+            "k": 603,
             "n": 1044,
             "ci95": [
-              0.5426,
-              0.6025
+              0.5474,
+              0.6072
             ]
           },
           "cer": {
-            "value": 0.37577639751552794,
-            "edits": 968,
+            "value": 0.36490683229813664,
+            "edits": 940,
             "chars": 2576,
             "ci95": [
-              0.3425,
-              0.4106
+              0.3321,
+              0.3989
             ]
           },
           "empty_rate": {
-            "value": 0.15804597701149425,
-            "k": 165,
+            "value": 0.15229885057471265,
+            "k": 159,
             "n": 1044,
             "ci95": [
-              0.1372,
-              0.1814
+              0.1318,
+              0.1754
             ]
           },
           "by_field_type": {
             "clock": {
               "n": 156,
               "exact": {
-                "value": 0.2564102564102564,
-                "k": 40,
+                "value": 0.28846153846153844,
+                "k": 45,
                 "n": 156,
                 "ci95": [
-                  0.1943,
-                  0.3302
+                  0.2231,
+                  0.364
                 ]
               },
               "digits": {
-                "value": 0.2564102564102564,
-                "k": 40,
+                "value": 0.28846153846153844,
+                "k": 45,
                 "n": 156,
                 "ci95": [
-                  0.1943,
-                  0.3302
+                  0.2231,
+                  0.364
                 ]
               },
               "cer": {
-                "value": 0.6810966810966811,
-                "edits": 472,
+                "value": 0.6406926406926406,
+                "edits": 444,
                 "chars": 693,
                 "ci95": [
-                  0.6115,
-                  0.7489
+                  0.5704,
+                  0.7122
                 ]
               },
               "empty_rate": {
-                "value": 0.6538461538461539,
-                "k": 102,
+                "value": 0.6153846153846154,
+                "k": 96,
                 "n": 156,
                 "ci95": [
-                  0.5763,
-                  0.724
+                  0.5371,
+                  0.6881
                 ]
               }
             },
@@ -19137,39 +19137,39 @@
             "broadcast": {
               "n": 216,
               "exact": {
-                "value": 0.7731481481481481,
-                "k": 167,
+                "value": 0.7916666666666666,
+                "k": 171,
                 "n": 216,
                 "ci95": [
-                  0.7128,
-                  0.8239
+                  0.7326,
+                  0.8405
                 ]
               },
               "digits": {
-                "value": 0.7731481481481481,
-                "k": 167,
+                "value": 0.7916666666666666,
+                "k": 171,
                 "n": 216,
                 "ci95": [
-                  0.7128,
-                  0.8239
+                  0.7326,
+                  0.8405
                 ]
               },
               "cer": {
-                "value": 0.25775193798449614,
-                "edits": 133,
+                "value": 0.2189922480620155,
+                "edits": 113,
                 "chars": 516,
                 "ci95": [
-                  0.1859,
-                  0.3348
+                  0.1504,
+                  0.2941
                 ]
               },
               "empty_rate": {
-                "value": 0.12962962962962962,
-                "k": 28,
+                "value": 0.1111111111111111,
+                "k": 24,
                 "n": 216,
                 "ci95": [
-                  0.0912,
-                  0.181
+                  0.0758,
+                  0.16
                 ]
               }
             },
@@ -19233,21 +19233,21 @@
                 ]
               },
               "cer": {
-                "value": 0.34881320949432404,
-                "edits": 338,
+                "value": 0.3457172342621259,
+                "edits": 335,
                 "chars": 969,
                 "ci95": [
-                  0.2911,
-                  0.407
+                  0.2891,
+                  0.4044
                 ]
               },
               "empty_rate": {
-                "value": 0.17434210526315788,
-                "k": 53,
+                "value": 0.17105263157894737,
+                "k": 52,
                 "n": 304,
                 "ci95": [
-                  0.1358,
-                  0.221
+                  0.1329,
+                  0.2174
                 ]
               }
             },
@@ -19293,39 +19293,39 @@
             "led7": {
               "n": 411,
               "exact": {
-                "value": 0.4744525547445255,
-                "k": 195,
+                "value": 0.4768856447688564,
+                "k": 196,
                 "n": 411,
                 "ci95": [
-                  0.4266,
-                  0.5227
+                  0.429,
+                  0.5252
                 ]
               },
               "digits": {
-                "value": 0.4744525547445255,
-                "k": 195,
+                "value": 0.4768856447688564,
+                "k": 196,
                 "n": 411,
                 "ci95": [
-                  0.4266,
-                  0.5227
+                  0.429,
+                  0.5252
                 ]
               },
               "cer": {
-                "value": 0.5078740157480315,
-                "edits": 387,
+                "value": 0.5013123359580053,
+                "edits": 382,
                 "chars": 762,
                 "ci95": [
-                  0.4555,
-                  0.5573
+                  0.4468,
+                  0.5509
                 ]
               },
               "empty_rate": {
-                "value": 0.170316301703163,
-                "k": 70,
+                "value": 0.1678832116788321,
+                "k": 69,
                 "n": 411,
                 "ci95": [
-                  0.1371,
-                  0.2097
+                  0.1349,
+                  0.2071
                 ]
               }
             },
@@ -19412,39 +19412,39 @@
             "test": {
               "n": 902,
               "exact": {
-                "value": 0.5565410199556541,
-                "k": 502,
+                "value": 0.5620842572062085,
+                "k": 507,
                 "n": 902,
                 "ci95": [
-                  0.5239,
-                  0.5887
+                  0.5295,
+                  0.5941
                 ]
               },
               "digits": {
-                "value": 0.5565410199556541,
-                "k": 502,
+                "value": 0.5620842572062085,
+                "k": 507,
                 "n": 902,
                 "ci95": [
-                  0.5239,
-                  0.5887
+                  0.5295,
+                  0.5941
                 ]
               },
               "cer": {
-                "value": 0.3916244822825587,
-                "edits": 851,
+                "value": 0.378739070409572,
+                "edits": 823,
                 "chars": 2173,
                 "ci95": [
-                  0.3547,
-                  0.4299
+                  0.3425,
+                  0.4178
                 ]
               },
               "empty_rate": {
-                "value": 0.1696230598669623,
-                "k": 153,
+                "value": 0.1629711751662971,
+                "k": 147,
                 "n": 902,
                 "ci95": [
-                  0.1465,
-                  0.1955
+                  0.1403,
+                  0.1885
                 ]
               }
             }
@@ -19488,7 +19488,7 @@
         {"id":"cm11219820_home_score","truth":"2","text":"2","conf":0.81,"ms":2.222,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm116522946_away_name","truth":"LEBANON","text":"LEBANON","conf":0.92,"ms":4.908,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm116522946_away_score","truth":"0","text":"0","conf":0.92,"ms":1.957,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm116522946_clock","truth":"89:38","text":"89:38","conf":0.92,"ms":2.694,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm116522946_clock","truth":"89:38","text":"89:38","conf":0.92,"ms":2.694,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm116522946_home_name","truth":"I.R.IRAN","text":"I.R.IRAN","conf":0.44,"ms":3.939,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm116522946_home_score","truth":"2","text":"2","conf":0.95,"ms":1.122,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm118158456_away_name","truth":"KARAGÜMRÜK","text":"YARASUMRUE","conf":0.9106,"ms":9.307,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -19592,7 +19592,7 @@
         {"id":"cm13742585_penalty_time_2","truth":"0:35","text":"35","conf":0.07,"ms":3.988,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm13742585_period","truth":"3","text":"5","conf":0.74,"ms":2.401,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm140144439_away_score","truth":"1","text":"1","conf":0.8578,"ms":0.712,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.9,"ms":2.369,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm140144439_clock","truth":"93:03","text":"93:03","conf":0.9,"ms":2.369,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm140144439_home_score","truth":"0","text":"0","conf":0.76,"ms":4.519,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm141410584_away_score","truth":"3","text":"3","conf":0.8,"ms":1.814,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm141410584_clock","truth":"45:00","text":"45:00","conf":0.92,"ms":2.375,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -19797,7 +19797,7 @@
         {"id":"cm19509079_clock","truth":"19:00","text":"19:00","conf":0.9015,"ms":1.858,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm19509079_home_score","truth":"0","text":"1","conf":0.69,"ms":4.446,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm20125234_away_score","truth":"1","text":"1","conf":0.93,"ms":1.036,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm20125234_clock","truth":"82:30","text":"82:30","conf":0.9,"ms":2.793,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm20125234_clock","truth":"82:30","text":"82:30","conf":0.9,"ms":2.793,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20125234_home_score","truth":"1","text":"1","conf":0.87,"ms":1.625,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20583511_away_score","truth":"0","text":"0","conf":0.94,"ms":1.675,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm20583511_clock","truth":"0:00","text":"0:00","conf":0.92,"ms":2.195,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -19877,7 +19877,7 @@
         {"id":"cm2569694_period","truth":"4","text":"4","conf":0.24,"ms":2.82,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm2569798_away_score","truth":"2","text":"2","conf":0.45,"ms":1.364,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm2569798_away_score_2","truth":"2","text":"737","conf":0.23,"ms":5.713,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
-        {"id":"cm2569798_clock","truth":"1:54","text":"71:54","conf":0.37,"ms":17.388,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm2569798_clock","truth":"1:54","text":"71:54","conf":0.37,"ms":17.388,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm2569798_home_name","truth":"RED WINGS","text":"FED WHGS","conf":0.19,"ms":4.2,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm2569798_home_score","truth":"1","text":"1","conf":0.7,"ms":1.777,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm2569798_home_score_2","truth":"1","text":"1","conf":0.67,"ms":1.929,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
@@ -20001,7 +20001,7 @@
         {"id":"cm39399668_home_score","truth":"15","text":"15","conf":0.96,"ms":1.986,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm39399668_other","truth":"17:24:52","text":"17:84:58","conf":0.9548,"ms":3.998,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm4129985_away_score","truth":"2","text":"2","conf":0.35,"ms":4.053,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm4129985_clock","truth":"90:00","text":"90:00","conf":0.85,"ms":3.032,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm4129985_clock","truth":"90:00","text":"90:00","conf":0.85,"ms":3.032,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm4129985_home_score","truth":"3","text":"3","conf":0.95,"ms":0.963,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm45373188_away_fouls","truth":"0","text":"0","conf":0.71,"ms":5.598,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm45373188_away_name","truth":"BETHEL","text":"BETHE,","conf":0.9546,"ms":2.128,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
@@ -20172,7 +20172,7 @@
         {"id":"cm58690386_other","truth":"33","text":"3","conf":0.66,"ms":1.284,"exact":false,"pf_exact":false,"info":{"state":"Success"}},
         {"id":"cm58690386_period","truth":"4","text":"4","conf":0.35,"ms":4.407,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm59524304_away_score","truth":"1","text":"1","conf":0.96,"ms":0.814,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
-        {"id":"cm59524304_clock","truth":"90:00","text":"90:00","conf":0.92,"ms":2.315,"exact":true,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
+        {"id":"cm59524304_clock","truth":"90:00","text":"90:00","conf":0.92,"ms":2.315,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm59524304_home_score","truth":"1","text":"1","conf":0.96,"ms":0.774,"exact":true,"pf_exact":true,"info":{"state":"Success"}},
         {"id":"cm5962450_clock","truth":"0:00","text":"30","conf":0.11,"ms":3.158,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
         {"id":"cm5962450_clock_2","truth":"0:00","text":"000","conf":0.27,"ms":2.632,"exact":false,"pf_exact":false,"pf_text":"","info":{"state":"FailedFilter"}},
