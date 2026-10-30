@@ -107,7 +107,7 @@ On Windows and Linux, the menus are at the top of the main window. On macOS they
 **View**:
 
 - **Setup layout** (Ctrl+1) and **Live layout** (Ctrl+2), see [Setup and Live layouts](boxes.md#setup-and-live-layouts)
-- **Binary View** (Ctrl+B), **Fit picture to window** (Ctrl+0), **Zoom in** (Ctrl+=), **Zoom out** (Ctrl+-) and **Statistics overlay**
+- **Binary View** (Ctrl+B), **Fit picture to window** (Ctrl+0), **Zoom in** (Ctrl+=), **Zoom out** (Ctrl+-), [Smooth preview](view-tools.md#smooth-preview) and **Statistics overlay**
 - **Show unused fields**: the fields that aren't on the picture in the field list, remembered for each layout (shown in the Setup layout, hidden in the Live layout at first)
 - **Appearance**: System, Light or Dark colour scheme. The choice is remembered
 - **Language**: each language is listed in its own language: English (US), Français, Español, Deutsch, Italiano, 日本語, 한국어, Nederlands, Polski, Português (Brasil), Português (Portugal), Русский and 简体中文. The current one is ticked, and the choice is remembered

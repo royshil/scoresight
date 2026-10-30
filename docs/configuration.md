@@ -159,6 +159,7 @@ You normally never edit this file: everything is set through the UI. This list h
 | `main_splitter_sizes` | The widths of the field list, the picture and the inspector in pixels in the Setup layout, for example `[260, 742, 340]`. `0` means the pane is hidden |
 | `live_fields_width` | The width of the field list in the Live layout, in pixels (400 by default) |
 | `show_unused_fields_setup`, `show_unused_fields_live` | **View > Show unused fields** in each layout (`true` and `false` by default) |
+| `smooth_preview` | **View > Smooth preview**: `true` refreshes the picture up to 20 times a second instead of about once (`false` by default) |
 | `image_cleanup_expanded` | `true` while the **Image cleanup** section of the Box tab is open |
 | `open_on_startup` | Show the log window at startup |
 | `disable_update_checks` | `true` turns off the update check at startup (the **Don't check for updates at startup** checkbox in the update dialog). **Help > Check for updates...** always works |

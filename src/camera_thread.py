@@ -35,6 +35,17 @@ DEFAULT_DETECTION_CADENCE = 5
 MIN_DETECTION_CADENCE = 0.1
 MAX_UPDATE_FRAME_INTERVAL_MS = 1000.0 / MIN_DETECTION_CADENCE
 
+# How often the preview (the picture in the viewer) is refreshed: about once a
+# second, which leaves the CPU for the OCR, or with View > Smooth preview (the
+# smooth_preview setting) up to 20 times a second, for a picture that moves
+# like video. A preview is due on the first frame at least the interval after
+# the last one, so a 30 fps source is previewed at 15/s (every other frame,
+# even with some jitter) and a 25 fps one at 12.5/s. The readings don't depend
+# on it.
+SMOOTH_PREVIEW_SETTING = "smooth_preview"
+PREVIEW_INTERVAL_MS = 1000.0
+SMOOTH_PREVIEW_INTERVAL_MS = 50.0
+
 # Open and read timeouts for URL (network stream) sources, so that a stalled
 # stream can't block the capture thread (and closing it) for FFmpeg's default
 # 30 s per call.
@@ -553,7 +564,9 @@ class TimerThread(QThread):
         subscribe_to_data(
             SETTINGS_FILE, "detection_cadence", self.setUpdateFrameInterval
         )
-        self.preview_frame_interval = 1000
+        self.preview_frame_interval = PREVIEW_INTERVAL_MS
+        self.setSmoothPreview(fetch_data(SETTINGS_FILE, SMOOTH_PREVIEW_SETTING, False))
+        subscribe_to_data(SETTINGS_FILE, SMOOTH_PREVIEW_SETTING, self.setSmoothPreview)
         self.fps = 1000 / self.frame_interval  # frames per second
         self.pps = 1000 / self.preview_frame_interval  # previews per second
         self.ups = 1000 / max(self.update_frame_interval, 1)  # updates per second
@@ -585,6 +598,12 @@ class TimerThread(QThread):
         self.last_frame_timestamp = None
         self.last_update_timestamp = None
         self.last_emit_time = None
+        # Whether the viewer showed the last preview (previewShown): None until
+        # it first says so (no viewer, e.g. in tests: previews aren't held),
+        # then False from each preview until it is shown. The next preview
+        # waits for it, so that previews (whole frames, queued to the GUI
+        # thread) never pile up when the window can't keep up.
+        self._preview_shown: bool | None = None
         # the OCR's thread while the capture runs (None: OCR on the caller's)
         self._ocr_worker: OcrWorker | None = None
         # seconds from reading a frame to publishing its boxes' readings: the
@@ -613,6 +632,13 @@ class TimerThread(QThread):
 
     def setUpdateFrameInterval(self, cadence):
         self.update_frame_interval = cadence_to_interval_ms(cadence)
+
+    def setSmoothPreview(self, smooth):
+        """Refresh the preview up to 20 times a second (smooth) or about once
+        a second."""
+        self.preview_frame_interval = (
+            SMOOTH_PREVIEW_INTERVAL_MS if smooth is True else PREVIEW_INTERVAL_MS
+        )
 
     def start(self, *args, **kwargs):
         _active_threads.add(self)
@@ -646,6 +672,9 @@ class TimerThread(QThread):
         any thread."""
         unsubscribe_from_data(
             SETTINGS_FILE, "detection_cadence", self.setUpdateFrameInterval
+        )
+        unsubscribe_from_data(
+            SETTINGS_FILE, SMOOTH_PREVIEW_SETTING, self.setSmoothPreview
         )
         self.crop.close()
 
@@ -717,6 +746,16 @@ class TimerThread(QThread):
         if not math.isfinite(fps) or fps <= 0 or fps > 1000:
             return None
         return min(fps, 1000.0 / self.frame_interval)
+
+    def previewShown(self):
+        """The viewer showed the last preview (from the GUI thread): the next
+        one may be emitted."""
+        self._preview_shown = True
+
+    def _emit_preview(self, picture):
+        if self._preview_shown is not None:
+            self._preview_shown = False
+        self.update_signal.emit(picture)
 
     def requestPreview(self):
         """Emit the next frame as the preview, without waiting for the preview
@@ -840,9 +879,10 @@ class TimerThread(QThread):
 
     def process_frame(self, frame_rgb):
         """Process a frame read from the source: on the detection cadence read
-        its boxes (OCR), and about once a second emit it as the preview. The
-        two are independent, so the preview (and with it the first-frame signal
-        that enables the UI) comes at any detection cadence.
+        its boxes (OCR), and about once a second (up to 20 times with Smooth
+        preview) emit it as the preview. The two are independent, so the
+        preview (and with it the first-frame signal that enables the UI) comes
+        at any detection cadence.
 
         While the capture runs (run()), the OCR runs on its own thread
         (OcrWorker), so a slow OCR cycle never holds up reading frames: a live
@@ -875,7 +915,7 @@ class TimerThread(QThread):
             self.last_update_timestamp is None
             or (now - self.last_update_timestamp) * 1000.0 >= self.update_frame_interval
         ) and (worker is None or worker.idle())
-        preview_due = (
+        preview_due = self._preview_shown is not False and (
             self.last_emit_time is None
             or (now - self.last_emit_time) * 1000.0 >= self.preview_frame_interval
         )
@@ -920,10 +960,10 @@ class TimerThread(QThread):
             self.last_emit_time = now
             if self.preview_uncropped:
                 # a new crop is being dragged on the whole picture
-                self.update_signal.emit(self.rotate_frame(source))
+                self._emit_preview(self.rotate_frame(source))
             elif self.preview_uncorrected:
                 # new four-corner points are being picked on this picture
-                self.update_signal.emit(adjusted)
+                self._emit_preview(adjusted)
             elif show_binary:
                 if display is None:
                     if gray is None:
@@ -937,21 +977,21 @@ class TimerThread(QThread):
                         targets,
                         ppocr=bool(uses_ppocr and uses_ppocr()),
                     )
-                self.update_signal.emit(display)
+                self._emit_preview(display)
             else:
-                self.update_signal.emit(frame_rgb)
+                self._emit_preview(frame_rgb)
 
     def _preview_placeholder(self, picture, now):
         """Show a picture that isn't the source's (not rotated, cropped or
         corrected, and not read) about once per preview interval."""
         self.last_frame_timestamp = None
-        if (
+        if self._preview_shown is False or (
             self.last_emit_time is not None
             and (now - self.last_emit_time) * 1000.0 < self.preview_frame_interval
         ):
             return
         self.last_emit_time = now
-        self.update_signal.emit(picture)
+        self._emit_preview(picture)
 
     def latestRotatedFrame(self):
         """The last frame transformed, rotated only (the picture Drag to crop

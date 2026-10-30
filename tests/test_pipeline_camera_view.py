@@ -553,6 +553,30 @@ def test_the_statistics_overlay_follows_its_setting(running_viewer, qtbot):
     assert not running_viewer.osd.isVisible()
 
 
+def test_smooth_preview_refreshes_the_picture_many_times_a_second(
+    qtbot, memory_storage, capture_factory
+):
+    store_data("scoresight.json", "smooth_preview", True)
+    capture_factory(FrameCapture())
+    viewer = make_viewer(memory_storage)
+    try:
+        with qtbot.waitSignal(viewer.first_frame_received_signal, timeout=5000):
+            pass
+        shown = []
+        viewer.timerThread.update_signal.connect(shown.append)
+        qtbot.wait(1000)
+        # about 1 a second without it; the viewer says when each one arrived
+        assert len(shown) >= 5
+        assert viewer.timerThread._preview_shown is not None
+        store_data("scoresight.json", "smooth_preview", False)
+        qtbot.wait(100)
+        shown.clear()
+        qtbot.wait(1000)
+        assert len(shown) <= 2
+    finally:
+        viewer.close()
+
+
 def test_a_source_error_is_not_drawn_over_the_picture(running_viewer):
     errors = []
     running_viewer.error_signal.connect(errors.append)

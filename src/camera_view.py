@@ -203,6 +203,8 @@ class CameraView(QGraphicsView):
     def update_pixmap(self, frame):
         if self.timerThread is None:
             return
+        # the capture thread sends the next preview once this one has arrived
+        self.timerThread.previewShown()
 
         # check if frame is not contiguous
         if not frame.flags["C_CONTIGUOUS"]:

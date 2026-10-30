@@ -63,7 +63,7 @@ from box_settings_ui_handler import (
     changed_settings,
 )
 from camera_info import CameraInfo
-from camera_thread import crop_margins
+from camera_thread import SMOOTH_PREVIEW_SETTING, crop_margins
 from destinations_view import (
     KEY_ROLE,
     STATUS_ROLE,
@@ -3959,6 +3959,15 @@ class MainWindow(QMainWindow):
         ui.toolButton_osd.toggled.connect(self.toggleOSD)
         ui.actionStatsOverlay.toggled.connect(
             lambda checked: ui.toolButton_osd.setChecked(checked)
+        )
+        # View > Smooth preview: the capture thread follows the setting
+        ui.actionSmoothPreview.setChecked(
+            fetch_data("scoresight.json", SMOOTH_PREVIEW_SETTING, False) is True
+        )
+        ui.actionSmoothPreview.toggled.connect(
+            lambda checked: self.globalSettingsChanged(
+                SMOOTH_PREVIEW_SETTING, bool(checked)
+            )
         )
         # "400%": the readout doesn't change the row's width as it changes
         ui.label_zoom.setMinimumWidth(

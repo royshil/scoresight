@@ -4914,6 +4914,7 @@
     <addaction name="actionFitPicture"/>
     <addaction name="actionZoomIn"/>
     <addaction name="actionZoomOut"/>
+    <addaction name="actionSmoothPreview"/>
     <addaction name="actionStatsOverlay"/>
     <addaction name="actionShowUnusedFields"/>
     <addaction name="separator"/>
@@ -5155,6 +5156,20 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+-</string>
+   </property>
+  </action>
+  <action name="actionSmoothPreview">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Smooth preview</string>
+   </property>
+   <property name="toolTip">
+    <string>Refresh the picture up to 20 times a second instead of once a second, so it moves like video. Uses more CPU; the readings don't change</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionStatsOverlay">
