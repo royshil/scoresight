@@ -1034,7 +1034,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="94"/>
-        <location filename="../src/mainwindow.ui" line="5111"/>
+        <location filename="../src/mainwindow.ui" line="5112"/>
         <location filename="../src/mainwindow.py" line="2463"/>
         <source>Pause outputs</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
@@ -1446,37 +1446,37 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">表示</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4925"/>
+        <location filename="../src/mainwindow.ui" line="4926"/>
         <source>Tools</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ツール</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4972"/>
+        <location filename="../src/mainwindow.ui" line="4973"/>
         <source>Rename...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">名前を変更...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4980"/>
+        <location filename="../src/mainwindow.ui" line="4981"/>
         <source>Delete field...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">フィールドを削除...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4988"/>
+        <location filename="../src/mainwindow.ui" line="4989"/>
         <source>Reset settings to defaults</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">設定をデフォルトに戻す</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4993"/>
+        <location filename="../src/mainwindow.ui" line="4994"/>
         <source>Copy value</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">値をコピー</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5001"/>
+        <location filename="../src/mainwindow.ui" line="5002"/>
         <source>Zoom to box</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ボックスにズーム</translation>
@@ -1487,7 +1487,7 @@ Resolution: {width}×{height}</source>
         <translation type="obsolete">更新を確認</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5039"/>
+        <location filename="../src/mainwindow.ui" line="5040"/>
         <source>About</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ScoreSightについて</translation>
@@ -1518,14 +1518,14 @@ Resolution: {width}×{height}</source>
         <translation type="obsolete">OCR学習データの設定</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5130"/>
+        <location filename="../src/mainwindow.ui" line="5131"/>
         <source>Fit picture to window</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">映像をウィンドウに合わせる</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="574"/>
-        <location filename="../src/mainwindow.ui" line="5138"/>
+        <location filename="../src/mainwindow.ui" line="5139"/>
         <source>Reload sources</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ソースをリロード</translation>
@@ -1687,7 +1687,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="828"/>
-        <location filename="../src/mainwindow.py" line="4467"/>
+        <location filename="../src/mainwindow.py" line="4476"/>
         <source>Correct the perspective: click the 4 corners of the scoreboard</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">遠近を補正：スコアボードの4隅をクリックします</translation>
@@ -1782,7 +1782,7 @@ Resolution: {width}×{height}</source>
     <message>
         <location filename="../src/mainwindow.ui" line="1276"/>
         <location filename="../src/mainwindow.ui" line="1332"/>
-        <location filename="../src/mainwindow.py" line="4413"/>
+        <location filename="../src/mainwindow.py" line="4422"/>
         <source>Cancel</source>
         <translation type="unfinished">キャンセル</translation>
     </message>
@@ -2266,61 +2266,61 @@ Resolution: {width}×{height}</source>
         <translation type="obsolete">フィールドの最後の正常な値と同じ読み取り値を、新規（✓）ではなく変化なし（=、SameNoChange）として報告します。これによりvMixとUNOは変化のない値を再送信せず（「同じ値も送信？」がオンの場合を除く）、HTTPサーバーと送信APIはその値を変化なしとして示します。OBSとテキストファイルには、どちらの場合も値が変わったときにのみ送られます。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5184"/>
+        <location filename="../src/mainwindow.ui" line="5199"/>
         <source>Quit</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">終了</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5218"/>
+        <location filename="../src/mainwindow.ui" line="5233"/>
         <source>Setup layout</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">設定用レイアウト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5221"/>
+        <location filename="../src/mainwindow.ui" line="5236"/>
         <source>For placing and tuning the fields and setting up the outputs: the field list, the picture with its adjustments, and the inspector</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">フィールドの配置と調整、出力の設定用：フィールドリスト、映像とその調整、インスペクターを表示します</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5235"/>
+        <location filename="../src/mainwindow.ui" line="5250"/>
         <source>Live layout</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ライブ用レイアウト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5238"/>
+        <location filename="../src/mainwindow.ui" line="5253"/>
         <source>For the game: large readings and the state of every output next to the picture. The inspector and the picture adjustments are hidden; the reading and the outputs work the same.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">試合中用：映像の横に、大きな読み取り値とすべての出力の状態を表示します。インスペクターと映像の調整は非表示になりますが、読み取りと出力は同じように動作します。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5252"/>
+        <location filename="../src/mainwindow.ui" line="5267"/>
         <source>Show unused fields</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">未使用のフィールドを表示</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5255"/>
+        <location filename="../src/mainwindow.ui" line="5270"/>
         <source>Show the fields that aren&apos;t on the picture in the field list (remembered for each layout)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">映像に配置されていないフィールドをフィールドリストに表示します（レイアウトごとに記憶されます）</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5263"/>
+        <location filename="../src/mainwindow.ui" line="5278"/>
         <source>User guide</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ユーザーガイド</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5266"/>
+        <location filename="../src/mainwindow.ui" line="5281"/>
         <source>Open the ScoreSight documentation in your web browser</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ScoreSightのドキュメントをWebブラウザで開きます</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5277"/>
+        <location filename="../src/mainwindow.ui" line="5292"/>
         <source>Keyboard shortcuts</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">キーボードショートカット</translation>
@@ -2881,145 +2881,155 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">追加のリクエストヘッダー。1行に1つ「名前: 値」の形式で入力します（例：Authorizationトークン）</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4937"/>
+        <location filename="../src/mainwindow.ui" line="4938"/>
         <source>Help</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ヘルプ</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5006"/>
+        <location filename="../src/mainwindow.ui" line="5007"/>
         <location filename="../src/mainwindow.py" line="2806"/>
         <source>Hold value...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">値を固定...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5009"/>
+        <location filename="../src/mainwindow.ui" line="5010"/>
         <location filename="../src/mainwindow.py" line="2894"/>
         <source>Send a value you type to every output instead of this field&apos;s readings, until you release it</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">解除するまで、このフィールドの読み取り値の代わりに、入力した値をすべての出力に送信します</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5020"/>
+        <location filename="../src/mainwindow.ui" line="5021"/>
         <source>Release held value</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">固定を解除</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5023"/>
+        <location filename="../src/mainwindow.ui" line="5024"/>
         <source>Send this field&apos;s readings to the outputs again</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">このフィールドの読み取り値を再び出力に送信します</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5031"/>
+        <location filename="../src/mainwindow.ui" line="5032"/>
         <source>Check for updates...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">更新を確認...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5047"/>
+        <location filename="../src/mainwindow.ui" line="5048"/>
         <source>View log</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ログを表示</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5050"/>
+        <location filename="../src/mainwindow.ui" line="5051"/>
         <source>Show the log of this session as it is written</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">このセッションのログをリアルタイムで表示します</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5061"/>
+        <location filename="../src/mainwindow.ui" line="5062"/>
         <source>Import field layout...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">フィールド配置をインポート...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5064"/>
+        <location filename="../src/mainwindow.ui" line="5065"/>
         <source>Replace the fields on the picture (their boxes and settings) with the ones saved in a file. Formerly “Import Configuration”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">映像上のフィールド（ボックスと設定）を、ファイルに保存されたものに置き換えます。旧名称「設定をインポート」。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5075"/>
+        <location filename="../src/mainwindow.ui" line="5076"/>
         <source>Export field layout...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">フィールド配置をエクスポート...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5078"/>
+        <location filename="../src/mainwindow.ui" line="5079"/>
         <source>Save the fields on the picture (their boxes and settings) to a file. Formerly “Export Configuration”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">映像上のフィールド（ボックスと設定）をファイルに保存します。旧名称「設定をエクスポート」。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5089"/>
+        <location filename="../src/mainwindow.ui" line="5090"/>
         <source>Open settings folder</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">設定フォルダを開く</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5092"/>
+        <location filename="../src/mainwindow.ui" line="5093"/>
         <source>Open the folder with ScoreSight&apos;s settings file</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ScoreSightの設定ファイルがあるフォルダを開きます</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5100"/>
+        <location filename="../src/mainwindow.ui" line="5101"/>
         <source>OCR training data setup...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR学習データの設定...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5146"/>
+        <location filename="../src/mainwindow.ui" line="5147"/>
         <source>Zoom in</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">拡大</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5154"/>
+        <location filename="../src/mainwindow.ui" line="5155"/>
         <source>Zoom out</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">縮小</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5165"/>
+        <location filename="../src/mainwindow.ui" line="5166"/>
+        <source>Smooth preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="5169"/>
+        <source>Refresh the picture up to 20 times a second instead of once a second, so it moves like video. Uses more CPU; the readings don&apos;t change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="5180"/>
         <source>Statistics overlay</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">統計オーバーレイ</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5173"/>
+        <location filename="../src/mainwindow.ui" line="5188"/>
         <source>Collect OCR training data</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR学習データを収集</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5176"/>
+        <location filename="../src/mainwindow.ui" line="5191"/>
         <source>Save each box&apos;s picture and reading to the training data folder, for training an OCR model</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">各ボックスの画像と読み取り値を学習データフォルダに保存し、OCRモデルの学習に使います</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5201"/>
+        <location filename="../src/mainwindow.ui" line="5216"/>
         <source>Ask before closing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5204"/>
+        <location filename="../src/mainwindow.ui" line="5219"/>
         <source>Ask before closing ScoreSight while a source is open: closing stops the reading and the outputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5285"/>
+        <location filename="../src/mainwindow.ui" line="5300"/>
         <source>Ask a question or share feedback</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">質問・フィードバックを送る</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5288"/>
+        <location filename="../src/mainwindow.ui" line="5303"/>
         <source>Open ScoreSight&apos;s Discussions on GitHub in your web browser: ask a question, share an idea or show your setup</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">GitHub の ScoreSight Discussions を Web ブラウザーで開きます。質問、アイデアの共有、セットアップの紹介ができます</translation>
@@ -3139,7 +3149,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="521"/>
-        <location filename="../src/mainwindow.py" line="4224"/>
+        <location filename="../src/mainwindow.py" line="4233"/>
         <source>The video source: a camera, capture card or NDI source, a video file, a stream URL or a screen capture</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ビデオソース：カメラ、キャプチャカード、NDIソース、動画ファイル、ストリームURL、または画面キャプチャ</translation>
@@ -3288,7 +3298,7 @@ Resolution: {width}×{height}</source>
     <message>
         <location filename="../src/mainwindow.ui" line="110"/>
         <location filename="../src/mainwindow.ui" line="113"/>
-        <location filename="../src/mainwindow.ui" line="4954"/>
+        <location filename="../src/mainwindow.ui" line="4955"/>
         <source>New custom field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">新しいカスタムフィールド</translation>
@@ -3312,7 +3322,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="279"/>
-        <location filename="../src/mainwindow.ui" line="4962"/>
+        <location filename="../src/mainwindow.ui" line="4963"/>
         <source>Place on picture</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">映像に配置</translation>
@@ -3325,7 +3335,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="292"/>
-        <location filename="../src/mainwindow.ui" line="4967"/>
+        <location filename="../src/mainwindow.ui" line="4968"/>
         <location filename="../src/mainwindow.py" line="3004"/>
         <source>Remove from picture</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
@@ -3392,7 +3402,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="656"/>
-        <location filename="../src/mainwindow.ui" line="5122"/>
+        <location filename="../src/mainwindow.ui" line="5123"/>
         <source>Binary View</source>
         <translation>バイナリビュー</translation>
     </message>
@@ -3951,172 +3961,172 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">画面全体をキャプチャ</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4236"/>
+        <location filename="../src/mainwindow.py" line="4245"/>
         <source>Video settings: the resolution, frame rate and format of the camera or capture card</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ビデオ設定：カメラまたはキャプチャカードの解像度、フレームレート、フォーマット</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4242"/>
+        <location filename="../src/mainwindow.py" line="4251"/>
         <source>Video settings: only for cameras and capture cards</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ビデオ設定：カメラとキャプチャカード専用</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4408"/>
+        <location filename="../src/mainwindow.py" line="4417"/>
         <source>Redo corners…</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">4隅をやり直す…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4410"/>
+        <location filename="../src/mainwindow.py" line="4419"/>
         <source>Remove correction…</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">補正を解除…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4426"/>
+        <location filename="../src/mainwindow.py" line="4435"/>
         <source>Remove the 4-corner correction?</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">4隅補正を解除しますか？</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4427"/>
+        <location filename="../src/mainwindow.py" line="4436"/>
         <source>The picture will no longer be corrected. The boxes were placed on the corrected picture, so they may have to be moved.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">映像は補正されなくなります。ボックスは補正後の映像に配置されているため、移動が必要になる場合があります。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4455"/>
+        <location filename="../src/mainwindow.py" line="4464"/>
         <source>Picking the corners: click the 4 corners of the scoreboard. Click here or press Esc to cancel.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">隅を選択中：スコアボードの4隅をクリックしてください。キャンセルするには、ここをクリックするかEscキーを押します。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4461"/>
+        <location filename="../src/mainwindow.py" line="4470"/>
         <source>The perspective is corrected. Click to redo the corners or to remove the correction.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">遠近は補正済みです。クリックすると、4隅をやり直すか補正を解除できます。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4575"/>
+        <location filename="../src/mainwindow.py" line="4584"/>
         <source>Move the boxes?</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ボックスを移動しますか？</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4576"/>
+        <location filename="../src/mainwindow.py" line="4585"/>
         <source>Auto layout found {found}. Some of them have boxes on the picture already ({placed}): move those boxes to what it found?</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">自動配置で{found}が見つかりました。そのうち一部は既に映像上にボックスがあります（{placed}）。それらのボックスを検出した位置に移動しますか？</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4584"/>
+        <location filename="../src/mainwindow.py" line="4593"/>
         <source>Move them</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">移動する</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4588"/>
+        <location filename="../src/mainwindow.py" line="4597"/>
         <source>Keep them</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">そのままにする</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4607"/>
+        <location filename="../src/mainwindow.py" line="4616"/>
         <source>Reset the crop?</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">トリミングをリセットしますか？</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4608"/>
+        <location filename="../src/mainwindow.py" line="4617"/>
         <source>The whole picture will be read again, and the crop&apos;s values set to 0. The boxes move with it, so they stay over the same digits.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">映像全体が再び読み取られ、トリミングの値は 0 になります。ボックスも一緒に移動するため、同じ数字の上に残ります。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4614"/>
+        <location filename="../src/mainwindow.py" line="4623"/>
         <source>Reset crop</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">トリミングをリセット</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4661"/>
+        <location filename="../src/mainwindow.py" line="4670"/>
         <source>No camera found</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">カメラが見つかりません</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4714"/>
+        <location filename="../src/mainwindow.py" line="4723"/>
         <source>Step {number}: done</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ステップ{number}：完了</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4716"/>
+        <location filename="../src/mainwindow.py" line="4725"/>
         <source>Step {number}</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ステップ{number}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4926"/>
+        <location filename="../src/mainwindow.py" line="4935"/>
         <source>Rename field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">フィールド名を変更</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4932"/>
+        <location filename="../src/mainwindow.py" line="4941"/>
         <source>New name:</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">新しい名前：</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4944"/>
+        <location filename="../src/mainwindow.py" line="4953"/>
         <source>There is already a field named “{name}”. Choose another name.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">「{name}」という名前のフィールドは既にあります。別の名前を選んでください。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5072"/>
+        <location filename="../src/mainwindow.py" line="5081"/>
         <source>Created the scene “{name}” in OBS.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OBSにシーン「{name}」を作成しました。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5075"/>
+        <location filename="../src/mainwindow.py" line="5084"/>
         <source>Made the scene “{name}” again: its sources were replaced.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">シーン「{name}」を作り直しました。ソースは置き換えられました。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5079"/>
+        <location filename="../src/mainwindow.py" line="5088"/>
         <source>OBS already has a scene “{name}”: it was kept as it is. Tick Recreate to make it again.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OBSには既にシーン「{name}」があるため、そのまま残しました。作り直すには「再作成」にチェックを入れてください。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5084"/>
+        <location filename="../src/mainwindow.py" line="5093"/>
         <source>Couldn&apos;t create the scene “{name}”. Tools &gt; View log has the details.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">シーン「{name}」を作成できませんでした。詳細は「ツール &gt; ログを表示」で確認できます。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5127"/>
+        <location filename="../src/mainwindow.py" line="5136"/>
         <source>Close ScoreSight?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5131"/>
+        <location filename="../src/mainwindow.py" line="5140"/>
         <source>Reading stops, and vMix, OBS, the overlays and the other outputs are no longer updated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5138"/>
+        <location filename="../src/mainwindow.py" line="5147"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5144"/>
+        <location filename="../src/mainwindow.py" line="5153"/>
         <source>Don&apos;t ask again</source>
         <translation type="unfinished"></translation>
     </message>

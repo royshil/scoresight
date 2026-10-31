@@ -191,7 +191,7 @@ ScoreSight 0.1.x could read digits on an empty area, such as an unlit digit posi
 
 ([#20](https://github.com/royshil/scoresight/issues/20))
 
-- **Previews/s ≈ 1 is by design**: the preview refreshes once per second to save CPU. It doesn't affect readings.
+- **Previews/s ≈ 1 is by design**: the preview refreshes once per second to save CPU. It doesn't affect readings. For a picture that moves like video, turn on **View > Smooth preview** (up to 20 previews per second, at some CPU cost).
 - **Updates/s** follows the **Detections / s** slider (default 5, maximum 15). Raise the slider if you need more.
 - **Frames/s** is capped at about 33. Lower values mean the source delivers fewer frames or the CPU is busy with OCR. Reduce the number of boxes, crop the picture, enable **Skip Similar Image**, and lower the camera resolution.
 

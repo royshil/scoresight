@@ -156,7 +156,11 @@ Each box's **label** sits **below** the box, so it covers neither the digits nor
 |---|---|
 | **Frames/s** | How many frames per second ScoreSight reads from the source (capped at about 33). |
 | **Updates/s** | How many times per second the boxes are read. Follows the **Detections / s** slider (1–15, default 5). |
-| **Previews/s** | How often the preview picture is refreshed. This is about **1 per second on purpose**, at any Detections / s setting, to leave the CPU for OCR. It does not affect how fast values are read or sent. |
+| **Previews/s** | How often the preview picture is refreshed. This is about **1 per second on purpose**, at any Detections / s setting, to leave the CPU for OCR, or up to 20 with [Smooth preview](#smooth-preview). It does not affect how fast values are read or sent. |
 | **Resolution** | The resolution delivered by the source. |
 
 See [Performance Tuning](performance.md) for how to interpret and improve these numbers.
+
+## Smooth preview
+
+The picture in the viewer is refreshed about once a second, to leave the CPU for reading the boxes, so a running clock or a moving camera looks jumpy. **View** > **Smooth preview** refreshes it up to 20 times a second (15 for a 30 fps source, every other frame), so it moves like video. It uses more CPU, especially with a high-resolution source; the readings and what the outputs get don't change. It is off by default, and the choice is remembered.

@@ -3027,6 +3027,7 @@ def test_the_menus(main_window):
         "actionFitPicture",
         "actionZoomIn",
         "actionZoomOut",
+        "actionSmoothPreview",
         "actionStatsOverlay",
         "actionShowUnusedFields",
         "menuAppearance",
@@ -3055,6 +3056,7 @@ def test_the_menus(main_window):
         ui.actionSetupLayout,
         ui.actionLiveLayout,
         ui.actionShowUnusedFields,
+        ui.actionSmoothPreview,
         ui.actionUserGuide,
         ui.actionKeyboardShortcuts,
         ui.actionCommunity,
@@ -3864,6 +3866,16 @@ def test_the_statistics_overlay_stays_on_for_older_settings(make_window):
     window.close()
     # the choice is kept
     assert not make_window().ui.toolButton_osd.isChecked()
+
+
+def test_smooth_preview_is_off_by_default_and_remembered(make_window):
+    window = make_window()
+    action = window.ui.actionSmoothPreview
+    assert action.isCheckable() and not action.isChecked()
+    action.trigger()
+    assert fetch_data("scoresight.json", "smooth_preview") is True
+    window.close()
+    assert make_window().ui.actionSmoothPreview.isChecked()
 
 
 def test_collecting_training_data_is_a_tools_action_with_a_chip(

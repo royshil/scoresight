@@ -23,10 +23,12 @@ Turn on **Stats** (above the picture, or **View** > **Statistics overlay**) to s
 |---|---|---|
 | **Frames/s** | Frames read from the source per second. ScoreSight caps this at about 33. | 25–33 for a healthy camera or stream. Lower if the source is slower or the CPU is busy |
 | **Updates/s** | How many times per second all boxes are read. | Close to your **Detections / s** setting (1–15, default **5**) |
-| **Previews/s** | How often the preview picture in the viewer refreshes. | About **1**. This is intentional |
+| **Previews/s** | How often the preview picture in the viewer refreshes. | About **1**. This is intentional. With **View > Smooth preview**, up to 20 (15 for a 30 fps source) |
 
 {: .important }
 A low **Previews/s** is **not** a problem. The preview is refreshed about once per second, at any **Detections / s** setting, to save CPU for recognition. Readings are still taken and sent at the **Updates/s** rate. If your graphics update slowly, look at **Updates/s** and your output settings, not at the preview.
+
+If the jumpy picture bothers you, turn on **View > Smooth preview**: the picture then refreshes up to 20 times a second (every other frame of a 30 fps source), so a running clock moves like video. It costs CPU (each preview is a whole frame drawn in the window), more so with a high-resolution source, but the readings don't change. If the status bar's reading rate turns orange with it on, turn it off again. A preview is only sent once the window has shown the last one, so a slow computer gets fewer previews, never a growing delay.
 
 When a source opens, its first frame is shown and read right away, whatever the detection rate.
 

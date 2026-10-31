@@ -133,6 +133,70 @@ def test_preview_does_not_wait_for_the_ocr_cadence(make_thread, make_target):
     assert len(thread.previews) >= 5
 
 
+@pytest.mark.parametrize(
+    "fps, slowest, fastest", [(60, 15, 20), (30, 15, 15), (25, 12.5, 12.5)]
+)
+def test_smooth_preview_refreshes_up_to_20_times_a_second(
+    make_thread, make_target, fps, slowest, fastest
+):
+    store_data("scoresight.json", "smooth_preview", True)
+    thread = make_thread(cadence=5)
+    thread.detectionTargetsStorage.add_item(make_target("Home Score"))
+    run_frames(thread, 4, fps=fps)
+    # (at 60 fps, 3 frames may come to a hair under 50 ms, and it waits for a 4th)
+    assert 4 * slowest - 1 <= len(thread.previews) <= 4 * fastest + 1
+    assert slowest - 1 <= thread.pps <= fastest + 1
+    # the readings don't change
+    assert 3 * 5 <= len(thread.results) <= 4 * 5 + 1
+
+
+def test_smooth_preview_takes_every_other_frame_of_a_jittery_30_fps_source(
+    make_thread, make_target
+):
+    store_data("scoresight.json", "smooth_preview", True)
+    thread = make_thread()
+    frame = color_frame()
+    # frames 33.3 ms apart, give or take 4 ms
+    for i in range(4 * 30):
+        thread._clock.now = 1000.0 + i / 30 + (0.004 if i % 2 else -0.004)
+        thread.process_frame(frame)
+    assert len(thread.previews) == pytest.approx(4 * 15, abs=1)
+
+
+def test_smooth_preview_follows_the_setting(make_thread, make_target):
+    thread = make_thread(cadence=5)
+    thread.detectionTargetsStorage.add_item(make_target("Home Score"))
+    store_data("scoresight.json", "smooth_preview", True)
+    run_frames(thread, 2)
+    smooth = len(thread.previews)
+    assert smooth == pytest.approx(2 * 15, abs=1)
+    store_data("scoresight.json", "smooth_preview", False)
+    frame = color_frame()
+    for i in range(4 * 30):
+        thread._clock.now = 1002.0 + i / 30
+        thread.process_frame(frame)
+    # back to about once a second
+    assert len(thread.previews) - smooth == pytest.approx(4, abs=1)
+
+
+def test_a_preview_waits_until_the_viewer_showed_the_last_one(make_thread):
+    # previews are whole frames queued to the GUI thread: they mustn't pile up
+    # when the window can't keep up
+    store_data("scoresight.json", "smooth_preview", True)
+    thread = make_thread()
+    thread.previewShown()  # a viewer shows the previews
+    run_frames(thread, 1)
+    assert len(thread.previews) == 1
+    thread.previewShown()
+    thread._clock.now += 1 / 30
+    thread.process_frame(color_frame())
+    assert len(thread.previews) == 2
+    # the next one waits again
+    thread._clock.now += 1
+    thread.process_frame(color_frame())
+    assert len(thread.previews) == 2
+
+
 def test_long_gaps_are_measured_in_full(make_thread, make_target):
     # a gap of more than 1 s (e.g. slow OCR) must not wrap around to < 1 s
     thread = make_thread(cadence=1)
