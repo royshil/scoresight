@@ -10,8 +10,8 @@ Real scoreboard and clock crops cut from Open Images photos (CC BY), with TextOC
 
 | Engine:variant | Exact % | Digits % | CER % | Empty % | Post-filter exact % | ms single | ms batch | Load s |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| ppocr-app:accurate | 94.7 (93.4–95.8) | 95.7 | 3.0 (2.2–3.9) | 0.1 | 94.4 (93.0–95.5) | 12.4 / 13.8 | 11.0 / 11.9 | 1.5 |
-| ppocr-app:fast | 90.8 (89.0–92.2) | 91.8 | 5.8 (4.7–7.0) | 2.0 | 90.4 (88.7–91.9) | 3.3 / 3.9 | 2.3 / 2.6 | 0.044 |
+| ppocr-app:accurate | 94.7 (93.4–95.8) | 95.7 | 3.0 (2.2–3.9) | 0.1 | 94.7 (93.4–95.8) | 12.4 / 13.8 | 11.0 / 11.9 | 1.5 |
+| ppocr-app:fast | 90.8 (89.0–92.2) | 91.8 | 5.8 (4.7–7.0) | 2.0 | 90.8 (89.0–92.2) | 3.3 / 3.9 | 2.3 / 2.6 | 0.044 |
 
 ### By field type (exact %, 95% CI)
 
@@ -72,8 +72,8 @@ Real scoreboard fields (scores, clocks, shot clocks, periods, fouls ...) cut fro
 
 | Engine:variant | Exact % | Digits % | CER % | Empty % | Post-filter exact % | ms single | ms batch | Load s |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| ppocr-app:accurate | 94.8 (93.3–96.0) | 95.1 | 2.5 (1.8–3.3) | 0.5 | 93.3 (91.6–94.7) | 13.2 / 14.8 | 10.7 / 11.3 | 0.003 |
-| ppocr-app:fast | 88.1 (86.0–90.0) | 89.3 | 7.1 (5.9–8.5) | 1.9 | 86.7 (84.5–88.6) | 3.4 / 5.3 | 2.5 / 2.7 | 0.004 |
+| ppocr-app:accurate | 94.8 (93.3–96.0) | 95.1 | 2.5 (1.8–3.3) | 0.5 | 94.3 (92.8–95.6) | 13.2 / 14.8 | 10.7 / 11.3 | 0.003 |
+| ppocr-app:fast | 88.1 (86.0–90.0) | 89.3 | 7.1 (5.9–8.5) | 1.9 | 87.6 (85.5–89.5) | 3.4 / 5.3 | 2.5 / 2.7 | 0.004 |
 
 ### By field type (exact %, 95% CI)
 

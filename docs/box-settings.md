@@ -116,7 +116,7 @@ The **Format** list shows the preset whose expression is in the field under it, 
 |---|---|---|
 | Time mm:ss.d | `mm:ss` or `ss.d` (expression below) | Time |
 | Time mm:ss or ss:d | `mm:ss`, or `ss:d` or `ss.d` (expression below) | |
-| Time mm:ss | `^[0-5]?\d:[0-5]\d$` | |
+| Time mm:ss | `^\d{1,3}:[0-5]\d$` | |
 | Time ss.d | `^[0-5]?\d\.\d$` | |
 | Time 0-59 | `^[0-5]?\d$` | |
 | Shotclock 0-39 | `^[0-3]?\d$` | Shot Clock |
@@ -131,13 +131,15 @@ The **Format** list shows the preset whose expression is in the field under it, 
 The *Time mm:ss.d* expression is:
 
 ```
-^(?:(?:[0-5]?\d:[0-5]\d)|(?:[0-5]?\d\.\d))$
+^(?:(?:\d{1,3}:[0-5]\d)|(?:[0-5]?\d\.\d))$
 ```
+
+The minutes of the `mm:ss` presets take up to three digits, so clocks that count up past an hour work: a soccer clock's `60:00` to `90:00` and extra time. Up to ScoreSight 0.4.2 they took minutes 0–59, and a soccer clock stopped at `59:59` in the outputs; boxes that use those presets are updated when you open the new version.
 
 Some boards show the tenths after a **colon** below a minute: `1:00`, then `59:8`, `59:7`... *Time mm:ss.d* rejects those readings (yellow), so the clock stops at `1:00` in the outputs. Choose **Time mm:ss or ss:d** for such a board: one digit after the colon is tenths (a minutes clock always shows two), and the readings are sent as the board shows them. Its expression is:
 
 ```
-^(?:(?:[0-5]?\d:[0-5]\d)|(?:[0-5]?\d[.:]\d))$
+^(?:(?:\d{1,3}:[0-5]\d)|(?:[0-5]?\d[.:]\d))$
 ```
 
 It isn't the default, because with Tesseract a digit of a clock is sometimes missed (`12:04` read as `12:0`): *Time mm:ss.d* rejects that misread, *Time mm:ss or ss:d* would send it. With PP-OCR this is rare. A [sport](game.md) reads `59:8` as 59.8 seconds.

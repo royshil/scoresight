@@ -1318,7 +1318,10 @@ def test_a_shot_clock_saved_by_0_3_0_shows_its_preset(make_window):
     window.itemSelected("Shot Clock")
     assert window.ui.comboBox_formatPrefix.currentText() == "Shotclock 0-39"
     assert window.ui.lineEdit_format.text() == format_prefixes[5]
-    assert fetch_data("scoresight.json", storage.BOXES_SCHEMA_KEY) == 3
+    assert (
+        fetch_data("scoresight.json", storage.BOXES_SCHEMA_KEY)
+        == storage.BOXES_SCHEMA_VERSION
+    )
 
 
 def test_insert_field_into_a_template(main_window, make_target):

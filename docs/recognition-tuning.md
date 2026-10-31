@@ -88,7 +88,7 @@ Even a good picture produces an occasional wrong reading, for example while digi
   | Preset | Accepts |
   |---|---|
   | Time mm:ss.d | `12:34` or `9.5` (clocks that switch to tenths in the last minute) |
-  | Time mm:ss | `12:34`, `0:59` |
+  | Time mm:ss | `12:34`, `0:59`, `90:00` |
   | Time ss.d | `9.5`, `45.1` |
   | Time 0-59 | `0` to `59`, with or without a leading zero (`7` or `07`) |
   | Shotclock 0-39 | `0` to `39`, with or without a leading zero (`7` or `07`) |

@@ -112,7 +112,7 @@ ENGINE_LOG_LINES = {
 }
 # logged when PP-OCR couldn't load and Tesseract reads instead
 PPOCR_FALLBACK_LOG_LINE = "reading the boxes with Tesseract"
-BOXES_SCHEMA_VERSION = 3  # storage.BOXES_SCHEMA_VERSION
+BOXES_SCHEMA_VERSION = 4  # storage.BOXES_SCHEMA_VERSION
 FINAL_HOLD_SECONDS = 8
 
 
