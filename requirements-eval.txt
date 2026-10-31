@@ -35,7 +35,7 @@ winrt-Windows.Foundation.Collections==3.2.1 ; sys_platform == "win32"
 winrt-Windows.Globalization==3.2.1 ; sys_platform == "win32"
 winrt-Windows.Graphics.Imaging==3.2.1 ; sys_platform == "win32"
 winrt-Windows.Media.Ocr==3.2.1 ; sys_platform == "win32"
-winrt-Windows.Storage.Streams==3.2.1 ; sys_platform == "win32"
+winrt-Windows.Storage.Streams==4!10.0.28000.2705 ; sys_platform == "win32"
 
 # --- Apple Vision and Live Text through ocrmac (engines/apple_vision.py) ---
 ocrmac==1.0.1 ; sys_platform == "darwin"
