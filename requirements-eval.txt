@@ -30,7 +30,7 @@ onnxtr[cpu-headless]==0.9.0
 # --- Windows OCR, Windows.Media.Ocr through pywinrt (engines/windows_ocr.py) ---
 # Also needs Windows' en-US OCR language pack.
 winrt-runtime==3.2.1 ; sys_platform == "win32"
-winrt-Windows.Foundation==3.2.1 ; sys_platform == "win32"
+winrt-Windows.Foundation==4!10.0.28000.2705 ; sys_platform == "win32"
 winrt-Windows.Foundation.Collections==3.2.1 ; sys_platform == "win32"
 winrt-Windows.Globalization==3.2.1 ; sys_platform == "win32"
 winrt-Windows.Graphics.Imaging==3.2.1 ; sys_platform == "win32"
