@@ -1,9 +1,9 @@
 # Development dependencies: runtime + test and lint tooling.
 # Also install the platform extras (requirements-win.txt / requirements-mac.txt).
 -r requirements.txt
-pytest==9.1.1
+pytest==9.2.0
 pytest-qt==4.5.0
-ruff==0.17.1
+ruff==0.17.3
 pre-commit==4.7.0
 # scripts/fetch_models.py reads the PP-OCR models' inference.yml (the tests read YAML too)
 PyYAML==6.0.3
