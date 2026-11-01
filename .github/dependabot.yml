@@ -13,6 +13,10 @@ updates:
     open-pull-requests-limit: 5
     labels: [dependencies]
     groups:
+      # requirements-eval.txt's pywinrt projections require each other at the
+      # same version: they can only move together
+      pywinrt:
+        patterns: ["winrt-*"]
       python-minor-and-patch:
         update-types: [minor, patch]
     ignore:

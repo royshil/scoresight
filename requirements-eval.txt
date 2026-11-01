@@ -29,13 +29,13 @@ onnxtr[cpu-headless]==0.9.0
 
 # --- Windows OCR, Windows.Media.Ocr through pywinrt (engines/windows_ocr.py) ---
 # Also needs Windows' en-US OCR language pack.
-winrt-runtime==3.2.1 ; sys_platform == "win32"
-winrt-Windows.Foundation==3.2.1 ; sys_platform == "win32"
-winrt-Windows.Foundation.Collections==3.2.1 ; sys_platform == "win32"
-winrt-Windows.Globalization==3.2.1 ; sys_platform == "win32"
-winrt-Windows.Graphics.Imaging==3.2.1 ; sys_platform == "win32"
-winrt-Windows.Media.Ocr==3.2.1 ; sys_platform == "win32"
-winrt-Windows.Storage.Streams==3.2.1 ; sys_platform == "win32"
+winrt-runtime==4.1.0 ; sys_platform == "win32"
+winrt-Windows.Foundation==4!10.0.28000.2957 ; sys_platform == "win32"
+winrt-Windows.Foundation.Collections==4!10.0.28000.2957 ; sys_platform == "win32"
+winrt-Windows.Globalization==4!10.0.28000.2957 ; sys_platform == "win32"
+winrt-Windows.Graphics.Imaging==4!10.0.28000.2957 ; sys_platform == "win32"
+winrt-Windows.Media.Ocr==4!10.0.28000.2957 ; sys_platform == "win32"
+winrt-Windows.Storage.Streams==4!10.0.28000.2957 ; sys_platform == "win32"
 
 # --- Apple Vision and Live Text through ocrmac (engines/apple_vision.py) ---
 ocrmac==1.0.1 ; sys_platform == "darwin"
