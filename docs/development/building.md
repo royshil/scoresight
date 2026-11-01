@@ -28,7 +28,7 @@ description: "Set up a ScoreSight development environment with uv and Python 3.1
 
 | File | Contents |
 |---|---|
-| `requirements.txt` | Runtime dependencies for all platforms (with environment markers), including onnxruntime for PP-OCR: 1.31.0, and 1.23.2 on macOS x86_64 (the last release with Intel Mac wheels, CPython 3.10–3.13) |
+| `requirements.txt` | Runtime dependencies for all platforms (with environment markers), including onnxruntime for PP-OCR: 1.31.1, and 1.23.2 on macOS x86_64 (the last release with Intel Mac wheels, CPython 3.10–3.13) |
 | `requirements-win.txt` | Windows extras, including the prebuilt Windows `tesserocr` wheel |
 | `requirements-mac.txt` | macOS extras (PyObjC frameworks for camera enumeration and screen capture) |
 | `requirements-dev.txt` | `-r requirements.txt` plus pytest, pytest-qt, ruff, pre-commit and PyYAML (for `scripts/fetch_models.py`) |

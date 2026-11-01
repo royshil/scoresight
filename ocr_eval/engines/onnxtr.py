@@ -53,7 +53,7 @@ from ocr_eval._src import isolate_app_state
 from ocr_eval.engines import Engine, EngineUnavailable, Recognition
 from ocr_eval.fields import FIELD_TYPES, box_settings, whitelist
 
-REQUIREMENTS: list[str] = ["onnxtr[cpu-headless]==0.9.0", "onnxruntime==1.31.0"]
+REQUIREMENTS: list[str] = ["onnxtr[cpu-headless]==0.9.0", "onnxruntime==1.31.1"]
 
 THREADS_ENV = "OCR_EVAL_ONNX_THREADS"
 
