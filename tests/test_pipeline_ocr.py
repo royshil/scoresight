@@ -446,6 +446,50 @@ def test_shot_clock_reads_its_last_ten_seconds(detector, make_target):
     }
 
 
+@pytest.mark.parametrize(
+    "text, last_text, expected",
+    [
+        ("236", "2:38", "2:36"),
+        ("1204", "12:05", "12:04"),
+        ("9000", "89:59", "90:00"),
+        ("225", "23.6", "22.5"),  # tenths: one digit after the dot
+        ("597", "59:8", "59:7"),  # tenths after a colon
+        ("59", "1:00", None),  # no digit left before the colon
+        ("236", None, None),  # no good reading yet: no guess
+        ("236", "", None),  # cleared
+        ("236", "24", None),  # the last good reading has no separator
+        ("2:36", "2:38", None),  # not only digits
+        ("2a36", "2:38", None),
+        ("", "2:38", None),
+    ],
+)
+def test_restore_separator(text, last_text, expected):
+    assert tesseract.restore_separator(text, last_text) == expected
+
+
+def test_a_clock_read_without_its_colon_gets_it_back(detector, make_target):
+    # A board that lights a third dot in its colon when the clock stops reads
+    # as 236 (discussion #167): the separator of the box's last good reading
+    # is put back where it was, if the box's format then takes the reading.
+    gray, rect = digits_frame()
+    box = make_target("Time", rect=rect)  # Time mm:ss.d
+
+    def read(text, last_text):
+        box.last_text = last_text
+        detector.api.text = text
+        [result] = detector.detect_multi_text(binarize(gray), gray, [box])
+        return result.text, result.state
+
+    assert read("236", "2:38") == ("2:36", SUCCESS)
+    assert read("225", "23.6") == ("22.5", SUCCESS)
+    # 236 could be 2:36 or 23.6: without a good reading, it isn't guessed
+    assert read("236", None) == ("236", FAILED)
+    # restored, it must still match the format: 5:96 isn't a time
+    assert read("596", "1:00") == ("596", FAILED)
+    # a reading that matches the format is left alone
+    assert read("2:35", "2:38") == ("2:35", SUCCESS)
+
+
 def test_one_failing_box_does_not_stop_the_others(detector, make_target):
     gray, rect = digits_frame()
     broken = make_target("Home Score", rect=rect)

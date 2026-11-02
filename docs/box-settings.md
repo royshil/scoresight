@@ -73,7 +73,7 @@ With a **Tesseract** model, for each box, on every detection cycle, ScoreSight:
 9. crops to the text (*Crop to text*),
 10. scales it (*Resize to 35 px*, *Normalize digit width*),
 11. counts lights (*Count lights*) **or** runs OCR with the character set of the *Type*,
-12. checks the raw text against the *Format* and the *Minimum confidence*,
+12. checks the raw text against the *Format* (putting back a clock's [missing colon](#missing-colon) first) and the *Minimum confidence*,
 13. applies *Smooth over last 5 readings* (to accepted readings only), *Remove leading zeros* and *Add ordinal suffix*,
 14. marks the reading `Empty` if no text is left, or `SameNoChange` if it equals the box's last good reading and **Update on change** is on.
 
@@ -143,6 +143,8 @@ Some boards show the tenths after a **colon** below a minute: `1:00`, then `59:8
 ```
 
 It isn't the default, because with Tesseract a digit of a clock is sometimes missed (`12:04` read as `12:0`): *Time mm:ss.d* rejects that misread, *Time mm:ss or ss:d* would send it. With PP-OCR this is rare. A [sport](game.md) reads `59:8` as 59.8 seconds.
+
+**A missing colon.**{: #missing-colon } Sometimes a clock's colon (or dot) isn't read: some boards light a third dot in the colon while the clock is stopped, and the OCR then reads `2:36` as `236`. When a reading is only digits and fails the *Format*, ScoreSight puts back the separator of the box's last good reading, at the same place from the end: after `2:38`, `236` is read as `2:36`; after `23.6`, `225` as `22.5`. The reading is accepted only if it then matches the *Format*. A box with no good reading yet gets no guess (`236` could be `2:36` or `23.6`), so its reading is rejected as before.
 
 **Use**: always. A tight format is the most effective protection against wrong values reaching your graphics. Examples of custom formats: `^[0-3]?\d$` (shot clock with or without a leading zero), `^(1[0-2]|[1-9]):[0-5]\d$` (12-minute quarters), `^[0-4]$` (downs).
 
