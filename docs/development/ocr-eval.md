@@ -325,7 +325,7 @@ from ocr_eval.engines import Engine, EngineUnavailable, Recognition
 # pip requirements beyond ScoreSight's requirements.txt (shown by
 # `python -m ocr_eval requirements my-engine` and in unavailable reasons;
 # also add them to requirements-eval.txt)
-REQUIREMENTS = ["some-ocr-package==1.2.3", "onnxruntime==1.31.0"]
+REQUIREMENTS = ["some-ocr-package==1.2.3", "onnxruntime==1.31.1"]
 
 
 class MyEngine(Engine):

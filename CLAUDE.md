@@ -6,7 +6,7 @@ ScoreSight is a PySide6 (Qt6) desktop app that runs real-time OCR (PaddleOCR's P
 
 ## Setup and commands
 
-Python **3.13**. Dependencies are pinned exactly in requirements files: `requirements.txt` (runtime, with env markers), `requirements-win.txt` / `requirements-mac.txt` (platform extras), `requirements-build.txt` (PyInstaller, setuptools, pybind11, PyYAML), `requirements-dev.txt` (runtime + pytest, pytest-qt, ruff, pre-commit, PyYAML) and `requirements-tools.txt` (the standalone `scripts/*.py` tools; they need GUI OpenCV, so use a separate venv). `tesserocr` comes from PyPI on macOS/Linux (wheels bundle Tesseract) and from a pinned `simonflueckiger/tesserocr-windows_build` wheel URL on Windows. `onnxruntime` is 1.31.0, and 1.23.2 on macOS x86_64 (the last release with Intel Mac wheels; same predictions).
+Python **3.13**. Dependencies are pinned exactly in requirements files: `requirements.txt` (runtime, with env markers), `requirements-win.txt` / `requirements-mac.txt` (platform extras), `requirements-build.txt` (PyInstaller, setuptools, pybind11, PyYAML), `requirements-dev.txt` (runtime + pytest, pytest-qt, ruff, pre-commit, PyYAML) and `requirements-tools.txt` (the standalone `scripts/*.py` tools; they need GUI OpenCV, so use a separate venv). `tesserocr` comes from PyPI on macOS/Linux (wheels bundle Tesseract) and from a pinned `simonflueckiger/tesserocr-windows_build` wheel URL on Windows. `onnxruntime` is 1.31.1, and 1.23.2 on macOS x86_64 (the last release with Intel Mac wheels; same predictions).
 
 ```sh
 uv python install 3.13

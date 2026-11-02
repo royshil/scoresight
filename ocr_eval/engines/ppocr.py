@@ -63,7 +63,7 @@ from ocr_eval.fields import box_settings, whitelist
 # huggingface_hub 1.x: OnnxTR 0.9.0 requires < 2, and requirements-eval.txt
 # installs every engine's extras together
 REQUIREMENTS: list[str] = [
-    "onnxruntime==1.31.0",
+    "onnxruntime==1.31.1",
     "huggingface_hub==1.33.0",
     "PyYAML==6.0.3",
 ]
