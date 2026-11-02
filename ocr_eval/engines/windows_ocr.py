@@ -15,11 +15,12 @@ The engine returns lines of words with their boxes and no confidence, so every
 prediction's confidence is None. Variants combine a preprocessing (raw, upscale
 or tile) with an optional -digits suffix; see _os_ocr.py.
 
-pywinrt 3.2.1 ships its own msvcp140.dll (14.29, Visual Studio 2019). Loaded
+pywinrt 3.x shipped its own msvcp140.dll (14.29, Visual Studio 2019). Loaded
 first, it is what every later extension gets, and code built with Visual Studio
 2022 17.10 or later crashes with it: running Tesseract after Windows OCR in one
-process ended in an access violation. So before importing pywinrt the adapter
-loads System32's msvcp140.dll (the Visual C++ redistributable's), which later
+process ended in an access violation. pywinrt 4 ships none, but an older
+install may still have it, so before importing pywinrt the adapter loads
+System32's msvcp140.dll (the Visual C++ redistributable's), which later
 imports then share (_load_system_msvcp140).
 """
 
@@ -35,13 +36,13 @@ from ocr_eval.engines import Engine, EngineUnavailable, _os_ocr
 
 # The pywinrt projections winocr 0.0.15 depends on (it doesn't pin them).
 REQUIREMENTS: list[str] = [
-    "winrt-runtime==3.2.1",
-    "winrt-Windows.Foundation==3.2.1",
-    "winrt-Windows.Foundation.Collections==3.2.1",
-    "winrt-Windows.Globalization==3.2.1",
-    "winrt-Windows.Graphics.Imaging==3.2.1",
-    "winrt-Windows.Media.Ocr==3.2.1",
-    "winrt-Windows.Storage.Streams==3.2.1",
+    "winrt-runtime==4.1.0",
+    "winrt-Windows.Foundation==4!10.0.28000.2957",
+    "winrt-Windows.Foundation.Collections==4!10.0.28000.2957",
+    "winrt-Windows.Globalization==4!10.0.28000.2957",
+    "winrt-Windows.Graphics.Imaging==4!10.0.28000.2957",
+    "winrt-Windows.Media.Ocr==4!10.0.28000.2957",
+    "winrt-Windows.Storage.Streams==4!10.0.28000.2957",
 ]
 
 LANGUAGE = "en-US"
