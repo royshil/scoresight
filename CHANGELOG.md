@@ -8,6 +8,12 @@ Release tags are the bare version number (for example `0.1.0`).
 
 ## [Unreleased]
 
+## [0.4.3] - 2026-11-01
+
+A phone as the camera, a smoother preview, and clock fixes from the
+Discussions: soccer clocks past 59 minutes, and clocks whose colon isn't
+read while they're stopped.
+
 ### Added
 
 - **Phone camera.** A new source: an iPhone or Android phone sends its camera to ScoreSight over Wi-Fi, from its browser, with no app to install. Choose **Phone camera** in the Source list and scan the QR code the picture shows. ScoreSight serves the phone's page over HTTPS (phone browsers open the camera only on a secure page) on the port after the HTTP server's, with a certificate of its own, so the phone warns once that the connection isn't private. The phone sends a picture per detection; while none comes, the boxes aren't read ([Video Sources: Phone camera](https://royshil.github.io/scoresight/sources.html#phone-camera)).
@@ -1140,7 +1146,8 @@ end to end on every platform before it ships. Highlights:
 
 - First open-source release of ScoreSight.
 
-[Unreleased]: https://github.com/royshil/scoresight/compare/0.4.2...HEAD
+[Unreleased]: https://github.com/royshil/scoresight/compare/0.4.3...HEAD
+[0.4.3]: https://github.com/royshil/scoresight/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/royshil/scoresight/compare/0.4.1...0.4.2
 [0.4.1]: https://github.com/royshil/scoresight/compare/0.4.0...0.4.1
 [0.4.0]: https://github.com/royshil/scoresight/compare/0.3.4...0.4.0
