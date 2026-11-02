@@ -100,6 +100,28 @@ def add_ordinal_indicator(text):
         return text + "th"
 
 
+# a reading with one separator: the digits before and after it (2:38, 23.6)
+_SEPARATED_READING = re.compile(r"[0-9]+([:.])([0-9]+)")
+
+
+def restore_separator(text, last_text):
+    """The reading with the separator of the box's last good reading put back
+    at the same place from the end, for a clock whose colon or dot wasn't read
+    (a board that lights a third dot in its colon when the clock stops reads
+    as 236): 2:38, then 236 -> 2:36; 23.6, then 225 -> 22.5. None when text
+    isn't only digits, the last good reading has no separator, or the digits
+    are too few for it."""
+    if not text or not last_text or not re.fullmatch(r"[0-9]+", text):
+        return None
+    match = _SEPARATED_READING.fullmatch(last_text)
+    if match is None:
+        return None
+    after = len(match.group(2))
+    if len(text) <= after:
+        return None
+    return f"{text[:-after]}{match.group(1)}{text[-after:]}"
+
+
 def is_valid_regex(pattern):
     try:
         re.compile(pattern)
@@ -940,6 +962,7 @@ class TextDetector:
         wh_ratios=None,
     ):
         """The box's post-filters on a reading of either engine: its format
+        (with the separator of its last good reading restored, if missing)
         and confidence threshold (confidence in percent, None if unknown),
         then smoothing, leading zeros and the ordinal suffix. skip_patch is
         remembered as the box's image (skip_similar_image) if the reading is
@@ -950,7 +973,13 @@ class TextDetector:
         if format_regex is not None and is_valid_regex(format_regex):
             # check the text matches the regex fully
             if not re.fullmatch(format_regex, text):
-                textstate = ResultState.FailedFilter
+                # a clock read without its colon (or dot): the separator of the
+                # box's last good reading, if the format then takes it
+                restored = restore_separator(text, getattr(rect, "last_text", None))
+                if restored is not None and re.fullmatch(format_regex, restored):
+                    text = restored
+                else:
+                    textstate = ResultState.FailedFilter
         if confidence is not None and text != "":
             # the read's confidence in percent, for tools (e.g. ocr_eval)
             extras["confidence"] = confidence
