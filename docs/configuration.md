@@ -133,7 +133,7 @@ You normally never edit this file: everything is set through the UI. This list h
 | `ocr_model` | `"ppocr:auto"` PP-OCR (automatic), `"ppocr:small"` PP-OCR (accurate), `"ppocr:tiny"` PP-OCR (fast), `0` Tesseract: Daktronics, `1` Tesseract: General Scoreboard, `2` Tesseract: General Fonts (English), `3` Tesseract: General Scoreboard Large, or the path of an external `.traineddata` file. Absent in a new setup: PP-OCR (automatic), stored when the first source opens (the Tesseract values are those of earlier versions, so an older setup keeps its model) |
 | `detection_cadence` | Detections / s: 1–15 from the slider. Values down to `0.1` are accepted when set in the file (see [Performance Tuning](performance.md#how-fast-do-you-need-to-be)) |
 | `update_on_change` | Update on change on/off |
-| `sport` | The [sport](game.md) whose game ScoreSight follows: `none` (the default), `basketball`, `basketball_halves`, `soccer`, `futsal`, `hockey`, `football`, `volleyball` or `racing` (Racing (laps)) |
+| `sport` | The [sport](game.md) whose game ScoreSight follows: `none` (the default), `basketball`, `basketball_halves`, `soccer`, `futsal`, `handball`, `hockey`, `football`, `volleyball` or `racing` (Racing (laps)) |
 
 ### Outputs
 

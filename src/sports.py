@@ -262,6 +262,19 @@ FUTSAL = SportProfile(
     period_prefix="H",
     clock_counts_down=True,
 )
+# two halves of 30 minutes with the clock counting up (most boards: 0-30,
+# then 30-60), goals one at a time, team timeouts (3 a game); extra time is
+# two halves of 5 minutes. The 2-minute suspensions aren't followed: a board
+# shows them as lights or as players' timers, not as one value per team.
+HANDBALL = SportProfile(
+    "handball",
+    "Handball",
+    (HOME_SCORE, AWAY_SCORE, CLOCK, PERIOD, HOME_TIMEOUTS, AWAY_TIMEOUTS),
+    frozenset({1}),
+    periods=2,
+    period_prefix="H",
+    clock_counts_down=False,
+)
 HOCKEY = SportProfile(
     "hockey",
     "Ice hockey",
@@ -310,6 +323,7 @@ PROFILES: dict[str, SportProfile] = {
         BASKETBALL_HALVES,
         SOCCER,
         FUTSAL,
+        HANDBALL,
         HOCKEY,
         FOOTBALL,
         VOLLEYBALL,
