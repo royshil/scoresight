@@ -114,5 +114,5 @@ Workflows: `ci.yml` (lint incl. `compile_ui.py --check`, `update_translations.py
 
 - `scripts/*.py`: standalone tkinter/OpenCV tools for cropping and annotating OCR training data. They're not part of the app (see `docs/data_annotation.md`). `scripts/ci/` holds the version helper and the smoke test used by the workflows.
 - `obs_data/`: the OBS scene collection and images used by "Create OBS Scene".
-- `brand/`: the logo, drawn by `scoresight_brand.py`. `python brand/make_assets.py` writes the app icons (`icons/scoresight.ico`, `icons/scoresight-macos.png`), the splash screen, the docs logo, the favicon and the social preview from it. Don't edit those files by hand.
+- `brand/`: the logo, drawn by `scoresight_brand.py`. `python brand/make_assets.py` writes the app icons (`icons/scoresight.ico`, `icons/scoresight-macos.png`), the splash screen, the docs logo, the favicon and the social preview from it. Don't edit those files by hand. `brand/release_post.py` draws a release's square social image (the `release-post` skill in `.claude/skills/`).
 - `docs/`: the user guide (Jekyll site) and `docs/development/`.

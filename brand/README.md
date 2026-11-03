@@ -25,3 +25,5 @@ Everything is drawn by `scoresight_brand.py` (QPainter), so every file comes fro
 | `brand/logo/` | The masters: the mark and the lockups as SVG, and the mark as PNG from 16 to 1024 px |
 
 When you change the logo, change `scoresight_brand.py` and run `make_assets.py` again. The tutorial videos (`tutorials/`) use the same module.
+
+**Release posts.** `python brand/release_post.py --version X.Y.Z --tagline "..." --item "Title" "Line"` (four `--item`) `-o post.png` draws a release's square (1080×1080) image for social media in the same style every time: the logo, NEW RELEASE, the version, a tagline and four items. The project skill `.claude/skills/release-post/` explains how to write the copy. The images aren't kept in the repository.
