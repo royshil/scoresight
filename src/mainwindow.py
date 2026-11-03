@@ -60,7 +60,6 @@ from box_settings_ui_handler import (
     PLACED,
     TEMPLATE,
     BoxSettingsUIHandler,
-    changed_settings,
 )
 from camera_info import CameraInfo
 from camera_thread import SMOOTH_PREVIEW_SETTING, crop_margins
@@ -147,6 +146,10 @@ from storage import (
     rename_custom_box_name_in_storage,
     remove_custom_box_name_in_storage,
     fetch_custom_box_names,
+    forget_removed_box_settings,
+    keep_removed_box_settings,
+    rename_removed_box_settings,
+    take_removed_box_settings,
 )
 from obs_websocket import (
     SCENE_CREATED,
@@ -1714,8 +1717,21 @@ class MainWindow(QMainWindow):
         )
         if not file:
             return
+        replaced = [
+            (box.name, box.settings)
+            for box in self.detectionTargetsStorage.get_data()
+            if not (box.settings or {}).get("templatefield")
+        ]
         # load the configuration from the file
-        if not self.detectionTargetsStorage.loadBoxesFromFile(file):
+        if self.detectionTargetsStorage.loadBoxesFromFile(file):
+            # the fields the file doesn't place keep their settings, as if
+            # removed from the picture; the ones it places have the file's
+            for name, settings in replaced:
+                if self.detectionTargetsStorage.find_item_by_name(name) is None:
+                    keep_removed_box_settings(name, settings)
+            for box in self.detectionTargetsStorage.get_data():
+                forget_removed_box_settings(box.name)
+        else:
             # show an error qmessagebox
             logger.error("Error loading configuration file")
             QMessageBox.critical(
@@ -1724,7 +1740,6 @@ class MainWindow(QMainWindow):
                 "Error loading configuration file",
                 QMessageBox.StandardButton.Ok,
             )
-            return
 
     def exportConfiguration(self):
         # open a file dialog to select the output file
@@ -2993,22 +3008,10 @@ class MainWindow(QMainWindow):
         self.placeFieldBox(name, self.defaultBoxRect(name, center))
 
     def removeFromPicture(self):
-        """Remove from picture, after asking when the box's settings (which are
-        lost) differ from the defaults."""
+        """Remove from picture: nothing is lost (the field's settings are kept
+        for the next time it is placed), so it doesn't ask."""
         item = self.currentFieldItem()
         if item is None or item.data(Qt.ItemDataRole.UserRole) != PLACED:
-            return
-        box = self.detectionTargetsStorage.find_item_by_name(item.text())
-        changed = changed_settings(box.settings, box.name) if box is not None else []
-        if changed and not self.confirm(
-            QCoreApplication.translate("MainWindow", "Remove from picture"),
-            QCoreApplication.translate(
-                "MainWindow",
-                "Remove “{name}” from the picture? Its settings go back to the "
-                "defaults, so the settings you changed are lost.",
-            ).format(name=item.text()),
-            QCoreApplication.translate("MainWindow", "Remove"),
-        ):
             return
         self.removeBox()
 
@@ -4907,6 +4910,7 @@ class MainWindow(QMainWindow):
             return
         self.removeBox()
         remove_custom_box_name_in_storage(item.text())
+        forget_removed_box_settings(item.text())
         # remove the selected item from the tableWidget_boxes
         self.ui.tableWidget_boxes.removeRow(item.row())
         # (the next row became the current one, but isn't selected)
@@ -4959,6 +4963,7 @@ class MainWindow(QMainWindow):
             proposed = new_name
         # rename the item in the tableWidget_boxes
         rename_custom_box_name_in_storage(old_name, new_name)
+        rename_removed_box_settings(old_name, new_name)
         item.setText(new_name)
         item.setToolTip(
             self.fieldToolTip(new_name, item.data(Qt.ItemDataRole.UserRole))
@@ -4977,8 +4982,9 @@ class MainWindow(QMainWindow):
 
     def makeBox(self, rect: QRectF | None = None) -> bool:
         """The selected field's box: at rect (picture pixels), or at its
-        default size in the middle of the picture shown, with the field's
-        default settings. Returns False if it has a box already."""
+        default size in the middle of the picture shown, with the settings it
+        had when it was removed from the picture, or its defaults. Returns
+        False if it has a box already."""
         item = self.nameItemOfRow(self.ui.tableWidget_boxes.currentItem())
         if not item:
             return False
@@ -4991,8 +4997,9 @@ class MainWindow(QMainWindow):
         # change the list icon to green checkmark
         self.setFieldPlacement(item, PLACED)
 
-        # the field's default settings
+        # the settings it had on the picture last, or the field's defaults
         info = default_info_for_box_name(item.text())
+        settings = take_removed_box_settings(item.text()) or {}
 
         self.detectionTargetsStorage.add_item(
             TextDetectionTarget(
@@ -5001,7 +5008,7 @@ class MainWindow(QMainWindow):
                 rect.width(),
                 rect.height(),
                 item.text(),
-                normalize_settings_dict({}, info),
+                normalize_settings_dict(settings, info),
             )
         )
         # the new box's settings (and the box selected on the picture)
@@ -5019,6 +5026,10 @@ class MainWindow(QMainWindow):
         clear_reading(self.ui.tableWidget_boxes.item(item.row(), 1))
         # nor sent: a held value ends with it
         self.heldValues.forget(item.text())
+        box = self.detectionTargetsStorage.find_item_by_name(item.text())
+        if box is not None and not (box.settings or {}).get("templatefield"):
+            # placed again (at the next rink, say), it gets them back
+            keep_removed_box_settings(box.name, box.settings)
         self.detectionTargetsStorage.remove_item(item.text())
         self.updateHeldUi()
         self.listItemClicked(item)

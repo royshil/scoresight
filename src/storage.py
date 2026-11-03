@@ -344,6 +344,87 @@ def fetch_custom_box_names():
     return fetch_data(SETTINGS_FILE, "custom_boxes_names", [])
 
 
+# The settings of the fields taken off the picture, so a field placed again
+# gets them back (a field that is on one rink's board but not another's):
+# {"boxes_schema_version": N, "fields": {name: settings}}. Settings that are
+# all the defaults aren't kept.
+REMOVED_BOX_SETTINGS = "removed_box_settings"
+
+
+def _removed_box_settings() -> dict:
+    """The kept settings of the fields off the picture, by name, migrated to
+    BOXES_SCHEMA_VERSION."""
+    document = fetch_data(SETTINGS_FILE, REMOVED_BOX_SETTINGS)
+    if not isinstance(document, dict) or not isinstance(document.get("fields"), dict):
+        return {}
+    fields = {
+        name: settings
+        for name, settings in document["fields"].items()
+        if isinstance(settings, dict)
+    }
+    schema_version = document.get(BOXES_SCHEMA_KEY)
+    if fields and boxes_need_migration(schema_version):
+        boxes = migrate_boxes(
+            [{"name": name, "settings": settings} for name, settings in fields.items()],
+            "the settings of the fields off the picture",
+            schema_version,
+        )
+        fields = {box["name"]: box["settings"] for box in boxes}
+    return fields
+
+
+def _store_removed_box_settings(fields: dict):
+    store_data(
+        SETTINGS_FILE,
+        REMOVED_BOX_SETTINGS,
+        {BOXES_SCHEMA_KEY: BOXES_SCHEMA_VERSION, "fields": fields},
+    )
+
+
+def keep_removed_box_settings(name: str, settings: dict | None):
+    """Keep the settings of a field taken off the picture, for the next time
+    it is placed (take_removed_box_settings)."""
+    info = default_info_for_box_name(name)
+    settings = normalize_settings_dict(settings, info)
+    with _storage_lock:
+        fields = _removed_box_settings()
+        if settings == normalize_settings_dict({}, info):
+            # nothing to keep (and an older field's settings are gone)
+            if fields.pop(name, None) is None:
+                return
+        else:
+            fields[name] = settings
+        _store_removed_box_settings(fields)
+
+
+def take_removed_box_settings(name: str) -> dict | None:
+    """The kept settings of a field placed again (None: its defaults); they
+    are the box's from now on, so they aren't kept any more."""
+    with _storage_lock:
+        fields = _removed_box_settings()
+        settings = fields.pop(name, None)
+        if settings is not None:
+            _store_removed_box_settings(fields)
+        return settings
+
+
+def rename_removed_box_settings(old_name: str, new_name: str):
+    with _storage_lock:
+        fields = _removed_box_settings()
+        if old_name not in fields:
+            return
+        fields[new_name] = fields.pop(old_name)
+        _store_removed_box_settings(fields)
+
+
+def forget_removed_box_settings(name: str):
+    """A deleted field: its kept settings go with it."""
+    with _storage_lock:
+        fields = _removed_box_settings()
+        if fields.pop(name, None) is not None:
+            _store_removed_box_settings(fields)
+
+
 def boxes_need_migration(schema_version) -> bool:
     """Whether boxes stored with schema_version (None: no marker, ScoreSight
     0.1.x) must go through migrate_boxes."""

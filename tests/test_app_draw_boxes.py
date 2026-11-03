@@ -563,7 +563,7 @@ def test_del_removes_the_box_or_deletes_the_field(main_window, qtbot):
     assert ui.actionDeleteField.shortcut().isEmpty()
     table.setFocus()
     QTest.keyClick(table, Qt.Key.Key_Delete)
-    # untouched settings: no question
+    # its settings are kept: no question
     assert asked == []
     assert storage.find_item_by_name("Home Score") is None
     assert field_role(main_window, "Home Score") == "unchecked"
@@ -572,18 +572,16 @@ def test_del_removes_the_box_or_deletes_the_field(main_window, qtbot):
     QTest.keyClick(table, Qt.Key.Key_Delete)
     assert "Home Score" in [table.item(r, 0).text() for r in range(table.rowCount())]
 
-    # changed settings: asked first, on the picture too
+    # on the picture too, without asking even with changed settings
     main_window.placeOnPicture()
     ui.horizontalSlider_dilate.setValue(3)
     view.setFocus()
     QTest.keyClick(view, Qt.Key.Key_Delete)
-    assert asked == ["Remove from picture"]
-    assert storage.find_item_by_name("Home Score") is not None  # Cancel
-    answer[0] = True
-    QTest.keyClick(view, Qt.Key.Key_Delete)
+    assert asked == []
     assert storage.find_item_by_name("Home Score") is None
 
     # a custom field: Del removes its box, then (asking) deletes it
+    answer[0] = True
     main_window.addBox()
     [name] = fetch_data("scoresight.json", "custom_boxes_names")
     main_window.placeOnPicture()

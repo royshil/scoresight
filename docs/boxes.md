@@ -60,7 +60,7 @@ Custom fields start as a Number field with the *Any number* format. Change the *
 
    Clicking another box on the picture selects that box, as usual: the drag places a box only from the picture around the boxes.
 4. Drag the box to move it, and resize it with the edge and corner handles. To draw it again from scratch, hold **Alt** (**⌥ Option** on a Mac) and drag on the picture. For the last pixel, click the box and use the arrow keys (1 pixel; with Shift, 10). The label under the box shows its name and reading (see [Box display style](view-tools.md#box-display-style)).
-5. To take a box off the picture, select its field (or click the box) and press **Del** (**Backspace** on a Mac), right-click the box and choose **Remove from picture**, or click **Remove from picture** under the list (in 0.1.x: **Remove Selected**). Its settings go back to the defaults; if you changed any of them, ScoreSight asks first.
+5. To take a box off the picture, select its field (or click the box) and press **Del** (**Backspace** on a Mac), right-click the box and choose **Remove from picture**, or click **Remove from picture** under the list (in 0.1.x: **Remove Selected**). The field keeps its settings: placed again, its box gets them back (up to 0.4.3 they went back to the defaults). To start over, use **Reset to defaults**.
 
 The line above the button under the list says what to do with the selected field: *Drag on the picture to place it, or double-click the field* before it has a box, *Drag the box to move it · Del removes it* after.
 
@@ -173,11 +173,13 @@ The **Per-character sub-boxes** checkbox (under *Experimental / legacy* in **Ima
 ## Import and export layouts
 
 - **File > Export field layout...** (**Ctrl+Shift+S**) saves all boxes (names, positions, settings including the **Type** and the OBS text source, and composite sub-boxes) to a `.json` file.
-- **File > Import field layout...** (**Ctrl+O**) replaces the current boxes with the ones from a file.
+- **File > Import field layout...** (**Ctrl+O**) replaces the current boxes with the ones from a file. A field that was on the picture but isn't in the file keeps its settings, as if removed from the picture.
 
 (In ScoreSight 0.1.x: **Export Configuration** and **Import Configuration**.)
 
 Exported files contain **boxes only**. The source, crop/rotation/4-corner settings and output settings (folders, OBS/vMix/UNO/API connections) are not included. To keep complete, separate setups, use [profiles](profiles.md).
+
+**Several venues.** When a team plays in rinks or gyms with different scoreboards, set up each venue once and export its layout (`rink-north.json`, `rink-east.json`). At a venue, import its file, then adjust the crop or 4-corner correction to the camera. Fields that a board doesn't have simply aren't in its file, and keep their settings for the next board that has them ([#179](https://github.com/royshil/scoresight/discussions/179)).
 
 {: .tip }
 The OBS text source each field updates is set in the **Text sources** table of the OBS page (it is saved with the boxes, as `settings.obs_source_name`). Custom fields have none until you type one. See [OBS Studio](obs.md#custom-fields).

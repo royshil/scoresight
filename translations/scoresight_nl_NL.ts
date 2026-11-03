@@ -162,7 +162,7 @@ ScoreSight keeps running. You can download the new version from the release page
     </message>
     <message>
         <location filename="../src/box_settings_ui_handler.py" line="429"/>
-        <location filename="../src/mainwindow.py" line="2764"/>
+        <location filename="../src/mainwindow.py" line="2779"/>
         <source>This field is built from other fields (see Template): it has no box on the picture and no reading settings.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Dit veld wordt opgebouwd uit andere velden (zie Sjabloon): het heeft geen kader in beeld en geen afleesinstellingen.</translation>
@@ -1040,7 +1040,7 @@ Resolutie: {width}×{height}</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="94"/>
         <location filename="../src/mainwindow.ui" line="5112"/>
-        <location filename="../src/mainwindow.py" line="2463"/>
+        <location filename="../src/mainwindow.py" line="2478"/>
         <source>Pause outputs</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Uitvoer pauzeren</translation>
@@ -1288,7 +1288,7 @@ Resolutie: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="3969"/>
-        <location filename="../src/mainwindow.py" line="3443"/>
+        <location filename="../src/mainwindow.py" line="3446"/>
         <source>Connect to the WebSocket server of OBS Studio</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Verbinden met de WebSocket-server van OBS Studio</translation>
@@ -1692,7 +1692,7 @@ Resolutie: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="828"/>
-        <location filename="../src/mainwindow.py" line="4476"/>
+        <location filename="../src/mainwindow.py" line="4479"/>
         <source>Correct the perspective: click the 4 corners of the scoreboard</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Corrigeert het perspectief: klik op de 4 hoeken van het scorebord</translation>
@@ -1787,7 +1787,7 @@ Resolutie: {width}×{height}</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="1276"/>
         <location filename="../src/mainwindow.ui" line="1332"/>
-        <location filename="../src/mainwindow.py" line="4422"/>
+        <location filename="../src/mainwindow.py" line="4425"/>
         <source>Cancel</source>
         <translation type="unfinished">Annuleren</translation>
     </message>
@@ -2386,7 +2386,7 @@ Resolutie: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1622"/>
-        <location filename="../src/mainwindow.py" line="2770"/>
+        <location filename="../src/mainwindow.py" line="2785"/>
         <source>Select a field, then drag over its numbers on the picture.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Selecteer een veld en sleep dan in beeld over de cijfers ervan.</translation>
@@ -2445,7 +2445,7 @@ Resolutie: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="3005"/>
-        <location filename="../src/mainwindow.py" line="2227"/>
+        <location filename="../src/mainwindow.py" line="2242"/>
         <source>The OCR model that reads every box, not only the selected one. PP-OCR (automatic) reads with PP-OCR (accurate) while this computer keeps up, and with PP-OCR (fast), which needs about a fifth of the CPU, when it doesn&apos;t. The Tesseract models use the boxes&apos; Image cleanup settings; Load external Tesseract model... reads a .traineddata file.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Het OCR-model dat alle kaders afleest, niet alleen het geselecteerde. PP-OCR (automatisch) leest met PP-OCR (nauwkeurig) zolang deze computer het bijhoudt, en anders met PP-OCR (snel), dat ongeveer een vijfde van de CPU nodig heeft. De Tesseract-modellen gebruiken de instellingen “Afbeelding opschonen” van de kaders; “Extern Tesseract-model laden...” leest een .traineddata-bestand.</translation>
@@ -2893,14 +2893,14 @@ Resolutie: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="5007"/>
-        <location filename="../src/mainwindow.py" line="2806"/>
+        <location filename="../src/mainwindow.py" line="2821"/>
         <source>Hold value...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Waarde vastzetten...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="5010"/>
-        <location filename="../src/mainwindow.py" line="2894"/>
+        <location filename="../src/mainwindow.py" line="2909"/>
         <source>Send a value you type to every output instead of this field&apos;s readings, until you release it</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Verzendt een waarde die je typt naar alle uitvoer in plaats van de aflezingen van dit veld, totdat je die vrijgeeft</translation>
@@ -3154,7 +3154,7 @@ Resolutie: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="521"/>
-        <location filename="../src/mainwindow.py" line="4233"/>
+        <location filename="../src/mainwindow.py" line="4236"/>
         <source>The video source: a camera, capture card or NDI source, a video file, a stream URL or a screen capture</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">De videobron: een camera, capturekaart of NDI-bron, een videobestand, een stream-URL of een schermopname</translation>
@@ -3212,7 +3212,7 @@ Resolutie: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="3984"/>
-        <location filename="../src/mainwindow.py" line="3441"/>
+        <location filename="../src/mainwindow.py" line="3444"/>
         <source>Connect OBS</source>
         <translation>Verbinden met OBS</translation>
     </message>
@@ -3294,8 +3294,8 @@ Resolutie: {width}×{height}</translation>
         <location filename="../src/mainwindow.ui" line="71"/>
         <location filename="../src/mainwindow.ui" line="3647"/>
         <location filename="../src/mainwindow.ui" line="4746"/>
-        <location filename="../src/mainwindow.py" line="1133"/>
-        <location filename="../src/mainwindow.py" line="3168"/>
+        <location filename="../src/mainwindow.py" line="1136"/>
+        <location filename="../src/mainwindow.py" line="3171"/>
         <source>Fields</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Velden</translation>
@@ -3341,7 +3341,6 @@ Resolutie: {width}×{height}</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="292"/>
         <location filename="../src/mainwindow.ui" line="4968"/>
-        <location filename="../src/mainwindow.py" line="3004"/>
         <source>Remove from picture</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Uit beeld halen</translation>
@@ -3360,7 +3359,7 @@ Resolutie: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="318"/>
-        <location filename="../src/mainwindow.py" line="3021"/>
+        <location filename="../src/mainwindow.py" line="3024"/>
         <source>Delete field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Veld verwijderen</translation>
@@ -3382,7 +3381,7 @@ Resolutie: {width}×{height}</translation>
         <translation type="vanished">Schermopname</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1447"/>
+        <location filename="../src/mainwindow.py" line="1450"/>
         <source>Video Settings</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Video-instellingen</translation>
@@ -3559,7 +3558,7 @@ Resolutie: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1382"/>
-        <location filename="../src/mainwindow.py" line="2461"/>
+        <location filename="../src/mainwindow.py" line="2476"/>
         <source>Resume outputs</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Uitvoer hervatten</translation>
@@ -3569,43 +3568,43 @@ Resolutie: {width}×{height}</translation>
         <translation type="vanished">### Open een camera of laad een bestand</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1358"/>
+        <location filename="../src/mainwindow.py" line="1361"/>
         <source>&lt;p&gt;The HTTP server is not running: port {port} is already in use or not available.&lt;/p&gt;&lt;p&gt;Close the other program, or start ScoreSight with &lt;b&gt;--port&lt;/b&gt; to use a different port. The log has the details.&lt;/p&gt;</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">&lt;p&gt;De HTTP-server draait niet: poort {port} is al in gebruik of niet beschikbaar.&lt;/p&gt;&lt;p&gt;Sluit het andere programma, of start ScoreSight met &lt;b&gt;--port&lt;/b&gt; om een andere poort te gebruiken. De log bevat de details.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2415"/>
+        <location filename="../src/mainwindow.py" line="2430"/>
         <source>Version {version}</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Versie {version}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1278"/>
+        <location filename="../src/mainwindow.py" line="1281"/>
         <source>System</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Systeem</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="305"/>
+        <location filename="../src/mainwindow.py" line="308"/>
         <source>⌥ Option</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">⌥ Option</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="306"/>
+        <location filename="../src/mainwindow.py" line="309"/>
         <source>Alt</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Alt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1131"/>
+        <location filename="../src/mainwindow.py" line="1134"/>
         <source>Readings</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Aflezingen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1211"/>
+        <location filename="../src/mainwindow.py" line="1214"/>
         <source>Fields not on the picture: {count} hidden. &lt;a href=&quot;#show&quot;&gt;Show them&lt;/a&gt;</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Velden niet in beeld: {count} verborgen. &lt;a href=&quot;#show&quot;&gt;Tonen&lt;/a&gt;</translation>
@@ -3616,518 +3615,516 @@ Resolutie: {width}×{height}</translation>
         <translation type="obsolete">Extern model laden...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1247"/>
+        <location filename="../src/mainwindow.py" line="1250"/>
         <source>Drag to resize the fields list. Double-click to hide or show it.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Sleep om de breedte van de veldenlijst te wijzigen. Dubbelklik om deze te verbergen of te tonen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1253"/>
+        <location filename="../src/mainwindow.py" line="1256"/>
         <source>Drag to resize the Box and Outputs settings. Double-click to hide or show them.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Sleep om de breedte van de instellingen “Kader” en “Uitvoer” te wijzigen. Dubbelklik om ze te verbergen of te tonen.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="3785"/>
-        <location filename="../src/mainwindow.py" line="1279"/>
+        <location filename="../src/mainwindow.py" line="1282"/>
         <source>Light</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Licht</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="3780"/>
-        <location filename="../src/mainwindow.py" line="1280"/>
+        <location filename="../src/mainwindow.py" line="1283"/>
         <source>Dark</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Donker</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1310"/>
+        <location filename="../src/mainwindow.py" line="1313"/>
         <source>Zoom with Ctrl+scroll or {zoom_in} and {zoom_out}; drag with the middle mouse button to move the picture.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Zoom met Ctrl+scrollen of {zoom_in} en {zoom_out}; sleep met de middelste muisknop om het beeld te verschuiven.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1373"/>
+        <location filename="../src/mainwindow.py" line="1376"/>
         <source>&lt;p&gt;From other computers on your network, use {url} instead of http://localhost:{port}.&lt;/p&gt;</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">&lt;p&gt;Gebruik op andere computers in je netwerk {url} in plaats van http://localhost:{port}.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1583"/>
+        <location filename="../src/mainwindow.py" line="1586"/>
         <source>Outside the cropped picture: {names}. They read nothing: widen the crop, or remove them from the picture and place them again.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Buiten het bijgesneden beeld: {names}. Ze worden niet afgelezen: maak de uitsnede groter, of haal ze uit beeld en plaats ze opnieuw.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1773"/>
-        <location filename="../src/mainwindow.py" line="1776"/>
+        <location filename="../src/mainwindow.py" line="1788"/>
+        <location filename="../src/mainwindow.py" line="1791"/>
         <source>{value} /s</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">{value} /s</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2132"/>
+        <location filename="../src/mainwindow.py" line="2147"/>
         <source>Load external Tesseract model...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Extern Tesseract-model laden...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2140"/>
+        <location filename="../src/mainwindow.py" line="2155"/>
         <source>Read the boxes with a Tesseract .traineddata file</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Leest de kaders af met een Tesseract-bestand (.traineddata)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2150"/>
+        <location filename="../src/mainwindow.py" line="2165"/>
         <source>A Tesseract model: the boxes&apos; Image cleanup settings prepare their images for it</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Een Tesseract-model: de instellingen “Afbeelding opschonen” van de kaders bereiden de afbeeldingen erop voor</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2160"/>
+        <location filename="../src/mainwindow.py" line="2175"/>
         <source>PaddleOCR PP-OCRv6: accurate while it keeps up with Detections / s on this computer, fast when it doesn&apos;t. The status bar says which one reads and why.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PaddleOCR PP-OCRv6: “nauwkeurig” zolang het op deze computer “Detecties / s” bijhoudt, anders “snel”. De statusbalk toont welk model afleest en waarom.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2168"/>
+        <location filename="../src/mainwindow.py" line="2183"/>
         <source>PP-OCR (accurate)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PP-OCR (nauwkeurig)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2170"/>
+        <location filename="../src/mainwindow.py" line="2185"/>
         <source>PaddleOCR PP-OCRv6 small: reads the most values right, always. It needs about five times the CPU of PP-OCR (fast): on a laptop, 10 boxes read 5 times a second can need more than a core.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PaddleOCR PP-OCRv6 small: leest de meeste waarden goed, altijd. Het heeft ongeveer vijf keer zoveel CPU nodig als PP-OCR (snel): op een laptop kunnen 10 kaders die 5 keer per seconde worden afgelezen meer dan een kern vragen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2178"/>
+        <location filename="../src/mainwindow.py" line="2193"/>
         <source>PP-OCR (fast)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PP-OCR (snel)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2180"/>
+        <location filename="../src/mainwindow.py" line="2195"/>
         <source>PaddleOCR PP-OCRv6 tiny: about a fifth of PP-OCR (accurate)&apos;s CPU, for many boxes, a high Detections / s or a slow computer; it misreads more of the hard displays (clocks, bulbs, LCDs).</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PaddleOCR PP-OCRv6 tiny: ongeveer een vijfde van de CPU van PP-OCR (nauwkeurig), voor veel kaders, een hoge “Detecties / s” of een trage computer; het leest moeilijke displays (klokken, lampjes, lcd&apos;s) vaker verkeerd af.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2188"/>
+        <location filename="../src/mainwindow.py" line="2203"/>
         <source>The PP-OCR models aren&apos;t installed. Download them with: {command}</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">De PP-OCR-modellen zijn niet geïnstalleerd. Download ze met: {command}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2193"/>
+        <location filename="../src/mainwindow.py" line="2208"/>
         <source>PP-OCR needs onnxruntime, which isn&apos;t installed (pip install -r requirements.txt).</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PP-OCR heeft onnxruntime nodig, dat niet is geïnstalleerd (pip install -r requirements.txt).</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2208"/>
+        <location filename="../src/mainwindow.py" line="2223"/>
         <source>PP-OCR (automatic: accurate)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PP-OCR (automatisch: nauwkeurig)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2212"/>
+        <location filename="../src/mainwindow.py" line="2227"/>
         <source>PP-OCR (automatic: fast)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PP-OCR (automatisch: snel)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2213"/>
+        <location filename="../src/mainwindow.py" line="2228"/>
         <source>PP-OCR (automatic)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PP-OCR (automatisch)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2322"/>
+        <location filename="../src/mainwindow.py" line="2337"/>
         <source>The OCR can&apos;t keep up</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">De OCR kan het niet bijhouden</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2325"/>
+        <location filename="../src/mainwindow.py" line="2340"/>
         <source>The boxes are read {rate} times per second instead of {target}.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">De kaders worden {rate} keer per seconde afgelezen in plaats van {target}.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2335"/>
+        <location filename="../src/mainwindow.py" line="2350"/>
         <source>Use PP-OCR (fast)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PP-OCR (snel) gebruiken</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2339"/>
+        <location filename="../src/mainwindow.py" line="2354"/>
         <source>Keep PP-OCR (accurate)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PP-OCR (nauwkeurig) behouden</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2363"/>
+        <location filename="../src/mainwindow.py" line="2378"/>
         <source>Logs</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Logboeken</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2412"/>
+        <location filename="../src/mainwindow.py" line="2427"/>
         <source>About ScoreSight</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Over ScoreSight</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2490"/>
+        <location filename="../src/mainwindow.py" line="2505"/>
         <source>&lt;b&gt;Outputs paused&lt;/b&gt; since {time}. Your graphics show the last values sent; the readings here keep updating.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">&lt;b&gt;Uitvoer gepauzeerd&lt;/b&gt; sinds {time}. Je graphics tonen de laatst verzonden waarden; de aflezingen hier worden gewoon bijgewerkt.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2712"/>
+        <location filename="../src/mainwindow.py" line="2727"/>
         <source>Not on the picture yet. Drag over its numbers on the picture, or double-click here to put its box in the middle of the picture.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Nog niet in beeld. Sleep in beeld over de cijfers ervan, of dubbelklik hier om het kader in het midden van het beeld te zetten.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2718"/>
+        <location filename="../src/mainwindow.py" line="2733"/>
         <source>Built from other fields: it has no box.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Opgebouwd uit andere velden: het heeft geen kader.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2722"/>
+        <location filename="../src/mainwindow.py" line="2737"/>
         <source>On the picture: drag its box to move it, or {alt}+drag on the picture to draw it again. Right-click for its actions.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">In beeld: sleep het kader om het te verplaatsen, of {alt}+sleep in beeld om het opnieuw te tekenen. Klik met rechts voor de acties ervan.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2729"/>
+        <location filename="../src/mainwindow.py" line="2744"/>
         <source>F2 renames it.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">F2 wijzigt de naam.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2731"/>
+        <location filename="../src/mainwindow.py" line="2746"/>
         <source>Double-click to rename it.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Dubbelklik om de naam te wijzigen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2754"/>
+        <location filename="../src/mainwindow.py" line="2769"/>
         <source>Drag on the picture to place it, or double-click the field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Sleep in beeld om het te plaatsen, of dubbelklik op het veld</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2759"/>
+        <location filename="../src/mainwindow.py" line="2774"/>
         <source>Drag the box to move it · {delete} removes it</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Sleep het kader om het te verplaatsen · {delete} haalt het uit beeld</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2804"/>
+        <location filename="../src/mainwindow.py" line="2819"/>
         <source>Change held value...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Vastgezette waarde wijzigen...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2888"/>
+        <location filename="../src/mainwindow.py" line="2903"/>
         <source>Only custom fields can be renamed or deleted</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Alleen eigen velden kunnen worden hernoemd of verwijderd</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2900"/>
+        <location filename="../src/mainwindow.py" line="2915"/>
         <source>Place the field on the picture first</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Plaats het veld eerst in beeld</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3005"/>
         <source>Remove “{name}” from the picture? Its settings go back to the defaults, so the settings you changed are lost.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
-        <translation type="unfinished">“{name}” uit beeld halen? De instellingen ervan worden teruggezet naar de standaardwaarden, dus je wijzigingen gaan verloren.</translation>
+        <translation type="obsolete">“{name}” uit beeld halen? De instellingen ervan worden teruggezet naar de standaardwaarden, dus je wijzigingen gaan verloren.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3010"/>
         <source>Remove</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
-        <translation type="unfinished">Uit beeld halen</translation>
+        <translation type="obsolete">Uit beeld halen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3022"/>
+        <location filename="../src/mainwindow.py" line="3025"/>
         <source>Delete the field “{name}”? Its box and its settings are deleted too.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Het veld “{name}” verwijderen? Het kader en de instellingen ervan worden ook verwijderd.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3026"/>
+        <location filename="../src/mainwindow.py" line="3029"/>
         <source>Delete</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Verwijderen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3152"/>
+        <location filename="../src/mainwindow.py" line="3155"/>
         <source>Window</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Venster</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3180"/>
+        <location filename="../src/mainwindow.py" line="3183"/>
         <source>Remove the selected field&apos;s box from the picture</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Kader van het geselecteerde veld uit beeld halen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3187"/>
+        <location filename="../src/mainwindow.py" line="3190"/>
         <source>Delete the selected custom field (not on the picture)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Geselecteerd eigen veld verwijderen (niet in beeld)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3194"/>
+        <location filename="../src/mainwindow.py" line="3197"/>
         <source>Put a field&apos;s box on the picture, or rename a custom field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Kader van een veld in beeld zetten, of een eigen veld hernoemen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3199"/>
+        <location filename="../src/mainwindow.py" line="3202"/>
         <source>Double-click the field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Dubbelklikken op het veld</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3206"/>
+        <location filename="../src/mainwindow.py" line="3209"/>
         <source>Picture</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Beeld</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3246"/>
+        <location filename="../src/mainwindow.py" line="3249"/>
         <source>Connect to OBS</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Verbinden met OBS</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3308"/>
-        <location filename="../src/mainwindow.py" line="3434"/>
+        <location filename="../src/mainwindow.py" line="3311"/>
+        <location filename="../src/mainwindow.py" line="3437"/>
         <source>Connecting...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Verbinding maken...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3355"/>
+        <location filename="../src/mainwindow.py" line="3358"/>
         <source>Cannot connect to OBS</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Geen verbinding met OBS</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3425"/>
+        <location filename="../src/mainwindow.py" line="3428"/>
         <source>Change connection...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Verbinding wijzigen...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3428"/>
+        <location filename="../src/mainwindow.py" line="3431"/>
         <source>Connected to OBS at {target}. Click to connect to another OBS.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Verbonden met OBS op {target}. Klik om met een andere OBS te verbinden.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3436"/>
+        <location filename="../src/mainwindow.py" line="3439"/>
         <source>Connecting to OBS at {target}...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Verbinding maken met OBS op {target}...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3711"/>
+        <location filename="../src/mainwindow.py" line="3714"/>
         <source>URL Source</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">URL-bron</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3731"/>
+        <location filename="../src/mainwindow.py" line="3734"/>
         <source>Screen Capture Selection</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Schermopname selecteren</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3738"/>
+        <location filename="../src/mainwindow.py" line="3741"/>
         <source>Capture the entire screen</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Het hele scherm opnemen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4245"/>
+        <location filename="../src/mainwindow.py" line="4248"/>
         <source>Video settings: the resolution, frame rate and format of the camera or capture card</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Video-instellingen: de resolutie, framerate en het formaat van de camera of capturekaart</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4251"/>
+        <location filename="../src/mainwindow.py" line="4254"/>
         <source>Video settings: only for cameras and capture cards</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Video-instellingen: alleen voor camera&apos;s en capturekaarten</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4417"/>
+        <location filename="../src/mainwindow.py" line="4420"/>
         <source>Redo corners…</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Hoeken opnieuw kiezen…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4419"/>
+        <location filename="../src/mainwindow.py" line="4422"/>
         <source>Remove correction…</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Correctie verwijderen…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4435"/>
+        <location filename="../src/mainwindow.py" line="4438"/>
         <source>Remove the 4-corner correction?</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">4-hoekcorrectie verwijderen?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4436"/>
+        <location filename="../src/mainwindow.py" line="4439"/>
         <source>The picture will no longer be corrected. The boxes were placed on the corrected picture, so they may have to be moved.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Het beeld wordt niet meer gecorrigeerd. De kaders zijn op het gecorrigeerde beeld geplaatst, dus misschien moet je ze verplaatsen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4464"/>
+        <location filename="../src/mainwindow.py" line="4467"/>
         <source>Picking the corners: click the 4 corners of the scoreboard. Click here or press Esc to cancel.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Hoeken kiezen: klik op de 4 hoeken van het scorebord. Klik hier of druk op Esc om te annuleren.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4470"/>
+        <location filename="../src/mainwindow.py" line="4473"/>
         <source>The perspective is corrected. Click to redo the corners or to remove the correction.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Het perspectief is gecorrigeerd. Klik om de hoeken opnieuw te kiezen of de correctie te verwijderen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4584"/>
+        <location filename="../src/mainwindow.py" line="4587"/>
         <source>Move the boxes?</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Kaders verplaatsen?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4585"/>
+        <location filename="../src/mainwindow.py" line="4588"/>
         <source>Auto layout found {found}. Some of them have boxes on the picture already ({placed}): move those boxes to what it found?</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Automatisch plaatsen heeft {found} gevonden. Sommige hebben al kaders in het beeld ({placed}): die kaders verplaatsen naar wat er is gevonden?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4593"/>
+        <location filename="../src/mainwindow.py" line="4596"/>
         <source>Move them</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Verplaatsen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4597"/>
+        <location filename="../src/mainwindow.py" line="4600"/>
         <source>Keep them</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Behouden</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4616"/>
+        <location filename="../src/mainwindow.py" line="4619"/>
         <source>Reset the crop?</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Bijsnijden herstellen?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4617"/>
+        <location filename="../src/mainwindow.py" line="4620"/>
         <source>The whole picture will be read again, and the crop&apos;s values set to 0. The boxes move with it, so they stay over the same digits.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Het hele beeld wordt weer gelezen en de waarden van de uitsnede worden 0. De kaders schuiven mee, zodat ze boven dezelfde cijfers blijven.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4623"/>
+        <location filename="../src/mainwindow.py" line="4626"/>
         <source>Reset crop</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Bijsnijden herstellen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4670"/>
+        <location filename="../src/mainwindow.py" line="4673"/>
         <source>No camera found</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Geen camera gevonden</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4723"/>
+        <location filename="../src/mainwindow.py" line="4726"/>
         <source>Step {number}: done</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Stap {number}: klaar</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4725"/>
+        <location filename="../src/mainwindow.py" line="4728"/>
         <source>Step {number}</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Stap {number}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4935"/>
+        <location filename="../src/mainwindow.py" line="4939"/>
         <source>Rename field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Veld hernoemen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4941"/>
+        <location filename="../src/mainwindow.py" line="4945"/>
         <source>New name:</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Nieuwe naam:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4953"/>
+        <location filename="../src/mainwindow.py" line="4957"/>
         <source>There is already a field named “{name}”. Choose another name.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Er is al een veld met de naam “{name}”. Kies een andere naam.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5081"/>
+        <location filename="../src/mainwindow.py" line="5092"/>
         <source>Created the scene “{name}” in OBS.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">De scène “{name}” is in OBS gemaakt.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5084"/>
+        <location filename="../src/mainwindow.py" line="5095"/>
         <source>Made the scene “{name}” again: its sources were replaced.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">De scène “{name}” is opnieuw gemaakt: de bronnen ervan zijn vervangen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5088"/>
+        <location filename="../src/mainwindow.py" line="5099"/>
         <source>OBS already has a scene “{name}”: it was kept as it is. Tick Recreate to make it again.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OBS heeft al een scène “{name}”: die is ongewijzigd gelaten. Vink “Opnieuw maken” aan om die opnieuw op te bouwen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5093"/>
+        <location filename="../src/mainwindow.py" line="5104"/>
         <source>Couldn&apos;t create the scene “{name}”. Tools &gt; View log has the details.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Kan de scène “{name}” niet maken. De details staan in “Extra &gt; Log bekijken”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5136"/>
+        <location filename="../src/mainwindow.py" line="5147"/>
         <source>Close ScoreSight?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5140"/>
+        <location filename="../src/mainwindow.py" line="5151"/>
         <source>Reading stops, and vMix, OBS, the overlays and the other outputs are no longer updated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5147"/>
+        <location filename="../src/mainwindow.py" line="5158"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5153"/>
+        <location filename="../src/mainwindow.py" line="5164"/>
         <source>Don&apos;t ask again</source>
         <translation type="unfinished"></translation>
     </message>

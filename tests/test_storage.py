@@ -894,3 +894,32 @@ def test_true_is_not_a_tesseract_index():
 
     assert not ocr_models.is_builtin_tesseract(True)
     assert ocr_models.choice_name(True) is None
+
+
+def test_the_kept_settings_of_a_removed_field(data_dir):
+    storage.keep_removed_box_settings("Time", {"dilate": 3})
+    # the defaults aren't kept
+    storage.keep_removed_box_settings("Period", {})
+    assert list(fetch_data(SETTINGS, "removed_box_settings")["fields"]) == ["Time"]
+    storage.rename_removed_box_settings("Time", "Clock")
+    assert storage.take_removed_box_settings("Time") is None
+    assert storage.take_removed_box_settings("Clock")["dilate"] == 3
+    # taken: the box has them now
+    assert storage.take_removed_box_settings("Clock") is None
+    storage.keep_removed_box_settings("Shots", {"dilate": 2})
+    storage.forget_removed_box_settings("Shots")
+    assert fetch_data(SETTINGS, "removed_box_settings")["fields"] == {}
+
+
+def test_the_kept_settings_of_a_removed_field_are_migrated(data_dir):
+    old_format = "^[0-5]?\d:[0-5]\d$"
+    store_data(
+        SETTINGS,
+        "removed_box_settings",
+        {
+            "boxes_schema_version": 3,
+            "fields": {"Time": {"format_regex": old_format}},
+        },
+    )
+    settings = storage.take_removed_box_settings("Time")
+    assert settings["format_regex"] == storage.MINUTES_0_59_FORMATS[old_format]
