@@ -330,7 +330,7 @@ The last setting of **Image cleanup**, under *Experimental / legacy*, doesn't ch
 ## Other controls
 
 - **Reset to defaults** (in ScoreSight 0.1.x: **Defaults**), at the top of the Box tab, or **Reset settings to defaults** in the field list's context menu: restores all settings of the selected box to the defaults for its field.
-- **Remove from picture** also resets them: the next time you place the field, its box starts with the defaults. When you changed any of its settings, ScoreSight asks first.
+- **Remove from picture** keeps them: the next time you place the field, its box gets the settings it had (up to 0.4.3 they went back to the defaults). **Delete field** (custom fields) deletes them.
 
 {: .note }
 The **Force Format** checkbox of ScoreSight 0.1.x had no effect and was removed in 0.2.0.

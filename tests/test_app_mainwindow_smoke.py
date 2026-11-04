@@ -1389,30 +1389,96 @@ def test_the_fields_hint_before_a_source(make_window):
     assert not ui.label_fieldsHint.isHidden()
 
 
-def test_removing_a_tuned_box_from_the_picture_asks_first(main_window):
+def test_a_field_removed_from_the_picture_keeps_its_settings(main_window):
+    # Discussion #179: a field on one rink's board but not the next one's
     ui = main_window.ui
     asked = []
-    answer = [False]
-    main_window.confirm = lambda title, text, action: asked.append(text) or answer[0]
+    main_window.confirm = lambda title, text, action: asked.append(text)
     storage = main_window.detectionTargetsStorage
     main_window.itemSelected("Home Score")
     main_window.makeBox()
-    # nothing to lose: no question
+    ui.horizontalSlider_dilate.setValue(3)
+    # nothing is lost: no question
     main_window.removeFromPicture()
     assert asked == []
-    assert storage.find_item_by_name("Home Score") is None
-    # its settings were changed: Cancel keeps it
-    main_window.makeBox()
-    ui.horizontalSlider_dilate.setValue(3)
-    main_window.removeFromPicture()
-    assert len(asked) == 1 and "Home Score" in asked[0]
-    assert storage.find_item_by_name("Home Score") is not None
-    answer[0] = True
-    main_window.removeFromPicture()
     assert storage.find_item_by_name("Home Score") is None
     assert box_name_item(main_window, "Home Score").data(
         QtCore.Qt.ItemDataRole.UserRole
     ) == ("unchecked")
+    # placed again: its settings are back, and not kept twice
+    main_window.makeBox()
+    assert storage.find_item_by_name("Home Score").settings["dilate"] == 3
+    assert ui.horizontalSlider_dilate.value() == 3
+    assert fetch_data("scoresight.json", "removed_box_settings")["fields"] == {}
+    # Reset to defaults, then removed: nothing to keep
+    main_window.removeFromPicture()
+    main_window.makeBox()
+    storage.find_item_by_name("Home Score").settings["dilate"] = 1
+    main_window.removeFromPicture()
+    main_window.makeBox()
+    assert storage.find_item_by_name("Home Score").settings["dilate"] == 1
+
+
+def test_a_custom_field_keeps_its_settings_through_a_rename_not_a_delete(
+    main_window, monkeypatch
+):
+    import mainwindow
+
+    storage = main_window.detectionTargetsStorage
+    main_window.addBox()
+    [name] = fetch_data("scoresight.json", "custom_boxes_names")
+    item = select_box_row(main_window, name)
+    main_window.makeBox()
+    main_window.ui.horizontalSlider_dilate.setValue(3)
+    main_window.removeFromPicture()
+    monkeypatch.setattr(
+        mainwindow.QInputDialog, "getText", lambda *args, **kwargs: ("Shots", True)
+    )
+    main_window.editBoxName(item)
+    main_window.makeBox()
+    assert storage.find_item_by_name("Shots").settings["dilate"] == 3
+    main_window.removeFromPicture()
+    main_window.confirm = lambda title, text, action: True
+    main_window.deleteField()
+    assert "Shots" not in box_rows(main_window)
+    assert fetch_data("scoresight.json", "removed_box_settings")["fields"] == {}
+
+
+def test_an_imported_layout_keeps_the_settings_of_the_fields_it_drops(
+    main_window, make_target, tmp_path, monkeypatch
+):
+    import json
+
+    import mainwindow
+
+    storage = main_window.detectionTargetsStorage
+    storage.add_item(make_target("Home Score", dilate=3))
+    storage.add_item(make_target("Time", dilate=2))
+    rect = {"x": 0, "y": 0, "width": 50, "height": 30}
+    layout = tmp_path / "rink2.json"
+    layout.write_text(
+        json.dumps(
+            {
+                "boxes_schema_version": 4,
+                "boxes": [{"name": "Time", "rect": rect, "settings": {}}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        mainwindow.QFileDialog,
+        "getOpenFileName",
+        lambda *args, **kwargs: (str(layout), ""),
+    )
+    main_window.importConfiguration()
+    # Time has the file's settings, Home Score its own once placed again
+    assert storage.find_item_by_name("Time").settings["dilate"] == 1
+    assert list(fetch_data("scoresight.json", "removed_box_settings")["fields"]) == [
+        "Home Score"
+    ]
+    main_window.itemSelected("Home Score")
+    main_window.makeBox()
+    assert storage.find_item_by_name("Home Score").settings["dilate"] == 3
 
 
 def test_deleting_a_custom_field_asks_first(main_window):
