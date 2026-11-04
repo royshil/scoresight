@@ -47,7 +47,7 @@ Our goal is simple: to be the best scoreboard-reading software on the planet, an
 - **Per-box tuning**: field type (number/time/text), format presets and custom regular expressions, confidence threshold, global/local/adaptive binarization, cleanup, dilate, skew, vertical scale, auto-crop, rescale, invert, output averaging, leading-zero removal, ordinals (1st, 2nd...) and more.
 - **Dot counter**: count indicator lights such as balls/strikes/outs, possession arrows or bonus lights.
 - **Template fields**: combine fields and text, for example `{{Home Score}} - {{Away Score}}` or `Q{{Period}}`.
-- **Game & sports**: choose the sport (basketball, soccer, futsal, ice hockey, American football, volleyball) and ScoreSight follows the game: each score, the start and end of each period, the clock, the final buzzer and the points of each period, with misreads filtered out, at `/game`.
+- **Game & sports**: choose the sport (basketball, soccer, futsal, handball, ice hockey, American football, volleyball) and ScoreSight follows the game: each score, the start and end of each period, the clock, the final buzzer and the points of each period, with misreads filtered out, at `/game`.
 - **OCR models**: PaddleOCR's PP-OCRv6 recognition models (automatic, accurate and fast: about 95% of real scoreboard values read right), four bundled Tesseract models (General Scoreboard, General Scoreboard Large, Daktronics, General Fonts) or your own `.traineddata`.
 - **Training tools**: collect OCR samples from your own scoreboard and annotate them in the built-in Training Dojo.
 - **Multiple instances**: run several ScoreSight windows side by side with `--profile` and `--port`, for example one per camera.

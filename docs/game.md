@@ -31,6 +31,7 @@ In the **Box** tab of the inspector, under **All boxes**, choose the **Sport**. 
 | Basketball (halves) | +1, +2, +3 | 2 halves (H1, H2, then OT) | counts down |
 | Soccer | +1 | 2 halves (H1, H2) | counts up |
 | Futsal | +1 (the team fouls are followed too) | 2 halves (H1, H2, then OT) | counts down |
+| Handball | +1 (the team timeouts are followed too) | 2 halves (H1, H2, then OT) | counts up |
 | Ice hockey | +1 | 3 periods (P1–P3, then OT) | counts down |
 | American football | +1, +2, +3, +6, +7, +8 | 4 quarters (Q1–Q4, then OT) | counts down |
 | Volleyball | +1 (the scores start again each set) | up to 5 sets | none |

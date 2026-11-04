@@ -515,6 +515,60 @@ def test_futsal_ends_at_0_00_of_the_second_half(game):
     assert len(final) == 1 and final[0].text() == "Final (3–1)"
 
 
+def start_handball(game, home="0", away="0", period="1", time="0:00"):
+    g = game(sports.HANDBALL)
+    for _ in range(2):
+        assert (
+            g.read(
+                Home_Score=home,
+                Away_Score=away,
+                Period=period,
+                Time=time,
+                Home_Timeouts="0",
+                Away_Timeouts="0",
+            )
+            == []
+        )
+    return g
+
+
+def test_handball_clock_counts_up_through_two_halves(game):
+    # a Grünenwald board (discussion #140): the clock counts up, 0-30 then 30-60
+    g = start_handball(game, home="14", away="12", time="29:58")
+    events = g.read(step=1.0, Time="29:59")
+    assert g.kinds(events) == [CLOCK_START]
+    g.read(step=1.0, Time="30:00")
+    events = []
+    for _ in range(2):
+        events += g.read(step=1.0, Period="2", Time="30:00")
+    # (the clock stopped at 30:00 too)
+    assert g.kinds(events)[:2] == [PERIOD_END, PERIOD_START]
+    assert events[0].text() == "End of H1 (14–12)"
+    assert sports.HANDBALL.period_label(3) == "OT"
+    assert FINAL not in g.kinds(g.engine.events)
+
+
+def test_handball_follows_the_timeouts_not_fouls(game):
+    names = ["Home Score", "Away Score", "Time", "Period", "Home Fouls"]
+    assert sports.HOME_FOULS not in sports.assign_roles(names, sports.HANDBALL)
+    g = start_handball(game, home="5", away="4", time="12:40")
+    for _ in range(2):
+        events = g.read(step=1.0, Away_Timeouts="1")
+    assert [(e.kind, e.team, e.value) for e in events] == [(TIMEOUTS, "away", 1)]
+
+
+def test_handball_scores_go_up_one_goal_at_a_time(game, cycle):
+    g = start_handball(game, home="21", away="19", time="41:10")
+    held, events = cycle(g, Home_Score="27")
+    assert (
+        held == {"Home Score": "a score going up by 6, which Handball doesn't allow"}
+        and events == []
+    )
+    assert cycle(g, Home_Score="22") == ({}, [])
+    held, events = cycle(g, Home_Score="22")
+    assert held == {} and [(e.kind, e.delta) for e in events] == [(SCORE, 1)]
+
+
 def test_futsal_scores_go_up_one_goal_at_a_time(game, cycle):
     # a dot-matrix 3 misread as 9 (#136) is held back from the outputs
     g = start_futsal(game, home="3", away="1", time="2:15")
