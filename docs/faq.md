@@ -56,7 +56,7 @@ Up to 15 readings per second (the **Detections / s** slider), with all boxes rea
 
 ## Which languages is the interface available in?
 
-English, French, Spanish, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese (Brazil), Portuguese (Portugal), Russian and Chinese (Simplified). ScoreSight follows your system language, also for regional variants (for example Austrian German gets the German translation). Choose another one with **View > Language**: ScoreSight remembers it for the next start. Want to help translate? See [Translations](development/translations.md).
+English, French, Spanish, German, Danish, Italian, Japanese, Korean, Dutch, Polish, Portuguese (Brazil), Portuguese (Portugal), Russian and Chinese (Simplified). ScoreSight follows your system language, also for regional variants (for example Austrian German gets the German translation). Choose another one with **View > Language**: ScoreSight remembers it for the next start. Want to help translate? See [Translations](development/translations.md).
 
 ## Can I make the interface dark (or light)?
 

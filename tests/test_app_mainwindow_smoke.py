@@ -3209,7 +3209,9 @@ def test_the_menus_are_translatable(main_window, qapp):
     # the languages in their own language, not translated
     languages = [a.text() for a in main_window.language_actions.actions()]
     assert "Deutsch" in languages and "日本語" in languages and "Français" in languages
-    assert len(languages) == 13
+    # one per translation file: a new language is added to the menu too
+    qm_files = (Path(__file__).parent.parent / "translations").glob("*.qm")
+    assert len(languages) == len(list(qm_files))
 
 
 def test_replaced_viewers_are_deleted(make_window, qapp):

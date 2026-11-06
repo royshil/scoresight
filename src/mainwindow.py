@@ -231,6 +231,7 @@ LANGUAGES = (
     ("fr_FR", "Français"),
     ("es_ES", "Español"),
     ("de_DE", "Deutsch"),
+    ("da_DK", "Dansk"),
     ("it_IT", "Italiano"),
     ("ja_JP", "日本語"),
     ("ko_KR", "한국어"),
