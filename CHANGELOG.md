@@ -12,6 +12,8 @@ Release tags are the bare version number (for example `0.1.0`).
 
 - **Handball.** A new sport: goals count one at a time, the clock counts up through two halves (then extra time), and the team timeouts are followed. A board whose clock counts down is learned after a few seconds. The 2-minute suspensions aren't followed; a *Count lights* field can send a board's suspension lights ([#140](https://github.com/royshil/scoresight/discussions/140), [Game & Sports](https://royshil.github.io/scoresight/game.html)).
 
+- **Danish.** The window is translated into Danish (**View > Language > Dansk**), a machine draft for now: corrections from Danish operators are welcome ([Translations](https://royshil.github.io/scoresight/development/translations.html)).
+
 ### Changed
 
 - **A field removed from the picture keeps its settings.** Placed again, its box gets the settings it had, so a field that one scoreboard has and another doesn't (a team playing in several rinks) doesn't have to be set up again. **Remove from picture** no longer asks first, since nothing is lost, and **File > Import field layout...** keeps the settings of the fields the file doesn't place. **Reset to defaults** starts a field over ([#179](https://github.com/royshil/scoresight/discussions/179), [Detection Boxes: Import and export layouts](https://royshil.github.io/scoresight/boxes.html#import-and-export-layouts)).

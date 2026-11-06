@@ -51,7 +51,7 @@ Our goal is simple: to be the best scoreboard-reading software on the planet, an
 - **OCR models**: PaddleOCR's PP-OCRv6 recognition models (automatic, accurate and fast: about 95% of real scoreboard values read right), four bundled Tesseract models (General Scoreboard, General Scoreboard Large, Daktronics, General Fonts) or your own `.traineddata`.
 - **Training tools**: collect OCR samples from your own scoreboard and annotate them in the built-in Training Dojo.
 - **Multiple instances**: run several ScoreSight windows side by side with `--profile` and `--port`, for example one per camera.
-- **13 languages**: English, French, Spanish, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese (Brazil and Portugal), Russian and Chinese (Simplified), with System/Light/Dark appearance.
+- **14 languages**: English, French, Spanish, German, Danish, Italian, Japanese, Korean, Dutch, Polish, Portuguese (Brazil and Portugal), Russian and Chinese (Simplified), with System/Light/Dark appearance.
 
 ## Sources and outputs
 

@@ -17,7 +17,7 @@ description: "Update, translate and compile ScoreSight's Qt translation files, a
 
 ScoreSight's interface is translated with Qt's translation system. Every language has a source file `translations/scoresight_<locale>.ts` (XML, edited by translators) and a compiled file `translations/scoresight_<locale>.qm` (loaded by the app). Both are committed.
 
-Available locales: `en_US`, `de_DE`, `es_ES`, `fr_FR`, `it_IT`, `ja_JP`, `ko_KR`, `nl_NL`, `pl_PL`, `pt_BR`, `pt_PT`, `ru_RU` and `zh_CN`.
+Available locales: `en_US`, `da_DK`, `de_DE`, `es_ES`, `fr_FR`, `it_IT`, `ja_JP`, `ko_KR`, `nl_NL`, `pl_PL`, `pt_BR`, `pt_PT`, `ru_RU` and `zh_CN`.
 
 At startup ScoreSight picks the language in this order:
 
@@ -48,7 +48,7 @@ pyside6-lupdate src/*.ui $(ls src/*.py | grep -v '/ui_') -ts translations/*.ts
 
 Open a `.ts` file in **Qt Linguist** (`pyside6-linguist translations/scoresight_de_DE.ts`), translate the unfinished entries and mark them as done.
 
-Most entries of the 12 translations are machine-drafted (in 0.2.0): they have a translation, but are still marked unfinished, with the translator comment *Machine-drafted translation; please review*. `lrelease` ships unfinished translations, so the drafts show in the app; reviewing a language means correcting what reads wrong and marking each entry as done. The About dialog's license text stays English.
+Most entries of the 13 translations are machine-drafted (in 0.2.0, Danish in 0.4.4): they have a translation, but are still marked unfinished, with the translator comment *Machine-drafted translation; please review*. `lrelease` ships unfinished translations, so the drafts show in the app; reviewing a language means correcting what reads wrong and marking each entry as done. The About dialog's license text stays English.
 
 `tests/test_app_mainwindow_smoke.py::test_every_language_fits` checks, for every `.qm`, that no label or button of the side panes, the viewer column, the output pages or the status bar is cut off at 1366x768. A long translation that fails it can usually be shortened; a hint line can wrap.
 
