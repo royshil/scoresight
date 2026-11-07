@@ -1,4 +1,4 @@
 # macOS-only runtime extras. Install together with requirements.txt.
-pyobjc-core==12.2.2
+pyobjc-core==13.0
 pyobjc-framework-AVFoundation==12.2.2
 pyobjc-framework-Quartz==12.2.2
