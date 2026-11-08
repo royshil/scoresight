@@ -132,6 +132,8 @@ If a camera shows a black picture or screen capture shows only the desktop wallp
 
 The Apple Silicon (`arm64`) build runs natively on M-series Macs and is much faster there. The Intel build also runs on Apple Silicon through Rosetta 2, but more slowly. Install the one that matches your Mac.
 
+**0.4.4 is the last release for Intel Macs.** Later versions have no Intel build, and on an Intel Mac ScoreSight doesn't offer them as updates. 0.4.4 stays available on the [releases page](https://github.com/royshil/scoresight/releases/tag/0.4.4).
+
 ### Uninstall (macOS)
 
 Drag ScoreSight from **Applications** to the Trash. To also remove settings and logs, delete `~/Library/Application Support/scoresight` and `~/Library/Logs/scoresight`.

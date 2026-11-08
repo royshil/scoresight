@@ -18,6 +18,10 @@ Release tags are the bare version number (for example `0.1.0`).
 
 - **A field removed from the picture keeps its settings.** Placed again, its box gets the settings it had, so a field that one scoreboard has and another doesn't (a team playing in several rinks) doesn't have to be set up again. **Remove from picture** no longer asks first, since nothing is lost, and **File > Import field layout...** keeps the settings of the fields the file doesn't place. **Reset to defaults** starts a field over ([#179](https://github.com/royshil/scoresight/discussions/179), [Detection Boxes: Import and export layouts](https://royshil.github.io/scoresight/boxes.html#import-and-export-layouts)).
 
+### Deprecated
+
+- **Intel Macs: 0.4.4 is the last release.** Later versions are for Apple Silicon Macs, Windows and Linux; 0.4.4 stays available for Intel Macs. On an Intel Mac, ScoreSight no longer offers an update that has no Intel Mac download (the Intel build running on an Apple Silicon Mac is still told about updates: install the Apple Silicon build) ([Installation](https://royshil.github.io/scoresight/INSTALL.html)).
+
 ## [0.4.3] - 2026-11-01
 
 A phone as the camera, a smoother preview, and clock fixes from the

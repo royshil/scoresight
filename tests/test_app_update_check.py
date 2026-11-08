@@ -16,6 +16,10 @@ from update_check import (
 )
 
 
+# the real one: the autouse fixture below replaces it in update_check
+needs_intel_mac_build = update_check.needs_intel_mac_build
+
+
 class FakeResponse:
     def __init__(self, payload=None, status_code=200, json_error=False):
         self._payload = payload
@@ -45,13 +49,24 @@ class FakeGet:
         return self.response
 
 
-def release(tag, draft=False, prerelease=False):
+def release(tag, draft=False, prerelease=False, intel_mac=True):
+    version = tag.removeprefix("v")
+    names = ["windows-x64-setup.exe", "macos-arm64.dmg"]
+    if intel_mac:
+        names.append("macos-x64.dmg")
     return {
         "tag_name": tag,
         "draft": draft,
         "prerelease": prerelease,
         "html_url": f"https://github.com/royshil/scoresight/releases/tag/{tag}",
+        "assets": [{"name": f"scoresight-{version}-{name}"} for name in names],
     }
+
+
+@pytest.fixture(autouse=True)
+def not_an_intel_mac(monkeypatch):
+    """The tests don't depend on the machine they run on."""
+    monkeypatch.setattr(update_check, "needs_intel_mac_build", lambda: False)
 
 
 # --- versions --------------------------------------------------------------------
@@ -164,6 +179,65 @@ def test_stable_users_are_not_offered_a_prerelease_marked_latest():
     result = check_for_updates("0.2.0", FakeGet(FakeResponse(payload)))
     assert not result.update_available
     assert result.latest_version is None
+
+
+# --- Intel Macs (0.4.4 is their last release) ---------------------------------------
+
+
+def test_an_intel_mac_is_not_offered_a_release_without_its_build(monkeypatch):
+    monkeypatch.setattr(update_check, "needs_intel_mac_build", lambda: True)
+    payload = [release("0.5.0", intel_mac=False), release("0.4.4")]
+    get = FakeGet(FakeResponse(payload))
+    result = check_for_updates("0.4.4", get)
+    assert get.urls == [RELEASES_API_URL]
+    assert not result.update_available
+    assert result.latest_version == "0.4.4"
+    assert result.error is None
+
+
+def test_an_intel_mac_is_offered_the_newest_release_with_its_build(monkeypatch):
+    monkeypatch.setattr(update_check, "needs_intel_mac_build", lambda: True)
+    payload = [
+        release("0.5.0", intel_mac=False),
+        release("0.4.5"),
+        release("0.4.4"),
+    ]
+    result = check_for_updates("0.4.3", FakeGet(FakeResponse(payload)))
+    assert result.update_available
+    assert result.latest_version == "0.4.5"
+    # /releases/latest would be 0.5.0: the dialog links to 0.4.5's page
+    assert result.release_url == payload[1]["html_url"]
+
+
+def test_other_computers_are_offered_a_release_without_an_intel_mac_build():
+    result = check_for_updates(
+        "0.4.4", FakeGet(FakeResponse(release("0.5.0", intel_mac=False)))
+    )
+    assert result.update_available
+    assert result.latest_version == "0.5.0"
+
+
+@pytest.mark.parametrize(
+    "system, machine, rosetta, expected",
+    [
+        ("darwin", "x86_64", False, True),
+        ("darwin", "x86_64", True, False),  # the Intel build on Apple Silicon
+        ("darwin", "arm64", False, False),
+        ("win32", "AMD64", False, False),
+        ("linux", "x86_64", False, False),
+    ],
+)
+def test_which_computers_need_an_intel_mac_build(
+    monkeypatch, system, machine, rosetta, expected
+):
+    monkeypatch.setattr(update_check.sys, "platform", system)
+    monkeypatch.setattr(update_check.platform, "machine", lambda: machine)
+    monkeypatch.setattr(update_check, "_running_under_rosetta", lambda: rosetta)
+    assert needs_intel_mac_build() is expected
+
+
+def test_rosetta_check_never_raises():
+    assert update_check._running_under_rosetta() in (True, False)
 
 
 def test_no_published_release_is_not_an_error():
