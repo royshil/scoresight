@@ -8,6 +8,8 @@ Release tags are the bare version number (for example `0.1.0`).
 
 ## [Unreleased]
 
+## [0.4.4] - 2026-11-08
+
 ### Added
 
 - **Handball.** A new sport: goals count one at a time, the clock counts up through two halves (then extra time), and the team timeouts are followed. A board whose clock counts down is learned after a few seconds. The 2-minute suspensions aren't followed; a *Count lights* field can send a board's suspension lights ([#140](https://github.com/royshil/scoresight/discussions/140), [Game & Sports](https://royshil.github.io/scoresight/game.html)).
@@ -1160,7 +1162,8 @@ end to end on every platform before it ships. Highlights:
 
 - First open-source release of ScoreSight.
 
-[Unreleased]: https://github.com/royshil/scoresight/compare/0.4.3...HEAD
+[Unreleased]: https://github.com/royshil/scoresight/compare/0.4.4...HEAD
+[0.4.4]: https://github.com/royshil/scoresight/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/royshil/scoresight/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/royshil/scoresight/compare/0.4.1...0.4.2
 [0.4.1]: https://github.com/royshil/scoresight/compare/0.4.0...0.4.1
