@@ -833,9 +833,11 @@ def test_build_workflow_uploads_the_packages_the_release_expects():
         assert f"-{suffix}" in build, suffix
         assert f'"scoresight-$VERSION-{suffix}"' in release, suffix
     assert "-${{ matrix.target }}.dmg" in build
-    for target in ["macos-arm64", "macos-x64"]:
-        assert f"target: {target}" in build
-        assert f'"scoresight-$VERSION-{target}.dmg"' in release
+    assert "target: macos-arm64" in build
+    assert '"scoresight-$VERSION-macos-arm64.dmg"' in release
+    # 0.4.4 was the last release for Intel Macs
+    assert "macos-x64" not in build
+    assert "macos-x64" not in release
 
 
 def test_the_release_notes_list_every_package_and_invite_to_discussions():
@@ -850,7 +852,6 @@ def test_the_release_notes_list_every_package_and_invite_to_discussions():
         "windows-x64-setup.exe",
         "windows-x64-portable.zip",
         "macos-arm64.dmg",
-        "macos-x64.dmg",
         "linux-x64.tar.gz",
     ]:
         assert f'"scoresight-$VERSION-{suffix}"' in release, suffix
@@ -934,7 +935,6 @@ LEGACY_ASSETS = {
     # the 0.1.0 release's packages (gh release view 0.1.0)
     "windows-x64": "scoresight-windows-0.1.0.zip",
     "macos-arm64": "scoresight-macos-arm64-0.1.0.dmg",
-    "macos-x64": "scoresight-macos-x86-0.1.0.dmg",
     "linux-x64": "scoresight-linux-0.1.0.tar",
 }
 

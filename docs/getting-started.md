@@ -17,7 +17,7 @@ New to ScoreSight? Follow these two pages in order:
 | | Requirement |
 |---|---|
 | Windows | Windows 10 (version 1809 or newer) or Windows 11, 64-bit (x64). The installer checks this |
-| macOS | macOS 15 (Sequoia) or newer. Separate downloads for Apple Silicon (M1 and later) and Intel Macs |
+| macOS | macOS 15 (Sequoia) or newer. Apple Silicon (M1 and later); 0.4.4 is the last release for Intel Macs |
 | Linux | 64-bit x86_64 distribution with glibc 2.35 or newer (for example Ubuntu 22.04 or newer, Debian 12 or newer) and an X11 or Wayland desktop |
 | CPU / RAM | Any recent dual-core CPU and 4 GB RAM. CPU use grows with the number of boxes and the Detections / s setting (see [Performance Tuning](performance.md)) |
 | Network | Optional. Needed only for NDI, URL/RTSP sources, network outputs and the update check |

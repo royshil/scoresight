@@ -34,7 +34,7 @@ ScoreSight reads the scores, clocks and periods many times per second and sends 
 Our goal is simple: to be the best scoreboard-reading software on the planet, and to keep it free and open for everyone who produces live sports, from community leagues to stadium broadcasts.
 
 - **Free and open source**: MIT licensed. No watermark, no paid tier, no account.
-- **Runs on your machine**: Windows, macOS (Apple Silicon and Intel) and Linux. No cloud, no internet required.
+- **Runs on your machine**: Windows, macOS (Apple Silicon) and Linux. No cloud, no internet required.
 - **Real time**: up to 15 readings per second for every box, with outputs that never stall the app.
 - **Built for scoreboards**: OCR models trained on LED, LCD and 7-segment scoreboard digits, plus per-box image processing and validation rules that keep wrong numbers off air.
 - **Plugs into your production**: OBS, vMix, overlays.uno, browser overlays, text files and any HTTP endpoint, all at the same time.
@@ -84,7 +84,6 @@ Download the latest version for your system from the **[Releases page](https://g
 |---|---|
 | Windows 10 (1809 or newer) / 11, 64-bit | `scoresight-<version>-windows-x64-setup.exe` (installer) or `scoresight-<version>-windows-x64-portable.zip` |
 | macOS 15 or newer, Apple Silicon (M1 and later) | `scoresight-<version>-macos-arm64.dmg` |
-| macOS 15 or newer, Intel | `scoresight-<version>-macos-x64.dmg` |
 | Linux x86_64 with glibc 2.35 or newer (Ubuntu 22.04+, Debian 12+) | `scoresight-<version>-linux-x64.tar.gz` (extract and run `scoresight/scoresight`) |
 
 Every release includes `SHA256SUMS.txt` so you can verify your download. Download ScoreSight only from GitHub: the project's former website domain (`scoresight[.]live`) is no longer controlled by the project. The [installation guide](https://royshil.github.io/scoresight/INSTALL.html) covers SmartScreen, the portable version, macOS permissions and Linux details.

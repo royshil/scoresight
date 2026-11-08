@@ -9,7 +9,6 @@
 #   scoresight-<version>-windows-x64-setup.exe
 #   scoresight-<version>-windows-x64-portable.zip
 #   scoresight-<version>-macos-arm64.dmg
-#   scoresight-<version>-macos-x64.dmg
 #   scoresight-<version>-linux-x64.tar.gz
 # <version> is src/version.py's version, plus "-<short commit>" unless this is a
 # release build. Release builds sign the Windows app, installer and uninstaller
@@ -118,11 +117,6 @@ jobs:
             runner: macos-latest
             executable: dist/ScoreSight.app/Contents/MacOS/scoresight
             legacy-asset: scoresight-macos-arm64-0.1.0.dmg
-          - target: macos-x64
-            # the last Intel macOS image; GitHub retires it in fall 2027
-            runner: macos-15-intel
-            executable: dist/ScoreSight.app/Contents/MacOS/scoresight
-            legacy-asset: scoresight-macos-x86-0.1.0.dmg
           - target: linux-x64
             # The build machine's glibc is the oldest the app runs on: Ubuntu
             # 22.04 has glibc 2.35 (PySide6 6.12 needs 2.34). The image is
@@ -169,23 +163,7 @@ jobs:
             Windows) requirements+=(-r requirements-win.txt) ;;
             macOS) requirements+=(-r requirements-mac.txt) ;;
           esac
-          if [ "$RUNNER_OS" = macOS ] && [ "$RUNNER_ARCH" = X64 ]; then
-            # cryptography has no Intel Mac wheels: it is built from source.
-            # Linked to Homebrew's libssl.3.dylib, it clashes in the frozen
-            # app with Python's own libssl.3.dylib (Symbol not found), so link
-            # OpenSSL statically (Homebrew's is built for macOS 15, the app's
-            # minimum).
-            export OPENSSL_STATIC=1 OPENSSL_DIR="$(brew --prefix openssl@3)"
-          fi
           python -m pip install "${requirements[@]}"
-          if [ "$RUNNER_OS" = macOS ] && [ "$RUNNER_ARCH" = X64 ]; then
-            rust=$(python -c "import cryptography.hazmat.bindings._rust as m; print(m.__file__)")
-            otool -L "$rust"
-            if otool -L "$rust" | grep -E "libssl|libcrypto"; then
-              echo "::error::cryptography links OpenSSL dynamically"
-              exit 1
-            fi
-          fi
 
       - name: Cache the PP-OCR models
         uses: actions/cache@v6

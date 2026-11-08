@@ -8,6 +8,10 @@ Release tags are the bare version number (for example `0.1.0`).
 
 ## [Unreleased]
 
+### Removed
+
+- **Intel Macs.** There is no Intel Mac download any more: [0.4.4](https://github.com/royshil/scoresight/releases/tag/0.4.4) is the last release for Intel Macs, and on an Intel Mac it doesn't offer newer versions as updates. If you run the Intel build on an Apple Silicon Mac, install the Apple Silicon build ([Installation](https://royshil.github.io/scoresight/INSTALL.html)).
+
 ## [0.4.4] - 2026-11-08
 
 ### Added

@@ -29,7 +29,7 @@ Under **Assets**, pick the file for your computer (`<version>` is the release nu
 |---|---|
 | Windows 10 (version 1809 or newer) or 11, 64-bit | `scoresight-<version>-windows-x64-setup.exe` (installer, recommended) or `scoresight-<version>-windows-x64-portable.zip` (no installation) |
 | Mac with Apple Silicon (M1, M2, M3, M4...), macOS 15 or newer | `scoresight-<version>-macos-arm64.dmg` |
-| Mac with an Intel processor, macOS 15 or newer | `scoresight-<version>-macos-x64.dmg` |
+| Mac with an Intel processor, macOS 15 or newer | `scoresight-0.4.4-macos-x64.dmg` from [0.4.4](https://github.com/royshil/scoresight/releases/tag/0.4.4), the last release for Intel Macs |
 | Linux, 64-bit x86_64, glibc 2.35 or newer (Ubuntu 22.04+, Debian 12+) | `scoresight-<version>-linux-x64.tar.gz` |
 | All | `SHA256SUMS.txt`: checksums for verifying the downloads |
 
@@ -38,7 +38,7 @@ Releases before 0.2.0 used other file names, for example a `windows` `.zip` that
 {: .warning }
 Do not download ScoreSight from any other website. The project's former website domain (`scoresight[.]live`) is **no longer controlled by the project**. ScoreSight 0.1.x and older still show links to it in the About and Update dialogs. Ignore those links.
 
-Not sure which Mac you have? Open the Apple menu > **About This Mac**. If you see **Chip: Apple M...**, download `macos-arm64`. If you see **Processor: ... Intel**, download `macos-x64`.
+Not sure which Mac you have? Open the Apple menu > **About This Mac**. If you see **Chip: Apple M...**, download `macos-arm64`. If you see **Processor: ... Intel**, download 0.4.4's `macos-x64`, the last release for Intel Macs.
 
 ## Verify your download (recommended)
 
@@ -97,7 +97,7 @@ Use **Settings** > **Apps** > **Installed apps** > **ScoreSight** > **Uninstall*
 
 ScoreSight 0.2.0 and newer require **macOS 15 (Sequoia) or newer**.
 
-1. Download the `.dmg` for your Mac (Apple Silicon or Intel, see [Download](#download)).
+1. Download the `.dmg` for your Mac (see [Download](#download)).
 2. Double-click the `.dmg`. It contains the ScoreSight app and a shortcut to your **Applications** folder. Drag ScoreSight onto **Applications**:
 
    ![Drag the ScoreSight app to the Applications folder](image-7.png)
@@ -130,9 +130,7 @@ If a camera shows a black picture or screen capture shows only the desktop wallp
 
 ### Apple Silicon vs Intel
 
-The Apple Silicon (`arm64`) build runs natively on M-series Macs and is much faster there. The Intel build also runs on Apple Silicon through Rosetta 2, but more slowly. Install the one that matches your Mac.
-
-**0.4.4 is the last release for Intel Macs.** Later versions have no Intel build, and on an Intel Mac ScoreSight doesn't offer them as updates. 0.4.4 stays available on the [releases page](https://github.com/royshil/scoresight/releases/tag/0.4.4).
+ScoreSight is built for Apple Silicon (`arm64`) Macs. **0.4.4 is the last release for Intel Macs**: later versions have no Intel build, and on an Intel Mac, ScoreSight 0.4.4 doesn't offer them as updates. 0.4.4 stays available on the [releases page](https://github.com/royshil/scoresight/releases/tag/0.4.4). If you run 0.4.4's Intel build on an Apple Silicon Mac (through Rosetta 2), install the Apple Silicon build instead: it is much faster and gets the updates.
 
 ### Uninstall (macOS)
 

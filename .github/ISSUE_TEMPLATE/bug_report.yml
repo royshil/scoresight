@@ -27,7 +27,7 @@ body:
       options:
         - Windows (x64)
         - macOS on Apple Silicon (arm64)
-        - macOS on Intel (x86_64)
+        - macOS on Intel (x86_64, 0.4.4 or older)
         - Linux (x86_64)
         - Other (please describe below)
     validations:
