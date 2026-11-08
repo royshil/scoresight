@@ -49,7 +49,6 @@ Downloads:
 Windows (installer): https://github.com/royshil/scoresight/releases/download/X.Y.Z/scoresight-X.Y.Z-windows-x64-setup.exe
 Windows (portable zip): https://github.com/royshil/scoresight/releases/download/X.Y.Z/scoresight-X.Y.Z-windows-x64-portable.zip
 macOS (Apple Silicon): https://github.com/royshil/scoresight/releases/download/X.Y.Z/scoresight-X.Y.Z-macos-arm64.dmg
-macOS (Intel): https://github.com/royshil/scoresight/releases/download/X.Y.Z/scoresight-X.Y.Z-macos-x64.dmg
 Linux (x86_64): https://github.com/royshil/scoresight/releases/download/X.Y.Z/scoresight-X.Y.Z-linux-x64.tar.gz
 
 What's new: https://github.com/royshil/scoresight/releases/tag/X.Y.Z

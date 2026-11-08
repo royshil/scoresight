@@ -21,7 +21,6 @@ Platforms tested:
 
 - [ ] Windows
 - [ ] macOS (Apple Silicon)
-- [ ] macOS (Intel)
 - [ ] Linux
 
 ## Checklist

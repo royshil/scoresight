@@ -13,13 +13,12 @@ from ocr_eval.engines import discover
 REQUIREMENTS_EVAL = Path(__file__).resolve().parents[1] / "requirements-eval.txt"
 # the groups the file documents but doesn't install (commented-out pins)
 COMMENTED_PIN = re.compile(r"^#\s*([A-Za-z0-9][A-Za-z0-9_.\[\],-]*==\S+)\s*$")
-# the project's Python (an Intel Mac's onnxruntime 1.23.2 has no 3.14 wheels)
+# the project's Python
 PYTHON = {"python_version": "3.13", "python_full_version": "3.13.0"}
 ENVIRONMENTS = {
     "windows": {"sys_platform": "win32", "platform_machine": "AMD64", **PYTHON},
     "linux": {"sys_platform": "linux", "platform_machine": "x86_64", **PYTHON},
     "macos-arm64": {"sys_platform": "darwin", "platform_machine": "arm64", **PYTHON},
-    "macos-x86_64": {"sys_platform": "darwin", "platform_machine": "x86_64", **PYTHON},
 }
 
 

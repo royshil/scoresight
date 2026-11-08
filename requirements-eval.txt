@@ -14,10 +14,8 @@
 
 # --- PaddleOCR PP-OCRv6/v5 recognizers on onnxruntime (engines/ppocr.py) ---
 # The models (Apache-2.0) are downloaded from the Hugging Face Hub at pinned
-# revisions. onnxruntime 1.24 and later have no macOS x86_64 wheels (the last
-# is 1.23.2, for macOS 13+); an Intel Mac gets that one (not measured).
-onnxruntime==1.31.1 ; sys_platform != "darwin" or platform_machine != "x86_64"
-onnxruntime==1.23.2 ; sys_platform == "darwin" and platform_machine == "x86_64" and python_version < "3.14"
+# revisions.
+onnxruntime==1.31.1
 # 1.x: OnnxTR 0.9.0 requires huggingface-hub < 2
 huggingface_hub==1.33.0
 PyYAML==6.0.3
@@ -39,7 +37,7 @@ winrt-Windows.Storage.Streams==4!10.0.28000.2957 ; sys_platform == "win32"
 
 # --- Apple Vision and Live Text through ocrmac (engines/apple_vision.py) ---
 ocrmac==1.0.1 ; sys_platform == "darwin"
-pyobjc-framework-Vision==12.2.2 ; sys_platform == "darwin"
+pyobjc-framework-Vision==13.0 ; sys_platform == "darwin"
 
 # --- Small vision-language models: florence2, smolvlm, qwen-vl (engines/vlm.py) ---
 # Not installed by this file: the VLM evaluation was stopped (too slow on a

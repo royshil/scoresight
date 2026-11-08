@@ -38,7 +38,7 @@ import cv2
 from ocr_eval.engines import Engine, EngineUnavailable, _os_ocr
 
 # ocrmac 1.0.1 depends on pyobjc-framework-Vision (unpinned), pillow and click.
-REQUIREMENTS: list[str] = ["ocrmac==1.0.1", "pyobjc-framework-Vision==12.2.2"]
+REQUIREMENTS: list[str] = ["ocrmac==1.0.1", "pyobjc-framework-Vision==13.0"]
 
 LANGUAGE = "en-US"
 LEVELS = ("accurate", "fast", "livetext")

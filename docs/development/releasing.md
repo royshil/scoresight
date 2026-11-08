@@ -52,7 +52,7 @@ description: "How ScoreSight versions, changelogs, tags and the release workflow
 
 4. **The release workflow runs** (`.github/workflows/release.yml`, triggered by tags `X.Y.Z`, `X.Y.Z-beta.N` and `X.Y.Z-rc.N`). It:
    - checks that the tag equals `src/version.py` and that `CHANGELOG.md` has a `## [X.Y.Z]` section, and fails otherwise,
-   - builds Windows x64, macOS arm64, macOS x86_64 and Linux x86_64 packages with `build.yml` (signing the Windows app, installer and uninstaller, and signing and notarizing the macOS app and disk images, when the secrets are configured; see [Signing](#signing)),
+   - builds Windows x64, macOS arm64 and Linux x86_64 packages with `build.yml` (signing the Windows app, installer and uninstaller, and signing and notarizing the macOS app and disk images, when the secrets are configured; see [Signing](#signing)),
    - runs the frozen app's `--self-test` on every platform, and on Windows also installs, self-tests and uninstalls the installer,
    - checks that all five packages exist and writes `SHA256SUMS.txt`,
    - creates a **draft** GitHub release named "ScoreSight X.Y.Z" with the packages and `SHA256SUMS.txt` attached. Its notes are this version's section from `CHANGELOG.md`, followed by `.github/release-notes-footer.md`: a downloads table, instructions for verifying the checksums, and an invitation to ScoreSight's Discussions. Beta and rc tags are marked as pre-releases automatically.
@@ -68,7 +68,6 @@ If something is wrong, delete the draft and the tag, fix `main`, and tag again.
 | `scoresight-X.Y.Z-windows-x64-setup.exe` | Windows installer |
 | `scoresight-X.Y.Z-windows-x64-portable.zip` | Windows, no installation |
 | `scoresight-X.Y.Z-macos-arm64.dmg` | macOS 15+, Apple Silicon |
-| `scoresight-X.Y.Z-macos-x64.dmg` | macOS 15+, Intel |
 | `scoresight-X.Y.Z-linux-x64.tar.gz` | Linux x86_64, glibc 2.35+ |
 | `SHA256SUMS.txt` | Checksums of the five packages |
 

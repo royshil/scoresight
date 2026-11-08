@@ -90,7 +90,6 @@ jobs:
             "scoresight-$VERSION-windows-x64-setup.exe"
             "scoresight-$VERSION-windows-x64-portable.zip"
             "scoresight-$VERSION-macos-arm64.dmg"
-            "scoresight-$VERSION-macos-x64.dmg"
             "scoresight-$VERSION-linux-x64.tar.gz"
           )
           ls -l

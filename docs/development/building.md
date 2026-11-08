@@ -28,7 +28,7 @@ description: "Set up a ScoreSight development environment with uv and Python 3.1
 
 | File | Contents |
 |---|---|
-| `requirements.txt` | Runtime dependencies for all platforms (with environment markers), including onnxruntime for PP-OCR: 1.31.1, and 1.23.2 on macOS x86_64 (the last release with Intel Mac wheels, CPython 3.10–3.13) |
+| `requirements.txt` | Runtime dependencies for all platforms (with environment markers), including onnxruntime for PP-OCR |
 | `requirements-win.txt` | Windows extras, including the prebuilt Windows `tesserocr` wheel |
 | `requirements-mac.txt` | macOS extras (PyObjC frameworks for camera enumeration and screen capture) |
 | `requirements-dev.txt` | `-r requirements.txt` plus pytest, pytest-qt, ruff, pre-commit and PyYAML (for `scripts/fetch_models.py`) |
@@ -187,7 +187,7 @@ CI also zips `dist\scoresight` as `scoresight-<version>-windows-x64-portable.zip
 
 ### macOS disk image, signing and notarization
 
-CI copies `ScoreSight.app` and a link to `/Applications` into a compressed disk image, `scoresight-<version>-macos-arm64.dmg` or `-macos-x64.dmg`. For **release builds**, and only when the Apple secrets are configured in the repository, CI signs the app with a Developer ID certificate, notarizes and staples both the app and the disk image (`scripts/ci/notarize_macos.sh`, then `scripts/ci/staple_macos.sh`, which tries the stapling again for about 9 minutes: right after notarization, Apple's ticket service sometimes drops the connection, stapler error 68). All other builds, including pull requests from forks, are unsigned. Run them via **System Settings** > **Privacy & Security** > **Open Anyway**, or remove the quarantine attribute with `xattr -dr com.apple.quarantine ScoreSight.app`. Entitlements are declared in `entitlements.plist`.
+CI copies `ScoreSight.app` and a link to `/Applications` into a compressed disk image, `scoresight-<version>-macos-arm64.dmg` (0.4.4 was the last release with an Intel build, `-macos-x64.dmg`). For **release builds**, and only when the Apple secrets are configured in the repository, CI signs the app with a Developer ID certificate, notarizes and staples both the app and the disk image (`scripts/ci/notarize_macos.sh`, then `scripts/ci/staple_macos.sh`, which tries the stapling again for about 9 minutes: right after notarization, Apple's ticket service sometimes drops the connection, stapler error 68). All other builds, including pull requests from forks, are unsigned. Run them via **System Settings** > **Privacy & Security** > **Open Anyway**, or remove the quarantine attribute with `xattr -dr com.apple.quarantine ScoreSight.app`. Entitlements are declared in `entitlements.plist`.
 
 ### Linux archive
 

@@ -92,7 +92,7 @@ def test_is_discovered_with_its_requirements_and_variants():
     assert registry.engines["apple-vision"] is AppleVision
     assert AppleVision.requirements == [
         "ocrmac==1.0.1",
-        "pyobjc-framework-Vision==12.2.2",
+        "pyobjc-framework-Vision==13.0",
     ]
     assert len(AppleVision.variants) == 18
     assert set(AppleVision.default_variants) <= set(AppleVision.variants)

@@ -6,16 +6,10 @@ show_update_dialog() on the GUI thread.
 
 Versions are compared with semantic-versioning precedence (X.Y.Z, optionally
 -beta.N / -rc.N, with or without a leading "v"). Draft releases are ignored, and
-so are prereleases unless the running version is itself a prerelease. 0.4.4 is
-the last release for Intel Macs: there, a release without an Intel Mac build
-isn't offered.
+so are prereleases unless the running version is itself a prerelease.
 """
 
-import ctypes
-import ctypes.util
-import platform
 import re
-import sys
 from dataclasses import dataclass
 from typing import Callable
 
@@ -33,8 +27,6 @@ GITHUB_REPO = "royshil/scoresight"
 LATEST_RELEASE_API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
 RELEASES_API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/releases"
 LATEST_RELEASE_PAGE_URL = f"https://github.com/{GITHUB_REPO}/releases/latest"
-# the Intel Mac build's asset name (build.yml), last made for 0.4.4
-INTEL_MAC_ASSET_NAME = "scoresight-{version}-macos-x64.dmg"
 
 # (connect, read) timeouts in seconds
 REQUEST_TIMEOUT = (3.05, 5)
@@ -118,53 +110,9 @@ def _release_version(release) -> tuple[Version, dict] | None:
     return version, release
 
 
-def _running_under_rosetta() -> bool:
-    """Whether this x86_64 process is translated by Rosetta 2 (an Apple Silicon
-    Mac running the Intel build)."""
-    try:
-        libc = ctypes.CDLL(ctypes.util.find_library("c"))
-        value = ctypes.c_int(0)
-        size = ctypes.c_size_t(ctypes.sizeof(value))
-        if libc.sysctlbyname(
-            b"sysctl.proc_translated",
-            ctypes.byref(value),
-            ctypes.byref(size),
-            None,
-            ctypes.c_size_t(0),
-        ):
-            # no such key: an Intel Mac
-            return False
-        return value.value == 1
-    except (OSError, AttributeError, TypeError):
-        return False
-
-
-def needs_intel_mac_build() -> bool:
-    """True on an Intel Mac, which only gets releases with an Intel Mac build.
-    The Intel build running under Rosetta is offered every release: its user
-    should move to the Apple Silicon build."""
-    return (
-        sys.platform == "darwin"
-        and platform.machine() == "x86_64"
-        and not _running_under_rosetta()
-    )
-
-
-def has_intel_mac_build(release: dict) -> bool:
-    version = str(release.get("tag_name") or "").strip().removeprefix("v")
-    name = INTEL_MAC_ASSET_NAME.format(version=version)
-    return any(
-        isinstance(asset, dict) and asset.get("name") == name
-        for asset in release.get("assets") or []
-    )
-
-
-def latest_release_from_response(
-    payload, include_prereleases: bool, intel_mac: bool = False
-) -> dict | None:
+def latest_release_from_response(payload, include_prereleases: bool) -> dict | None:
     """The newest usable release in a GitHub API response: a release object (from
-    /releases/latest) or a list of them (from /releases). With intel_mac, only
-    releases with an Intel Mac build are usable."""
+    /releases/latest) or a list of them (from /releases)."""
     releases = payload if isinstance(payload, list) else [payload]
     candidates = []
     for release in releases:
@@ -175,8 +123,6 @@ def latest_release_from_response(
         if (version.is_prerelease or release.get("prerelease")) and (
             not include_prereleases
         ):
-            continue
-        if intel_mac and not has_intel_mac_build(release):
             continue
         candidates.append(parsed)
     if not candidates:
@@ -208,12 +154,7 @@ def check_for_updates(
     # A prerelease user is told about newer prereleases too, which
     # /releases/latest never returns.
     include_prereleases = current is not None and current.is_prerelease
-    # An Intel Mac looks through the list for the newest release with an Intel
-    # Mac build: /releases/latest has none after 0.4.4.
-    intel_mac = needs_intel_mac_build()
-    url = (
-        RELEASES_API_URL if include_prereleases or intel_mac else LATEST_RELEASE_API_URL
-    )
+    url = RELEASES_API_URL if include_prereleases else LATEST_RELEASE_API_URL
     logger.info("Checking for updates: %s", url)
     try:
         response = http_get(url)
@@ -228,24 +169,18 @@ def check_for_updates(
         result.error = str(e)
         return result
 
-    release = latest_release_from_response(payload, include_prereleases, intel_mac)
+    release = latest_release_from_response(payload, include_prereleases)
     if release is None:
         logger.info("No usable release found in the update check response")
         return result
     result.latest_version = str(release["tag_name"]).strip()
-    if intel_mac:
-        logger.info(
-            "Intel Mac: only releases with an Intel Mac build are offered "
-            "(0.4.4 is the last)"
-        )
     html_url = release.get("html_url")
     if (
-        url == RELEASES_API_URL
+        include_prereleases
         and isinstance(html_url, str)
         and html_url.startswith(f"https://github.com/{GITHUB_REPO}/")
     ):
-        # /releases/latest may not be this release (a prerelease, or a newer
-        # one without an Intel Mac build): link to the release
+        # /releases/latest never points at a prerelease: link to the release
         result.release_url = html_url
     result.update_available = is_newer_version(result.latest_version, current_version)
     if result.update_available:

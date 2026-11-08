@@ -124,7 +124,7 @@ PyInstaller follows the imports of `src/main.py`, so new modules are bundled aut
 
 - **CI is green**: lint and tests pass, and the platform builds when your change touches packaging.
 - **Scope**: the PR does one thing and explains why in the description. Link the issue (`Fixes #123`).
-- **Tested**: say which platforms you tested on (Windows / macOS Apple Silicon / macOS Intel / Linux) and how (video file, camera, NDI, RTSP...).
+- **Tested**: say which platforms you tested on (Windows / macOS / Linux) and how (video file, camera, NDI, RTSP...).
 - **Screenshots** for UI changes.
 - **Docs and CHANGELOG** updated when behaviour changes.
 - **No generated or local files**: no `.venv/`, `build/`, `dist/`, `.env` or editor folders. Commit regenerated `ui_*.py` and `.qm` files only together with their sources.
