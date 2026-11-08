@@ -3,6 +3,8 @@
 Not a test module; import it from tests (pytest puts tests/ on sys.path).
 """
 
+from pathlib import Path
+
 import cv2
 import numpy as np
 
@@ -71,23 +73,42 @@ def seven_segment(
     return image
 
 
-def hershey(
-    text: str,
-    font: int = cv2.FONT_HERSHEY_SIMPLEX,
-    scale: float = 3,
-    thickness: int = 6,
-    fg: int = 255,
-    bg: int = 0,
-    pad: int = 20,
-):
-    """Render text with one of OpenCV's built-in Hershey fonts."""
+# OpenCV 5 draws its "Hershey" fonts with a bold outline font, so the thin
+# Hershey strokes the tests read are committed as images rendered by OpenCV 4.14
+# (python tests/synthetic_images.py writes them, under OpenCV 4)
+HERSHEY_DIR = Path(__file__).resolve().parent / "hershey"
+HERSHEY_TEXTS = [
+    *["0", "3", "7", "12", "45", "88", "105", "199"],
+    *["12:34", "0:59", "9.5", "45.1"],
+    *["HOME", "GUEST", "SCORESIGHT HOME"],
+]
+
+
+def _hershey_path(text: str) -> Path:
+    name = text.replace(":", "colon").replace(".", "dot").replace(" ", "_")
+    return HERSHEY_DIR / f"{name}.png"
+
+
+def render_hershey(text: str):
+    """Render text with OpenCV's FONT_HERSHEY_SIMPLEX (scale 3, thickness 6, 20 px
+    of padding), white on black."""
+    font, scale, thickness, pad = cv2.FONT_HERSHEY_SIMPLEX, 3, 6, 20
     (text_width, text_height), baseline = cv2.getTextSize(text, font, scale, thickness)
-    image = np.full(
-        (text_height + baseline + 2 * pad, text_width + 2 * pad), bg, np.uint8
-    )
+    image = np.zeros((text_height + baseline + 2 * pad, text_width + 2 * pad), np.uint8)
     cv2.putText(
-        image, text, (pad, pad + text_height), font, scale, fg, thickness, cv2.LINE_AA
+        image, text, (pad, pad + text_height), font, scale, 255, thickness, cv2.LINE_AA
     )
+    return image
+
+
+def hershey(text: str):
+    """text in OpenCV 4's Hershey font, white on black (one of HERSHEY_TEXTS)."""
+    image = cv2.imread(str(_hershey_path(text)), cv2.IMREAD_GRAYSCALE)
+    if image is None:
+        raise FileNotFoundError(
+            f"no image of {text!r}: add it to HERSHEY_TEXTS and run "
+            "python tests/synthetic_images.py under OpenCV 4"
+        )
     return image
 
 
@@ -95,3 +116,12 @@ def binarize(gray):
     """The capture thread's global Otsu binarization."""
     _, binary = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     return binary
+
+
+if __name__ == "__main__":
+    if not cv2.__version__.startswith("4."):
+        raise SystemExit(f"OpenCV {cv2.__version__}: render the images with OpenCV 4")
+    HERSHEY_DIR.mkdir(exist_ok=True)
+    for text in HERSHEY_TEXTS:
+        cv2.imwrite(str(_hershey_path(text)), render_hershey(text))
+    print(f"wrote {len(HERSHEY_TEXTS)} images to {HERSHEY_DIR}")
