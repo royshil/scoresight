@@ -17,6 +17,10 @@ updates:
       # same version: they can only move together
       pywinrt:
         patterns: ["winrt-*"]
+      # pyobjc-framework-* require pyobjc-core at the same version (13.0's
+      # AVFoundation needs core >= 13.0): they can only move together
+      pyobjc:
+        patterns: ["pyobjc-*"]
       python-minor-and-patch:
         update-types: [minor, patch]
     ignore:
@@ -33,6 +37,12 @@ updates:
       # lift this once an OnnxTR release allows 2.x
       - dependency-name: huggingface-hub
         update-types: ["version-update:semver-major"]
+      # pyobjc 13.0's x86_64 _CoreMedia (AVFoundation imports it) links
+      # @rpath/libswiftCoreMedia.dylib with no rpath, so the Intel Mac app
+      # fails to list cameras (its self-test failed on macos-x64, #188).
+      # Only 13.0: a later release gets a PR and the macOS builds test it
+      - dependency-name: "pyobjc-*"
+        versions: ["13.0"]
 
   - package-ecosystem: github-actions
     directory: /
