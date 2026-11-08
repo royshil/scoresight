@@ -12,7 +12,7 @@ Release tags are the bare version number (for example `0.1.0`).
 
 - **Handball.** A new sport: goals count one at a time, the clock counts up through two halves (then extra time), and the team timeouts are followed. A board whose clock counts down is learned after a few seconds. The 2-minute suspensions aren't followed; a *Count lights* field can send a board's suspension lights ([#140](https://github.com/royshil/scoresight/discussions/140), [Game & Sports](https://royshil.github.io/scoresight/game.html)).
 
-- **Danish.** The window is translated into Danish (**View > Language > Dansk**), a machine draft for now: corrections from Danish operators are welcome ([Translations](https://royshil.github.io/scoresight/development/translations.html)).
+- **Danish.** The window is translated into Danish (**View > Language > Dansk**), drafted by machine and checked by a Danish operator (over 200 entries, all correct); corrections are welcome ([Translations](https://royshil.github.io/scoresight/development/translations.html)).
 
 ### Changed
 
