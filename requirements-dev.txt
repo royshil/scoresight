@@ -3,7 +3,7 @@
 -r requirements.txt
 pytest==9.2.0
 pytest-qt==4.5.0
-ruff==0.17.3
+ruff==0.17.4
 pre-commit==4.7.0
 # scripts/fetch_models.py reads the PP-OCR models' inference.yml (the tests read YAML too)
 PyYAML==6.0.3
