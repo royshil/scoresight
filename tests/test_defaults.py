@@ -109,7 +109,7 @@ def test_default_info_for_box_name():
 
 
 def test_format_prefixes_compile():
-    assert len(format_prefixes) == 14
+    assert len(format_prefixes) == 15
     for pattern in format_prefixes:
         re.compile(pattern)
 
@@ -166,6 +166,16 @@ def test_format_prefixes_compile():
         (11, "anything at all", True),
         (12, "", True),
         (12, "12a", False),
+        (13, "44.47", True),
+        (13, "1:22.45", True),
+        (13, "1:28.0", True),
+        (13, "9.5", True),
+        (13, "10:05.31", True),
+        (13, "1:22", False),
+        (13, "122.45", False),
+        (13, "1:62.45", False),
+        (13, "1:22.456", False),
+        (13, "--:--.--", False),
     ],
 )
 def test_format_prefix_presets(index, text, matches):

@@ -1006,7 +1006,7 @@ Resolution: {width}×{height}</source>
         <translation type="vanished">지역</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2561"/>
+        <location filename="../src/mainwindow.ui" line="2566"/>
         <source>Adaptive</source>
         <translation>적응형</translation>
     </message>
@@ -1038,7 +1038,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="94"/>
-        <location filename="../src/mainwindow.ui" line="5112"/>
+        <location filename="../src/mainwindow.ui" line="5117"/>
         <location filename="../src/mainwindow.py" line="2479"/>
         <source>Pause outputs</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
@@ -1069,7 +1069,7 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">OCR이 출력할 수 있는 문자입니다. 가장 좁은 범위를 선택하세요: 스코어에는 숫자, 시계에는 시간, 텍스트는 단어에만 사용하세요.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2587"/>
+        <location filename="../src/mainwindow.ui" line="2592"/>
         <source>Remove specks smaller than a share of the box area (0 = off). Too high a value erases thin digits such as 1.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">상자 면적의 일정 비율보다 작은 점을 제거합니다(0 = 끔). 값이 너무 크면 1처럼 가는 숫자가 지워집니다.</translation>
@@ -1086,44 +1086,44 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">원시 판독값이 완전히 일치해야 하는 정규식</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2716"/>
+        <location filename="../src/mainwindow.ui" line="2721"/>
         <source>Thicken the bright strokes by this many passes (0 = off). Raise it when the segments of 7-segment digits don&apos;t touch; lower it when digits merge.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">밝은 획을 이 횟수만큼 두껍게 합니다(0 = 끔). 7세그먼트 숫자의 세그먼트가 서로 닿지 않으면 올리고, 숫자끼리 붙으면 낮추세요.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2624"/>
+        <location filename="../src/mainwindow.ui" line="2629"/>
         <source>Squash the box vertically (100 % = unchanged), for very tall, narrow fonts</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">상자를 세로로 압축합니다(100% = 변경 없음). 매우 길고 좁은 글꼴에 사용합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2673"/>
+        <location filename="../src/mainwindow.ui" line="2678"/>
         <source>Shear the image horizontally to straighten slanted (italic) digits (0 = off)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이미지를 가로로 기울여 비스듬한(이탤릭) 숫자를 바로 세웁니다(0 = 끔)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2744"/>
+        <location filename="../src/mainwindow.ui" line="2749"/>
         <source>Invert colors</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">색 반전</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2856"/>
-        <location filename="../src/mainwindow.ui" line="2878"/>
+        <location filename="../src/mainwindow.ui" line="2861"/>
+        <location filename="../src/mainwindow.ui" line="2883"/>
         <source>Template</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">템플릿</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2881"/>
+        <location filename="../src/mainwindow.ui" line="2886"/>
         <source>The template text, with the fields in double braces, for example {{Home Score}} - {{Away Score}}</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드를 이중 중괄호로 묶은 템플릿 텍스트입니다. 예: {{Home Score}} - {{Away Score}}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2992"/>
+        <location filename="../src/mainwindow.ui" line="2997"/>
         <source>The OCR model that reads every box</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">모든 상자를 판독하는 OCR 모델</translation>
@@ -1133,8 +1133,8 @@ Resolution: {width}×{height}</source>
         <translation type="vanished">OCR 모델</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2995"/>
-        <location filename="../src/mainwindow.ui" line="3002"/>
+        <location filename="../src/mainwindow.ui" line="3000"/>
+        <location filename="../src/mainwindow.ui" line="3007"/>
         <source>OCR model</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR 모델</translation>
@@ -1150,115 +1150,115 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">판독값을 .txt, .csv, .xml 파일에 기록합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3287"/>
+        <location filename="../src/mainwindow.ui" line="3292"/>
         <source>Folder</source>
         <translation>폴더</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3315"/>
+        <location filename="../src/mainwindow.ui" line="3320"/>
         <source>The folder the text files are written to</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">텍스트 파일을 기록할 폴더</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3325"/>
+        <location filename="../src/mainwindow.ui" line="3330"/>
         <source>Choose the output folder</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">출력 폴더 선택</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3328"/>
+        <location filename="../src/mainwindow.ui" line="3333"/>
         <source>Open</source>
         <translation>열기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3335"/>
+        <location filename="../src/mainwindow.ui" line="3340"/>
         <source>Stop writing files (forget the folder)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">파일 기록 중지(폴더 지정 해제)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3338"/>
+        <location filename="../src/mainwindow.ui" line="3343"/>
         <source>Clear</source>
         <translation>지우기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3369"/>
+        <location filename="../src/mainwindow.ui" line="3374"/>
         <source>Also write results.csv: a timestamp and a column per field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">results.csv도 기록: 타임스탬프와 필드별 열</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3372"/>
+        <location filename="../src/mainwindow.ui" line="3377"/>
         <source>Save .csv file</source>
         <translation>.csv 파일로 저장</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3379"/>
+        <location filename="../src/mainwindow.ui" line="3384"/>
         <source>Also write results.xml: every field with its name, text, state and position</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">results.xml도 기록: 모든 필드의 이름, 텍스트, 상태, 위치</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3382"/>
+        <location filename="../src/mainwindow.ui" line="3387"/>
         <source>Save .xml file</source>
         <translation>.xml 파일로 저장</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3412"/>
+        <location filename="../src/mainwindow.ui" line="3417"/>
         <source>Add each new value to a log, or keep only the latest values</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">새 값을 모두 로그에 추가하거나 최신 값만 유지합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3415"/>
+        <location filename="../src/mainwindow.ui" line="3420"/>
         <source>Append</source>
         <translation>추가</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3422"/>
+        <location filename="../src/mainwindow.ui" line="3427"/>
         <source>Add each new value to a log (results.csv, the .txt files or both), or keep only the latest values</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">새 값을 모두 로그(results.csv, .txt 파일 또는 둘 다)에 추가하거나 최신 값만 유지합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3432"/>
+        <location filename="../src/mainwindow.ui" line="3437"/>
         <source>Results in .csv file</source>
         <translation>.csv 파일에 결과 저장</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3437"/>
+        <location filename="../src/mainwindow.ui" line="3442"/>
         <source>Results in .txt files</source>
         <translation>.txt 파일에 결과 저장</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3442"/>
+        <location filename="../src/mainwindow.ui" line="3447"/>
         <source>Results in both</source>
         <translation>둘 다에 결과 저장</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3447"/>
+        <location filename="../src/mainwindow.ui" line="3452"/>
         <source>Don&apos;t append results</source>
         <translation>결과 추가하지 않음</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3455"/>
+        <location filename="../src/mainwindow.ui" line="3460"/>
         <source>How many times per second to save the results to files</source>
         <translation>초당 결과를 파일에 저장하는 횟수</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3458"/>
+        <location filename="../src/mainwindow.ui" line="3463"/>
         <source>Save / s</source>
         <translation>저장 / 초</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3480"/>
+        <location filename="../src/mainwindow.ui" line="3485"/>
         <source>File saves per second</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">초당 파일 저장 횟수</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3483"/>
+        <location filename="../src/mainwindow.ui" line="3488"/>
         <source>How many times per second the files are written (1-10). Affects only the files.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">초당 파일을 기록하는 횟수(1-10)입니다. 파일에만 영향을 줍니다.</translation>
@@ -1274,7 +1274,7 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">내장 HTTP 서버: 스코어보드 페이지, JSON, XML, CSV</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3535"/>
+        <location filename="../src/mainwindow.ui" line="3540"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use these endpoints in external software to get live data updates&lt;/p&gt;&lt;p&gt;HTML Scoreboard: &lt;a href=&quot;http://localhost:18099/scoresight&quot;&gt;http://localhost:18099/scoresight&lt;/a&gt;&lt;br/&gt;JSON: &lt;a href=&quot;http://localhost:18099/json&quot;&gt;http://localhost:18099/json&lt;/a&gt; (optional: ?pivot)&lt;br/&gt;XML: &lt;a href=&quot;http://localhost:18099/xml&quot;&gt;http://localhost:18099/xml&lt;/a&gt; (optional: ?pivot)&lt;br/&gt;CSV: &lt;a href=&quot;http://localhost:18099/csv&quot;&gt;http://localhost:18099/csv&lt;/a&gt; (optional: ?pivot)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;외부 소프트웨어에서 다음 엔드포인트를 사용하면 실시간 데이터 업데이트를 받을 수 있습니다&lt;/p&gt;&lt;p&gt;HTML 스코어보드: &lt;a href=&quot;http://localhost:18099/scoresight&quot;&gt;http://localhost:18099/scoresight&lt;/a&gt;&lt;br/&gt;JSON: &lt;a href=&quot;http://localhost:18099/json&quot;&gt;http://localhost:18099/json&lt;/a&gt; (선택 사항: ?pivot)&lt;br/&gt;XML: &lt;a href=&quot;http://localhost:18099/xml&quot;&gt;http://localhost:18099/xml&lt;/a&gt; (선택 사항: ?pivot)&lt;br/&gt;CSV: &lt;a href=&quot;http://localhost:18099/csv&quot;&gt;http://localhost:18099/csv&lt;/a&gt; (선택 사항: ?pivot)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -1286,20 +1286,20 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">OBS Studio의 텍스트 소스를 업데이트합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3969"/>
+        <location filename="../src/mainwindow.ui" line="3974"/>
         <location filename="../src/mainwindow.py" line="3447"/>
         <source>Connect to the WebSocket server of OBS Studio</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OBS Studio의 WebSocket 서버에 연결합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4028"/>
+        <location filename="../src/mainwindow.ui" line="4033"/>
         <source>The name of the scene Create OBS Scene makes</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">[OBS 씬 생성]으로 만들어지는 씬의 이름</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4044"/>
+        <location filename="../src/mainwindow.ui" line="4049"/>
         <source>Create a scene in OBS with a text source for each standard field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">표준 필드마다 텍스트 소스가 있는 씬을 OBS에 만듭니다</translation>
@@ -1311,55 +1311,55 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">vMix의 타이틀을 업데이트합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4134"/>
+        <location filename="../src/mainwindow.ui" line="4139"/>
         <source>Each field and the vMix title field it updates. Edit the right column.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">각 필드와 그 필드가 업데이트하는 vMix 타이틀 필드입니다. 오른쪽 열을 편집하세요.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4186"/>
+        <location filename="../src/mainwindow.ui" line="4191"/>
         <source>vMix host</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">vMix 호스트</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4189"/>
+        <location filename="../src/mainwindow.ui" line="4194"/>
         <source>The address of the vMix computer (localhost if vMix runs on this computer)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">vMix 컴퓨터의 주소(이 컴퓨터에서 vMix를 실행하는 경우 localhost)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4206"/>
+        <location filename="../src/mainwindow.ui" line="4211"/>
         <source>vMix port</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">vMix 포트</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4209"/>
+        <location filename="../src/mainwindow.ui" line="4214"/>
         <source>The port of the vMix Web API (8088 by default; not 8099)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">vMix Web API의 포트(기본값 8088, 8099 아님)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4231"/>
+        <location filename="../src/mainwindow.ui" line="4236"/>
         <source>Start or stop vMix</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">vMix 시작 또는 중지</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4234"/>
+        <location filename="../src/mainwindow.ui" line="4239"/>
         <source>Start or stop sending the readings to vMix</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">vMix로 판독값 전송을 시작하거나 중지합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4287"/>
+        <location filename="../src/mainwindow.ui" line="4292"/>
         <source>vMix input</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">vMix 입력</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4290"/>
+        <location filename="../src/mainwindow.ui" line="4295"/>
         <source>The vMix input (number or name) of the title to update</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">업데이트할 타이틀의 vMix 입력(번호 또는 이름)</translation>
@@ -1381,38 +1381,38 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">overlays.uno 컨트롤 앱을 제어합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4355"/>
-        <location filename="../src/mainwindow.ui" line="4606"/>
+        <location filename="../src/mainwindow.ui" line="4360"/>
+        <location filename="../src/mainwindow.ui" line="4611"/>
         <source>URL</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">URL</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4362"/>
+        <location filename="../src/mainwindow.ui" line="4367"/>
         <source>UNO URL</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">UNO URL</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4365"/>
+        <location filename="../src/mainwindow.ui" line="4370"/>
         <source>The API URL of the overlays.uno control app. Treat it like a password.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">overlays.uno 컨트롤 앱의 API URL입니다. 비밀번호처럼 취급하세요.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4375"/>
+        <location filename="../src/mainwindow.ui" line="4380"/>
         <source>Start or stop UNO</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">UNO 시작 또는 중지</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4378"/>
+        <location filename="../src/mainwindow.ui" line="4383"/>
         <source>Start or stop sending the readings to UNO</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">UNO로 판독값 전송을 시작하거나 중지합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4381"/>
+        <location filename="../src/mainwindow.ui" line="4386"/>
         <location filename="../src/tcp_ui_handler.py" line="526"/>
         <location filename="../src/uno_ui_handler.py" line="127"/>
         <source>Start sending</source>
@@ -1420,67 +1420,67 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">전송 시작</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4431"/>
+        <location filename="../src/mainwindow.ui" line="4436"/>
         <source>The overlay uses UNO Essentials content fields</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이가 UNO Essentials 콘텐츠 필드를 사용합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4886"/>
+        <location filename="../src/mainwindow.ui" line="4891"/>
         <source>File</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">파일</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4902"/>
+        <location filename="../src/mainwindow.ui" line="4907"/>
         <source>Language</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">언어</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4907"/>
+        <location filename="../src/mainwindow.ui" line="4912"/>
         <source>Appearance</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">모양</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4898"/>
+        <location filename="../src/mainwindow.ui" line="4903"/>
         <source>View</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">보기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4926"/>
+        <location filename="../src/mainwindow.ui" line="4931"/>
         <source>Tools</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">도구</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4973"/>
+        <location filename="../src/mainwindow.ui" line="4978"/>
         <source>Rename...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이름 바꾸기...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4981"/>
+        <location filename="../src/mainwindow.ui" line="4986"/>
         <source>Delete field...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드 삭제...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4989"/>
+        <location filename="../src/mainwindow.ui" line="4994"/>
         <source>Reset settings to defaults</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">설정을 기본값으로 재설정</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4994"/>
+        <location filename="../src/mainwindow.ui" line="4999"/>
         <source>Copy value</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">값 복사</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5002"/>
+        <location filename="../src/mainwindow.ui" line="5007"/>
         <source>Zoom to box</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">상자로 확대</translation>
@@ -1491,7 +1491,7 @@ Resolution: {width}×{height}</source>
         <translation type="obsolete">업데이트 확인</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5040"/>
+        <location filename="../src/mainwindow.ui" line="5045"/>
         <source>About</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ScoreSight 정보</translation>
@@ -1522,20 +1522,20 @@ Resolution: {width}×{height}</source>
         <translation type="obsolete">OCR 학습 데이터 설정</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5131"/>
+        <location filename="../src/mainwindow.ui" line="5136"/>
         <source>Fit picture to window</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">영상을 창에 맞추기</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="574"/>
-        <location filename="../src/mainwindow.ui" line="5139"/>
+        <location filename="../src/mainwindow.ui" line="5144"/>
         <source>Reload sources</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">소스 다시 불러오기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4440"/>
+        <location filename="../src/mainwindow.ui" line="4445"/>
         <source>Essentials</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Essentials</translation>
@@ -1624,7 +1624,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="653"/>
-        <location filename="../src/mainwindow.ui" line="2471"/>
+        <location filename="../src/mainwindow.ui" line="2476"/>
         <source>Show what the OCR reads of every box: its black-and-white image (Tesseract) or its picture in gray (PP-OCR)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR이 각 상자에서 읽는 내용을 표시합니다: 흑백 이미지(Tesseract) 또는 그레이스케일 이미지(PP-OCR)</translation>
@@ -1910,74 +1910,74 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">정규식을 사용할 프리셋 또는 사용자 지정입니다. 프리셋을 선택하면 해당 정규식이 사용됩니다. 이전 이름: “프리셋 선택”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2105"/>
-        <location filename="../src/mainwindow.ui" line="4581"/>
+        <location filename="../src/mainwindow.ui" line="2110"/>
+        <location filename="../src/mainwindow.ui" line="4586"/>
         <source>Custom</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">사용자 지정</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2113"/>
+        <location filename="../src/mainwindow.ui" line="2118"/>
         <source>Format expression</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">형식 정규식</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2116"/>
+        <location filename="../src/mainwindow.ui" line="2121"/>
         <source>A regular expression the raw reading must match completely, or it&apos;s rejected. Choose a preset above or type your own. An invalid expression is ignored.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">원시 판독값이 완전히 일치해야 하는 정규식으로, 일치하지 않으면 거부됩니다. 위에서 프리셋을 선택하거나 직접 입력하세요. 잘못된 정규식은 무시됩니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2138"/>
+        <location filename="../src/mainwindow.ui" line="2143"/>
         <source>Remove zeros at the start: 07 becomes 7. Formerly “Remove leading 0s”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">앞의 0을 제거합니다: 07은 7이 됩니다. 이전 이름: “앞의 0 제거”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2141"/>
+        <location filename="../src/mainwindow.ui" line="2146"/>
         <source>Remove leading zeros</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">앞의 0 제거</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2148"/>
+        <location filename="../src/mainwindow.ui" line="2153"/>
         <source>07 → 7</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">07 → 7</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2174"/>
+        <location filename="../src/mainwindow.ui" line="2179"/>
         <source>Add an ordinal suffix: 1 becomes 1st, 2 becomes 2nd. Formerly “Ordinal (1st, 2nd, ..)”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">서수 접미사를 붙입니다: 1은 1st, 2는 2nd가 됩니다. 이전 이름: “서수 (1st, 2nd, ..)”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2177"/>
+        <location filename="../src/mainwindow.ui" line="2182"/>
         <source>Add ordinal suffix</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">서수 접미사 추가</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2184"/>
+        <location filename="../src/mainwindow.ui" line="2189"/>
         <source>2 → 2nd</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">2 → 2nd</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2205"/>
+        <location filename="../src/mainwindow.ui" line="2210"/>
         <source>Count the lit dots or lights in the box (for example a period or possession indicator) instead of reading characters. Formerly “Dot Counter”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">문자를 읽는 대신 상자 안의 켜진 점이나 표시등(예: 피리어드 또는 공격권 표시)을 셉니다. 이전 이름: “Dot Counter”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2208"/>
+        <location filename="../src/mainwindow.ui" line="2213"/>
         <source>Count lights (dot counter)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">표시등 세기(점 카운터)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2264"/>
+        <location filename="../src/mainwindow.ui" line="2269"/>
         <source>Filtering</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필터링</translation>
@@ -1988,38 +1988,38 @@ Resolution: {width}×{height}</source>
         <translation type="obsolete">최소 OCR 신뢰도(%, 0-99): 판독값에 대한 Tesseract의 신뢰도입니다. 이보다 낮은 판독값은 거부됩니다. 0이면 검사하지 않습니다. 이전 이름: “신뢰도 임계값”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2274"/>
-        <location filename="../src/mainwindow.ui" line="2286"/>
+        <location filename="../src/mainwindow.ui" line="2279"/>
+        <location filename="../src/mainwindow.ui" line="2291"/>
         <source>Minimum confidence</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">최소 신뢰도</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2314"/>
+        <location filename="../src/mainwindow.ui" line="2319"/>
         <source>Show the most common of the box&apos;s last 5 accepted readings, to steady a value that flickers. Delays changes by a couple of detection cycles. Formerly “Average Output”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">상자에서 마지막으로 채택된 판독값 5개 중 가장 많이 나온 값을 표시하여 깜박이는 값을 안정시킵니다. 변경이 감지 주기 몇 번만큼 늦게 반영됩니다. 이전 이름: “평균 출력”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2317"/>
+        <location filename="../src/mainwindow.ui" line="2322"/>
         <source>Smooth over last 5 readings</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">최근 판독값 5개로 평활화</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2329"/>
+        <location filename="../src/mainwindow.ui" line="2334"/>
         <source>Skip OCR while the box&apos;s image hasn&apos;t changed since its last accepted reading, and repeat that value. Saves CPU on values that change rarely. Formerly “Skip Similar Image”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">상자의 이미지가 마지막으로 채택된 판독 이후 바뀌지 않는 동안 OCR을 건너뛰고 그 값을 반복합니다. 드물게 바뀌는 값에서 CPU를 절약합니다. 이전 이름: “유사한 이미지 건너뛰기”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2332"/>
+        <location filename="../src/mainwindow.ui" line="2337"/>
         <source>Skip OCR while image is unchanged</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이미지가 그대로면 OCR 건너뛰기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2339"/>
+        <location filename="../src/mainwindow.ui" line="2344"/>
         <source>saves CPU</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">CPU 절약</translation>
@@ -2030,174 +2030,174 @@ Resolution: {width}×{height}</source>
         <translation type="obsolete">판독 전에 상자 이미지를 정리하는 설정을 표시하거나 숨깁니다. [이진 보기]에서 결과를 볼 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2421"/>
-        <location filename="../src/mainwindow.ui" line="2429"/>
+        <location filename="../src/mainwindow.ui" line="2426"/>
+        <location filename="../src/mainwindow.ui" line="2434"/>
         <source>Image cleanup</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이미지 정리</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2474"/>
+        <location filename="../src/mainwindow.ui" line="2479"/>
         <source>Binary view</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이진 보기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2529"/>
+        <location filename="../src/mainwindow.ui" line="2534"/>
         <source>How the box is turned into black and white before OCR. Formerly “Binarize”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR 전에 상자를 흑백으로 바꾸는 방식입니다. 이전 이름: “이진화”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2532"/>
+        <location filename="../src/mainwindow.ui" line="2537"/>
         <source>Black &amp; white</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">흑백</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2539"/>
+        <location filename="../src/mainwindow.ui" line="2544"/>
         <source>Black and white</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">흑백</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2542"/>
+        <location filename="../src/mainwindow.ui" line="2547"/>
         <source>How the box is turned into black and white before OCR. Whole picture: one threshold for the whole picture. None: the grayscale image. This box: a threshold for this box only. Adaptive: a threshold that varies across the box, for uneven lighting.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR 전에 상자를 흑백으로 바꾸는 방식입니다. 영상 전체: 영상 전체에 하나의 임계값. 없음: 그레이스케일 이미지. 이 상자: 이 상자에만 적용되는 임계값. 적응형: 상자 안에서 달라지는 임계값으로, 조명이 고르지 않을 때 사용합니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2546"/>
+        <location filename="../src/mainwindow.ui" line="2551"/>
         <source>Whole picture</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">영상 전체</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2551"/>
+        <location filename="../src/mainwindow.ui" line="2556"/>
         <source>None</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">없음</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2556"/>
+        <location filename="../src/mainwindow.ui" line="2561"/>
         <source>This box</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이 상자</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2569"/>
+        <location filename="../src/mainwindow.ui" line="2574"/>
         <source>Remove specks smaller than a share of the box area (0 = off). Formerly “Cleanup”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">상자 면적의 일정 비율보다 작은 점을 제거합니다(0 = 끔). 이전 이름: “정리”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2572"/>
-        <location filename="../src/mainwindow.ui" line="2584"/>
+        <location filename="../src/mainwindow.ui" line="2577"/>
+        <location filename="../src/mainwindow.ui" line="2589"/>
         <source>Remove specks</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">잡티 제거</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2606"/>
+        <location filename="../src/mainwindow.ui" line="2611"/>
         <source>Squash the box vertically (100 % = unchanged). Formerly “V.Scale”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">상자를 세로로 압축합니다(100% = 변경 없음). 이전 이름: “수직 스케일”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2609"/>
-        <location filename="../src/mainwindow.ui" line="2621"/>
+        <location filename="../src/mainwindow.ui" line="2614"/>
+        <location filename="../src/mainwindow.ui" line="2626"/>
         <source>Squash height</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">높이 압축</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2655"/>
+        <location filename="../src/mainwindow.ui" line="2660"/>
         <source>Shear the image to straighten slanted digits (0 = off). Formerly “Skew”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이미지를 기울여 비스듬한 숫자를 바로 세웁니다(0 = 끔). 이전 이름: “비틀기”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2658"/>
-        <location filename="../src/mainwindow.ui" line="2670"/>
+        <location filename="../src/mainwindow.ui" line="2663"/>
+        <location filename="../src/mainwindow.ui" line="2675"/>
         <source>Straighten slant</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">기울기 보정</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2698"/>
+        <location filename="../src/mainwindow.ui" line="2703"/>
         <source>Thicken the bright strokes (0 = off). Formerly “Dilate”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">밝은 획을 두껍게 합니다(0 = 끔). 이전 이름: “팽창”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2701"/>
-        <location filename="../src/mainwindow.ui" line="2713"/>
+        <location filename="../src/mainwindow.ui" line="2706"/>
+        <location filename="../src/mainwindow.ui" line="2718"/>
         <source>Thicken strokes</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">획 두껍게</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2741"/>
+        <location filename="../src/mainwindow.ui" line="2746"/>
         <source>Swap black and white before OCR, for dark digits on a light background. Formerly “Invert Input”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR 전에 흑과 백을 바꿉니다. 밝은 배경에 어두운 숫자가 있을 때 사용합니다. 이전 이름: “입력 반전”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2751"/>
+        <location filename="../src/mainwindow.ui" line="2756"/>
         <source>Crop the box to the area with bright pixels, plus a margin, before OCR. Formerly “Auto Crop”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR 전에 상자를 밝은 픽셀이 있는 영역(여백 포함)으로 자릅니다. 이전 이름: “자동 크롭”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2754"/>
+        <location filename="../src/mainwindow.ui" line="2759"/>
         <source>Crop to text</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">텍스트에 맞게 자르기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2761"/>
+        <location filename="../src/mainwindow.ui" line="2766"/>
         <source>Scale the image to 35 pixels high, a favorable size for OCR. Formerly “Rescale Input”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR에 적합한 크기인 35픽셀 높이로 이미지 크기를 조정합니다. 이전 이름: “입력 재조정”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2764"/>
+        <location filename="../src/mainwindow.ui" line="2769"/>
         <source>Resize to 35 px (recommended)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">35px로 크기 조정(권장)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2771"/>
+        <location filename="../src/mainwindow.ui" line="2776"/>
         <source>Scale to a favorable 1:2 width-to-height ratio. Formerly “Normalize W-H Ratio”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR에 적합한 1:2 가로세로 비율로 조정합니다. 이전 이름: “가로-세로 비율 정규화”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2774"/>
+        <location filename="../src/mainwindow.ui" line="2779"/>
         <source>Normalize digit width</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">숫자 너비 정규화</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2781"/>
+        <location filename="../src/mainwindow.ui" line="2786"/>
         <source>Experimental / legacy</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">실험적 / 레거시</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2796"/>
+        <location filename="../src/mainwindow.ui" line="2801"/>
         <source>Experimental: draw one sub-box per character with the green + in the box. Recognition still reads the whole box. Formerly “Composite (Per-Character)”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">실험적 기능: 상자 안의 녹색 +로 문자마다 하위 상자를 하나씩 그립니다. 인식은 여전히 상자 전체를 읽습니다. 이전 이름: “Composite (Per-Character)”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2799"/>
+        <location filename="../src/mainwindow.ui" line="2804"/>
         <source>Per-character sub-boxes</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">문자별 하위 상자</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2806"/>
+        <location filename="../src/mainwindow.ui" line="2811"/>
         <source>not used for reading yet</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">아직 판독에 사용 안 됨</translation>
@@ -2218,43 +2218,43 @@ Resolution: {width}×{height}</source>
         <translation type="obsolete">0.2.0부터 효과 없음</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2863"/>
+        <location filename="../src/mainwindow.ui" line="2868"/>
         <source>Make this custom field a template: its value is built from other fields, for example {{Home Score}} - {{Away Score}}. Formerly “Template Field”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이 사용자 지정 필드를 템플릿으로 만듭니다. 값은 다른 필드로 만들어집니다. 예: {{Home Score}} - {{Away Score}}. 이전 이름: “Template Field”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2866"/>
+        <location filename="../src/mainwindow.ui" line="2871"/>
         <source>Build from other fields</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">다른 필드로 만들기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2887"/>
+        <location filename="../src/mainwindow.ui" line="2892"/>
         <source>{{Home Score}} - {{Away Score}}</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">{{Home Score}} - {{Away Score}}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2894"/>
+        <location filename="../src/mainwindow.ui" line="2899"/>
         <source>Insert a field at the cursor, written exactly as the template needs it</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">커서 위치에 템플릿에 필요한 정확한 표기로 필드를 삽입합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2897"/>
+        <location filename="../src/mainwindow.ui" line="2902"/>
         <source>Insert field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드 삽입</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2949"/>
+        <location filename="../src/mainwindow.ui" line="2954"/>
         <source>All boxes</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">모든 상자</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2979"/>
+        <location filename="../src/mainwindow.ui" line="2984"/>
         <source>Changes how every field is read</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">모든 필드의 판독 방식을 바꿉니다</translation>
@@ -2270,69 +2270,69 @@ Resolution: {width}×{height}</source>
         <translation type="obsolete">필드의 마지막 정상 값과 같은 판독값을 새 값(✓)이 아닌 변경 없음(=, SameNoChange)으로 보고합니다. 그러면 vMix와 UNO는 바뀌지 않은 값을 다시 보내지 않고([같은 값도 전송?]이 켜져 있지 않은 경우), HTTP 서버와 외부 전송 API는 그 값을 변경 없음으로 표시합니다. OBS와 텍스트 파일은 어느 경우든 값이 바뀔 때만 값을 받습니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5199"/>
+        <location filename="../src/mainwindow.ui" line="5204"/>
         <source>Quit</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">종료</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5233"/>
+        <location filename="../src/mainwindow.ui" line="5238"/>
         <source>Setup layout</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">설정 레이아웃</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5236"/>
+        <location filename="../src/mainwindow.ui" line="5241"/>
         <source>For placing and tuning the fields and setting up the outputs: the field list, the picture with its adjustments, and the inspector</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드를 배치 및 조정하고 출력을 설정할 때 사용: 필드 목록, 영상과 영상 조정, 인스펙터</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5250"/>
+        <location filename="../src/mainwindow.ui" line="5255"/>
         <source>Live layout</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">라이브 레이아웃</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5253"/>
+        <location filename="../src/mainwindow.ui" line="5258"/>
         <source>For the game: large readings and the state of every output next to the picture. The inspector and the picture adjustments are hidden; the reading and the outputs work the same.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">경기 중에 사용: 영상 옆에 큰 판독값과 모든 출력의 상태를 표시합니다. 인스펙터와 영상 조정은 숨겨지며, 판독과 출력은 똑같이 작동합니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5267"/>
+        <location filename="../src/mainwindow.ui" line="5272"/>
         <source>Show unused fields</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">사용하지 않는 필드 표시</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5270"/>
+        <location filename="../src/mainwindow.ui" line="5275"/>
         <source>Show the fields that aren&apos;t on the picture in the field list (remembered for each layout)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">영상에 없는 필드를 필드 목록에 표시합니다(레이아웃별로 기억됨)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5278"/>
+        <location filename="../src/mainwindow.ui" line="5283"/>
         <source>User guide</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">사용자 가이드</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5281"/>
+        <location filename="../src/mainwindow.ui" line="5286"/>
         <source>Open the ScoreSight documentation in your web browser</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">웹 브라우저에서 ScoreSight 문서를 엽니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5292"/>
+        <location filename="../src/mainwindow.ui" line="5297"/>
         <source>Keyboard shortcuts</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">키보드 단축키</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="362"/>
-        <location filename="../src/mainwindow.ui" line="3156"/>
-        <location filename="../src/mainwindow.ui" line="3190"/>
+        <location filename="../src/mainwindow.ui" line="3161"/>
+        <location filename="../src/mainwindow.ui" line="3195"/>
         <source>Outputs</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">출력</translation>
@@ -2397,643 +2397,649 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">시간 mm:ss 또는 ss:d</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2271"/>
+        <location filename="../src/mainwindow.ui" line="2105"/>
+        <source>Race time m:ss.dd</source>
+        <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
+        <translation type="unfinished">경기 기록 m:ss.dd</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="2276"/>
         <source>Minimum OCR confidence in % (0-99): how sure the OCR model is of the reading. A reading below it is rejected. 0 turns the check off. Formerly “Conf. Th”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">최소 OCR 신뢰도(%, 0-99): OCR 모델이 판독값을 얼마나 확신하는지입니다. 이보다 낮은 판독값은 거부됩니다. 0이면 검사하지 않습니다. 이전 이름: “신뢰도 임계값”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2289"/>
+        <location filename="../src/mainwindow.ui" line="2294"/>
         <source>Minimum OCR confidence in % (0-99): how sure the OCR model is of the reading. A reading below it is rejected (yellow, FailedFilter). 0 turns the check off. With PP-OCR, 80-90 rejects most wrong readings.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">최소 OCR 신뢰도(%, 0-99): OCR 모델이 판독값을 얼마나 확신하는지입니다. 이보다 낮은 판독값은 거부됩니다(노란색, FailedFilter). 0이면 검사하지 않습니다. PP-OCR에서는 80-90으로 설정하면 잘못된 판독값이 대부분 거부됩니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2360"/>
-        <location filename="../src/mainwindow.ui" line="2373"/>
+        <location filename="../src/mainwindow.ui" line="2365"/>
+        <location filename="../src/mainwindow.ui" line="2378"/>
         <source>What the outputs get when the box has shown nothing for 2 seconds (a penalty timer that goes out, a lap board taken away): its last value, or an empty value, which clears the text in vMix, OBS, the overlays and the other outputs. “Also at zero” clears it when the box reads zero too (0, 00, 0:00).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2363"/>
-        <location filename="../src/mainwindow.ui" line="2370"/>
+        <location filename="../src/mainwindow.ui" line="2368"/>
+        <location filename="../src/mainwindow.ui" line="2375"/>
         <source>When blank</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2377"/>
+        <location filename="../src/mainwindow.ui" line="2382"/>
         <source>Keep the last value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2382"/>
+        <location filename="../src/mainwindow.ui" line="2387"/>
         <source>Clear the value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2387"/>
+        <location filename="../src/mainwindow.ui" line="2392"/>
         <source>Clear the value, also at zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="2418"/>
+        <location filename="../src/mainwindow.ui" line="2423"/>
         <location filename="../src/box_settings_ui_handler.py" line="490"/>
         <source>Show or hide the settings that clean up the box&apos;s image before a Tesseract model reads it. Binary view shows the result.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Tesseract 모델이 판독하기 전에 상자 이미지를 정리하는 설정을 표시하거나 숨깁니다. [이진 보기]에서 결과를 볼 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3005"/>
+        <location filename="../src/mainwindow.ui" line="3010"/>
         <location filename="../src/mainwindow.py" line="2243"/>
         <source>The OCR model that reads every box, not only the selected one. PP-OCR (automatic) reads with PP-OCR (accurate) while this computer keeps up, and with PP-OCR (fast), which needs about a fifth of the CPU, when it doesn&apos;t. The Tesseract models use the boxes&apos; Image cleanup settings; Load external Tesseract model... reads a .traineddata file.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">선택한 상자뿐 아니라 모든 상자를 판독하는 OCR 모델입니다. PP-OCR(자동)은 이 컴퓨터가 따라갈 수 있는 동안에는 PP-OCR(정밀)로, 따라가지 못하면 CPU를 약 5분의 1만 쓰는 PP-OCR(고속)으로 판독합니다. Tesseract 모델은 상자의 [이미지 정리] 설정을 사용합니다. [외부 Tesseract 모델 불러오기...]로 .traineddata 파일을 불러옵니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3067"/>
+        <location filename="../src/mainwindow.ui" line="3072"/>
         <source>Report a reading that equals the field&apos;s last good value as unchanged (=, SameNoChange) instead of new (✓). vMix and UNO then don&apos;t resend unchanged values (unless their “Also resend unchanged values” is on), and the HTTP server and the outbound API mark them as unchanged. OBS and the text files get a value only when it changes either way.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드의 마지막 정상 값과 같은 판독값을 새 값(✓)이 아닌 변경 없음(=, SameNoChange)으로 보고합니다. 그러면 vMix와 UNO는 바뀌지 않은 값을 다시 보내지 않고([바뀌지 않은 값도 다시 보내기]이 켜져 있지 않은 경우), HTTP 서버와 외부 전송 API는 그 값을 변경 없음으로 표시합니다. OBS와 텍스트 파일은 어느 경우든 값이 바뀔 때만 값을 받습니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3080"/>
+        <location filename="../src/mainwindow.ui" line="3085"/>
         <source>The sport being played: ScoreSight follows the game (the scores, the periods, the clock) from the fields named like them</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">진행 중인 종목: ScoreSight가 그런 이름의 필드에서 경기(점수, 피리어드, 시계)를 추적합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3083"/>
-        <location filename="../src/mainwindow.ui" line="3104"/>
+        <location filename="../src/mainwindow.ui" line="3088"/>
+        <location filename="../src/mainwindow.ui" line="3109"/>
         <source>Sport</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">종목</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3107"/>
+        <location filename="../src/mainwindow.ui" line="3112"/>
         <source>The sport being played. ScoreSight then follows the game from the fields named like a score, the clock, the period, fouls or timeouts: each score, the start and end of each period, the clock starting and stopping, the final buzzer. None: it doesn&apos;t.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">진행 중인 종목입니다. ScoreSight는 점수, 시계, 피리어드, 파울, 타임아웃 이름의 필드에서 경기를 추적합니다: 각 득점, 각 피리어드의 시작과 끝, 시계의 시작과 정지, 경기 종료 버저. 없음: 추적하지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3114"/>
+        <location filename="../src/mainwindow.ui" line="3119"/>
         <source>Start following a new game: the game&apos;s events and points per period start over</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">새 경기 추적을 시작합니다: 경기 이벤트와 피리어드별 점수가 처음부터 다시 시작됩니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3117"/>
+        <location filename="../src/mainwindow.ui" line="3122"/>
         <source>New game</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">새 경기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3193"/>
+        <location filename="../src/mainwindow.ui" line="3198"/>
         <source>Select an output to show its settings below. Space turns it on or off.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">출력을 선택하면 아래에 설정이 표시됩니다. Space 키로 켜고 끕니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3389"/>
+        <location filename="../src/mainwindow.ui" line="3394"/>
         <source>Also write results.json: one object with every field&apos;s latest value, {&quot;Home Score&quot;: &quot;21&quot;, ...} (for example for SuiteCG)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">results.json도 기록: 모든 필드의 최신 값을 담은 객체 하나, {&quot;Home Score&quot;: &quot;21&quot;, ...} (예: SuiteCG용)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3392"/>
+        <location filename="../src/mainwindow.ui" line="3397"/>
         <source>Save .json file</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">.json 파일로 저장</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3399"/>
+        <location filename="../src/mainwindow.ui" line="3404"/>
         <source>Also write results.txt: a &quot;Field Name=value&quot; line per field (for example for SuiteCG or a TriCaster DataLink watch folder)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">results.txt도 기록: 필드마다 &quot;필드 이름=값&quot; 한 줄 (예: SuiteCG 또는 TriCaster DataLink 감시 폴더용)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3402"/>
+        <location filename="../src/mainwindow.ui" line="3407"/>
         <source>Save key=value .txt file</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">키=값 .txt 파일로 저장</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3554"/>
+        <location filename="../src/mainwindow.ui" line="3559"/>
         <source>Transparent pages with live values, for a browser source in OBS, vMix, Wirecast, CasparCG and other production software</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">실시간 값을 표시하는 투명 페이지로, OBS, vMix, Wirecast, CasparCG 등 제작 소프트웨어의 브라우저 소스에 사용합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3557"/>
+        <location filename="../src/mainwindow.ui" line="3562"/>
         <source>Browser overlays</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">브라우저 오버레이</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3584"/>
+        <location filename="../src/mainwindow.ui" line="3589"/>
         <source>Overlay</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3618"/>
+        <location filename="../src/mainwindow.ui" line="3623"/>
         <source>A built-in overlay, or one of yours from the overlays folder</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">내장 오버레이 또는 오버레이 폴더에 있는 사용자 오버레이</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3631"/>
+        <location filename="../src/mainwindow.ui" line="3636"/>
         <source>Open the overlays folder: put your own HTML overlays there</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이 폴더를 엽니다. 직접 만든 HTML 오버레이를 이 폴더에 넣으세요</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3634"/>
+        <location filename="../src/mainwindow.ui" line="3639"/>
         <source>Open the overlays folder</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이 폴더 열기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3663"/>
+        <location filename="../src/mainwindow.ui" line="3668"/>
         <source>The fields the overlay shows</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이에 표시할 필드</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3666"/>
+        <location filename="../src/mainwindow.ui" line="3671"/>
         <source>Overlay fields</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이 필드</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3679"/>
+        <location filename="../src/mainwindow.ui" line="3684"/>
         <source>Teams</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">팀</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3707"/>
+        <location filename="../src/mainwindow.ui" line="3712"/>
         <source>Home team name</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">홈 팀 이름</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3720"/>
+        <location filename="../src/mainwindow.ui" line="3725"/>
         <source>Away team name</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">원정 팀 이름</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3736"/>
+        <location filename="../src/mainwindow.ui" line="3741"/>
         <source>Theme</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">테마</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3770"/>
+        <location filename="../src/mainwindow.ui" line="3775"/>
         <source>The overlay&apos;s colors. Minimal has no panels: white text with a shadow</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이의 색입니다. [미니멀하게]는 패널 없이 그림자가 있는 흰색 텍스트입니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3790"/>
+        <location filename="../src/mainwindow.ui" line="3795"/>
         <source>Minimal</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">미니멀하게</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3795"/>
+        <location filename="../src/mainwindow.ui" line="3800"/>
         <source>Bold</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">강렬하게</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3803"/>
+        <location filename="../src/mainwindow.ui" line="3808"/>
         <source>Scale</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">배율</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3813"/>
+        <location filename="../src/mainwindow.ui" line="3818"/>
         <source>The overlays fit the page&apos;s width (1920x1080, 1280x720...); this makes them bigger or smaller</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이는 페이지 너비(1920x1080, 1280x720...)에 맞춰집니다. 이 값으로 더 크거나 작게 만듭니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3841"/>
+        <location filename="../src/mainwindow.ui" line="3846"/>
         <source>Address</source>
         <translation type="unfinished">주소</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3851"/>
+        <location filename="../src/mainwindow.ui" line="3856"/>
         <source>The network address for software on other computers, localhost for software on this one</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">다른 컴퓨터의 소프트웨어에는 네트워크 주소를, 이 컴퓨터의 소프트웨어에는 localhost를 사용합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3864"/>
+        <location filename="../src/mainwindow.ui" line="3869"/>
         <source>Paste this address in a browser source</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이 주소를 브라우저 소스에 붙여 넣으세요</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3867"/>
+        <location filename="../src/mainwindow.ui" line="3872"/>
         <source>Overlay address</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이 주소</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3895"/>
+        <location filename="../src/mainwindow.ui" line="3900"/>
         <source>Copy the overlay&apos;s address</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이 주소 복사</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3898"/>
+        <location filename="../src/mainwindow.ui" line="3903"/>
         <source>Copy</source>
         <translation type="unfinished">복사</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3905"/>
+        <location filename="../src/mainwindow.ui" line="3910"/>
         <source>Open the overlay in your web browser</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">웹 브라우저에서 오버레이를 엽니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3908"/>
+        <location filename="../src/mainwindow.ui" line="3913"/>
         <source>Open in browser</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">브라우저에서 열기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3994"/>
+        <location filename="../src/mainwindow.ui" line="3999"/>
         <source>Close the connection to OBS. ScoreSight connects to OBS again at its next start only after you connect again.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OBS 연결을 닫습니다. 다시 연결하기 전까지 ScoreSight는 다음 시작 시 OBS에 연결하지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4003"/>
+        <location filename="../src/mainwindow.ui" line="4008"/>
         <source>Disconnect</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">연결 끊기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4031"/>
+        <location filename="../src/mainwindow.ui" line="4036"/>
         <source>OBS scene name</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OBS 씬 이름</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4060"/>
+        <location filename="../src/mainwindow.ui" line="4065"/>
         <source>If OBS already has a scene with this name, delete its sources and make it again. Off: an existing scene is kept as it is.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OBS에 이 이름의 씬이 이미 있으면 그 소스를 삭제하고 다시 만듭니다. 끔: 기존 씬은 그대로 유지됩니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4083"/>
+        <location filename="../src/mainwindow.ui" line="4088"/>
         <source>&lt;b&gt;Text sources&lt;/b&gt;: the OBS text source each field updates. Double-click a name to change it; leave it empty to not send that field to OBS.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">&lt;b&gt;텍스트 소스&lt;/b&gt;: 각 필드가 업데이트하는 OBS 텍스트 소스입니다. 이름을 더블클릭하여 바꾸고, 비워 두면 그 필드는 OBS로 보내지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4099"/>
+        <location filename="../src/mainwindow.ui" line="4104"/>
         <source>Each field and the OBS text source it updates. Edit the right column; an empty name sends nothing to OBS.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">각 필드와 그 필드가 업데이트하는 OBS 텍스트 소스입니다. 오른쪽 열을 편집하세요. 이름이 비어 있으면 OBS로 아무것도 보내지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4102"/>
+        <location filename="../src/mainwindow.ui" line="4107"/>
         <source>OBS text sources of the fields</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드별 OBS 텍스트 소스</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4303"/>
+        <location filename="../src/mainwindow.ui" line="4308"/>
         <source>Also send a field&apos;s value when it hasn&apos;t changed (marked “same”), at every detection, for example if someone may change the title in vMix by hand. Off: vMix gets a value only when it changes. Formerly “Send Same?”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드 값이 바뀌지 않았을 때(“동일”로 표시)도 감지할 때마다 값을 보냅니다. 예를 들어 누군가 vMix에서 타이틀을 직접 바꿀 수 있는 경우에 사용합니다. 끔: vMix는 값이 바뀔 때만 값을 받습니다. 이전 이름: “같은 값도 전송?”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4306"/>
-        <location filename="../src/mainwindow.ui" line="4424"/>
+        <location filename="../src/mainwindow.ui" line="4311"/>
+        <location filename="../src/mainwindow.ui" line="4429"/>
         <location filename="../src/tcp_ui_handler.py" line="355"/>
         <source>Also resend unchanged values</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">바뀌지 않은 값도 다시 보내기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4421"/>
+        <location filename="../src/mainwindow.ui" line="4426"/>
         <source>Also send a field&apos;s value when it hasn&apos;t changed (marked “same”), at every detection. Off: the overlay gets a value only when it changes, which keeps within overlays.uno&apos;s request limits. Formerly “Send Same?”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드 값이 바뀌지 않았을 때(“동일”로 표시)도 감지할 때마다 값을 보냅니다. 끔: 오버레이는 값이 바뀔 때만 값을 받으므로 overlays.uno의 요청 제한을 넘지 않습니다. 이전 이름: “같은 값도 전송?”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4471"/>
+        <location filename="../src/mainwindow.ui" line="4476"/>
         <source>Overlay ID</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">오버레이 ID</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4478"/>
+        <location filename="../src/mainwindow.ui" line="4483"/>
         <source>The ID (UUID) of the Essentials overlay</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Essentials 오버레이의 ID(UUID)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4490"/>
+        <location filename="../src/mainwindow.ui" line="4495"/>
         <source>aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeeee</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeeee</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4509"/>
+        <location filename="../src/mainwindow.ui" line="4514"/>
         <source>Each field and the UNO command (or Essentials field ID) it drives. Edit the right column.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">각 필드와 그 필드가 제어하는 UNO 명령(또는 Essentials 필드 ID)입니다. 오른쪽 열을 편집하세요.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4570"/>
+        <location filename="../src/mainwindow.ui" line="4575"/>
         <source>Preset</source>
         <translation type="unfinished">사전 설정</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4577"/>
+        <location filename="../src/mainwindow.ui" line="4582"/>
         <source>Fill in the settings for a product. You can still change every setting afterwards.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">제품에 맞게 설정을 채웁니다. 나중에 모든 설정을 바꿀 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4634"/>
+        <location filename="../src/mainwindow.ui" line="4639"/>
         <source>The URL the readings are sent to. With {field} and {value} in it, each field is sent in its own request, for example http://host/set?key={field}&amp;value={value}. For a login, put it in the URL: http://user:password@host/...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">판독값을 보낼 URL입니다. {field}와 {value}가 들어 있으면 각 필드를 별도의 요청으로 보냅니다. 예: http://host/set?key={field}&amp;value={value}. 로그인이 필요하면 URL에 넣으세요: http://user:password@host/...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4703"/>
+        <location filename="../src/mainwindow.ui" line="4708"/>
         <source>Send</source>
         <translation type="unfinished">보내기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4710"/>
+        <location filename="../src/mainwindow.ui" line="4715"/>
         <source>Send a reading only when its value changed (off: every reading on every detection cycle)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">값이 바뀐 경우에만 판독값을 보냅니다(끔: 감지 주기마다 모든 판독값 전송)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4713"/>
+        <location filename="../src/mainwindow.ui" line="4718"/>
         <source>Only changes</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">변경분만</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4720"/>
+        <location filename="../src/mainwindow.ui" line="4725"/>
         <source>Resend all</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">전체 다시 보내기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4727"/>
+        <location filename="../src/mainwindow.ui" line="4732"/>
         <source>With Only changes: also send every value again this often, for a receiver that forgets them when it restarts</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">[변경분만]을 켠 경우: 다시 시작하면 값을 잊는 받는 쪽을 위해 이 간격마다 모든 값을 다시 보냅니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4730"/>
+        <location filename="../src/mainwindow.ui" line="4735"/>
         <source>Never</source>
         <translation type="unfinished">안 함</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4733"/>
+        <location filename="../src/mainwindow.ui" line="4738"/>
         <source>every </source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">간격 </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4753"/>
+        <location filename="../src/mainwindow.ui" line="4758"/>
         <source>How many fields one request carries: all of them (one request per detection cycle), or at most this many (a request per batch of changed fields). A URL with {field} or {value} always sends one field per request.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">요청 하나에 담을 필드 수: 모두(감지 주기마다 요청 하나) 또는 최대 이 개수(바뀐 필드 묶음마다 요청 하나). {field} 또는 {value}가 들어 있는 URL은 항상 요청마다 필드 하나를 보냅니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4756"/>
+        <location filename="../src/mainwindow.ui" line="4761"/>
         <source>All in one request</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">모두 한 요청에</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4759"/>
+        <location filename="../src/mainwindow.ui" line="4764"/>
         <source> per request</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished"> 개/요청</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4769"/>
+        <location filename="../src/mainwindow.ui" line="4774"/>
         <source>Rate</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">빈도</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4776"/>
+        <location filename="../src/mainwindow.ui" line="4781"/>
         <source>At most this many requests per second (the latest values wait for their turn)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">초당 최대 요청 수(최신 값은 차례를 기다립니다)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4779"/>
+        <location filename="../src/mainwindow.ui" line="4784"/>
         <source>No limit</source>
         <translation type="unfinished">제한 없음</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4782"/>
+        <location filename="../src/mainwindow.ui" line="4787"/>
         <source> requests/s</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished"> 요청/초</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4799"/>
+        <location filename="../src/mainwindow.ui" line="4804"/>
         <source>Send the field names in lower case with letters, digits and _ only (&quot;Home Score&quot; as home_score), for receivers that allow no other names</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드 이름을 소문자 영문, 숫자, _만으로 보냅니다(&quot;Home Score&quot;는 home_score). 다른 이름을 허용하지 않는 수신 측용입니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4802"/>
+        <location filename="../src/mainwindow.ui" line="4807"/>
         <source>Letters, digits and _ only</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">영문, 숫자, _만</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4809"/>
+        <location filename="../src/mainwindow.ui" line="4814"/>
         <source>The names the fields are sent with</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드를 보낼 때 쓰는 이름</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4822"/>
+        <location filename="../src/mainwindow.ui" line="4827"/>
         <source>Headers</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">헤더</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4835"/>
+        <location filename="../src/mainwindow.ui" line="4840"/>
         <source>Request headers</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">요청 헤더</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4838"/>
+        <location filename="../src/mainwindow.ui" line="4843"/>
         <source>Extra request headers, one &quot;Name: value&quot; per line, for example an Authorization token</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">추가 요청 헤더로, 한 줄에 &quot;이름: 값&quot; 하나씩 입력합니다. 예: Authorization 토큰</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4938"/>
+        <location filename="../src/mainwindow.ui" line="4943"/>
         <source>Help</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">도움말</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5007"/>
+        <location filename="../src/mainwindow.ui" line="5012"/>
         <location filename="../src/mainwindow.py" line="2822"/>
         <source>Hold value...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">값 고정...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5010"/>
+        <location filename="../src/mainwindow.ui" line="5015"/>
         <location filename="../src/mainwindow.py" line="2910"/>
         <source>Send a value you type to every output instead of this field&apos;s readings, until you release it</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">해제할 때까지 이 필드의 판독값 대신 입력한 값을 모든 출력에 보냅니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5021"/>
+        <location filename="../src/mainwindow.ui" line="5026"/>
         <source>Release held value</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">고정 해제</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5024"/>
+        <location filename="../src/mainwindow.ui" line="5029"/>
         <source>Send this field&apos;s readings to the outputs again</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이 필드의 판독값을 다시 출력에 보냅니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5032"/>
+        <location filename="../src/mainwindow.ui" line="5037"/>
         <source>Check for updates...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">업데이트 확인...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5048"/>
+        <location filename="../src/mainwindow.ui" line="5053"/>
         <source>View log</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">로그 보기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5051"/>
+        <location filename="../src/mainwindow.ui" line="5056"/>
         <source>Show the log of this session as it is written</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이 세션의 로그를 기록되는 대로 표시합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5062"/>
+        <location filename="../src/mainwindow.ui" line="5067"/>
         <source>Import field layout...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드 배치 가져오기...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5065"/>
+        <location filename="../src/mainwindow.ui" line="5070"/>
         <source>Replace the fields on the picture (their boxes and settings) with the ones saved in a file. Formerly “Import Configuration”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">영상의 필드(상자와 설정)를 파일에 저장된 필드로 바꿉니다. 이전 이름: “구성 가져오기”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5076"/>
+        <location filename="../src/mainwindow.ui" line="5081"/>
         <source>Export field layout...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">필드 배치 내보내기...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5079"/>
+        <location filename="../src/mainwindow.ui" line="5084"/>
         <source>Save the fields on the picture (their boxes and settings) to a file. Formerly “Export Configuration”.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">영상의 필드(상자와 설정)를 파일에 저장합니다. 이전 이름: “구성 내보내기”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5090"/>
+        <location filename="../src/mainwindow.ui" line="5095"/>
         <source>Open settings folder</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">설정 폴더 열기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5093"/>
+        <location filename="../src/mainwindow.ui" line="5098"/>
         <source>Open the folder with ScoreSight&apos;s settings file</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">ScoreSight 설정 파일이 있는 폴더를 엽니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5101"/>
+        <location filename="../src/mainwindow.ui" line="5106"/>
         <source>OCR training data setup...</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR 학습 데이터 설정...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5147"/>
+        <location filename="../src/mainwindow.ui" line="5152"/>
         <source>Zoom in</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">확대</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5155"/>
+        <location filename="../src/mainwindow.ui" line="5160"/>
         <source>Zoom out</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">축소</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5166"/>
+        <location filename="../src/mainwindow.ui" line="5171"/>
         <source>Smooth preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5169"/>
+        <location filename="../src/mainwindow.ui" line="5174"/>
         <source>Refresh the picture up to 20 times a second instead of once a second, so it moves like video. Uses more CPU; the readings don&apos;t change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5180"/>
+        <location filename="../src/mainwindow.ui" line="5185"/>
         <source>Statistics overlay</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">통계 오버레이</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5188"/>
+        <location filename="../src/mainwindow.ui" line="5193"/>
         <source>Collect OCR training data</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">OCR 학습 데이터 수집</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5191"/>
+        <location filename="../src/mainwindow.ui" line="5196"/>
         <source>Save each box&apos;s picture and reading to the training data folder, for training an OCR model</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">각 상자의 이미지와 판독값을 학습 데이터 폴더에 저장하여 OCR 모델 학습에 사용합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5216"/>
+        <location filename="../src/mainwindow.ui" line="5221"/>
         <source>Ask before closing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5219"/>
+        <location filename="../src/mainwindow.ui" line="5224"/>
         <source>Ask before closing ScoreSight while a source is open: closing stops the reading and the outputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5300"/>
+        <location filename="../src/mainwindow.ui" line="5305"/>
         <source>Ask a question or share feedback</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">질문하기 또는 의견 보내기</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5303"/>
+        <location filename="../src/mainwindow.ui" line="5308"/>
         <source>Open ScoreSight&apos;s Discussions on GitHub in your web browser: ask a question, share an idea or show your setup</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">웹 브라우저에서 GitHub의 ScoreSight Discussions를 엽니다. 질문하거나, 아이디어를 나누거나, 사용 환경을 보여 주세요</translation>
@@ -3045,55 +3051,55 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">판독값을 URL로 전송합니다(외부 전송 HTTP API)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4560"/>
+        <location filename="../src/mainwindow.ui" line="4565"/>
         <source>Send the readings to the URL below on every detection cycle</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">감지 주기마다 판독값을 아래 URL로 전송합니다</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4563"/>
+        <location filename="../src/mainwindow.ui" line="4568"/>
         <source>Send out API requests to external services.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">외부 서비스로 API 요청을 보냅니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4669"/>
+        <location filename="../src/mainwindow.ui" line="4674"/>
         <source>Encode</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">인코딩</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4676"/>
+        <location filename="../src/mainwindow.ui" line="4681"/>
         <source>The format of the readings in the requests</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">요청에 담을 판독값의 형식</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4680"/>
+        <location filename="../src/mainwindow.ui" line="4685"/>
         <source>JSON (Full)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">JSON(전체)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4685"/>
+        <location filename="../src/mainwindow.ui" line="4690"/>
         <source>JSON (Simple key-value)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">JSON(단순 키-값)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4690"/>
+        <location filename="../src/mainwindow.ui" line="4695"/>
         <source>XML</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">XML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4695"/>
+        <location filename="../src/mainwindow.ui" line="4700"/>
         <source>CSV</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">CSV</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4631"/>
+        <location filename="../src/mainwindow.ui" line="4636"/>
         <source>API URL</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">API URL</translation>
@@ -3104,49 +3110,49 @@ Resolution: {width}×{height}</source>
         <translation type="obsolete">판독값을 보낼 URL</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4637"/>
+        <location filename="../src/mainwindow.ui" line="4642"/>
         <source>http://</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">http://</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4644"/>
+        <location filename="../src/mainwindow.ui" line="4649"/>
         <source>The HTTP method of the requests</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">요청의 HTTP 메서드</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4648"/>
+        <location filename="../src/mainwindow.ui" line="4653"/>
         <source>POST</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">POST</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4653"/>
+        <location filename="../src/mainwindow.ui" line="4658"/>
         <source>PUT</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">PUT</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4658"/>
+        <location filename="../src/mainwindow.ui" line="4663"/>
         <source>GET</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">GET</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3012"/>
+        <location filename="../src/mainwindow.ui" line="3017"/>
         <source>How many times per second the boxes are read</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">초당 상자를 판독하는 횟수</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3027"/>
+        <location filename="../src/mainwindow.ui" line="3032"/>
         <source>Detections per second</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">초당 감지 횟수</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3030"/>
+        <location filename="../src/mainwindow.ui" line="3035"/>
         <source>How many times per second the boxes are read (1-15). Higher values use more CPU; 5 suits most clocks.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">초당 상자를 판독하는 횟수(1-15)입니다. 값이 클수록 CPU를 더 많이 사용합니다. 대부분의 시계에는 5가 적당합니다.</translation>
@@ -3210,23 +3216,23 @@ Resolution: {width}×{height}</source>
         <translation type="vanished">OBS</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3984"/>
+        <location filename="../src/mainwindow.ui" line="3989"/>
         <location filename="../src/mainwindow.py" line="3445"/>
         <source>Connect OBS</source>
         <translation>OBS에 연결</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4037"/>
+        <location filename="../src/mainwindow.ui" line="4042"/>
         <source>ScoreSight Scene</source>
         <translation>ScoreSight 씬</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4050"/>
+        <location filename="../src/mainwindow.ui" line="4055"/>
         <source>Create OBS Scene</source>
         <translation>OBS 씬 생성</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4063"/>
+        <location filename="../src/mainwindow.ui" line="4068"/>
         <source>Recreate</source>
         <translation>재생성</translation>
     </message>
@@ -3235,7 +3241,7 @@ Resolution: {width}×{height}</source>
         <translation type="vanished">VMix</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4179"/>
+        <location filename="../src/mainwindow.ui" line="4184"/>
         <source>Connection</source>
         <translation>연결</translation>
     </message>
@@ -3244,7 +3250,7 @@ Resolution: {width}×{height}</source>
         <translation type="vanished">로컬호스트</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4199"/>
+        <location filename="../src/mainwindow.ui" line="4204"/>
         <source>:</source>
         <translation>:</translation>
     </message>
@@ -3257,7 +3263,7 @@ Resolution: {width}×{height}</source>
         <translation type="vanished">시작</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4280"/>
+        <location filename="../src/mainwindow.ui" line="4285"/>
         <source>Input</source>
         <translation>입력</translation>
     </message>
@@ -3270,7 +3276,7 @@ Resolution: {width}×{height}</source>
         <translation type="vanished">업데이트 중지</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3015"/>
+        <location filename="../src/mainwindow.ui" line="3020"/>
         <source>Detections / s</source>
         <translation>감지 수 / 초</translation>
     </message>
@@ -3279,7 +3285,7 @@ Resolution: {width}×{height}</source>
         <translation type="vanished">필드 값이 변경된 경우에만 업데이트 전송</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3070"/>
+        <location filename="../src/mainwindow.ui" line="3075"/>
         <source>Update on change</source>
         <translation>변경 시 업데이트</translation>
     </message>
@@ -3291,8 +3297,8 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="71"/>
-        <location filename="../src/mainwindow.ui" line="3647"/>
-        <location filename="../src/mainwindow.ui" line="4746"/>
+        <location filename="../src/mainwindow.ui" line="3652"/>
+        <location filename="../src/mainwindow.ui" line="4751"/>
         <location filename="../src/mainwindow.py" line="1137"/>
         <location filename="../src/mainwindow.py" line="3172"/>
         <source>Fields</source>
@@ -3302,7 +3308,7 @@ Resolution: {width}×{height}</source>
     <message>
         <location filename="../src/mainwindow.ui" line="110"/>
         <location filename="../src/mainwindow.ui" line="113"/>
-        <location filename="../src/mainwindow.ui" line="4955"/>
+        <location filename="../src/mainwindow.ui" line="4960"/>
         <source>New custom field</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">새 사용자 지정 필드</translation>
@@ -3326,7 +3332,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="279"/>
-        <location filename="../src/mainwindow.ui" line="4963"/>
+        <location filename="../src/mainwindow.ui" line="4968"/>
         <source>Place on picture</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">영상에 배치</translation>
@@ -3339,7 +3345,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="292"/>
-        <location filename="../src/mainwindow.ui" line="4968"/>
+        <location filename="../src/mainwindow.ui" line="4973"/>
         <source>Remove from picture</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">영상에서 제거</translation>
@@ -3401,7 +3407,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="656"/>
-        <location filename="../src/mainwindow.ui" line="5123"/>
+        <location filename="../src/mainwindow.ui" line="5128"/>
         <source>Binary View</source>
         <translation>이진 보기</translation>
     </message>
@@ -3445,7 +3451,7 @@ Resolution: {width}×{height}</source>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="693"/>
-        <location filename="../src/mainwindow.ui" line="4792"/>
+        <location filename="../src/mainwindow.ui" line="4797"/>
         <source>Names</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">이름</translation>
@@ -3626,14 +3632,14 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">끌어서 상자 및 출력 설정의 크기를 조정합니다. 더블클릭하면 숨기거나 표시합니다.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3785"/>
+        <location filename="../src/mainwindow.ui" line="3790"/>
         <location filename="../src/mainwindow.py" line="1283"/>
         <source>Light</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">밝게</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="3780"/>
+        <location filename="../src/mainwindow.ui" line="3785"/>
         <location filename="../src/mainwindow.py" line="1284"/>
         <source>Dark</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
@@ -4134,7 +4140,7 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">vMix 중지</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4243"/>
+        <location filename="../src/mainwindow.ui" line="4248"/>
         <location filename="../src/vmix_ui_handler.py" line="128"/>
         <source>Start vMix</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>

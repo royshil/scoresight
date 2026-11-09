@@ -8,6 +8,10 @@ Release tags are the bare version number (for example `0.1.0`).
 
 ## [Unreleased]
 
+### Added
+
+- **Race time format.** A new *Format* preset, **Race time m:ss.dd**, takes a race board's running and finish times (swimming, track): `44.47`, `1:22.45`, and `1:28.0` while the clock runs. A race time read without its colon or dot (`128.0`) gets it back from the field's last good reading, like a clock's colon ([#194](https://github.com/royshil/scoresight/discussions/194), [Box settings: Format](https://royshil.github.io/scoresight/box-settings.html#format)).
+
 ### Removed
 
 - **Intel Macs.** There is no Intel Mac download any more: [0.4.4](https://github.com/royshil/scoresight/releases/tag/0.4.4) is the last release for Intel Macs, and on an Intel Mac it doesn't offer newer versions as updates. If you run the Intel build on an Apple Silicon Mac, install the Apple Silicon build ([Installation](https://royshil.github.io/scoresight/INSTALL.html)).

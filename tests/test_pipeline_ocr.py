@@ -13,7 +13,7 @@ import pytest
 pytest.importorskip("tesserocr")
 
 import tesseract  # noqa: E402
-from defaults import FieldType  # noqa: E402
+from defaults import FieldType, format_prefixes  # noqa: E402
 from synthetic_images import binarize, seven_segment  # noqa: E402
 from tesseract import TextDetector  # noqa: E402
 from text_detection_target import TextDetectionTargetWithResult  # noqa: E402
@@ -461,6 +461,16 @@ def test_shot_clock_reads_its_last_ten_seconds(detector, make_target):
         ("2:36", "2:38", None),  # not only digits
         ("2a36", "2:38", None),
         ("", "2:38", None),
+        # a race time's two separators (#194's swim board): one or both missing
+        ("128.5", "1:28.0", "1:28.5"),
+        ("1285", "1:28.0", "1:28.5"),
+        ("1:2245", "1:22.45", "1:22.45"),
+        ("12:245", "1:22.45", None),  # a colon where the last reading had none
+        ("1:22.45", "1:22.45", None),  # nothing missing
+        # tenths while the clock runs, hundredths at the finish: 12245 after
+        # 1:22.5 could be 1:22.45 or 12:24.5
+        ("12245", "1:22.5", None),
+        ("1:2245", "1:22.5", None),
     ],
 )
 def test_restore_separator(text, last_text, expected):
@@ -488,6 +498,24 @@ def test_a_clock_read_without_its_colon_gets_it_back(detector, make_target):
     assert read("596", "1:00") == ("596", FAILED)
     # a reading that matches the format is left alone
     assert read("2:35", "2:38") == ("2:35", SUCCESS)
+
+
+def test_a_race_time_read_without_its_colon_gets_it_back(detector, make_target):
+    # #194's swim board: the running clock 1:28.0 read as 128.0
+    gray, rect = digits_frame()
+    box = make_target(
+        "Lane 1 Time", rect=rect, type=FieldType.TIME, format_regex=format_prefixes[13]
+    )
+
+    def read(text, last_text):
+        box.last_text = last_text
+        detector.api.text = text
+        [result] = detector.detect_multi_text(binarize(gray), gray, [box])
+        return result.text, result.state
+
+    assert read("128.0", "1:27.5") == ("1:28.0", SUCCESS)
+    assert read("1:22.45", "1:22.4") == ("1:22.45", SUCCESS)
+    assert read("12245", "1:22.4") == ("12245", FAILED)
 
 
 def test_one_failing_box_does_not_stop_the_others(detector, make_target):

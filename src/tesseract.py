@@ -100,26 +100,54 @@ def add_ordinal_indicator(text):
         return text + "th"
 
 
-# a reading with one separator: the digits before and after it (2:38, 23.6)
-_SEPARATED_READING = re.compile(r"[0-9]+([:.])([0-9]+)")
+# digits with separators between them (2:38, 23.6, 1:22.45)
+_DIGITS_AND_SEPARATORS = re.compile(r"[0-9]+(?:[:.][0-9]+)*")
+
+
+def _separators(text) -> tuple[str, dict[int, str]]:
+    """text's digits, and each of its separators by the number of digits after
+    it: 1:22.45 -> ("12245", {4: ":", 2: "."})."""
+    digits = text.replace(":", "").replace(".", "")
+    separators = {}
+    seen = 0
+    for character in text:
+        if character in ":.":
+            separators[len(digits) - seen] = character
+        else:
+            seen += 1
+    return digits, separators
 
 
 def restore_separator(text, last_text):
-    """The reading with the separator of the box's last good reading put back
-    at the same place from the end, for a clock whose colon or dot wasn't read
+    """The reading with the separators of the box's last good reading put back
+    at the same places from the end, for a clock whose colon or dot wasn't read
     (a board that lights a third dot in its colon when the clock stops reads
-    as 236): 2:38, then 236 -> 2:36; 23.6, then 225 -> 22.5. None when text
-    isn't only digits, the last good reading has no separator, or the digits
-    are too few for it."""
-    if not text or not last_text or not re.fullmatch(r"[0-9]+", text):
+    as 236): 2:38, then 236 -> 2:36; 23.6, then 225 -> 22.5; 1:28.0, then 128.5
+    -> 1:28.5. None when text has other characters or a separator the last good
+    reading hasn't at that place, the last good reading has no separator, or
+    the digits are too few for them. After a race time (two separators) the
+    digits must be as many as its: its clock shows tenths while it runs and
+    hundredths at the finish (1:22.5, then 1:22.45), so 12245 can't be placed."""
+    if not text or not last_text or not _DIGITS_AND_SEPARATORS.fullmatch(text):
         return None
-    match = _SEPARATED_READING.fullmatch(last_text)
-    if match is None:
+    if not _DIGITS_AND_SEPARATORS.fullmatch(last_text):
         return None
-    after = len(match.group(2))
-    if len(text) <= after:
+    digits, present = _separators(text)
+    last_digits, separators = _separators(last_text)
+    if len(present) >= len(separators):
         return None
-    return f"{text[:-after]}{match.group(1)}{text[-after:]}"
+    if any(separators.get(after) != sep for after, sep in present.items()):
+        return None
+    if len(digits) <= max(separators):
+        return None
+    if len(separators) > 1 and len(digits) != len(last_digits):
+        return None
+    restored = digits
+    # from the left: the characters after a place are then still only digits
+    for after in sorted(separators, reverse=True):
+        cut = len(restored) - after
+        restored = f"{restored[:cut]}{separators[after]}{restored[cut:]}"
+    return restored
 
 
 def is_valid_regex(pattern):
