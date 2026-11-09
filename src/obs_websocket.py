@@ -7,7 +7,7 @@ from os import path
 
 import obsws_python as obs
 import websocket
-from obsws_python.error import OBSSDKTimeoutError
+from obsws_python.error import OBSSDKRequestError, OBSSDKTimeoutError
 
 from output_worker import ErrorInfo, OutputWorker, SendSkipped
 from resource_path import resource_path
@@ -177,6 +177,34 @@ _text_worker = OutputWorker(
 def obs_output_status():
     """The text updates' WorkerStatus (see output_worker), for every client."""
     return _text_worker.status()
+
+
+# obs-websocket's request status when an output (the replay buffer) is off
+_OUTPUT_NOT_RUNNING = 501
+
+
+class ReplayBufferOff(Exception):
+    """OBS's replay buffer isn't running, so it has nothing to save."""
+
+
+@_locked
+def save_replay_buffer(obs_client: obs.ReqClient) -> None:
+    """Ask OBS to save its replay buffer as a clip (blocking: call it off the
+    GUI thread). Reconnects once if the connection broke. Raises
+    ReplayBufferOff if the replay buffer isn't running, and OBS's or the
+    connection's error otherwise."""
+    if obs_client in _closed_clients:
+        raise SendSkipped()
+    try:
+        try:
+            obs_client.save_replay_buffer()
+        except _CONNECTION_ERRORS:
+            _reconnect(obs_client)
+            obs_client.save_replay_buffer()
+    except OBSSDKRequestError as e:
+        if e.code == _OUTPUT_NOT_RUNNING:
+            raise ReplayBufferOff() from e
+        raise
 
 
 @_locked

@@ -366,6 +366,31 @@ def test_the_sport_choice_follows_the_game(main_window, make_result):
     assert main_window.gameEngine.events == ()
 
 
+def test_a_score_saves_obs_replay_buffer(main_window, make_result):
+    # issue #100: the OBS page's switch; the save waits for its delay
+    ui = main_window.ui
+    ui.comboBox_sport.setCurrentIndex(ui.comboBox_sport.findData("basketball"))
+    ui.checkBox_obsReplay.setChecked(True)
+    replay = main_window.replayOnScore
+
+    def read(*texts):
+        for text in texts:
+            main_window.ocrResult(
+                [make_result("Home Score", text), make_result("Away Score", "0")]
+            )
+
+    read("0", "0")
+    assert not replay.pending()
+    read("2", "2")
+    assert replay.pending()
+    replay.timer.stop()
+    # not while the outputs are paused
+    main_window.updateOCRResults = False
+    read("4", "4")
+    assert len(main_window.gameEngine.events) == 2
+    assert not replay.pending()
+
+
 def test_a_change_the_sport_does_not_allow_is_held_back(
     main_window, patched, make_result
 ):

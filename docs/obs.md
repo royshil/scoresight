@@ -96,6 +96,18 @@ Custom fields have no OBS source name at first, so they don't update OBS. Your o
 - Use a **Browser Source** with the [HTTP server](http_server.md). It can show any field.
 - Use a text source that **reads from file** with the field's `.txt` file ([Text Files](text-files.md)).
 
+## A clip of every score
+
+OBS's **replay buffer** keeps the last seconds of the program in memory, and saves them as a clip when asked. ScoreSight can ask after each score, so that after the game OBS's recordings folder holds a clip of every score, with the scorebug: highlights for social media without editing.
+
+1. In OBS, turn on the replay buffer: **Settings** > **Output** > **Replay Buffer** > **Enable Replay Buffer**, and set its **Maximum Replay Time** (20–30 seconds covers the play before a score). Clips go to the **Recording Path** of the same page.
+2. Start it before the game: **Start Replay Buffer** in OBS's **Controls**.
+3. In ScoreSight, choose the [sport](game.md#choose-the-sport) (the scores are the ones the game counts) and, on the **OBS** page, turn on **Save the replay buffer after each score**.
+
+**Delay** (5 seconds by default, up to 60) waits after the score before the clip is saved, so the clip also shows what followed (the celebration, the scorebug changing). A score during the wait starts it again, so one clip shows both scores. Nothing is saved while **Pause outputs** is on.
+
+The log says `OBS: saved the replay buffer after the score` for each clip. If it says that the replay buffer isn't running, start it in OBS (step 2).
+
 ## Troubleshooting
 
 Start with the OBS row of the **Outputs** list (or **OBS** in the status bar): it says what is wrong. OBS messages in the log start with `OBS:`.

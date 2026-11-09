@@ -2056,6 +2056,35 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.tableView_obsSources, 4, 0, 1, 1)
 
+        self.widget_obsReplay = QWidget(self.tab_obs)
+        self.widget_obsReplay.setObjectName(u"widget_obsReplay")
+        self.gridLayout_obsReplay = QGridLayout(self.widget_obsReplay)
+        self.gridLayout_obsReplay.setObjectName(u"gridLayout_obsReplay")
+        self.gridLayout_obsReplay.setContentsMargins(0, 4, 0, 0)
+        self.checkBox_obsReplay = QCheckBox(self.widget_obsReplay)
+        self.checkBox_obsReplay.setObjectName(u"checkBox_obsReplay")
+
+        self.gridLayout_obsReplay.addWidget(self.checkBox_obsReplay, 0, 0, 1, 3)
+
+        self.label_obsReplayDelay = QLabel(self.widget_obsReplay)
+        self.label_obsReplayDelay.setObjectName(u"label_obsReplayDelay")
+
+        self.gridLayout_obsReplay.addWidget(self.label_obsReplayDelay, 1, 0, 1, 1)
+
+        self.spinBox_obsReplayDelay = QSpinBox(self.widget_obsReplay)
+        self.spinBox_obsReplayDelay.setObjectName(u"spinBox_obsReplayDelay")
+        self.spinBox_obsReplayDelay.setMaximum(60)
+        self.spinBox_obsReplayDelay.setValue(5)
+
+        self.gridLayout_obsReplay.addWidget(self.spinBox_obsReplayDelay, 1, 1, 1, 1)
+
+        self.horizontalSpacer_obsReplay = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_obsReplay.addItem(self.horizontalSpacer_obsReplay, 1, 2, 1, 1)
+
+
+        self.gridLayout_2.addWidget(self.widget_obsReplay, 5, 0, 1, 1)
+
         self.stackedWidget_outputs.addWidget(self.tab_obs)
         self.tab_vmix = QWidget()
         self.tab_vmix.setObjectName(u"tab_vmix")
@@ -2446,6 +2475,7 @@ class Ui_MainWindow(object):
         self.label_overlayTheme.setBuddy(self.comboBox_overlayTheme)
         self.label_overlayScale.setBuddy(self.doubleSpinBox_overlayScale)
         self.label_overlayHost.setBuddy(self.comboBox_overlayHost)
+        self.label_obsReplayDelay.setBuddy(self.spinBox_obsReplayDelay)
 #endif // QT_CONFIG(shortcut)
 
         self.menubar.addAction(self.menuFile.menuAction())
@@ -3170,6 +3200,18 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(accessibility)
         self.tableView_obsSources.setAccessibleName(QCoreApplication.translate("MainWindow", u"OBS text sources of the fields", None))
 #endif // QT_CONFIG(accessibility)
+#if QT_CONFIG(tooltip)
+        self.checkBox_obsReplay.setToolTip(QCoreApplication.translate("MainWindow", u"After each score, OBS saves its replay buffer as a clip: a highlight of every score, with the scorebug. Needs a sport (Box tab) and OBS's replay buffer running (Controls \u203a Start Replay Buffer).", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkBox_obsReplay.setText(QCoreApplication.translate("MainWindow", u"Save the replay buffer after each score", None))
+        self.label_obsReplayDelay.setText(QCoreApplication.translate("MainWindow", u"Delay", None))
+#if QT_CONFIG(tooltip)
+        self.spinBox_obsReplayDelay.setToolTip(QCoreApplication.translate("MainWindow", u"Seconds after the score before the clip is saved, so that it shows what followed. Another score in that time restarts the wait: one clip shows both.", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(accessibility)
+        self.spinBox_obsReplayDelay.setAccessibleName(QCoreApplication.translate("MainWindow", u"Replay delay", None))
+#endif // QT_CONFIG(accessibility)
+        self.spinBox_obsReplayDelay.setSuffix(QCoreApplication.translate("MainWindow", u" s", None))
 #if QT_CONFIG(tooltip)
         self.tableView_vmixMapping.setToolTip(QCoreApplication.translate("MainWindow", u"Each field and the vMix title field it updates. Edit the right column.", None))
 #endif // QT_CONFIG(tooltip)

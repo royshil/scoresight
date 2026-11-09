@@ -149,7 +149,7 @@ ScoreSight kører videre. Du kan i stedet hente den nye version fra udgivelsessi
     </message>
     <message>
         <location filename="../src/box_settings_ui_handler.py" line="429"/>
-        <location filename="../src/mainwindow.py" line="2780"/>
+        <location filename="../src/mainwindow.py" line="2788"/>
         <source>This field is built from other fields (see Template): it has no box on the picture and no reading settings.</source>
         <translation>Dette felt er bygget af andre felter (se Skabelon): det har ingen boks på billedet og ingen aflæsningsindstillinger.</translation>
     </message>
@@ -690,9 +690,9 @@ Opløsning: {width}×{height}</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="71"/>
         <location filename="../src/mainwindow.ui" line="3652"/>
-        <location filename="../src/mainwindow.ui" line="4751"/>
-        <location filename="../src/mainwindow.py" line="1137"/>
-        <location filename="../src/mainwindow.py" line="3172"/>
+        <location filename="../src/mainwindow.ui" line="4821"/>
+        <location filename="../src/mainwindow.py" line="1145"/>
+        <location filename="../src/mainwindow.py" line="3180"/>
         <source>Fields</source>
         <translation>Felter</translation>
     </message>
@@ -703,15 +703,15 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="94"/>
-        <location filename="../src/mainwindow.ui" line="5117"/>
-        <location filename="../src/mainwindow.py" line="2479"/>
+        <location filename="../src/mainwindow.ui" line="5187"/>
+        <location filename="../src/mainwindow.py" line="2487"/>
         <source>Pause outputs</source>
         <translation>Sæt output på pause</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="110"/>
         <location filename="../src/mainwindow.ui" line="113"/>
-        <location filename="../src/mainwindow.ui" line="4960"/>
+        <location filename="../src/mainwindow.ui" line="5030"/>
         <source>New custom field</source>
         <translation>Nyt brugerdefineret felt</translation>
     </message>
@@ -752,7 +752,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="279"/>
-        <location filename="../src/mainwindow.ui" line="4968"/>
+        <location filename="../src/mainwindow.ui" line="5038"/>
         <source>Place on picture</source>
         <translation>Placer på billedet</translation>
     </message>
@@ -763,7 +763,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="292"/>
-        <location filename="../src/mainwindow.ui" line="4973"/>
+        <location filename="../src/mainwindow.ui" line="5043"/>
         <source>Remove from picture</source>
         <translation>Fjern fra billedet</translation>
     </message>
@@ -779,7 +779,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="318"/>
-        <location filename="../src/mainwindow.py" line="3025"/>
+        <location filename="../src/mainwindow.py" line="3033"/>
         <source>Delete field</source>
         <translation>Slet felt</translation>
     </message>
@@ -808,7 +808,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="521"/>
-        <location filename="../src/mainwindow.py" line="4237"/>
+        <location filename="../src/mainwindow.py" line="4245"/>
         <source>The video source: a camera, capture card or NDI source, a video file, a stream URL or a screen capture</source>
         <translation>Videokilden: et kamera, et capturekort eller en NDI-kilde, en videofil, en stream-URL eller en skærmoptagelse</translation>
     </message>
@@ -851,7 +851,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="574"/>
-        <location filename="../src/mainwindow.ui" line="5144"/>
+        <location filename="../src/mainwindow.ui" line="5214"/>
         <source>Reload sources</source>
         <translation>Genindlæs kilder</translation>
     </message>
@@ -888,7 +888,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="656"/>
-        <location filename="../src/mainwindow.ui" line="5128"/>
+        <location filename="../src/mainwindow.ui" line="5198"/>
         <source>Binary View</source>
         <translation>Binær visning</translation>
     </message>
@@ -919,7 +919,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="693"/>
-        <location filename="../src/mainwindow.ui" line="4797"/>
+        <location filename="../src/mainwindow.ui" line="4867"/>
         <source>Names</source>
         <translation>Navne</translation>
     </message>
@@ -1002,7 +1002,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="828"/>
-        <location filename="../src/mainwindow.py" line="4480"/>
+        <location filename="../src/mainwindow.py" line="4488"/>
         <source>Correct the perspective: click the 4 corners of the scoreboard</source>
         <translation>Ret perspektivet: klik på resultattavlens 4 hjørner</translation>
     </message>
@@ -1142,7 +1142,7 @@ Opløsning: {width}×{height}</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="1276"/>
         <location filename="../src/mainwindow.ui" line="1332"/>
-        <location filename="../src/mainwindow.py" line="4426"/>
+        <location filename="../src/mainwindow.py" line="4434"/>
         <source>Cancel</source>
         <translation>Annuller</translation>
     </message>
@@ -1163,7 +1163,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1382"/>
-        <location filename="../src/mainwindow.py" line="2477"/>
+        <location filename="../src/mainwindow.py" line="2485"/>
         <source>Resume outputs</source>
         <translation>Genoptag output</translation>
     </message>
@@ -1204,7 +1204,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1622"/>
-        <location filename="../src/mainwindow.py" line="2786"/>
+        <location filename="../src/mainwindow.py" line="2794"/>
         <source>Select a field, then drag over its numbers on the picture.</source>
         <translation>Vælg et felt, og træk derefter hen over dets tal på billedet.</translation>
     </message>
@@ -1382,7 +1382,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="2110"/>
-        <location filename="../src/mainwindow.ui" line="4586"/>
+        <location filename="../src/mainwindow.ui" line="4656"/>
         <source>Custom</source>
         <translation>Brugerdefineret</translation>
     </message>
@@ -1749,7 +1749,7 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="3010"/>
-        <location filename="../src/mainwindow.py" line="2243"/>
+        <location filename="../src/mainwindow.py" line="2251"/>
         <source>The OCR model that reads every box, not only the selected one. PP-OCR (automatic) reads with PP-OCR (accurate) while this computer keeps up, and with PP-OCR (fast), which needs about a fifth of the CPU, when it doesn&apos;t. The Tesseract models use the boxes&apos; Image cleanup settings; Load external Tesseract model... reads a .traineddata file.</source>
         <translation>Den OCR-model, der aflæser alle bokse, ikke kun den valgte. PP-OCR (automatisk) aflæser med PP-OCR (præcis), så længe denne computer kan følge med, og med PP-OCR (hurtig), som kræver omkring en femtedel af CPU&apos;en, når den ikke kan. Tesseract-modellerne bruger boksenes indstillinger for Billedrensning; Indlæs ekstern Tesseract-model... aflæser en .traineddata-fil.</translation>
     </message>
@@ -2011,13 +2011,13 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="3785"/>
-        <location filename="../src/mainwindow.py" line="1284"/>
+        <location filename="../src/mainwindow.py" line="1292"/>
         <source>Dark</source>
         <translation>Mørk</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="3790"/>
-        <location filename="../src/mainwindow.py" line="1283"/>
+        <location filename="../src/mainwindow.py" line="1291"/>
         <source>Light</source>
         <translation>Lys</translation>
     </message>
@@ -2083,13 +2083,13 @@ Opløsning: {width}×{height}</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="3974"/>
-        <location filename="../src/mainwindow.py" line="3447"/>
+        <location filename="../src/mainwindow.py" line="3455"/>
         <source>Connect to the WebSocket server of OBS Studio</source>
         <translation>Forbind til WebSocket-serveren i OBS Studio</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="3989"/>
-        <location filename="../src/mainwindow.py" line="3445"/>
+        <location filename="../src/mainwindow.py" line="3453"/>
         <source>Connect OBS</source>
         <translation>Forbind til OBS</translation>
     </message>
@@ -2154,575 +2154,611 @@ Opløsning: {width}×{height}</translation>
         <translation>Feltenes OBS-tekstkilder</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4139"/>
+        <location filename="../src/mainwindow.ui" line="4141"/>
+        <source>After each score, OBS saves its replay buffer as a clip: a highlight of every score, with the scorebug. Needs a sport (Box tab) and OBS&apos;s replay buffer running (Controls › Start Replay Buffer).</source>
+        <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
+        <translation type="unfinished">Efter hver scoring gemmer OBS sin genafspilningsbuffer som et klip: et højdepunkt for hver scoring, med scorebug. Kræver en sport (fanen Boks) og at OBS&apos; genafspilningsbuffer kører (Kontroller › Start genafspilningsbuffer).</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="4144"/>
+        <source>Save the replay buffer after each score</source>
+        <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
+        <translation type="unfinished">Gem genafspilningsbufferen efter hver scoring</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="4151"/>
+        <source>Delay</source>
+        <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
+        <translation type="unfinished">Forsinkelse</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="4161"/>
+        <source>Seconds after the score before the clip is saved, so that it shows what followed. Another score in that time restarts the wait: one clip shows both.</source>
+        <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
+        <translation type="unfinished">Sekunder efter scoringen, før klippet gemmes, så det viser det, der fulgte. En ny scoring i den tid starter ventetiden forfra: ét klip viser begge.</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="4164"/>
+        <source>Replay delay</source>
+        <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
+        <translation type="unfinished">Forsinkelse for genafspilning</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="4167"/>
+        <source> s</source>
+        <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
+        <translation type="unfinished"> s</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="4209"/>
         <source>Each field and the vMix title field it updates. Edit the right column.</source>
         <translation>Hvert felt og det vMix-titelfelt, det opdaterer. Rediger den højre kolonne.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4184"/>
+        <location filename="../src/mainwindow.ui" line="4254"/>
         <source>Connection</source>
         <translation>Forbindelse</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4191"/>
+        <location filename="../src/mainwindow.ui" line="4261"/>
         <source>vMix host</source>
         <translation>vMix-vært</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4194"/>
+        <location filename="../src/mainwindow.ui" line="4264"/>
         <source>The address of the vMix computer (localhost if vMix runs on this computer)</source>
         <translation>Adressen på vMix-computeren (localhost, hvis vMix kører på denne computer)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4204"/>
+        <location filename="../src/mainwindow.ui" line="4274"/>
         <source>:</source>
         <translation>:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4211"/>
+        <location filename="../src/mainwindow.ui" line="4281"/>
         <source>vMix port</source>
         <translation>vMix-port</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4214"/>
+        <location filename="../src/mainwindow.ui" line="4284"/>
         <source>The port of the vMix Web API (8088 by default; not 8099)</source>
         <translation>Porten til vMix Web API (8088 som standard; ikke 8099)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4236"/>
+        <location filename="../src/mainwindow.ui" line="4306"/>
         <source>Start or stop vMix</source>
         <translation>Start eller stop vMix</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4239"/>
+        <location filename="../src/mainwindow.ui" line="4309"/>
         <source>Start or stop sending the readings to vMix</source>
         <translation>Start eller stop afsendelse af aflæsningerne til vMix</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4248"/>
+        <location filename="../src/mainwindow.ui" line="4318"/>
         <location filename="../src/vmix_ui_handler.py" line="128"/>
         <source>Start vMix</source>
         <translation>Start vMix</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4285"/>
+        <location filename="../src/mainwindow.ui" line="4355"/>
         <source>Input</source>
         <translation>Input</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4292"/>
+        <location filename="../src/mainwindow.ui" line="4362"/>
         <source>vMix input</source>
         <translation>vMix-input</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4295"/>
+        <location filename="../src/mainwindow.ui" line="4365"/>
         <source>The vMix input (number or name) of the title to update</source>
         <translation>vMix-inputtet (nummer eller navn) for den titel, der skal opdateres</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4308"/>
+        <location filename="../src/mainwindow.ui" line="4378"/>
         <source>Also send a field&apos;s value when it hasn&apos;t changed (marked “same”), at every detection, for example if someone may change the title in vMix by hand. Off: vMix gets a value only when it changes. Formerly “Send Same?”.</source>
         <translation>Send også et felts værdi, når den ikke har ændret sig (markeret “samme”), ved hver aflæsning, f.eks. hvis nogen kan ændre titlen i vMix manuelt. Fra: vMix får kun en værdi, når den ændres. Tidligere “Send Same?”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4311"/>
-        <location filename="../src/mainwindow.ui" line="4429"/>
+        <location filename="../src/mainwindow.ui" line="4381"/>
+        <location filename="../src/mainwindow.ui" line="4499"/>
         <location filename="../src/tcp_ui_handler.py" line="355"/>
         <source>Also resend unchanged values</source>
         <translation>Send også uændrede værdier igen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4360"/>
-        <location filename="../src/mainwindow.ui" line="4611"/>
+        <location filename="../src/mainwindow.ui" line="4430"/>
+        <location filename="../src/mainwindow.ui" line="4681"/>
         <source>URL</source>
         <translation>URL</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4367"/>
+        <location filename="../src/mainwindow.ui" line="4437"/>
         <source>UNO URL</source>
         <translation>UNO-URL</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4370"/>
+        <location filename="../src/mainwindow.ui" line="4440"/>
         <source>The API URL of the overlays.uno control app. Treat it like a password.</source>
         <translation>API-URL&apos;en til overlays.uno-kontrolappen. Behandl den som en adgangskode.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4380"/>
+        <location filename="../src/mainwindow.ui" line="4450"/>
         <source>Start or stop UNO</source>
         <translation>Start eller stop UNO</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4383"/>
+        <location filename="../src/mainwindow.ui" line="4453"/>
         <source>Start or stop sending the readings to UNO</source>
         <translation>Start eller stop afsendelse af aflæsningerne til UNO</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4386"/>
+        <location filename="../src/mainwindow.ui" line="4456"/>
         <location filename="../src/tcp_ui_handler.py" line="526"/>
         <location filename="../src/uno_ui_handler.py" line="127"/>
         <source>Start sending</source>
         <translation>Start afsendelse</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4426"/>
+        <location filename="../src/mainwindow.ui" line="4496"/>
         <source>Also send a field&apos;s value when it hasn&apos;t changed (marked “same”), at every detection. Off: the overlay gets a value only when it changes, which keeps within overlays.uno&apos;s request limits. Formerly “Send Same?”.</source>
         <translation>Send også et felts værdi, når den ikke har ændret sig (markeret “samme”), ved hver aflæsning. Fra: overlayet får kun en værdi, når den ændres, så overlays.uno&apos;s grænser for forespørgsler overholdes. Tidligere “Send Same?”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4436"/>
+        <location filename="../src/mainwindow.ui" line="4506"/>
         <source>The overlay uses UNO Essentials content fields</source>
         <translation>Overlayet bruger UNO Essentials-indholdsfelter</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4445"/>
+        <location filename="../src/mainwindow.ui" line="4515"/>
         <source>Essentials</source>
         <translation>Essentials</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4476"/>
+        <location filename="../src/mainwindow.ui" line="4546"/>
         <source>Overlay ID</source>
         <translation>Overlay-ID</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4483"/>
+        <location filename="../src/mainwindow.ui" line="4553"/>
         <source>The ID (UUID) of the Essentials overlay</source>
         <translation>ID&apos;et (UUID) for Essentials-overlayet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4495"/>
+        <location filename="../src/mainwindow.ui" line="4565"/>
         <source>aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeeee</source>
         <translation>aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeeee</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4514"/>
+        <location filename="../src/mainwindow.ui" line="4584"/>
         <source>Each field and the UNO command (or Essentials field ID) it drives. Edit the right column.</source>
         <translation>Hvert felt og den UNO-kommando (eller det Essentials-felt-ID), det styrer. Rediger den højre kolonne.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4565"/>
+        <location filename="../src/mainwindow.ui" line="4635"/>
         <source>Send the readings to the URL below on every detection cycle</source>
         <translation>Send aflæsningerne til URL&apos;en nedenfor ved hver aflæsningscyklus</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4568"/>
+        <location filename="../src/mainwindow.ui" line="4638"/>
         <source>Send out API requests to external services.</source>
         <translation>Send API-forespørgsler til eksterne tjenester.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4575"/>
+        <location filename="../src/mainwindow.ui" line="4645"/>
         <source>Preset</source>
         <translation>Forudindstilling</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4582"/>
+        <location filename="../src/mainwindow.ui" line="4652"/>
         <source>Fill in the settings for a product. You can still change every setting afterwards.</source>
         <translation>Udfyld indstillingerne for et produkt. Du kan stadig ændre alle indstillinger bagefter.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4636"/>
+        <location filename="../src/mainwindow.ui" line="4706"/>
         <source>API URL</source>
         <translation>API-URL</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4639"/>
+        <location filename="../src/mainwindow.ui" line="4709"/>
         <source>The URL the readings are sent to. With {field} and {value} in it, each field is sent in its own request, for example http://host/set?key={field}&amp;value={value}. For a login, put it in the URL: http://user:password@host/...</source>
         <translation>URL&apos;en, som aflæsningerne sendes til. Med {field} og {value} i den sendes hvert felt i sin egen forespørgsel, f.eks. http://host/set?key={field}&amp;value={value}. Et login skrives i URL&apos;en: http://user:password@host/...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4642"/>
+        <location filename="../src/mainwindow.ui" line="4712"/>
         <source>http://</source>
         <translation>http://</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4649"/>
+        <location filename="../src/mainwindow.ui" line="4719"/>
         <source>The HTTP method of the requests</source>
         <translation>HTTP-metoden for forespørgslerne</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4653"/>
+        <location filename="../src/mainwindow.ui" line="4723"/>
         <source>POST</source>
         <translation>POST</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4658"/>
+        <location filename="../src/mainwindow.ui" line="4728"/>
         <source>PUT</source>
         <translation>PUT</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4663"/>
+        <location filename="../src/mainwindow.ui" line="4733"/>
         <source>GET</source>
         <translation>GET</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4674"/>
+        <location filename="../src/mainwindow.ui" line="4744"/>
         <source>Encode</source>
         <translation>Kodning</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4681"/>
+        <location filename="../src/mainwindow.ui" line="4751"/>
         <source>The format of the readings in the requests</source>
         <translation>Aflæsningernes format i forespørgslerne</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4685"/>
+        <location filename="../src/mainwindow.ui" line="4755"/>
         <source>JSON (Full)</source>
         <translation>JSON (fuld)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4690"/>
+        <location filename="../src/mainwindow.ui" line="4760"/>
         <source>JSON (Simple key-value)</source>
         <translation>JSON (simpel nøgle-værdi)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4695"/>
+        <location filename="../src/mainwindow.ui" line="4765"/>
         <source>XML</source>
         <translation>XML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4700"/>
+        <location filename="../src/mainwindow.ui" line="4770"/>
         <source>CSV</source>
         <translation>CSV</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4708"/>
+        <location filename="../src/mainwindow.ui" line="4778"/>
         <source>Send</source>
         <translation>Send</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4715"/>
+        <location filename="../src/mainwindow.ui" line="4785"/>
         <source>Send a reading only when its value changed (off: every reading on every detection cycle)</source>
         <translation>Send kun en aflæsning, når dens værdi er ændret (fra: alle aflæsninger ved hver aflæsningscyklus)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4718"/>
+        <location filename="../src/mainwindow.ui" line="4788"/>
         <source>Only changes</source>
         <translation>Kun ændringer</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4725"/>
+        <location filename="../src/mainwindow.ui" line="4795"/>
         <source>Resend all</source>
         <translation>Send alle igen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4732"/>
+        <location filename="../src/mainwindow.ui" line="4802"/>
         <source>With Only changes: also send every value again this often, for a receiver that forgets them when it restarts</source>
         <translation>Med Kun ændringer: send også alle værdier igen så ofte, til en modtager, der glemmer dem, når den genstarter</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4735"/>
+        <location filename="../src/mainwindow.ui" line="4805"/>
         <source>Never</source>
         <translation>Aldrig</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4738"/>
+        <location filename="../src/mainwindow.ui" line="4808"/>
         <source>every </source>
         <translation>hver </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4758"/>
+        <location filename="../src/mainwindow.ui" line="4828"/>
         <source>How many fields one request carries: all of them (one request per detection cycle), or at most this many (a request per batch of changed fields). A URL with {field} or {value} always sends one field per request.</source>
         <translation>Hvor mange felter én forespørgsel indeholder: alle (én forespørgsel pr. aflæsningscyklus) eller højst så mange (en forespørgsel pr. gruppe af ændrede felter). En URL med {field} eller {value} sender altid ét felt pr. forespørgsel.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4761"/>
+        <location filename="../src/mainwindow.ui" line="4831"/>
         <source>All in one request</source>
         <translation>Alle i én forespørgsel</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4764"/>
+        <location filename="../src/mainwindow.ui" line="4834"/>
         <source> per request</source>
         <translation> pr. forespørgsel</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4774"/>
+        <location filename="../src/mainwindow.ui" line="4844"/>
         <source>Rate</source>
         <translation>Hastighed</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4781"/>
+        <location filename="../src/mainwindow.ui" line="4851"/>
         <source>At most this many requests per second (the latest values wait for their turn)</source>
         <translation>Højst så mange forespørgsler pr. sekund (de seneste værdier venter på tur)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4784"/>
+        <location filename="../src/mainwindow.ui" line="4854"/>
         <source>No limit</source>
         <translation>Ingen grænse</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4787"/>
+        <location filename="../src/mainwindow.ui" line="4857"/>
         <source> requests/s</source>
         <translation> forespørgsler/s</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4804"/>
+        <location filename="../src/mainwindow.ui" line="4874"/>
         <source>Send the field names in lower case with letters, digits and _ only (&quot;Home Score&quot; as home_score), for receivers that allow no other names</source>
         <translation>Send feltnavnene med små bogstaver og kun bogstaver, cifre og _ (&quot;Home Score&quot; som home_score), til modtagere, der ikke tillader andre navne</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4807"/>
+        <location filename="../src/mainwindow.ui" line="4877"/>
         <source>Letters, digits and _ only</source>
         <translation>Kun bogstaver, cifre og _</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4814"/>
+        <location filename="../src/mainwindow.ui" line="4884"/>
         <source>The names the fields are sent with</source>
         <translation>De navne, felterne sendes med</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4827"/>
+        <location filename="../src/mainwindow.ui" line="4897"/>
         <source>Headers</source>
         <translation>Headere</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4840"/>
+        <location filename="../src/mainwindow.ui" line="4910"/>
         <source>Request headers</source>
         <translation>Headere i forespørgslen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4843"/>
+        <location filename="../src/mainwindow.ui" line="4913"/>
         <source>Extra request headers, one &quot;Name: value&quot; per line, for example an Authorization token</source>
         <translation>Ekstra headere i forespørgslen, én &quot;Navn: værdi&quot; pr. linje, f.eks. et Authorization-token</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4891"/>
+        <location filename="../src/mainwindow.ui" line="4961"/>
         <source>File</source>
         <translation>Filer</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4903"/>
+        <location filename="../src/mainwindow.ui" line="4973"/>
         <source>View</source>
         <translation>Vis</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4907"/>
+        <location filename="../src/mainwindow.ui" line="4977"/>
         <source>Language</source>
         <translation>Sprog</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4912"/>
+        <location filename="../src/mainwindow.ui" line="4982"/>
         <source>Appearance</source>
         <translation>Udseende</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4931"/>
+        <location filename="../src/mainwindow.ui" line="5001"/>
         <source>Tools</source>
         <translation>Værktøjer</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4943"/>
+        <location filename="../src/mainwindow.ui" line="5013"/>
         <source>Help</source>
         <translation>Hjælp</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4978"/>
+        <location filename="../src/mainwindow.ui" line="5048"/>
         <source>Rename...</source>
         <translation>Omdøb...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4986"/>
+        <location filename="../src/mainwindow.ui" line="5056"/>
         <source>Delete field...</source>
         <translation>Slet felt...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4994"/>
+        <location filename="../src/mainwindow.ui" line="5064"/>
         <source>Reset settings to defaults</source>
         <translation>Nulstil indstillinger til standard</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="4999"/>
+        <location filename="../src/mainwindow.ui" line="5069"/>
         <source>Copy value</source>
         <translation>Kopier værdi</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5007"/>
+        <location filename="../src/mainwindow.ui" line="5077"/>
         <source>Zoom to box</source>
         <translation>Zoom til boks</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5012"/>
-        <location filename="../src/mainwindow.py" line="2822"/>
+        <location filename="../src/mainwindow.ui" line="5082"/>
+        <location filename="../src/mainwindow.py" line="2830"/>
         <source>Hold value...</source>
         <translation>Fasthold værdi...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5015"/>
-        <location filename="../src/mainwindow.py" line="2910"/>
+        <location filename="../src/mainwindow.ui" line="5085"/>
+        <location filename="../src/mainwindow.py" line="2918"/>
         <source>Send a value you type to every output instead of this field&apos;s readings, until you release it</source>
         <translation>Send en værdi, du skriver, til alle output i stedet for feltets aflæsninger, indtil du slipper den</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5026"/>
+        <location filename="../src/mainwindow.ui" line="5096"/>
         <source>Release held value</source>
         <translation>Slip fastholdt værdi</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5029"/>
+        <location filename="../src/mainwindow.ui" line="5099"/>
         <source>Send this field&apos;s readings to the outputs again</source>
         <translation>Send feltets aflæsninger til output igen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5037"/>
+        <location filename="../src/mainwindow.ui" line="5107"/>
         <source>Check for updates...</source>
         <translation>Søg efter opdateringer...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5045"/>
+        <location filename="../src/mainwindow.ui" line="5115"/>
         <source>About</source>
         <translation>Om</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5053"/>
+        <location filename="../src/mainwindow.ui" line="5123"/>
         <source>View log</source>
         <translation>Vis log</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5056"/>
+        <location filename="../src/mainwindow.ui" line="5126"/>
         <source>Show the log of this session as it is written</source>
         <translation>Vis loggen for denne session, mens den skrives</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5067"/>
+        <location filename="../src/mainwindow.ui" line="5137"/>
         <source>Import field layout...</source>
         <translation>Importer feltlayout...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5070"/>
+        <location filename="../src/mainwindow.ui" line="5140"/>
         <source>Replace the fields on the picture (their boxes and settings) with the ones saved in a file. Formerly “Import Configuration”.</source>
         <translation>Erstat felterne på billedet (deres bokse og indstillinger) med dem, der er gemt i en fil. Tidligere “Import Configuration”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5081"/>
+        <location filename="../src/mainwindow.ui" line="5151"/>
         <source>Export field layout...</source>
         <translation>Eksporter feltlayout...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5084"/>
+        <location filename="../src/mainwindow.ui" line="5154"/>
         <source>Save the fields on the picture (their boxes and settings) to a file. Formerly “Export Configuration”.</source>
         <translation>Gem felterne på billedet (deres bokse og indstillinger) i en fil. Tidligere “Export Configuration”.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5095"/>
+        <location filename="../src/mainwindow.ui" line="5165"/>
         <source>Open settings folder</source>
         <translation>Åbn indstillingsmappe</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5098"/>
+        <location filename="../src/mainwindow.ui" line="5168"/>
         <source>Open the folder with ScoreSight&apos;s settings file</source>
         <translation>Åbn mappen med ScoreSights indstillingsfil</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5106"/>
+        <location filename="../src/mainwindow.ui" line="5176"/>
         <source>OCR training data setup...</source>
         <translation>Opsætning af OCR-træningsdata...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5136"/>
+        <location filename="../src/mainwindow.ui" line="5206"/>
         <source>Fit picture to window</source>
         <translation>Tilpas billedet til vinduet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5152"/>
+        <location filename="../src/mainwindow.ui" line="5222"/>
         <source>Zoom in</source>
         <translation>Zoom ind</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5160"/>
+        <location filename="../src/mainwindow.ui" line="5230"/>
         <source>Zoom out</source>
         <translation>Zoom ud</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5171"/>
+        <location filename="../src/mainwindow.ui" line="5241"/>
         <source>Smooth preview</source>
         <translation>Glat forhåndsvisning</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5174"/>
+        <location filename="../src/mainwindow.ui" line="5244"/>
         <source>Refresh the picture up to 20 times a second instead of once a second, so it moves like video. Uses more CPU; the readings don&apos;t change</source>
         <translation>Opdater billedet op til 20 gange i sekundet i stedet for én gang i sekundet, så det bevæger sig som video. Bruger mere CPU; aflæsningerne ændres ikke</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5185"/>
+        <location filename="../src/mainwindow.ui" line="5255"/>
         <source>Statistics overlay</source>
         <translation>Statistik-overlay</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5193"/>
+        <location filename="../src/mainwindow.ui" line="5263"/>
         <source>Collect OCR training data</source>
         <translation>Indsaml OCR-træningsdata</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5196"/>
+        <location filename="../src/mainwindow.ui" line="5266"/>
         <source>Save each box&apos;s picture and reading to the training data folder, for training an OCR model</source>
         <translation>Gem hver boks&apos; billede og aflæsning i træningsdatamappen til træning af en OCR-model</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5204"/>
+        <location filename="../src/mainwindow.ui" line="5274"/>
         <source>Quit</source>
         <translation>Afslut</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5221"/>
+        <location filename="../src/mainwindow.ui" line="5291"/>
         <source>Ask before closing</source>
         <translation>Spørg før lukning</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5224"/>
+        <location filename="../src/mainwindow.ui" line="5294"/>
         <source>Ask before closing ScoreSight while a source is open: closing stops the reading and the outputs</source>
         <translation>Spørg, før ScoreSight lukkes, mens en kilde er åben: lukning stopper aflæsningen og output</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5238"/>
+        <location filename="../src/mainwindow.ui" line="5308"/>
         <source>Setup layout</source>
         <translation>Opsætningslayout</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5241"/>
+        <location filename="../src/mainwindow.ui" line="5311"/>
         <source>For placing and tuning the fields and setting up the outputs: the field list, the picture with its adjustments, and the inspector</source>
         <translation>Til at placere og finjustere felterne og opsætte output: feltlisten, billedet med dets justeringer og inspektøren</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5255"/>
+        <location filename="../src/mainwindow.ui" line="5325"/>
         <source>Live layout</source>
         <translation>Live-layout</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5258"/>
+        <location filename="../src/mainwindow.ui" line="5328"/>
         <source>For the game: large readings and the state of every output next to the picture. The inspector and the picture adjustments are hidden; the reading and the outputs work the same.</source>
         <translation>Til kampen: store aflæsninger og status for alle output ved siden af billedet. Inspektøren og billedjusteringerne er skjult; aflæsningen og output fungerer på samme måde.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5272"/>
+        <location filename="../src/mainwindow.ui" line="5342"/>
         <source>Show unused fields</source>
         <translation>Vis ubrugte felter</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5275"/>
+        <location filename="../src/mainwindow.ui" line="5345"/>
         <source>Show the fields that aren&apos;t on the picture in the field list (remembered for each layout)</source>
         <translation>Vis felterne, der ikke er på billedet, i feltlisten (huskes for hvert layout)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5283"/>
+        <location filename="../src/mainwindow.ui" line="5353"/>
         <source>User guide</source>
         <translation>Brugervejledning</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5286"/>
+        <location filename="../src/mainwindow.ui" line="5356"/>
         <source>Open the ScoreSight documentation in your web browser</source>
         <translation>Åbn ScoreSight-dokumentationen i din webbrowser</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5297"/>
+        <location filename="../src/mainwindow.ui" line="5367"/>
         <source>Keyboard shortcuts</source>
         <translation>Tastaturgenveje</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5305"/>
+        <location filename="../src/mainwindow.ui" line="5375"/>
         <source>Ask a question or share feedback</source>
         <translation>Stil et spørgsmål eller giv feedback</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="5308"/>
+        <location filename="../src/mainwindow.ui" line="5378"/>
         <source>Open ScoreSight&apos;s Discussions on GitHub in your web browser: ask a question, share an idea or show your setup</source>
         <translation>Åbn ScoreSights Discussions på GitHub i din webbrowser: stil et spørgsmål, del en idé eller vis din opsætning</translation>
     </message>
@@ -2752,454 +2788,454 @@ Opløsning: {width}×{height}</translation>
         <translation>Sendes som: {names}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="309"/>
+        <location filename="../src/mainwindow.py" line="310"/>
         <source>⌥ Option</source>
         <translation>⌥ Option</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="310"/>
+        <location filename="../src/mainwindow.py" line="311"/>
         <source>Alt</source>
         <translation>Alt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1135"/>
+        <location filename="../src/mainwindow.py" line="1143"/>
         <source>Readings</source>
         <translation>Aflæsninger</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1215"/>
+        <location filename="../src/mainwindow.py" line="1223"/>
         <source>Fields not on the picture: {count} hidden. &lt;a href=&quot;#show&quot;&gt;Show them&lt;/a&gt;</source>
         <translation>Felter, der ikke er på billedet: {count} skjult. &lt;a href=&quot;#show&quot;&gt;Vis dem&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1251"/>
+        <location filename="../src/mainwindow.py" line="1259"/>
         <source>Drag to resize the fields list. Double-click to hide or show it.</source>
         <translation>Træk for at ændre feltlistens størrelse. Dobbeltklik for at skjule eller vise den.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1257"/>
+        <location filename="../src/mainwindow.py" line="1265"/>
         <source>Drag to resize the Box and Outputs settings. Double-click to hide or show them.</source>
         <translation>Træk for at ændre størrelsen på Boks- og Output-indstillingerne. Dobbeltklik for at skjule eller vise dem.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1282"/>
+        <location filename="../src/mainwindow.py" line="1290"/>
         <source>System</source>
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1314"/>
+        <location filename="../src/mainwindow.py" line="1322"/>
         <source>Zoom with Ctrl+scroll or {zoom_in} and {zoom_out}; drag with the middle mouse button to move the picture.</source>
         <translation>Zoom med Ctrl+rullehjul eller {zoom_in} og {zoom_out}; træk med den midterste museknap for at flytte billedet.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1362"/>
+        <location filename="../src/mainwindow.py" line="1370"/>
         <source>&lt;p&gt;The HTTP server is not running: port {port} is already in use or not available.&lt;/p&gt;&lt;p&gt;Close the other program, or start ScoreSight with &lt;b&gt;--port&lt;/b&gt; to use a different port. The log has the details.&lt;/p&gt;</source>
         <translation>&lt;p&gt;HTTP-serveren kører ikke: port {port} er allerede i brug eller ikke tilgængelig.&lt;/p&gt;&lt;p&gt;Luk det andet program, eller start ScoreSight med &lt;b&gt;--port&lt;/b&gt; for at bruge en anden port. Loggen har detaljerne.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1377"/>
+        <location filename="../src/mainwindow.py" line="1385"/>
         <source>&lt;p&gt;From other computers on your network, use {url} instead of http://localhost:{port}.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Fra andre computere på dit netværk skal du bruge {url} i stedet for http://localhost:{port}.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1451"/>
+        <location filename="../src/mainwindow.py" line="1459"/>
         <source>Video Settings</source>
         <translation>Videoindstillinger</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1587"/>
+        <location filename="../src/mainwindow.py" line="1595"/>
         <source>Outside the cropped picture: {names}. They read nothing: widen the crop, or remove them from the picture and place them again.</source>
         <translation>Uden for det beskårne billede: {names}. De aflæser intet: udvid beskæringen, eller fjern dem fra billedet, og placer dem igen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="1789"/>
-        <location filename="../src/mainwindow.py" line="1792"/>
+        <location filename="../src/mainwindow.py" line="1797"/>
+        <location filename="../src/mainwindow.py" line="1800"/>
         <source>{value} /s</source>
         <translation>{value} /s</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2148"/>
+        <location filename="../src/mainwindow.py" line="2156"/>
         <source>Load external Tesseract model...</source>
         <translation>Indlæs ekstern Tesseract-model...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2156"/>
+        <location filename="../src/mainwindow.py" line="2164"/>
         <source>Read the boxes with a Tesseract .traineddata file</source>
         <translation>Aflæs boksene med en Tesseract .traineddata-fil</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2166"/>
+        <location filename="../src/mainwindow.py" line="2174"/>
         <source>A Tesseract model: the boxes&apos; Image cleanup settings prepare their images for it</source>
         <translation>En Tesseract-model: boksenes Billedrensning-indstillinger forbereder deres billeder til den</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2176"/>
+        <location filename="../src/mainwindow.py" line="2184"/>
         <source>PaddleOCR PP-OCRv6: accurate while it keeps up with Detections / s on this computer, fast when it doesn&apos;t. The status bar says which one reads and why.</source>
         <translation>PaddleOCR PP-OCRv6: præcis, så længe den kan følge med Aflæsninger / s på denne computer, hurtig, når den ikke kan. Statuslinjen viser, hvilken der aflæser og hvorfor.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2184"/>
+        <location filename="../src/mainwindow.py" line="2192"/>
         <source>PP-OCR (accurate)</source>
         <translation>PP-OCR (præcis)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2186"/>
+        <location filename="../src/mainwindow.py" line="2194"/>
         <source>PaddleOCR PP-OCRv6 small: reads the most values right, always. It needs about five times the CPU of PP-OCR (fast): on a laptop, 10 boxes read 5 times a second can need more than a core.</source>
         <translation>PaddleOCR PP-OCRv6 small: aflæser flest værdier rigtigt, altid. Den kræver omkring fem gange så meget CPU som PP-OCR (hurtig): på en bærbar kan 10 bokse, der aflæses 5 gange i sekundet, kræve mere end én kerne.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2194"/>
+        <location filename="../src/mainwindow.py" line="2202"/>
         <source>PP-OCR (fast)</source>
         <translation>PP-OCR (hurtig)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2196"/>
+        <location filename="../src/mainwindow.py" line="2204"/>
         <source>PaddleOCR PP-OCRv6 tiny: about a fifth of PP-OCR (accurate)&apos;s CPU, for many boxes, a high Detections / s or a slow computer; it misreads more of the hard displays (clocks, bulbs, LCDs).</source>
         <translation>PaddleOCR PP-OCRv6 tiny: omkring en femtedel af CPU-forbruget for PP-OCR (præcis), til mange bokse, høje Aflæsninger / s eller en langsom computer; den fejllæser flere af de svære displays (ure, pærer, LCD&apos;er).</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2204"/>
+        <location filename="../src/mainwindow.py" line="2212"/>
         <source>The PP-OCR models aren&apos;t installed. Download them with: {command}</source>
         <translation>PP-OCR-modellerne er ikke installeret. Download dem med: {command}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2209"/>
+        <location filename="../src/mainwindow.py" line="2217"/>
         <source>PP-OCR needs onnxruntime, which isn&apos;t installed (pip install -r requirements.txt).</source>
         <translation>PP-OCR kræver onnxruntime, som ikke er installeret (pip install -r requirements.txt).</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2224"/>
+        <location filename="../src/mainwindow.py" line="2232"/>
         <source>PP-OCR (automatic: accurate)</source>
         <translation>PP-OCR (automatisk: præcis)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2228"/>
+        <location filename="../src/mainwindow.py" line="2236"/>
         <source>PP-OCR (automatic: fast)</source>
         <translation>PP-OCR (automatisk: hurtig)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2229"/>
+        <location filename="../src/mainwindow.py" line="2237"/>
         <source>PP-OCR (automatic)</source>
         <translation>PP-OCR (automatisk)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2338"/>
+        <location filename="../src/mainwindow.py" line="2346"/>
         <source>The OCR can&apos;t keep up</source>
         <translation>OCR&apos;en kan ikke følge med</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2341"/>
+        <location filename="../src/mainwindow.py" line="2349"/>
         <source>The boxes are read {rate} times per second instead of {target}.</source>
         <translation>Boksene aflæses {rate} gange pr. sekund i stedet for {target}.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2351"/>
+        <location filename="../src/mainwindow.py" line="2359"/>
         <source>Use PP-OCR (fast)</source>
         <translation>Brug PP-OCR (hurtig)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2355"/>
+        <location filename="../src/mainwindow.py" line="2363"/>
         <source>Keep PP-OCR (accurate)</source>
         <translation>Behold PP-OCR (præcis)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2379"/>
+        <location filename="../src/mainwindow.py" line="2387"/>
         <source>Logs</source>
         <translation>Logfiler</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2428"/>
+        <location filename="../src/mainwindow.py" line="2436"/>
         <source>About ScoreSight</source>
         <translation>Om ScoreSight</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2431"/>
+        <location filename="../src/mainwindow.py" line="2439"/>
         <source>Version {version}</source>
         <translation>Version {version}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2506"/>
+        <location filename="../src/mainwindow.py" line="2514"/>
         <source>&lt;b&gt;Outputs paused&lt;/b&gt; since {time}. Your graphics show the last values sent; the readings here keep updating.</source>
         <translation>&lt;b&gt;Output sat på pause&lt;/b&gt; siden {time}. Din grafik viser de senest sendte værdier; aflæsningerne her opdateres fortsat.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2728"/>
+        <location filename="../src/mainwindow.py" line="2736"/>
         <source>Not on the picture yet. Drag over its numbers on the picture, or double-click here to put its box in the middle of the picture.</source>
         <translation>Ikke på billedet endnu. Træk hen over dets tal på billedet, eller dobbeltklik her for at placere dets boks midt på billedet.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2734"/>
+        <location filename="../src/mainwindow.py" line="2742"/>
         <source>Built from other fields: it has no box.</source>
         <translation>Bygget af andre felter: det har ingen boks.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2738"/>
+        <location filename="../src/mainwindow.py" line="2746"/>
         <source>On the picture: drag its box to move it, or {alt}+drag on the picture to draw it again. Right-click for its actions.</source>
         <translation>På billedet: træk dets boks for at flytte den, eller {alt}+træk på billedet for at tegne den igen. Højreklik for dets handlinger.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2745"/>
+        <location filename="../src/mainwindow.py" line="2753"/>
         <source>F2 renames it.</source>
         <translation>F2 omdøber det.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2747"/>
+        <location filename="../src/mainwindow.py" line="2755"/>
         <source>Double-click to rename it.</source>
         <translation>Dobbeltklik for at omdøbe det.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2770"/>
+        <location filename="../src/mainwindow.py" line="2778"/>
         <source>Drag on the picture to place it, or double-click the field</source>
         <translation>Træk på billedet for at placere det, eller dobbeltklik på feltet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2775"/>
+        <location filename="../src/mainwindow.py" line="2783"/>
         <source>Drag the box to move it · {delete} removes it</source>
         <translation>Træk boksen for at flytte den · {delete} fjerner den</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2820"/>
+        <location filename="../src/mainwindow.py" line="2828"/>
         <source>Change held value...</source>
         <translation>Skift fastholdt værdi...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2904"/>
+        <location filename="../src/mainwindow.py" line="2912"/>
         <source>Only custom fields can be renamed or deleted</source>
         <translation>Kun brugerdefinerede felter kan omdøbes eller slettes</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="2916"/>
+        <location filename="../src/mainwindow.py" line="2924"/>
         <source>Place the field on the picture first</source>
         <translation>Placer først feltet på billedet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3026"/>
+        <location filename="../src/mainwindow.py" line="3034"/>
         <source>Delete the field “{name}”? Its box and its settings are deleted too.</source>
         <translation>Slet feltet “{name}”? Dets boks og indstillinger slettes også.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3030"/>
+        <location filename="../src/mainwindow.py" line="3038"/>
         <source>Delete</source>
         <translation>Slet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3156"/>
+        <location filename="../src/mainwindow.py" line="3164"/>
         <source>Window</source>
         <translation>Vindue</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3184"/>
+        <location filename="../src/mainwindow.py" line="3192"/>
         <source>Remove the selected field&apos;s box from the picture</source>
         <translation>Fjern det valgte felts boks fra billedet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3191"/>
+        <location filename="../src/mainwindow.py" line="3199"/>
         <source>Delete the selected custom field (not on the picture)</source>
         <translation>Slet det valgte brugerdefinerede felt (ikke på billedet)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3198"/>
+        <location filename="../src/mainwindow.py" line="3206"/>
         <source>Put a field&apos;s box on the picture, or rename a custom field</source>
         <translation>Placer et felts boks på billedet, eller omdøb et brugerdefineret felt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3203"/>
+        <location filename="../src/mainwindow.py" line="3211"/>
         <source>Double-click the field</source>
         <translation>Dobbeltklik på feltet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3210"/>
+        <location filename="../src/mainwindow.py" line="3218"/>
         <source>Picture</source>
         <translation>Billede</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3250"/>
+        <location filename="../src/mainwindow.py" line="3258"/>
         <source>Connect to OBS</source>
         <translation>Forbind til OBS</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3312"/>
-        <location filename="../src/mainwindow.py" line="3438"/>
+        <location filename="../src/mainwindow.py" line="3320"/>
+        <location filename="../src/mainwindow.py" line="3446"/>
         <source>Connecting...</source>
         <translation>Forbinder...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3359"/>
+        <location filename="../src/mainwindow.py" line="3367"/>
         <source>Cannot connect to OBS</source>
         <translation>Kan ikke forbinde til OBS</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3429"/>
+        <location filename="../src/mainwindow.py" line="3437"/>
         <source>Change connection...</source>
         <translation>Skift forbindelse...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3432"/>
+        <location filename="../src/mainwindow.py" line="3440"/>
         <source>Connected to OBS at {target}. Click to connect to another OBS.</source>
         <translation>Forbundet til OBS på {target}. Klik for at forbinde til en anden OBS.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3440"/>
+        <location filename="../src/mainwindow.py" line="3448"/>
         <source>Connecting to OBS at {target}...</source>
         <translation>Forbinder til OBS på {target}...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3715"/>
+        <location filename="../src/mainwindow.py" line="3723"/>
         <source>URL Source</source>
         <translation>URL-kilde</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3735"/>
+        <location filename="../src/mainwindow.py" line="3743"/>
         <source>Screen Capture Selection</source>
         <translation>Valg af skærmoptagelse</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="3742"/>
+        <location filename="../src/mainwindow.py" line="3750"/>
         <source>Capture the entire screen</source>
         <translation>Optag hele skærmen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4249"/>
+        <location filename="../src/mainwindow.py" line="4257"/>
         <source>Video settings: the resolution, frame rate and format of the camera or capture card</source>
         <translation>Videoindstillinger: kameraets eller optagekortets opløsning, billedhastighed og format</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4255"/>
+        <location filename="../src/mainwindow.py" line="4263"/>
         <source>Video settings: only for cameras and capture cards</source>
         <translation>Videoindstillinger: kun for kameraer og optagekort</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4421"/>
+        <location filename="../src/mainwindow.py" line="4429"/>
         <source>Redo corners…</source>
         <translation>Gentag hjørner…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4423"/>
+        <location filename="../src/mainwindow.py" line="4431"/>
         <source>Remove correction…</source>
         <translation>Fjern korrektion…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4439"/>
+        <location filename="../src/mainwindow.py" line="4447"/>
         <source>Remove the 4-corner correction?</source>
         <translation>Fjern 4-hjørne-korrektionen?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4440"/>
+        <location filename="../src/mainwindow.py" line="4448"/>
         <source>The picture will no longer be corrected. The boxes were placed on the corrected picture, so they may have to be moved.</source>
         <translation>Billedet bliver ikke længere korrigeret. Boksene blev placeret på det korrigerede billede, så de skal måske flyttes.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4468"/>
+        <location filename="../src/mainwindow.py" line="4476"/>
         <source>Picking the corners: click the 4 corners of the scoreboard. Click here or press Esc to cancel.</source>
         <translation>Valg af hjørner: klik på resultattavlens 4 hjørner. Klik her, eller tryk på Esc for at annullere.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4474"/>
+        <location filename="../src/mainwindow.py" line="4482"/>
         <source>The perspective is corrected. Click to redo the corners or to remove the correction.</source>
         <translation>Perspektivet er korrigeret. Klik for at gentage hjørnerne eller fjerne korrektionen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4588"/>
+        <location filename="../src/mainwindow.py" line="4596"/>
         <source>Move the boxes?</source>
         <translation>Flyt boksene?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4589"/>
+        <location filename="../src/mainwindow.py" line="4597"/>
         <source>Auto layout found {found}. Some of them have boxes on the picture already ({placed}): move those boxes to what it found?</source>
         <translation>Autolayout fandt {found}. Nogle af dem har allerede bokse på billedet ({placed}): flyt de bokse til det, den fandt?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4597"/>
+        <location filename="../src/mainwindow.py" line="4605"/>
         <source>Move them</source>
         <translation>Flyt dem</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4601"/>
+        <location filename="../src/mainwindow.py" line="4609"/>
         <source>Keep them</source>
         <translation>Behold dem</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4620"/>
+        <location filename="../src/mainwindow.py" line="4628"/>
         <source>Reset the crop?</source>
         <translation>Nulstil beskæringen?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4621"/>
+        <location filename="../src/mainwindow.py" line="4629"/>
         <source>The whole picture will be read again, and the crop&apos;s values set to 0. The boxes move with it, so they stay over the same digits.</source>
         <translation>Hele billedet bliver aflæst igen, og beskæringens værdier sættes til 0. Boksene flytter med, så de bliver over de samme cifre.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4627"/>
+        <location filename="../src/mainwindow.py" line="4635"/>
         <source>Reset crop</source>
         <translation>Nulstil beskæring</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4674"/>
+        <location filename="../src/mainwindow.py" line="4682"/>
         <source>No camera found</source>
         <translation>Intet kamera fundet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4727"/>
+        <location filename="../src/mainwindow.py" line="4735"/>
         <source>Step {number}: done</source>
         <translation>Trin {number}: færdig</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4729"/>
+        <location filename="../src/mainwindow.py" line="4737"/>
         <source>Step {number}</source>
         <translation>Trin {number}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4940"/>
+        <location filename="../src/mainwindow.py" line="4950"/>
         <source>Rename field</source>
         <translation>Omdøb felt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4946"/>
+        <location filename="../src/mainwindow.py" line="4956"/>
         <source>New name:</source>
         <translation>Nyt navn:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="4958"/>
+        <location filename="../src/mainwindow.py" line="4968"/>
         <source>There is already a field named “{name}”. Choose another name.</source>
         <translation>Der er allerede et felt med navnet “{name}”. Vælg et andet navn.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5093"/>
+        <location filename="../src/mainwindow.py" line="5103"/>
         <source>Created the scene “{name}” in OBS.</source>
         <translation>Scenen “{name}” blev oprettet i OBS.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5096"/>
+        <location filename="../src/mainwindow.py" line="5106"/>
         <source>Made the scene “{name}” again: its sources were replaced.</source>
         <translation>Scenen “{name}” blev lavet igen: dens kilder blev erstattet.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5100"/>
+        <location filename="../src/mainwindow.py" line="5110"/>
         <source>OBS already has a scene “{name}”: it was kept as it is. Tick Recreate to make it again.</source>
         <translation>OBS har allerede en scene “{name}”: den blev beholdt, som den er. Sæt flueben i Genskab for at lave den igen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5105"/>
+        <location filename="../src/mainwindow.py" line="5115"/>
         <source>Couldn&apos;t create the scene “{name}”. Tools &gt; View log has the details.</source>
         <translation>Kunne ikke oprette scenen “{name}”. Værktøjer &gt; Vis log har detaljerne.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5148"/>
+        <location filename="../src/mainwindow.py" line="5158"/>
         <source>Close ScoreSight?</source>
         <translation>Luk ScoreSight?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5152"/>
+        <location filename="../src/mainwindow.py" line="5162"/>
         <source>Reading stops, and vMix, OBS, the overlays and the other outputs are no longer updated.</source>
         <translation>Aflæsningen stopper, og vMix, OBS, overlays og de andre output opdateres ikke længere.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5159"/>
+        <location filename="../src/mainwindow.py" line="5169"/>
         <source>Close</source>
         <translation>Luk</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.py" line="5165"/>
+        <location filename="../src/mainwindow.py" line="5175"/>
         <source>Don&apos;t ask again</source>
         <translation>Spørg ikke igen</translation>
     </message>

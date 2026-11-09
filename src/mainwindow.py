@@ -99,6 +99,7 @@ from keyboard_shortcuts import (
     key_text,
     viewer_rows,
 )
+from obs_replay import ReplayOnScore
 from obs_ui_handler import OBSSourcesTable
 from overlay_ui_handler import OverlayBuilder
 from plausibility_holds import PlausibilityHolds
@@ -417,6 +418,13 @@ class MainWindow(QMainWindow):
 
         self.ui.pushButton_connectObs.clicked.connect(self.openOBSConnectModal)
         self.ui.pushButton_disconnectObs.clicked.connect(self.disconnectObs)
+        # Save the replay buffer after each score (the OBS page)
+        self.replayOnScore = ReplayOnScore(
+            self.ui.checkBox_obsReplay,
+            self.ui.spinBox_obsReplayDelay,
+            lambda: self.obs_websocket_client,
+            parent=self,
+        )
 
         self.vmixUiHandler = VMixUIHanlder(self.ui)
         self.unoUiHandler = UNOUIHandler(self.ui)
@@ -4790,6 +4798,8 @@ class MainWindow(QMainWindow):
 
         update_http_server(results)
         update_game_state(self.gameEngine.state())
+        if events:
+            self.replayOnScore.eventsHappened(events)
 
         if self.ui.checkBox_enableOutAPI.isChecked():
             update_out_api(results)

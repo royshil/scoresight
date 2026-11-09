@@ -10,6 +10,8 @@ Release tags are the bare version number (for example `0.1.0`).
 
 ### Added
 
+- **A clip of every score.** On the OBS page, **Save the replay buffer after each score** asks OBS to save its replay buffer a few seconds after each score the game counts (the delay is yours to set, 5 seconds by default), so that after the game the recordings folder holds a highlight clip of every score, with the scorebug. It needs a sport and OBS's replay buffer running ([#100](https://github.com/royshil/scoresight/issues/100), [OBS: A clip of every score](https://royshil.github.io/scoresight/obs.html#a-clip-of-every-score)).
+
 - **Race time format.** A new *Format* preset, **Race time m:ss.dd**, takes a race board's running and finish times (swimming, track): `44.47`, `1:22.45`, and `1:28.0` while the clock runs. A race time read without its colon or dot (`128.0`) gets it back from the field's last good reading, like a clock's colon ([#194](https://github.com/royshil/scoresight/discussions/194), [Box settings: Format](https://royshil.github.io/scoresight/box-settings.html#format)).
 
 ### Removed
