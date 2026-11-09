@@ -39,7 +39,8 @@ CLEAR_AFTER_SECONDS = 2.0
 # 10 - Alphanumeric
 # 11 - Any text
 # 12 - Any number
-# 13 - Custom
+# 13 - Race time m:ss.dd
+# 14 - Custom
 # The minutes of the MM:ss presets take up to three digits, for clocks that
 # count up past an hour (soccer's 2nd half and extra time). Up to 0.4.2 they
 # took 0-59, so a soccer clock froze at 59:59; storage.migrate_boxes updates the
@@ -64,6 +65,9 @@ format_prefixes = [
     "^[A-Za-z0-9]*$",  # Alphanumeric
     "^.*$",  # Any text
     "^\\d*$",  # Any number
+    # a race's running and finish times (swimming, track): 44.47, 1:22.45, and
+    # 1:28.0 while the clock runs. After the others, so their indexes stay.
+    "^(?:\\d{1,3}:[0-5]\\d|[0-5]?\\d)\\.\\d{1,2}$",  # Race time m:ss.dd
     "^.*$",  # Custom
 ]
 

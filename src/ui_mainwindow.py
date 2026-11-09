@@ -1092,6 +1092,7 @@ class Ui_MainWindow(object):
         self.comboBox_formatPrefix.addItem("")
         self.comboBox_formatPrefix.addItem("")
         self.comboBox_formatPrefix.addItem("")
+        self.comboBox_formatPrefix.addItem("")
         self.comboBox_formatPrefix.setObjectName(u"comboBox_formatPrefix")
 
         self.formLayout_reading.setWidget(2, QFormLayout.ItemRole.FieldRole, self.comboBox_formatPrefix)
@@ -2815,7 +2816,8 @@ class Ui_MainWindow(object):
         self.comboBox_formatPrefix.setItemText(10, QCoreApplication.translate("MainWindow", u"Alphanumeric", None))
         self.comboBox_formatPrefix.setItemText(11, QCoreApplication.translate("MainWindow", u"Any text", None))
         self.comboBox_formatPrefix.setItemText(12, QCoreApplication.translate("MainWindow", u"Any number", None))
-        self.comboBox_formatPrefix.setItemText(13, QCoreApplication.translate("MainWindow", u"Custom", None))
+        self.comboBox_formatPrefix.setItemText(13, QCoreApplication.translate("MainWindow", u"Race time m:ss.dd", None))
+        self.comboBox_formatPrefix.setItemText(14, QCoreApplication.translate("MainWindow", u"Custom", None))
 
 #if QT_CONFIG(accessibility)
         self.comboBox_formatPrefix.setAccessibleName(QCoreApplication.translate("MainWindow", u"Format preset", None))

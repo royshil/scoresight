@@ -98,6 +98,7 @@ Even a good picture produces an occasional wrong reading, for example while digi
   | Period d | a single digit |
   | Alphanumeric | letters and digits only |
   | Any text / Any number | anything / digits only |
+  | Race time m:ss.dd | `44.47`, `1:22.45`, `1:28.0` (a race's running and finish times) |
 
   You can also type your own regular expression. See [Format](box-settings.md#format).
 

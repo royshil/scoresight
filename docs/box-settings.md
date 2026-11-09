@@ -127,6 +127,7 @@ The **Format** list shows the preset whose expression is in the field under it, 
 | Alphanumeric | `^[A-Za-z0-9]*$` | |
 | Any text | `^.*$` | |
 | Any number | `^\d*$` | Home Fouls, Away Fouls, custom fields |
+| Race time m:ss.dd | `m:ss.dd` or `ss.dd`, with one or two digits after the dot (expression below) | |
 
 The *Time mm:ss.d* expression is:
 
@@ -144,7 +145,13 @@ Some boards show the tenths after a **colon** below a minute: `1:00`, then `59:8
 
 It isn't the default, because with Tesseract a digit of a clock is sometimes missed (`12:04` read as `12:0`): *Time mm:ss.d* rejects that misread, *Time mm:ss or ss:d* would send it. With PP-OCR this is rare. A [sport](game.md) reads `59:8` as 59.8 seconds.
 
-**A missing colon.**{: #missing-colon } Sometimes a clock's colon (or dot) isn't read: some boards light a third dot in the colon while the clock is stopped, and the OCR then reads `2:36` as `236`. When a reading is only digits and fails the *Format*, ScoreSight puts back the separator of the box's last good reading, at the same place from the end: after `2:38`, `236` is read as `2:36`; after `23.6`, `225` as `22.5`. The reading is accepted only if it then matches the *Format*. A box with no good reading yet gets no guess (`236` could be `2:36` or `23.6`), so its reading is rejected as before.
+**Race times.** *Race time m:ss.dd* takes the running and finish times of a race board (swimming, track): `44.47`, `1:22.45`, and `1:28.0` while the clock runs (one or two digits after the dot). Use it for each lane's time and split, and for the race clock. Its expression is:
+
+```
+^(?:\d{1,3}:[0-5]\d|[0-5]?\d)\.\d{1,2}$
+```
+
+**A missing colon.**{: #missing-colon } Sometimes a clock's colon (or dot) isn't read: some boards light a third dot in the colon while the clock is stopped, and the OCR then reads `2:36` as `236`. When a reading is only digits and fails the *Format*, ScoreSight puts back the separator of the box's last good reading, at the same place from the end: after `2:38`, `236` is read as `2:36`; after `23.6`, `225` as `22.5`. The reading is accepted only if it then matches the *Format*. A race time gets back a missing colon or dot the same way: after `1:27.5`, `128.0` is read as `1:28.0`. Its digits must then be as many as the last good reading's, because the clock shows tenths while it runs and hundredths at the finish (after `1:22.5`, `12245` could be `1:22.45` or `12:24.5`). A box with no good reading yet gets no guess (`236` could be `2:36` or `23.6`), so its reading is rejected as before.
 
 **Use**: always. A tight format is the most effective protection against wrong values reaching your graphics. Examples of custom formats: `^[0-3]?\d$` (shot clock with or without a leading zero), `^(1[0-2]|[1-9]):[0-5]\d$` (12-minute quarters), `^[0-4]$` (downs).
 
