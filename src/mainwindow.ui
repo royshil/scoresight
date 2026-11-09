@@ -4120,6 +4120,76 @@
                   </attribute>
                  </widget>
                 </item>
+                <item row="5" column="0">
+                 <widget class="QWidget" name="widget_obsReplay" native="true">
+                  <layout class="QGridLayout" name="gridLayout_obsReplay">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>4</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0" colspan="3">
+                    <widget class="QCheckBox" name="checkBox_obsReplay">
+                     <property name="toolTip">
+                      <string>After each score, OBS saves its replay buffer as a clip: a highlight of every score, with the scorebug. Needs a sport (Box tab) and OBS's replay buffer running (Controls › Start Replay Buffer).</string>
+                     </property>
+                     <property name="text">
+                      <string>Save the replay buffer after each score</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_obsReplayDelay">
+                     <property name="text">
+                      <string>Delay</string>
+                     </property>
+                     <property name="buddy">
+                      <cstring>spinBox_obsReplayDelay</cstring>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QSpinBox" name="spinBox_obsReplayDelay">
+                     <property name="toolTip">
+                      <string>Seconds after the score before the clip is saved, so that it shows what followed. Another score in that time restarts the wait: one clip shows both.</string>
+                     </property>
+                     <property name="accessibleName">
+                      <string>Replay delay</string>
+                     </property>
+                     <property name="suffix">
+                      <string> s</string>
+                     </property>
+                     <property name="maximum">
+                      <number>60</number>
+                     </property>
+                     <property name="value">
+                      <number>5</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <spacer name="horizontalSpacer_obsReplay">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>0</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
                </layout>
               </widget>
               <widget class="QWidget" name="tab_vmix">

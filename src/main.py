@@ -58,6 +58,7 @@ SELF_TEST_MODULES = (
     "log_view",
     "mainwindow",
     "ndi",
+    "obs_replay",
     "obs_ui_handler",
     "obs_websocket",
     "ocr_models",
