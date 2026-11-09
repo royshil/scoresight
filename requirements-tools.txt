@@ -3,7 +3,7 @@
 # They need a GUI build of OpenCV, which conflicts with opencv-python-headless,
 # so install these into a SEPARATE virtual environment, not the app's.
 # tkinter ships with the python.org / uv Python builds.
-opencv-python==4.14.0.94
+opencv-python==5.0.0.93
 numpy==2.5.4
 pillow==13.0.0
 tqdm==4.70.1
