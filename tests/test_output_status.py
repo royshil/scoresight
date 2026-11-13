@@ -577,6 +577,7 @@ def test_destination_names():
         "UNO",
         "HTTP API",
         "TCP / UDP",
+        "Team Performance",
     ]
     assert output_status.short_name(FILES) == "Files"
     assert output_status.short_name(output_status.TCP) == "TCP"
