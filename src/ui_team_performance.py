@@ -136,16 +136,22 @@ class Ui_TeamPerformancePage(object):
 
     def retranslateUi(self, TeamPerformancePage):
         self.checkBox_enabled.setText(QCoreApplication.translate("TeamPerformancePage", u"Enable Team Performance", None))
-        self.label_intro.setText(QCoreApplication.translate("TeamPerformancePage", u"Send the scoreboard time and shot clock to Team Performance without a separate bridge. Select the OCR fields, then copy the URLs into Config. timing devices in Team Performance (scoreboard first, shot clock second).", None))
+        self.label_intro.setText(QCoreApplication.translate("TeamPerformancePage", u"Select the clock fields, then copy both URLs into Config. timing devices in Team Performance.", None))
         self.label_scoreboardField.setText(QCoreApplication.translate("TeamPerformancePage", u"Scoreboard field", None))
         self.label_shotClockField.setText(QCoreApplication.translate("TeamPerformancePage", u"Shot-clock field", None))
-        self.label_urls.setText(QCoreApplication.translate("TeamPerformancePage", u"Timing device URLs (use this computer's network address on another computer)", None))
+        self.label_urls.setText(QCoreApplication.translate("TeamPerformancePage", u"Timing device URLs", None))
+#if QT_CONFIG(tooltip)
+        self.label_urls.setToolTip(QCoreApplication.translate("TeamPerformancePage", u"Use this computer's network address when Team Performance runs on another computer.", None))
+#endif // QT_CONFIG(tooltip)
         self.label_scoreboardUrl.setText(QCoreApplication.translate("TeamPerformancePage", u"Scoreboard URL", None))
         self.pushButton_copyScoreboard.setText(QCoreApplication.translate("TeamPerformancePage", u"Copy", None))
         self.label_shotClockUrl.setText(QCoreApplication.translate("TeamPerformancePage", u"Shot-clock URL", None))
         self.pushButton_copyShotClock.setText(QCoreApplication.translate("TeamPerformancePage", u"Copy", None))
         self.label_preview.setText("")
-        self.label_note.setText(QCoreApplication.translate("TeamPerformancePage", u"Uses the built-in HTTP server (default port 18099). Times follow the scoreboard, including stops and resets; no countdown is calculated. Match-time tenths are discarded. A missing or invalid clock returns HTTP 503. Temporary failed readings keep the last good value, as with the bridge.", None))
+        self.label_note.setText(QCoreApplication.translate("TeamPerformancePage", u"Times follow the scoreboard, including stops and resets.", None))
+#if QT_CONFIG(tooltip)
+        self.label_note.setToolTip(QCoreApplication.translate("TeamPerformancePage", u"Uses the built-in HTTP server (default port 18099). Times follow the scoreboard, including stops and resets; no countdown is calculated. Match-time tenths are discarded. A missing or invalid clock returns HTTP 503. Temporary failed readings keep the last good value, as with the bridge.", None))
+#endif // QT_CONFIG(tooltip)
         pass
     # retranslateUi
 

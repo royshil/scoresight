@@ -5,7 +5,7 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item><widget class="QCheckBox" name="checkBox_enabled"><property name="text"><string>Enable Team Performance</string></property></widget></item>
    <item><widget class="QLabel" name="label_intro">
-    <property name="text"><string>Send the scoreboard time and shot clock to Team Performance without a separate bridge. Select the OCR fields, then copy the URLs into Config. timing devices in Team Performance (scoreboard first, shot clock second).</string></property>
+    <property name="text"><string>Select the clock fields, then copy both URLs into Config. timing devices in Team Performance.</string></property>
     <property name="wordWrap"><bool>true</bool></property>
    </widget></item>
    <item><layout class="QFormLayout" name="formLayout">
@@ -14,7 +14,7 @@
     <item row="1" column="0"><widget class="QLabel" name="label_shotClockField"><property name="text"><string>Shot-clock field</string></property><property name="buddy"><cstring>comboBox_shotClockField</cstring></property></widget></item>
     <item row="1" column="1"><widget class="QComboBox" name="comboBox_shotClockField"/></item>
    </layout></item>
-   <item><widget class="QLabel" name="label_urls"><property name="text"><string>Timing device URLs (use this computer's network address on another computer)</string></property><property name="wordWrap"><bool>true</bool></property></widget></item>
+   <item><widget class="QLabel" name="label_urls"><property name="text"><string>Timing device URLs</string></property><property name="toolTip"><string>Use this computer's network address when Team Performance runs on another computer.</string></property><property name="wordWrap"><bool>true</bool></property></widget></item>
    <item><layout class="QFormLayout" name="urlLayout">
     <item row="0" column="0"><widget class="QLabel" name="label_scoreboardUrl"><property name="text"><string>Scoreboard URL</string></property></widget></item>
     <item row="0" column="1"><layout class="QHBoxLayout" name="scoreboardUrlLayout">
@@ -28,7 +28,7 @@
     </layout></item>
    </layout></item>
    <item><widget class="QLabel" name="label_preview"><property name="text"><string/></property><property name="wordWrap"><bool>true</bool></property><property name="textFormat"><enum>Qt::PlainText</enum></property></widget></item>
-   <item><widget class="QLabel" name="label_note"><property name="text"><string>Uses the built-in HTTP server (default port 18099). Times follow the scoreboard, including stops and resets; no countdown is calculated. Match-time tenths are discarded. A missing or invalid clock returns HTTP 503. Temporary failed readings keep the last good value, as with the bridge.</string></property><property name="wordWrap"><bool>true</bool></property></widget></item>
+   <item><widget class="QLabel" name="label_note"><property name="text"><string>Times follow the scoreboard, including stops and resets.</string></property><property name="toolTip"><string>Uses the built-in HTTP server (default port 18099). Times follow the scoreboard, including stops and resets; no countdown is calculated. Match-time tenths are discarded. A missing or invalid clock returns HTTP 503. Temporary failed readings keep the last good value, as with the bridge.</string></property><property name="wordWrap"><bool>true</bool></property></widget></item>
    <item><spacer name="verticalSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>40</height></size></property></spacer></item>
   </layout>
  </widget>

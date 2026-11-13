@@ -5321,11 +5321,6 @@ Klik for at ændre mappen eller dens størrelsesgrænse; Værktøjer &gt; Indsam
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/team_performance.ui" line="8"/>
-        <source>Send the scoreboard time and shot clock to Team Performance without a separate bridge. Select the OCR fields, then copy the URLs into Config. timing devices in Team Performance (scoreboard first, shot clock second).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/team_performance.ui" line="12"/>
         <source>Scoreboard field</source>
         <translation type="unfinished"></translation>
@@ -5336,8 +5331,18 @@ Klik for at ændre mappen eller dens størrelsesgrænse; Værktøjer &gt; Indsam
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/team_performance.ui" line="8"/>
+        <source>Select the clock fields, then copy both URLs into Config. timing devices in Team Performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/team_performance.ui" line="17"/>
-        <source>Timing device URLs (use this computer&apos;s network address on another computer)</source>
+        <source>Timing device URLs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance.ui" line="17"/>
+        <source>Use this computer&apos;s network address when Team Performance runs on another computer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5359,6 +5364,11 @@ Klik for at ændre mappen eller dens størrelsesgrænse; Værktøjer &gt; Indsam
     <message>
         <location filename="../src/team_performance.ui" line="31"/>
         <source>Uses the built-in HTTP server (default port 18099). Times follow the scoreboard, including stops and resets; no countdown is calculated. Match-time tenths are discarded. A missing or invalid clock returns HTTP 503. Temporary failed readings keep the last good value, as with the bridge.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance.ui" line="31"/>
+        <source>Times follow the scoreboard, including stops and resets.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
