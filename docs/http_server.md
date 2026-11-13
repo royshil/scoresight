@@ -277,3 +277,7 @@ sensor:
 - **Works locally but not from another computer**: allow ScoreSight (or the port) in the firewall of the ScoreSight computer, and use its IP address rather than `localhost`.
 - **Values stop changing**: check whether the outputs are paused (an orange banner over the picture and **PAUSED** in the status bar), and whether the readings are yellow or red in the viewer.
 - **Seeing each request in the log**: requests are logged only when ScoreSight runs with `SCORESIGHT_DEBUG` set (see [Environment variables](configuration.md#environment-variables)).
+
+## Team Performance timing devices
+
+The optional **Team Performance** output serves dedicated match-time and shot-clock JSON endpoints on this same HTTP server: `/timeclock/time-as-array`, `/timeclock/time-as-object`, `/time` and `/time-as-array`. Enable it and select the OCR fields in **Outputs > Team Performance**. See [Team Performance](team-performance.md) for payloads, clock formats and migration from `bridge.py`.

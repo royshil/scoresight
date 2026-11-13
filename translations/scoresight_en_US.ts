@@ -3926,6 +3926,11 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/output_status.py" line="162"/>
+        <source>Serve scoreboard and shot-clock times to Team Performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/output_status.py" line="749"/>
         <source>HTTP 429: overlays.uno&apos;s call limit reached</source>
         <translation type="unfinished"></translation>
@@ -5541,6 +5546,98 @@ Click to change the folder or its size limit; Tools &gt; Collect OCR training da
     <message>
         <location filename="../src/tcp_output.ui" line="836"/>
         <source>Reset names</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TeamPerformancePage</name>
+    <message>
+        <location filename="../src/team_performance.ui" line="6"/>
+        <source>Enable Team Performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance.ui" line="8"/>
+        <source>Send the scoreboard time and shot clock to Team Performance without a separate bridge. Select the OCR fields, then copy the URLs into Config. timing devices in Team Performance (scoreboard first, shot clock second).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance.ui" line="12"/>
+        <source>Scoreboard field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance.ui" line="14"/>
+        <source>Shot-clock field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance.ui" line="17"/>
+        <source>Timing device URLs (use this computer&apos;s network address on another computer)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance.ui" line="19"/>
+        <source>Scoreboard URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance.ui" line="22"/>
+        <location filename="../src/team_performance.ui" line="27"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance.ui" line="24"/>
+        <source>Shot-clock URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance.ui" line="31"/>
+        <source>Uses the built-in HTTP server (default port 18099). Times follow the scoreboard, including stops and resets; no countdown is calculated. Match-time tenths are discarded. A missing or invalid clock returns HTTP 503. Temporary failed readings keep the last good value, as with the bridge.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TeamPerformanceUIHandler</name>
+    <message>
+        <location filename="../src/team_performance_ui_handler.py" line="97"/>
+        <source>No valid clock available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance_ui_handler.py" line="105"/>
+        <source>Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance_ui_handler.py" line="112"/>
+        <source>HTTP server is not running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance_ui_handler.py" line="114"/>
+        <source>Check the HTTP server output and its port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance_ui_handler.py" line="122"/>
+        <source>Waiting for valid clock readings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance_ui_handler.py" line="127"/>
+        <source>Timing requested</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance_ui_handler.py" line="129"/>
+        <source>Ready; waiting for Team Performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/team_performance_ui_handler.py" line="139"/>
+        <source>Copy the two URLs into Config. timing devices in Team Performance.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

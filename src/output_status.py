@@ -51,7 +51,8 @@ VMIX = "vmix"
 UNO = "uno"
 API = "api"
 TCP = "tcp"
-DESTINATIONS = (FILES, HTTP, OBS, VMIX, UNO, API, TCP)
+TEAM_PERFORMANCE = "team_performance"
+DESTINATIONS = (FILES, HTTP, OBS, VMIX, UNO, API, TCP, TEAM_PERFORMANCE)
 
 # states
 OFF = "off"  # turned off (or not connected)
@@ -133,6 +134,8 @@ def destination_name(key: str) -> str:
         return QCoreApplication.translate("OutputStatus", "Text files")
     if key == HTTP:
         return QCoreApplication.translate("OutputStatus", "HTTP server")
+    if key == TEAM_PERFORMANCE:
+        return "Team Performance"
     if key == API:
         return QCoreApplication.translate("OutputStatus", "HTTP API")
     return {OBS: "OBS", VMIX: "vMix", UNO: "UNO", TCP: "TCP / UDP"}.get(key, key)
@@ -149,12 +152,16 @@ def short_name(key: str) -> str:
         UNO: "UNO",
         API: "API",
         TCP: "TCP",
+        TEAM_PERFORMANCE: "TP",
     }.get(key, key)
 
 
 def destination_description(key: str) -> str:
     """What the destination does (the output tabs' tooltips before 0.2.0)."""
     texts = {
+        TEAM_PERFORMANCE: QCoreApplication.translate(
+            "OutputStatus", "Serve scoreboard and shot-clock times to Team Performance"
+        ),
         FILES: QCoreApplication.translate(
             "MainWindow", "Write the readings to .txt, .csv and .xml files"
         ),
