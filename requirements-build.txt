@@ -1,6 +1,6 @@
 # Build-time dependencies (PyInstaller bundle and the Windows DirectShow enumerator extension).
 pyinstaller==6.22.3
-pyinstaller-hooks-contrib==2026.9
+pyinstaller-hooks-contrib==2026.10
 setuptools==84.2.1
 pybind11==3.1.0 ; sys_platform == "win32"
 # scripts/fetch_models.py (the build bundles the PP-OCR models it downloads)
