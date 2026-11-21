@@ -36,7 +36,7 @@ from ocr_eval.engines import Engine, EngineUnavailable, _os_ocr
 
 # The pywinrt projections winocr 0.0.15 depends on (it doesn't pin them).
 REQUIREMENTS: list[str] = [
-    "winrt-runtime==4.1.0",
+    "winrt-runtime==4.2.0",
     "winrt-Windows.Foundation==4!10.0.28000.2957",
     "winrt-Windows.Foundation.Collections==4!10.0.28000.2957",
     "winrt-Windows.Globalization==4!10.0.28000.2957",
