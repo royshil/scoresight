@@ -280,4 +280,4 @@ sensor:
 
 ## Team Performance timing devices
 
-The optional **Team Performance** output serves dedicated match-time and shot-clock JSON endpoints on this same HTTP server: `/timeclock/time-as-array`, `/timeclock/time-as-object`, `/time` and `/time-as-array`. Enable it and select the OCR fields in **Outputs > Team Performance**. See [Team Performance](team-performance.md) for payloads, clock formats and migration from `bridge.py`.
+The optional **Team Performance** output serves dedicated match-time and shot-clock JSON endpoints on this same HTTP server: `/timeclock/time-as-array`, `/timeclock/time-as-object`, `/time` and `/time-as-array`. Enable it and select the OCR fields in **Outputs > Team Performance**. See [Team Performance](team-performance.md) for the payloads, the clock formats and switching from a bridge script.

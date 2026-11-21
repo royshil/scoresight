@@ -8,7 +8,7 @@ description: "Serve match time and shot-clock readings to Team Performance witho
 
 # Team Performance
 
-Team Performance records goals and other match events for statistics. Its **Config. timing devices** function reads the scoreboard and shot clock from two HTTP URLs. ScoreSight can serve both directly: no `bridge.py`, extra Python process or additional server port is needed.
+Team Performance is the KNKV's (the Royal Dutch Korfball Association's) software for recording goals and other match events for statistics. Its **Config. timing devices** function reads the match clock and the shot clock from two HTTP URLs. ScoreSight serves both from its built-in HTTP server: read the clocks off the scoreboard in the video, and Team Performance gets the time with no extra software or port.
 
 ## Set up ScoreSight
 
@@ -32,7 +32,7 @@ Use the address of the computer running ScoreSight. These are URLs **provided by
 
 Click **Config. timing devices** in Team Performance. In its console, enter the **scoreboard URL first**, then the **shot-clock URL**. Check that the times appear in the console and on the configuration button. The configuration is normally saved by Team Performance; use the same button to change or disconnect the devices. Stream Deck controls are unavailable during that configuration process.
 
-These instructions follow page 11 of the supplied *Handleiding KNKV Team Performance 1.9.x*, v1.7 (18 March 2026), and the timing JSON contract supplied for this integration. Verify the connection with your installed Team Performance version before using it during a match.
+These steps follow the timing devices page of the *Handleiding KNKV Team Performance 1.9.x* (the Team Performance manual, v1.7, March 2026), and were tested with Team Performance at a korfball club. Check the connection with your own Team Performance version before a match.
 
 ## Formats and clock behaviour
 
@@ -55,8 +55,8 @@ Team Performance selects its parsing mode from the URL path: a path containing `
 | `/time` | `{"time":25}` |
 | `/time-as-array` | `[{"time":25}]` |
 
-## Replacing bridge.py
+## If you used a bridge script
 
-Stop the old bridge, enable the built-in output, and replace port **18100** with **18099** in Team Performance's stored URLs. The paths above are compatible with the supplied bridge. If you intentionally start ScoreSight with `--port 18100`, the old URLs can remain unchanged, provided the bridge has stopped and that port is free. Changing ScoreSight's HTTP port also changes its other HTTP URLs.
+Before this output, some clubs ran a small bridge script (`bridge.py`) that read ScoreSight's `/json` and served these same paths on port **18100**. To switch: stop the script, turn on the Team Performance output, and change the port in Team Performance's stored URLs from **18100** to **18099**; the paths stay the same. Alternatively, start ScoreSight with `--port 18100` (once the script has stopped and the port is free) and keep the old URLs; this moves ScoreSight's other HTTP URLs to that port too.
 
 If Team Performance cannot connect, open each URL from the Team Performance computer. Check the address and port, the output switch, that both OCR fields have valid readings, and that the network/firewall allows connections to ScoreSight's HTTP port. The Outputs status reports a stopped server or missing readings, and records when a timing URL was requested. A request means a client polled the URL; it does not confirm that Team Performance accepted or used the value.
