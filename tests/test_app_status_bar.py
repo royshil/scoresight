@@ -182,6 +182,7 @@ def test_the_outputs_summary(qapp):
             DestinationStatus("uno", "off", "Off"),
             DestinationStatus("api", "error", "HTTP 401: access denied", True),
             DestinationStatus("tcp", "off", "Off"),
+            DestinationStatus("team_performance", "off", "Off"),
         )
         widgets.update(StatusSnapshot(outputs=outputs, now=100.0, http_port=18099))
         assert not widgets.widget_outputs.isHidden()
@@ -196,6 +197,7 @@ def test_the_outputs_summary(qapp):
             "UNO",
             "API",
             "TCP",
+            "TP",
         ]
         tooltip = buttons["vmix"].toolTip().splitlines()
         assert tooltip[:4] == [

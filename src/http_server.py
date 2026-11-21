@@ -37,6 +37,7 @@ from game_state import GameState
 from overlay_feed import feed as overlay_feed
 from overlays import router as overlays_router
 from sc_logging import file_handler, logger
+from team_performance import TimingConfig, scoreboard_time, shot_clock_time
 from text_detection_target import TextDetectionTargetWithResult
 
 DEFAULT_PORT = 18099
@@ -426,6 +427,72 @@ def update_http_server(results: list[TextDetectionTargetWithResult]):
     _last_good_values = tuple((r.name, _last_good.get(r.name, "")) for r in readings)
     # the overlays' live values (pushes only what changed)
     overlay_feed.publish(_readings)
+
+
+# --- Team Performance timing devices ------------------------------------------
+
+_timing_config = TimingConfig()
+_timing_last_request_at: float | None = None
+
+
+def configure_team_performance(config: TimingConfig) -> None:
+    """Replace the immutable configuration from the GUI thread."""
+    global _timing_config, _timing_last_request_at
+    if config != _timing_config:
+        _timing_last_request_at = None
+    _timing_config = config
+
+
+def team_performance_last_request() -> float | None:
+    return _timing_last_request_at
+
+
+def team_performance_payload(scoreboard: bool) -> dict:
+    """Use the HTTP output's last good readings, including held values.
+
+    A transient failed OCR read keeps the preceding good value, just as the
+    bridge's /json?pivot&all did. Removing a box forgets its value.
+    """
+    config = _timing_config
+    if not config.enabled:
+        raise ValueError("Team Performance output is off")
+    field = config.scoreboard_field if scoreboard else config.shot_clock_field
+    raw = dict(_last_good_values).get(field, "")
+    return scoreboard_time(raw) if scoreboard else shot_clock_time(raw)
+
+
+def _timing_response(scoreboard: bool, array: bool) -> JSONResponse:
+    global _timing_last_request_at
+    _timing_last_request_at = time.monotonic()
+    try:
+        data = team_performance_payload(scoreboard)
+    except ValueError:
+        return JSONResponse(
+            {"error": "No valid clock available"},
+            status_code=503,
+            headers=NO_CACHE_HEADERS,
+        )
+    return JSONResponse([data] if array else data, headers=NO_CACHE_HEADERS)
+
+
+@app.get("/time")
+async def get_team_performance_shot_clock():
+    return _timing_response(scoreboard=False, array=False)
+
+
+@app.get("/time-as-array")
+async def get_team_performance_shot_clock_array():
+    return _timing_response(scoreboard=False, array=True)
+
+
+@app.get("/timeclock/time-as-object")
+async def get_team_performance_scoreboard():
+    return _timing_response(scoreboard=True, array=False)
+
+
+@app.get("/timeclock/time-as-array")
+async def get_team_performance_scoreboard_array():
+    return _timing_response(scoreboard=True, array=True)
 
 
 # --- server lifecycle -----------------------------------------------------

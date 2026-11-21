@@ -84,6 +84,7 @@ from http_server import (
 import ocr_models
 from ocr_training_data import OCRTrainingDataDialog, ocr_training_data_options
 import output_status
+from team_performance_ui_handler import TeamPerformanceUIHandler
 import ppocr_engine
 from output_status import (
     STATE_COLORS,
@@ -428,8 +429,11 @@ class MainWindow(QMainWindow):
 
         self.vmixUiHandler = VMixUIHanlder(self.ui)
         self.unoUiHandler = UNOUIHandler(self.ui)
-        # the TCP / UDP output's page is the last of the output pages
+        # Append the additional output pages in DESTINATIONS order
         self.tcpUiHandler = TcpUIHandler(self.ui.stackedWidget_outputs, self)
+        self.teamPerformanceUiHandler = TeamPerformanceUIHandler(
+            self.ui.stackedWidget_outputs, self
+        )
         # the Sport choice and the game's status line (All boxes)
         self.gameUiHandler = GameUIHandler(self.ui, self.gameEngine)
         # the start/stop buttons show the same texts from the start as after a
@@ -1710,6 +1714,7 @@ class MainWindow(QMainWindow):
             self.vmixUiHandler.restoreUiState()
             self.unoUiHandler.restoreUiState()
             self.tcpUiHandler.retranslate()
+            self.teamPerformanceUiHandler.retranslate()
             self.gameUiHandler.retranslate()
             self.apiUiHandler.restoreUiState()
             self.applyRuntimeTexts()
@@ -1943,6 +1948,7 @@ class MainWindow(QMainWindow):
             self.ui.toolButton_toggleUno.toggled,
             self.ui.checkBox_enableOutAPI.toggled,
             self.tcpUiHandler.ui.pushButton_tcpStart.toggled,
+            self.teamPerformanceUiHandler.ui.checkBox_enabled.toggled,
         ):
             signal.connect(lambda *_: self.refreshLiveStatus())
 
@@ -1998,6 +2004,8 @@ class MainWindow(QMainWindow):
             self.ui.toolButton_toggleUno.setChecked(on)
         elif key == output_status.API:
             self.ui.checkBox_enableOutAPI.setChecked(on)
+        elif key == output_status.TEAM_PERFORMANCE:
+            self.teamPerformanceUiHandler.ui.checkBox_enabled.setChecked(on)
         elif key == output_status.TCP:
             self.tcpUiHandler.setRunning(on)
         self.refreshLiveStatus()
@@ -2043,6 +2051,7 @@ class MainWindow(QMainWindow):
                 send_mode(),
             ),
             self.tcpUiHandler.destinationStatus(),
+            self.teamPerformanceUiHandler.destinationStatus(),
         ]
 
     def obsDestinationStatus(self) -> DestinationStatus:
@@ -2070,6 +2079,7 @@ class MainWindow(QMainWindow):
         statuses = self.destinationStatuses(now)
         self.destinationsModel.setStatuses(statuses)
         self.tcpUiHandler.refresh()
+        self.teamPerformanceUiHandler.refresh()
         # the times of the last activity
         self.ui.listView_destinations.viewport().update()
         self.ui.listView_liveDestinations.viewport().update()
@@ -2642,6 +2652,7 @@ class MainWindow(QMainWindow):
         self.vmixUiHandler.updatevMixTable(detectionTargets)
         self.unoUiHandler.updateUNOTable(detectionTargets)
         self.tcpUiHandler.updateTable(detectionTargets)
+        self.teamPerformanceUiHandler.setBoxNames(box.name for box in detectionTargets)
         self.apiUiHandler.setBoxNames(box.name for box in detectionTargets)
         self.obsSourcesTable.refresh(detectionTargets)
         # Note: results.csv is not touched here. data_changed fires on every box

@@ -1954,6 +1954,7 @@ def test_the_outputs_are_destinations_over_their_pages(main_window):
         "UNO",
         "HTTP API",
         "TCP / UDP",
+        "Team Performance",
     ]
     stack = ui.stackedWidget_outputs
     assert [stack.widget(i).objectName() for i in range(stack.count())] == [
@@ -1964,6 +1965,7 @@ def test_the_outputs_are_destinations_over_their_pages(main_window):
         "tab_uno",
         "tab_api",
         "tab_tcp",
+        "tab_team_performance",
     ]
     assert not hasattr(ui, "tabWidget_outputs")
     # the first one shows, as the first tab did
@@ -2102,7 +2104,7 @@ def test_the_status_bar_shows_every_output_and_opens_it(main_window):
     main_window.refreshLiveStatus()
     assert not bar.widget_outputs.isHidden()
     texts = [button.text() for button in bar.output_buttons.values()]
-    assert texts == ["Files", "HTTP", "OBS", "vMix", "UNO", "API", "TCP"]
+    assert texts == ["Files", "HTTP", "OBS", "vMix", "UNO", "API", "TCP", "TP"]
     vmix = bar.output_buttons["vmix"]
     assert vmix.toolTip().startswith("vMix: ○ off")
     assert vmix.accessibleName() == "vMix: off"
@@ -4767,3 +4769,40 @@ def test_the_close_question(make_window, monkeypatch, button, dont_ask, answer):
     monkeypatch.setattr(QMessageBox, "exec", answer_it)
     assert window.askToClose() == answer
     assert seen == {"question": "Close ScoreSight?", "default": "Cancel"}
+
+
+def test_team_performance_switch_pause_and_hold(main_window, make_result):
+    import http_server
+
+    window = main_window
+    window.destinationToggleRequested("team_performance", True)
+    assert window.teamPerformanceUiHandler.config.enabled
+    window.showDestination("team_performance")
+    assert (
+        window.ui.stackedWidget_outputs.currentWidget()
+        is window.teamPerformanceUiHandler.page
+    )
+
+    def cycle(time, shot):
+        window.ocrResult([make_result("Time", time), make_result("Shot Clock", shot)])
+
+    try:
+        cycle("12:34", "25")
+        assert http_server.team_performance_payload(True) == {
+            "minute": 12,
+            "second": 34,
+        }
+        window.ui.pushButton_stopUpdates.setChecked(True)
+        cycle("12:33", "24")
+        assert http_server.team_performance_payload(False) == {"time": 25}
+        window.ui.pushButton_stopUpdates.setChecked(False)
+        cycle("12:33", "24")
+        assert http_server.team_performance_payload(False) == {"time": 24}
+        window.heldValues.hold("Shot Clock", "14")
+        cycle("12:32", "23")
+        assert http_server.team_performance_payload(False) == {"time": 14}
+        window.destinationToggleRequested("team_performance", False)
+        with pytest.raises(ValueError):
+            http_server.team_performance_payload(True)
+    finally:
+        http_server.update_http_server([])

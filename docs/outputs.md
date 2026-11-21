@@ -15,6 +15,7 @@ ScoreSight can publish its readings to several destinations at the same time. Th
 |---|---|---|---|---|
 | [Text, CSV & XML files](text-files.md) | **Text files** | ScoreSight writes files | `<Box Name>.txt`, `results.csv`, `results.xml`, `results.json`, `results.txt` (key=value) | Any software that reads text files: OBS text (from file), Wirecast, vMix Data Sources, NewBlue, XPression, SuiteCG, Excel |
 | [HTTP server](http_server.md) | **HTTP server** | Other software pulls from ScoreSight | HTML, JSON, XML, CSV on port 18099, and the [game](game.md) at `/game` | Browser sources, web overlays, data feeds (vMix Data Sources, XPression DataLinq, SuiteCG, Captivate), scripts, Home Assistant |
+| [Team Performance](team-performance.md) | **Team Performance** | Team Performance pulls from ScoreSight | Match time as `minute` / `second`, shot clock as `time`, object or array | Timing devices in Team Performance; no separate bridge |
 | [Browser overlays](overlays.md) | **HTTP server** | ScoreSight serves pages and pushes each change to them | Transparent scorebug, lower third, clock, field and your own HTML | OBS, vMix, Wirecast, CasparCG, TriCaster, Magewell, Pearl: anything that shows a web page as graphics |
 | [OBS Studio](obs.md) | **OBS** | ScoreSight pushes over the OBS WebSocket | Text of OBS text sources | OBS scoreboards without browser sources |
 | [vMix](vmix.md) | **vMix** | ScoreSight pushes to the vMix Web API | `SetText` on title fields | vMix GT titles |
