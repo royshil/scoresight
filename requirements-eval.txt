@@ -15,7 +15,7 @@
 # --- PaddleOCR PP-OCRv6/v5 recognizers on onnxruntime (engines/ppocr.py) ---
 # The models (Apache-2.0) are downloaded from the Hugging Face Hub at pinned
 # revisions.
-onnxruntime==1.31.1
+onnxruntime==1.32.0
 # 1.x: OnnxTR 0.9.0 requires huggingface-hub < 2
 huggingface_hub==1.33.0
 PyYAML==6.0.3
@@ -27,7 +27,7 @@ onnxtr[cpu-headless]==0.9.0
 
 # --- Windows OCR, Windows.Media.Ocr through pywinrt (engines/windows_ocr.py) ---
 # Also needs Windows' en-US OCR language pack.
-winrt-runtime==4.1.0 ; sys_platform == "win32"
+winrt-runtime==4.2.0 ; sys_platform == "win32"
 winrt-Windows.Foundation==4!10.0.28000.2957 ; sys_platform == "win32"
 winrt-Windows.Foundation.Collections==4!10.0.28000.2957 ; sys_platform == "win32"
 winrt-Windows.Globalization==4!10.0.28000.2957 ; sys_platform == "win32"

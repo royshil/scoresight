@@ -4,16 +4,16 @@
 #   macOS:   pip install -r requirements.txt -r requirements-mac.txt
 #   Linux:   pip install -r requirements.txt
 PySide6-Essentials==6.12.0
-numpy==2.5.4
-opencv-python-headless==5.0.0.93
+numpy==2.5.5
+opencv-python-headless==5.1.0.95
 # PyPI has no Windows wheels for tesserocr; Windows gets it from requirements-win.txt.
-tesserocr==2.12.0 ; sys_platform != "win32"
+tesserocr==2.13.0 ; sys_platform != "win32"
 cyndilib==0.1.3
-fastapi==0.162.2
+fastapi==0.165.0
 uvicorn==0.54.0
 obsws-python==1.8.1
 pillow==13.0.0
-platformdirs==4.14.5
+platformdirs==4.14.7
 python-dotenv==1.2.4
 requests==2.34.2
 # The phone camera source (src/phone_camera.py): its HTTPS page's self-signed
@@ -21,4 +21,4 @@ requests==2.34.2
 cryptography==50.0.2
 segno==1.6.6
 # The PP-OCR engine (src/ppocr_engine.py).
-onnxruntime==1.31.1
+onnxruntime==1.32.0
