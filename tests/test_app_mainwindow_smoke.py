@@ -4825,7 +4825,7 @@ def test_vmix_plus_uses_the_output_switch_pause_and_held_values(
     handler = window.vmixPlusUiHandler
     window.detectionTargetsStorage.add_item(make_target("Home Score"))
     window.detectionTargetsStorage.add_item(make_target("Time"))
-    handler.output.set_connection("127.0.0.1", server.port)
+    handler.output.set_connection("127.0.0.1", server.port, tcp_port=server.tcp_port)
     for row in range(handler.model.rowCount()):
         name = handler.model.item(row, 0).text()
         handler.model.item(row, 1).setText(

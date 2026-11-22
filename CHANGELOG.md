@@ -10,7 +10,7 @@ Release tags are the bare version number (for example `0.1.0`).
 
 ### Added
 
-- **vMix API+.** A separate output discovers title text fields and updates every input with a matching field name, including graphics off air. It refreshes the title list in the background and supplies current values to newly discovered titles without waiting for a score to change ([vMix API+](https://royshil.github.io/scoresight/vmix-api-plus.html)).
+- **vMix API+.** A separate output discovers title text fields over HTTP and sends acknowledged updates over a persistent TCP connection to every input with a matching field name, including graphics off air. It refreshes the title list in the background and supplies current values to newly discovered titles without waiting for a score to change ([vMix API+](https://royshil.github.io/scoresight/vmix-api-plus.html)).
 
 - **Team Performance timing output.** A dedicated Outputs page serves the scoreboard and shot clock in Team Performance's JSON formats, using the built-in HTTP server instead of a separate bridge. Select the OCR fields and copy the timing device URLs; object and array endpoints are available ([Team Performance](https://royshil.github.io/scoresight/team-performance.html)).
 

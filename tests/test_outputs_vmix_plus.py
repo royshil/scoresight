@@ -1,5 +1,7 @@
 """vMix API+ against a local Web API with several independent title inputs."""
 
+import socket
+import socketserver
 import threading
 import time
 import xml.etree.ElementTree as ET
@@ -22,6 +24,16 @@ class FakeVmix:
             "timeout-guid": {"HOMESCORE.Text": "", "TIME.Text": ""},
         }
         self.calls = []
+        self.http_writes = []
+        self.tcp_connections = 0
+        self.tcp_clients = set()
+        self.tcp_lines = []
+        self.tcp_events = b""
+        self.tcp_reply = None
+        self.fragment_replies = False
+        self.reply_started = threading.Event()
+        self.release_reply = threading.Event()
+        self.release_reply.set()
         self.fail = set()
         self.override_xml = None
         self.disconnect_sends = False
@@ -35,6 +47,7 @@ class FakeVmix:
             def do_GET(self):
                 query = parse_qs(urlsplit(self.path).query, keep_blank_values=True)
                 if query.get("Function") == ["SetText"]:
+                    state.http_writes.append(query)
                     ref, name, value = (
                         query[k][0] for k in ("Input", "SelectedName", "Value")
                     )
@@ -72,6 +85,66 @@ class FakeVmix:
             def log_message(self, *_):
                 pass
 
+        class TCPHandler(socketserver.StreamRequestHandler):
+            def handle(self):
+                with state.lock:
+                    state.tcp_connections += 1
+                    state.tcp_clients.add(self.request)
+                try:
+                    self.wfile.write(b"VERSION OK vMix 28\r\n")
+                    while line := self.rfile.readline(65537):
+                        if state.disconnect_sends:
+                            return
+                        prefix, _, query = line.decode().strip().partition(" ")
+                        function, _, params = query.partition(" ")
+                        if prefix != "FUNCTION" or function != "SetText":
+                            self.wfile.write(b"FUNCTION ER Unknown function\r\n")
+                            continue
+                        fields = parse_qs(params, keep_blank_values=True)
+                        ref, name, value = (
+                            fields[k][0] for k in ("Input", "SelectedName", "Value")
+                        )
+                        with state.lock:
+                            state.tcp_lines.append(line)
+                            state.calls.append((ref, name, value))
+                            success = (
+                                ref in state.inputs
+                                and name in state.inputs[ref]
+                                and (ref, name) not in state.fail
+                            )
+                            if success:
+                                state.inputs[ref][name] = value
+                        response = (
+                            b"FUNCTION OK Completed\r\n"
+                            if success
+                            else b"FUNCTION ER Unknown title field\r\n"
+                        )
+                        response = state.tcp_events + (
+                            state.tcp_reply if state.tcp_reply is not None else response
+                        )
+                        state.reply_started.set()
+                        state.release_reply.wait(3)
+                        if state.fragment_replies:
+                            for part in (response[:5], response[5:14], response[14:]):
+                                self.wfile.write(part)
+                                time.sleep(0.005)
+                        else:
+                            self.wfile.write(response)
+                except (OSError, ValueError):
+                    pass  # tests deliberately stop/disconnect mid-response
+                finally:
+                    with state.lock:
+                        state.tcp_clients.discard(self.request)
+
+        class TCPServer(socketserver.ThreadingTCPServer):
+            daemon_threads = True
+
+        self.tcp_server = TCPServer(("127.0.0.1", 0), TCPHandler)
+        self.tcp_port = str(self.tcp_server.server_address[1])
+        self.tcp_thread = threading.Thread(
+            target=self.tcp_server.serve_forever, daemon=True
+        )
+        self.tcp_thread.start()
         self.server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
         self.port = str(self.server.server_port)
         self.thread = threading.Thread(target=self.server.serve_forever, daemon=True)
@@ -93,6 +166,17 @@ class FakeVmix:
 
     def close(self):
         self.release_discovery.set()
+        self.release_reply.set()
+        with self.lock:
+            clients = list(self.tcp_clients)
+        for client in clients:
+            try:
+                client.shutdown(socket.SHUT_RDWR)
+            except OSError:
+                pass
+        self.tcp_server.shutdown()
+        self.tcp_server.server_close()
+        self.tcp_thread.join(3)
         self.server.shutdown()
         self.server.server_close()
         self.thread.join(3)
@@ -116,7 +200,10 @@ def vmix_servers():
 def plus(memory_storage, vmix_servers):
     server = vmix_servers()
     output = VMixPlusAPI(
-        "127.0.0.1", server.port, {"Home Score": "HOMESCORE.Text", "Time": "TIME.Text"}
+        "127.0.0.1",
+        server.port,
+        {"Home Score": "HOMESCORE.Text", "Time": "TIME.Text"},
+        tcp_port=server.tcp_port,
     )
     yield output, server
     server.release_discovery.set()
@@ -134,6 +221,8 @@ def test_every_matching_title_receives_values(plus, make_result):
     output.update_vmix([make_result("Home Score", "5"), make_result("Time", "12:34")])
     flush(output)
     assert len(server.calls) == 5
+    assert server.http_writes == []
+    assert server.tcp_connections == 1
     assert all(fields["HOMESCORE.Text"] == "5" for fields in server.inputs.values())
     assert server.inputs["scoreboard-guid"]["TIME.Text"] == "12:34"
     assert server.inputs["timeout-guid"]["TIME.Text"] == "12:34"
@@ -186,6 +275,7 @@ def test_one_bad_title_does_not_block_other_titles(plus, make_result):
     output.update_vmix([make_result("Home Score", "9")])
     flush(output)
     assert output.status().failing_keys == 0
+    assert server.tcp_connections == 1
     assert all(fields["HOMESCORE.Text"] == "9" for fields in server.inputs.values())
 
 
@@ -252,7 +342,7 @@ def test_discovery_does_not_block_and_old_connection_is_discarded(
     assert old.discovery_started.wait(3)
     new = vmix_servers()
     new.inputs = {"new-guid": {"HOMESCORE.Text": ""}}
-    output.set_connection("127.0.0.1", new.port)
+    output.set_connection("127.0.0.1", new.port, tcp_port=new.tcp_port)
     old.release_discovery.set()
     flush(output)
     assert old.calls == []
@@ -366,3 +456,114 @@ def test_discovery_identifies_the_wrong_tcp_api_port(plus, monkeypatch):
     monkeypatch.setattr(output._discovery_session, "get", wrong_port)
     with pytest.raises(VMixTCPPortError, match="Web Controller port"):
         output._discover(None, (output._epoch, output.host, output.port))
+
+
+def wait_for_retry(output):
+    deadline = time.monotonic() + 3
+    while not output.status().retrying and time.monotonic() < deadline:
+        time.sleep(0.01)
+    assert output.status().retrying
+
+
+def test_tcp_connection_is_reused_and_closed_on_stop(plus, make_result):
+    output, server = plus
+    output.start()
+    for value in ("1", "2", "3"):
+        output.update_vmix([make_result("Home Score", value)])
+        flush(output)
+    assert server.tcp_connections == 1
+    assert server.http_writes == []
+    output.stop()
+    assert output._tcp._stream is None
+    output.start()
+    flush(output)
+    assert server.tcp_connections == 2
+
+
+def test_waits_for_ack_before_sending_the_next_field(plus, make_result):
+    output, server = plus
+    server.release_reply.clear()
+    try:
+        output.start()
+        output.update_vmix(
+            [make_result("Home Score", "5"), make_result("Time", "1:23")]
+        )
+        assert server.reply_started.wait(3)
+        time.sleep(0.05)
+        assert len(server.calls) == 1
+        assert output.status().sent == 0
+        server.release_reply.set()
+        flush(output)
+        assert len(server.calls) == 5
+        assert output.status().sent == 5
+    finally:
+        server.release_reply.set()
+
+
+def test_fragmented_replies_events_and_encoded_newlines(plus, make_result):
+    output, server = plus
+    server.fragment_replies = True
+    server.tcp_events = b"TALLY OK 0121\r\nACTS OK Input 1 1\r\n"
+    output.start()
+    text = "A & B + café\r\nSecond line"
+    output.update_vmix([make_result("Home Score", text)])
+    flush(output)
+    assert all(value == text for _, _, value in server.calls)
+    assert all(
+        b"%0D%0A" in line and line.count(b"\r\n") == 1 for line in server.tcp_lines
+    )
+    assert server.tcp_connections == 1
+
+
+def test_tcp_timeout_reconnects_and_uses_latest_values(plus, make_result, monkeypatch):
+    output, server = plus
+    monkeypatch.setattr(output._tcp, "TIMEOUT", 0.1)
+    server.release_reply.clear()
+    try:
+        output.start()
+        output.update_vmix([make_result("Home Score", "1")])
+        assert server.reply_started.wait(3)
+        wait_for_retry(output)
+        output.update_vmix([make_result("Home Score", "9")])
+        server.release_reply.set()
+        flush(output)
+        assert server.tcp_connections >= 2
+        assert all(fields["HOMESCORE.Text"] == "9" for fields in server.inputs.values())
+        assert server.http_writes == []
+    finally:
+        server.release_reply.set()
+
+
+@pytest.mark.parametrize(
+    "reply", [b"INVALID REPLY\r\n", b"\xff\r\n", b"X" * 65537 + b"\r\n"]
+)
+def test_invalid_tcp_reply_discards_the_stream_and_recovers(plus, make_result, reply):
+    output, server = plus
+    server.tcp_reply = reply
+    output.start()
+    output.update_vmix([make_result("Home Score", "5")])
+    wait_for_retry(output)
+    assert output._tcp._stream is None
+    server.tcp_reply = None
+    flush(output)
+    assert server.tcp_connections >= 2
+    assert output.status().ok_keys == 3
+
+
+def test_stop_interrupts_a_pending_ack_and_cancels_the_batch(plus, make_result):
+    output, server = plus
+    server.release_reply.clear()
+    try:
+        output.start()
+        output.update_vmix(
+            [make_result("Home Score", "5"), make_result("Time", "1:23")]
+        )
+        assert server.reply_started.wait(3)
+        output.stop()
+        assert output._worker.wait_idle(1)
+        assert output._tcp._stream is None
+        assert len(server.calls) == 1
+        assert output.status().sent == 0
+        assert output.status().pending == 0
+    finally:
+        server.release_reply.set()

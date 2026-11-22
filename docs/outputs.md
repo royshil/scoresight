@@ -19,7 +19,7 @@ ScoreSight can publish its readings to several destinations at the same time. Th
 | [Browser overlays](overlays.md) | **HTTP server** | ScoreSight serves pages and pushes each change to them | Transparent scorebug, lower third, clock, field and your own HTML | OBS, vMix, Wirecast, CasparCG, TriCaster, Magewell, Pearl: anything that shows a web page as graphics |
 | [OBS Studio](obs.md) | **OBS** | ScoreSight pushes over the OBS WebSocket | Text of OBS text sources | OBS scoreboards without browser sources |
 | [vMix](vmix.md) | **vMix** | ScoreSight pushes to the vMix Web API | `SetText` on title fields | vMix GT titles |
-| [vMix API+](vmix-api-plus.md) | **vMix API+** | ScoreSight discovers title fields and pushes to every matching input | `SetText` by exact field name across titles | Scorebug, half-time and time-out graphics that share scores and clocks |
+| [vMix API+](vmix-api-plus.md) | **vMix API+** | ScoreSight discovers fields over HTTP and pushes to matching inputs over TCP | `SetText` by exact field name across titles | Scorebug, half-time and time-out graphics that share scores and clocks |
 | [Overlays.uno](uno.md) | **UNO** | ScoreSight pushes to the UNO control app API | Commands / overlay fields | overlays.uno graphics |
 | [Outbound HTTP API](out_api.md) | **HTTP API** | ScoreSight pushes to your URL | JSON, XML, CSV or GET query, per cycle or per field, with presets | Your own server, cloud functions, automations, TriCaster DataLink, Epiphan Pearl, NewBlue Captivate |
 | [TCP / UDP](tcp-output.md) | **TCP / UDP** | ScoreSight pushes over a TCP connection, UDP or a WebSocket, or programs connect to its TCP server | Text lines from a template (or JSON messages over a WebSocket), with presets | CasparCG (AMCP), Chyron PRIME, Live Score, MagicSoft CG, Vizrt Viz Engine, programs that connect to their data source, your own WebSocket server, custom line protocols |
@@ -73,6 +73,7 @@ Each output treats states differently:
 | Text files | The latest good value of each box. A file is rewritten when its content changes (or the file is missing), at most **Save / s** times per second |
 | HTTP server | Always the latest reading of every box, including its state. The `?pivot` endpoints include only good values |
 | OBS | A box's good value whenever it differs from the text last sent to its OBS text source. Sent right away, not limited by **Save / s**, and no output folder needed |
+| vMix API+ | Every matching title gets the mapped good values over TCP; newly discovered titles also receive unchanged last good values |
 | vMix, UNO | New values (`Success`). With **Also resend unchanged values** (was **Send Same?**), unchanged values (`SameNoChange`) are resent too. Fields with an empty mapping are skipped |
 | TCP / UDP | A field's good value when it differs from the last one sent (every good value with **Also resend unchanged values**). With **One message with every field**, each change sends every field's last good value. Fields with an empty name are skipped |
 | Outbound HTTP API | *JSON (Full)*, *XML* and *CSV*: every reading of every box on every cycle, so the receiver should check the state. *JSON (Simple key-value)* and `GET`: only the good readings |

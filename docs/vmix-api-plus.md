@@ -14,14 +14,14 @@ The existing [vMix output](vmix.md) targets one input. API+ is a separate output
 
 ## Set up vMix
 
-Enable vMix's **Web Controller** / API, normally on port **8088**, as described in [vMix: Enable the Web Controller](vmix.md#1-enable-the-web-controller-in-vmix). ScoreSight needs API access without a login. Port **8099** is the TCP API and is not used by this output.
+Enable vMix's **Web Controller** / API, normally on port **8088**, as described in [vMix: Enable the Web Controller](vmix.md#1-enable-the-web-controller-in-vmix). ScoreSight needs API access without a login. The same computer's **TCP API on fixed port 8099** must also be reachable: field discovery uses HTTP, while live score and clock updates use TCP. Allow API access in vMix's security settings for both connections.
 
 Load the graphics you want to keep updated in the current vMix preset. In the **Title Editor**, give their text fields the same names wherever the values should be shared. Use the exact names shown there, including `.Text` for GT titles. Only matching text fields receive data; images and similarly spelled names are not changed.
 
 ## Configure ScoreSight
 
 1. Select **vMix API+** in **Outputs**, directly below **vMix**.
-2. Enter the vMix computer's host/IP address and Web Controller port. Use a host such as `192.168.0.197`, not a full URL. Press Enter or leave the field to apply a connection change.
+2. Enter the vMix computer's host/IP address and Web Controller port (normally **8088**). The TCP port **8099** is used automatically for sending; do not enter it in the Web API port field. Use a host such as `192.168.0.197`, not a full URL. Press Enter or leave the field to apply a connection change.
 3. Click **Fetch fields** to read the title fields from vMix. This works while the output is stopped and does not send any text.
 4. In each mapping row, double-click the **vMix field** cell and select a discovered name, or type one. Clear a cell to stop sending that ScoreSight field. The **Titles** column shows how many inputs currently contain that name.
 5. Click **Start vMix API+** or enable its switch in the Outputs list.
@@ -56,12 +56,20 @@ This discovers all matching inputs, not just the active/preview graphic. Keep un
 - By default existing titles receive changed readings; **Also resend unchanged values** also sends `SameNoChange` readings on every cycle. Discovery does not rewrite every existing title on each refresh.
 - **Pause outputs** freezes the published values, and **Hold value** reaches API+ through the same output pipeline as the other destinations. A newly discovered title receives the last published value, which remains frozen during a pause.
 - Discovery and sending run in the background, with the standard output timeouts and retry/backoff behaviour. A rejected field in one title does not block delivery to other titles. If the vMix server is unreachable, the newest queued values are retained for retry.
-- The output row shows the number of matching titles, missing mapped field names, discovery errors and delivery errors. **Titles** counts discovered matches; a successful delivery status additionally requires a successful `SetText` request.
+- The output row shows the number of matching titles, missing mapped field names, discovery errors and delivery errors. **Titles** counts discovered matches; a successful delivery status additionally requires a `FUNCTION OK` acknowledgement from vMix for a `SetText` command.
 
-If a mapped name has no matches, confirm the exact spelling and suffix in vMix's Title Editor, then click **Fetch fields**. If fetching fails, check the host, port, API access and network connection. Existing field choices and mappings are preserved when discovery temporarily fails.
+If a mapped name has no matches, confirm the exact spelling and suffix in vMix's Title Editor, then click **Fetch fields**. If fetching fails, check the host, Web Controller port, API access and network connection. If fields are found but live updates fail, check access to **TCP port 8099** on that same vMix computer; discovery on 8088 can work while sending on 8099 is blocked. Existing field choices and mappings are preserved when discovery temporarily fails.
 
 ## Protocol and validation
 
-Discovery reads `GET http://<host>:<port>/api/` and parses the `<inputs><input key="…"><text name="…">` entries in vMix's state XML. Each destination receives its own `SetText` request with the input GUID, exact field name and percent-encoded text. See the [official vMix Web API documentation](https://www.vmix.com/help28/DeveloperAPI.html).
+Discovery reads `GET http://<host>:<port>/api/` and parses the `<inputs><input key="…"><text name="…">` entries in vMix's state XML. Live updates use one persistent TCP connection to the same host on fixed port **8099**. Each destination receives a UTF-8, CRLF-terminated command:
 
-Automated tests use a local vMix API simulator with multiple titles, reordered/added/removed inputs, invalid XML, per-title errors and connection changes. A live vMix check is still required before relying on this new output during a match.
+```text
+FUNCTION SetText Input=<input-guid>&SelectedName=<field>&Value=<value>
+```
+
+Parameters use percent encoding, including spaces and line breaks in values. ScoreSight waits for `FUNCTION OK` or `FUNCTION ER` before sending the next command, handles interleaved greeting/events, and reconnects after a disconnect or timeout. A rejected command is shown as a per-field error; it does not close a healthy connection or block other titles. There is no automatic HTTP fallback for updates, so a successful discovery does not hide a failed TCP connection.
+
+This is the same HTTP-discovery / TCP-update approach described by [Scoreboard OCR's vMix API v2 guide](https://scoreboard-ocr.com/vmix). See the official [vMix Web API](https://www.vmix.com/help28/DeveloperAPI.html) and [vMix TCP API](https://www.vmix.com/help28/TCPAPI.html) documentation.
+
+Automated tests use a local vMix HTTP/TCP API simulator with multiple titles, reordered/added/removed inputs, invalid XML, per-title errors and connection changes. A live vMix check is still required before relying on this new output during a match.

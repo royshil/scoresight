@@ -6895,6 +6895,11 @@ Kliknij, aby zmienić folder lub jego limit rozmiaru; Narzędzia &gt; Zbieraj da
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/vmix_plus.ui" line="11"/>
+        <source>Web API port for finding fields. Live values use the fixed TCP port 8099.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/vmix_plus.ui" line="12"/>
         <source>Start vMix API+</source>
         <translation type="unfinished"></translation>
@@ -6907,6 +6912,11 @@ Kliknij, aby zmienić folder lub jego limit rozmiaru; Narzędzia &gt; Zbieraj da
     <message>
         <location filename="../src/vmix_plus.ui" line="15"/>
         <source>Find text fields in all vMix inputs. Fields are also refreshed every five seconds while this output is on.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus.ui" line="18"/>
+        <source>Fields: HTTP port above. Live updates: TCP 8099.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6965,6 +6975,16 @@ Kliknij, aby zmienić folder lub jego limit rozmiaru; Narzędzia &gt; Zbieraj da
     <message>
         <location filename="../src/vmix_plus_ui_handler.py" line="189"/>
         <source>Fetch fields again and check the exact vMix field names in the mapping table.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="191"/>
+        <source>Check that vMix&apos;s TCP API is reachable on port 8099.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="198"/>
+        <source>vMix rejected a title field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

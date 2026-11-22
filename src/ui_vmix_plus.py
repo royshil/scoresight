@@ -74,6 +74,12 @@ class Ui_VMixPlusPage(object):
 
         self.verticalLayout.addLayout(self.discoveryLayout)
 
+        self.label_transport = QLabel(VMixPlusPage)
+        self.label_transport.setObjectName(u"label_transport")
+        self.label_transport.setWordWrap(True)
+
+        self.verticalLayout.addWidget(self.label_transport)
+
         self.checkBox_sendSame = QCheckBox(VMixPlusPage)
         self.checkBox_sendSame.setObjectName(u"checkBox_sendSame")
 
@@ -101,12 +107,16 @@ class Ui_VMixPlusPage(object):
 #if QT_CONFIG(accessibility)
         self.lineEdit_port.setAccessibleName(QCoreApplication.translate("VMixPlusPage", u"Web API port", None))
 #endif // QT_CONFIG(accessibility)
+#if QT_CONFIG(tooltip)
+        self.lineEdit_port.setToolTip(QCoreApplication.translate("VMixPlusPage", u"Web API port for finding fields. Live values use the fixed TCP port 8099.", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_start.setText(QCoreApplication.translate("VMixPlusPage", u"Start vMix API+", None))
         self.pushButton_fetch.setText(QCoreApplication.translate("VMixPlusPage", u"Fetch fields", None))
 #if QT_CONFIG(tooltip)
         self.pushButton_fetch.setToolTip(QCoreApplication.translate("VMixPlusPage", u"Find text fields in all vMix inputs. Fields are also refreshed every five seconds while this output is on.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_fields.setText("")
+        self.label_transport.setText(QCoreApplication.translate("VMixPlusPage", u"Fields: HTTP port above. Live updates: TCP 8099.", None))
         self.checkBox_sendSame.setText(QCoreApplication.translate("VMixPlusPage", u"Also resend unchanged values", None))
 #if QT_CONFIG(tooltip)
         self.tableView_mapping.setToolTip(QCoreApplication.translate("VMixPlusPage", u"Choose an exact vMix text-field name, including .Text for GT titles. Every matching title receives the value. Clear a mapping to stop sending it.", None))

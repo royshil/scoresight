@@ -23,6 +23,7 @@ def page(qtbot):
     stack = QStackedWidget()
     qtbot.addWidget(stack)
     handler = VMixPlusUIHandler(stack)
+    handler.output.set_connection("127.0.0.1", server.port, tcp_port=server.tcp_port)
     yield handler, server
     handler.close()
     server.close()

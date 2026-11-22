@@ -8,7 +8,7 @@ description: "Send ScoreSight readings to vMix title fields through the vMix Web
 # vMix Integration
 {: .no_toc }
 
-ScoreSight updates text fields in vMix titles directly, through the vMix **Web API** (HTTP, served by vMix's **Web Controller** on port **8088**). Each new value is sent as an HTTP `GET` request that calls the vMix `SetText` function.
+The **vMix output** updates text fields in vMix titles directly, through the vMix **Web API** (HTTP, served by vMix's **Web Controller** on port **8088**). Each new value is sent as an HTTP `GET` request that calls the vMix `SetText` function.
 
 <details open markdown="block">
   <summary>On this page</summary>
@@ -18,7 +18,7 @@ ScoreSight updates text fields in vMix titles directly, through the vMix **Web A
 </details>
 
 {: .important }
-Use port **8088** (the Web Controller / HTTP API), **not** 8099. Port 8099 is vMix's raw TCP API, which ScoreSight does not speak. ScoreSight 0.1.x and older defaulted to 8099 by mistake ([#25](https://github.com/royshil/scoresight/issues/25), [#55](https://github.com/royshil/scoresight/issues/55)). ScoreSight 0.2.0 defaults to 8088, and the first time it starts it changes a saved 8099 to 8088 (once: a port you set later is kept as you typed it).
+Use port **8088** (the Web Controller / HTTP API), **not** 8099. Port 8099 is vMix's raw TCP API, which this single-input output does not use. The separate [vMix API+ output](vmix-api-plus.md) uses HTTP for discovery and TCP for live updates. ScoreSight 0.1.x and older defaulted to 8099 by mistake ([#25](https://github.com/royshil/scoresight/issues/25), [#55](https://github.com/royshil/scoresight/issues/55)). ScoreSight 0.2.0 defaults to 8088, and the first time it starts it changes a saved 8099 to 8088 (once: a port you set later is kept as you typed it).
 
 ## 1. Enable the Web Controller in vMix
 

@@ -1,11 +1,12 @@
 """Discover vMix title fields and send each mapped value to every matching input.
 
-Discovery and SetText use separate background workers. Each input/field has its
+HTTP discovery and acknowledged TCP SetText use separate background workers. Each input/field has its
 own sending key, so a failed title cannot prevent other titles from updating.
 Input GUIDs survive reordering; discovery refreshes also find new titles and
 backfill their fields with the last published readings, even if unchanged.
 """
 
+import socket
 import threading
 import time
 import xml.etree.ElementTree as ET
@@ -20,9 +21,134 @@ from output_worker import (
     SendSkipped,
     check_http_response,
 )
-from vmix_output import DEFAULT_VMIX_PORT, VMixAPI, VMixTCPPortError
+from vmix_output import DEFAULT_VMIX_PORT, VMIX_TCP_API_PORT, VMixAPI, VMixTCPPortError
 
 REFRESH_SECONDS = 5.0
+
+
+class VMixFunctionError(OutputError):
+    """vMix rejected this FUNCTION; other fields may still succeed."""
+
+
+class VMixTCPClient:
+    """One persistent connection, used by the sender worker, interruptible by Stop.
+
+    A command is acknowledged before the next is sent. Optional VERSION/TALLY/
+    ACTS lines may arrive before a FUNCTION reply. Buffers and deadlines bound
+    reads; a failed exchange discards the connection to avoid shifted replies.
+    """
+
+    TIMEOUT = 2.0
+    MAX_LINE = 65536
+
+    def __init__(self):
+        self._lock = threading.Lock()
+        self._generation = 0
+        self._stream = None  # (target, socket, bytearray); only worker mutates buffer
+
+    def generation(self):
+        with self._lock:
+            return self._generation
+
+    @staticmethod
+    def _close_socket(sock):
+        try:
+            sock.shutdown(socket.SHUT_RDWR)
+        except OSError:
+            pass
+        sock.close()
+
+    def close(self):
+        with self._lock:
+            self._generation += 1
+            stream, self._stream = self._stream, None
+        if stream:
+            self._close_socket(stream[1])
+
+    def _connection(self, target, generation):
+        with self._lock:
+            if generation != self._generation:
+                raise SendSkipped()
+            if self._stream and self._stream[0] == target:
+                return self._stream
+            old, self._stream = self._stream, None
+        if old:
+            self._close_socket(old[1])
+        _, host, port = target
+        sock = socket.create_connection((host, int(port)), timeout=self.TIMEOUT)
+        sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+        stream = (target, sock, bytearray())
+        with self._lock:
+            if generation != self._generation:
+                self._close_socket(sock)
+                raise SendSkipped()
+            self._stream = stream
+        return stream
+
+    def _line(self, stream, deadline, generation):
+        _, sock, buffer = stream
+        while True:
+            if generation != self.generation():
+                raise SendSkipped()
+            if b"\r\n" in buffer:
+                break
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise socket.timeout("Timed out waiting for vMix TCP acknowledgement")
+            # Short receive waits also make cancellation prompt on platforms
+            # where closing a socket does not immediately wake a timed recv.
+            sock.settimeout(min(remaining, 0.1))
+            try:
+                data = sock.recv(4096)
+            except socket.timeout:
+                continue
+            if not data:
+                raise ConnectionError(
+                    "vMix TCP connection closed before acknowledgement"
+                )
+            buffer.extend(data)
+            if len(buffer) > self.MAX_LINE:
+                raise ConnectionError("vMix TCP reply exceeded the line limit")
+        line, _, rest = buffer.partition(b"\r\n")
+        buffer[:] = rest
+        return line.decode("utf-8")
+
+    def set_text(self, target, generation, ref, field, value):
+        query = urlencode(
+            {"Input": ref, "SelectedName": field, "Value": value}, quote_via=quote
+        )
+        try:
+            stream = self._connection(target, generation)
+            stream[1].settimeout(self.TIMEOUT)
+            stream[1].sendall(f"FUNCTION SetText {query}\r\n".encode("utf-8"))
+            deadline = time.monotonic() + self.TIMEOUT
+            for _ in range(128):
+                line = self._line(stream, deadline, generation)
+                command, _, rest = line.partition(" ")
+                status, _, detail = rest.partition(" ")
+                if command == "FUNCTION":
+                    if status == "OK":
+                        return
+                    if status == "ER":
+                        raise VMixFunctionError(
+                            f"vMix rejected {field!r} in input {ref!r}: {detail}"
+                        )
+                elif command in ("VERSION", "TALLY", "ACTS") and status == "OK":
+                    continue
+                raise ConnectionError(f"Unexpected vMix TCP reply: {line[:200]}")
+            raise ConnectionError("Too many events before vMix TCP acknowledgement")
+        except socket.timeout as error:
+            cancelled = generation != self.generation()
+            self.close()
+            if cancelled:
+                raise SendSkipped() from error
+            raise requests.Timeout(str(error)) from error
+        except (OSError, UnicodeError, ValueError) as error:
+            cancelled = generation != self.generation()
+            self.close()
+            if cancelled:
+                raise SendSkipped() from error
+            raise requests.ConnectionError(str(error)) from error
 
 
 def title_fields(xml: str) -> dict[str, tuple[str, ...]]:
@@ -46,7 +172,9 @@ def title_fields(xml: str) -> dict[str, tuple[str, ...]]:
 
 
 class VMixPlusAPI(VMixAPI):
-    def __init__(self, host, port, field_mapping):
+    def __init__(self, host, port, field_mapping, *, tcp_port=VMIX_TCP_API_PORT):
+        self._tcp = VMixTCPClient()
+        self.tcp_port = str(tcp_port)
         self._lock = threading.RLock()
         self._epoch = 0
         self._closed = False
@@ -92,13 +220,17 @@ class VMixPlusAPI(VMixAPI):
             ):
                 self.refresh_fields()
 
-    def set_connection(self, host, port):
+    def set_connection(self, host, port, *, tcp_port=None):
         with self._lock:
-            if (host, port) == (self.host, self.port):
+            tcp_port = self.tcp_port if tcp_port is None else str(tcp_port)
+            if (host, port, tcp_port) == (self.host, self.port, self.tcp_port):
                 return
             self._epoch += 1
+            self.tcp_port = tcp_port
+            self._tcp.close()
             self._fields = {}
             self._worker.clear()
+            self._worker.reset_status()
             self._discovery.clear()
             self._discovery.reset_status()
             super().set_connection(host, port, "")
@@ -132,6 +264,7 @@ class VMixPlusAPI(VMixAPI):
     def stop(self):
         with self._lock:
             self._epoch += 1
+            self._tcp.close()
             self._fields = {}
             self._discovery.clear()
             self._discovery.reset_status()
@@ -213,16 +346,6 @@ class VMixPlusAPI(VMixAPI):
                 or field not in self.field_mapping.values()
             ):
                 raise SendSkipped()
-        # The URL uses the queued host and input, never a new host combined with
-        # an old input after a connection change.
-        super()._send_text(key, value)
-
-    def url_for(self, key, value):
-        _, host, port, ref, field = key
-        query = {
-            "Function": "SetText",
-            "Input": ref,
-            "SelectedName": field,
-            "Value": value,
-        }
-        return f"http://{host}:{port}/api/?{urlencode(query, quote_via=quote)}"
+            tcp_generation = self._tcp.generation()
+            tcp_target = (epoch, self.host, self.tcp_port)
+        self._tcp.set_text(tcp_target, tcp_generation, ref, field, value)

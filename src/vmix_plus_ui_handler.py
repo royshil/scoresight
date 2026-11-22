@@ -9,7 +9,7 @@ from storage import SETTINGS_FILE, fetch_data, store_data
 from theme import button_text_color, media_icon
 from ui_vmix_plus import Ui_VMixPlusPage
 from vmix_output import DEFAULT_VMIX_PORT
-from vmix_plus_output import VMixPlusAPI
+from vmix_plus_output import VMixFunctionError, VMixPlusAPI
 
 
 class FieldDelegate(QStyledItemDelegate):
@@ -166,26 +166,40 @@ class VMixPlusUIHandler(QObject):
             return output_status.DestinationStatus(
                 key, output_status.OFF, self.tr("Off")
             )
-        target = f"{output.host}:{output.port}"
+        target = f"{output.host}:{output.tcp_port}"
         worker = output.status()
         hint = self.tr(
             "Each mapped field updates every matching title, including titles off air."
         )
-        for status in (output.discovery_status(), worker):
-            problem = output_status.worker_problem(output_status.VMIX, status, target)
+        for status, discovery in ((output.discovery_status(), True), (worker, False)):
+            endpoint = f"{output.host}:{output.port}" if discovery else target
+            problem = output_status.worker_problem(output_status.VMIX, status, endpoint)
             if problem:
+                rejected = status.last_error and issubclass(
+                    status.last_error.type, VMixFunctionError
+                )
+                if rejected or (
+                    status.last_error
+                    and status.last_error.code
+                    and status.last_error.code >= 500
+                ):
+                    hint = self.tr(
+                        "Fetch fields again and check the exact vMix field names in the mapping table."
+                    )
+                elif not discovery:
+                    hint = self.tr(
+                        "Check that vMix's TCP API is reachable on port 8099."
+                    )
+                else:
+                    hint = problem.hint
                 return output_status.DestinationStatus(
                     key,
                     problem.state,
-                    problem.detail,
+                    self.tr("vMix rejected a title field")
+                    if rejected
+                    else problem.detail,
                     enabled=True,
-                    hint=problem.hint
-                    if not status.last_error
-                    or not status.last_error.code
-                    or status.last_error.code < 500
-                    else self.tr(
-                        "Fetch fields again and check the exact vMix field names in the mapping table."
-                    ),
+                    hint=hint,
                     last_activity_at=worker.last_success_at,
                     technical=str(status.last_error or ""),
                 )
