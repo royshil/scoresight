@@ -1,8 +1,8 @@
 """Discover vMix title fields and send each mapped value to every matching input.
 
-HTTP discovery and acknowledged TCP SetText use separate background workers. Each input/field has its
-own sending key, so a failed title cannot prevent other titles from updating.
-Input GUIDs survive reordering; discovery refreshes also find new titles and
+Explicit HTTP discovery and HTTP/TCP updates use separate background workers.
+Each input/field has its own sending key, so one failed title does not block others.
+Input GUIDs survive reordering; explicit discovery refreshes find new titles and
 backfill their fields with the last published readings, even if unchanged.
 """
 
@@ -10,6 +10,7 @@ import socket
 import threading
 import time
 import xml.etree.ElementTree as ET
+from typing import NamedTuple
 from urllib.parse import quote, urlencode
 
 import requests
@@ -22,8 +23,6 @@ from output_worker import (
     check_http_response,
 )
 from vmix_output import DEFAULT_VMIX_PORT, VMIX_TCP_API_PORT, VMixAPI, VMixTCPPortError
-
-REFRESH_SECONDS = 5.0
 
 
 class VMixFunctionError(OutputError):
@@ -151,28 +150,66 @@ class VMixTCPClient:
             raise requests.ConnectionError(str(error)) from error
 
 
-def title_fields(xml: str) -> dict[str, tuple[str, ...]]:
-    """Exact text-field name -> input GUIDs (input numbers only as a fallback)."""
+class Title(NamedTuple):
+    ref: str
+    selectors: tuple[str, ...]
+    fields: tuple[str, ...]
+
+
+def parse_titles(xml: str) -> tuple[Title, ...]:
     try:
         root = ET.fromstring(xml)
     except ET.ParseError as error:
-        raise OutputError("vMix API+ did not receive valid XML from /api/") from error
+        raise OutputError("vMix did not receive valid XML from /api/") from error
     if root.tag != "vmix" or root.find("inputs") is None:
-        raise OutputError("vMix API+ expected a vMix XML document with inputs")
-    fields: dict[str, list[str]] = {}
-    for input_el in root.findall("./inputs/input"):
-        ref = input_el.get("key") or input_el.get("number")
+        raise OutputError("Expected a vMix XML document with inputs")
+    titles = []
+    for node in root.findall("./inputs/input"):
+        ref = node.get("key") or node.get("number")
         if not ref:
             continue
-        for text in input_el.findall("text"):
-            name = text.get("name")
-            if name and ref not in fields.setdefault(name, []):
-                fields[name].append(ref)
+        selectors = [
+            value
+            for value in (node.get("key"), node.get("number"), node.get("title"))
+            if value
+        ]
+        for alias, tag in (("0", "preview"), ("-1", "active")):
+            if node.get("number") == root.findtext(tag):
+                selectors.append(alias)
+        fields = tuple(
+            dict.fromkeys(t.get("name") for t in node.findall("text") if t.get("name"))
+        )
+        titles.append(Title(ref, tuple(selectors), fields))
+    return tuple(titles)
+
+
+def fields_for(titles, input_ref=None) -> dict[str, tuple[str, ...]]:
+    fields: dict[str, list[str]] = {}
+    for title in titles:
+        if input_ref is not None and input_ref not in title.selectors:
+            continue
+        for field in title.fields:
+            if title.ref not in fields.setdefault(field, []):
+                fields[field].append(title.ref)
     return {name: tuple(refs) for name, refs in fields.items()}
 
 
-class VMixPlusAPI(VMixAPI):
-    def __init__(self, host, port, field_mapping, *, tcp_port=VMIX_TCP_API_PORT):
+def title_fields(xml, input_ref=None):
+    return fields_for(parse_titles(xml), input_ref)
+
+
+class VMixOutput(VMixAPI):
+    def __init__(
+        self,
+        host,
+        port,
+        input_number,
+        field_mapping,
+        *,
+        all_titles=False,
+        transport="http",
+        tcp_port=VMIX_TCP_API_PORT,
+    ):
         self._tcp = VMixTCPClient()
         self.tcp_port = str(tcp_port)
         self._lock = threading.RLock()
@@ -180,18 +217,19 @@ class VMixPlusAPI(VMixAPI):
         self._closed = False
         self._fields: dict[str, tuple[str, ...]] = {}
         self._values: dict[str, str] = {}
-        self._refresh_at: float | None = None
+        self._titles = ()
+        self.all_titles = bool(all_titles)
+        self.transport = "tcp" if transport == "tcp" else "http"
+        self._requested = None
         super().__init__(
             host,
             port,
-            "",
+            input_number,
             dict(field_mapping),
-            settings_key="vmix_plus_send_same",
-            name="vMix API+",
         )
         self._discovery_session = requests.Session()
         self._discovery = OutputWorker(
-            "vMix API+ discovery",
+            "vMix field discovery",
             self._discover,
             retry_on=(requests.ConnectionError, requests.Timeout),
         )
@@ -208,34 +246,69 @@ class VMixPlusAPI(VMixAPI):
         with self._lock:
             if self._closed:
                 return
-            self._refresh_at = time.monotonic()
-            self._discovery.submit("fields", (self._epoch, self.host, self.port))
-
-    def refresh(self, now=None):
-        """Called by the status timer; periodic discovery runs only while on."""
-        now = time.monotonic() if now is None else now
-        with self._lock:
-            if self.running and (
-                self._refresh_at is None or now - self._refresh_at >= REFRESH_SECONDS
-            ):
-                self.refresh_fields()
-
-    def set_connection(self, host, port, *, tcp_port=None):
-        with self._lock:
-            tcp_port = self.tcp_port if tcp_port is None else str(tcp_port)
-            if (host, port, tcp_port) == (self.host, self.port, self.tcp_port):
+            connection = (self._epoch, self.host, self.port)
+            status = self._discovery.status()
+            if connection == self._requested and (status.busy or status.pending):
                 return
+            self._requested = connection
+            self._discovery.submit("fields", connection)
+
+    def _select_fields(self):
+        self._fields = fields_for(
+            self._titles, None if self.all_titles else self.input_number
+        )
+
+    def set_mode(self, all_titles, transport):
+        with self._lock:
+            transport = "tcp" if transport == "tcp" else "http"
+            if (bool(all_titles), transport) == (self.all_titles, self.transport):
+                return
+            discovery_pending = (
+                self._discovery.status().busy or self._discovery.status().pending
+            )
             self._epoch += 1
-            self.tcp_port = tcp_port
             self._tcp.close()
-            self._fields = {}
             self._worker.clear()
             self._worker.reset_status()
             self._discovery.clear()
-            self._discovery.reset_status()
-            super().set_connection(host, port, "")
-            self._refresh_at = None
-            if self.running:
+            self.all_titles, self.transport = bool(all_titles), transport
+            self._select_fields()
+            self._queue_values()
+            if self.running and (not self._titles or discovery_pending):
+                self.refresh_fields()
+
+    def set_connection(self, host, port, input_number=None, *, tcp_port=None):
+        with self._lock:
+            tcp_port = self.tcp_port if tcp_port is None else str(tcp_port)
+            input_number = (
+                self.input_number if input_number is None else str(input_number)
+            )
+            if (host, port, input_number, tcp_port) == (
+                self.host,
+                self.port,
+                self.input_number,
+                self.tcp_port,
+            ):
+                return
+            endpoint_changed = (host, port) != (self.host, self.port)
+            discovery_pending = (
+                self._discovery.status().busy or self._discovery.status().pending
+            )
+            self._epoch += 1
+            self.tcp_port = tcp_port
+            self._tcp.close()
+            self._worker.clear()
+            self._worker.reset_status()
+            self._discovery.clear()
+            if endpoint_changed:
+                self._titles = ()
+                self._discovery.reset_status()
+            super().set_connection(host, port, input_number)
+            self._select_fields()
+            self._queue_values()
+            if self.running and (
+                endpoint_changed or not self._titles or discovery_pending
+            ):
                 self.refresh_fields()
 
     def set_field_mapping(self, field_mapping):
@@ -259,13 +332,13 @@ class VMixPlusAPI(VMixAPI):
             self._epoch += 1
             self._fields = {}
             self.running = True
+            self._queue_values()
             self.refresh_fields()
 
     def stop(self):
         with self._lock:
             self._epoch += 1
             self._tcp.close()
-            self._fields = {}
             self._discovery.clear()
             self._discovery.reset_status()
             super().stop()
@@ -303,7 +376,10 @@ class VMixPlusAPI(VMixAPI):
             field = self.field_mapping.get(name)
             if not field or name not in self._values:
                 continue
-            for ref in self._fields.get(field, ()):
+            refs = (
+                self._fields.get(field, ()) if self.all_titles else (self.input_number,)
+            )
+            for ref in refs:
                 if only_pairs is None or (ref, field) in only_pairs:
                     key = (self._epoch, self.host, self.port, ref, field)
                     self._worker.submit(key, self._values[name])
@@ -321,20 +397,26 @@ class VMixPlusAPI(VMixAPI):
                     f"Use the Web Controller port ({DEFAULT_VMIX_PORT} by default)."
                 ) from error
             raise
-        check_http_response(response, "vMix API+ field discovery")
-        fields = title_fields(response.text)
+        check_http_response(response, "vMix field discovery")
+        titles = parse_titles(response.text)
         with self._lock:
             if self._closed or epoch != self._epoch:
                 raise SendSkipped()
+            self._titles = titles
+            fields = fields_for(titles, None if self.all_titles else self.input_number)
             previous = {
                 (ref, field) for field, refs in self._fields.items() for ref in refs
             }
             current = {(ref, field) for field, refs in fields.items() for ref in refs}
             self._fields = fields
             self._worker.forget_keys(
-                lambda key: key[0] != epoch or (key[3], key[4]) not in current
+                lambda key: (
+                    key[0] != epoch
+                    or (self.all_titles and (key[3], key[4]) not in current)
+                )
             )
-            self._queue_values(only_pairs=current - previous)
+            if self.all_titles:
+                self._queue_values(only_pairs=current - previous)
 
     def _send_text(self, key, value):
         epoch, _, _, ref, field = key
@@ -342,10 +424,27 @@ class VMixPlusAPI(VMixAPI):
             if (
                 not self.running
                 or epoch != self._epoch
-                or ref not in self._fields.get(field, ())
+                or (self.all_titles and ref not in self._fields.get(field, ()))
+                or (not self.all_titles and ref != self.input_number)
                 or field not in self.field_mapping.values()
             ):
                 raise SendSkipped()
             tcp_generation = self._tcp.generation()
             tcp_target = (epoch, self.host, self.tcp_port)
-        self._tcp.set_text(tcp_target, tcp_generation, ref, field, value)
+            transport = self.transport
+        if transport == "tcp":
+            self._tcp.set_text(tcp_target, tcp_generation, ref, field, value)
+        else:
+            super()._send_text(key, value)
+
+    def url_for(self, field, value):
+        if not isinstance(field, tuple):
+            return super().url_for(field, value)
+        _, host, port, ref, field = field
+        query = {
+            "Function": "SetText",
+            "Input": ref,
+            "SelectedName": field,
+            "Value": value,
+        }
+        return f"http://{host}:{port}/api/?{urlencode(query, quote_via=quote)}"

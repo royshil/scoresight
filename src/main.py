@@ -110,9 +110,7 @@ SELF_TEST_MODULES = (
     "video_settings",
     "vmix_output",
     "vmix_ui_handler",
-    "vmix_plus_output",
-    "vmix_plus_ui_handler",
-    "ui_vmix_plus",
+    "vmix_discovery",
 )
 
 # Bundled files the app can't work without (relative to resource_path()).

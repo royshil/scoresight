@@ -4193,197 +4193,36 @@
                </layout>
               </widget>
               <widget class="QWidget" name="tab_vmix">
-               <layout class="QGridLayout" name="gridLayout_3">
-                <property name="verticalSpacing">
-                 <number>2</number>
-                </property>
-                <item row="1" column="0">
-                 <widget class="QTableView" name="tableView_vmixMapping">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>120</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>Each field and the vMix title field it updates. Edit the right column.</string>
-                  </property>
-                  <attribute name="horizontalHeaderVisible">
-                   <bool>false</bool>
-                  </attribute>
-                  <attribute name="horizontalHeaderStretchLastSection">
-                   <bool>true</bool>
-                  </attribute>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <layout class="QVBoxLayout" name="verticalLayout_6">
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QWidget" name="connectionWidget" native="true">
-                    <layout class="QHBoxLayout" name="horizontalLayout_18">
-                     <property name="spacing">
-                      <number>3</number>
-                     </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <item>
-                      <widget class="QLabel" name="connectionLabel">
-                       <property name="text">
-                        <string>Connection</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="lineEdit_vmixHost">
-                       <property name="accessibleName">
-                        <string>vMix host</string>
-                       </property>
-                       <property name="toolTip">
-                        <string>The address of the vMix computer (localhost if vMix runs on this computer)</string>
-                       </property>
-                       <property name="text">
-                        <string notr="true">localhost</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_5">
-                       <property name="text">
-                        <string>:</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="lineEdit_vmixPort">
-                       <property name="accessibleName">
-                        <string>vMix port</string>
-                       </property>
-                       <property name="toolTip">
-                        <string>The port of the vMix Web API (8088 by default; not 8099)</string>
-                       </property>
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>50</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string notr="true">8088</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="pushButton_startvmix">
-                       <property name="accessibleName">
-                        <string>Start or stop vMix</string>
-                       </property>
-                       <property name="toolTip">
-                        <string>Start or stop sending the readings to vMix</string>
-                       </property>
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string>Start vMix</string>
-                       </property>
-                       <property name="checkable">
-                        <bool>true</bool>
-                       </property>
-                       <property name="checked">
-                        <bool>false</bool>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QWidget" name="widget_16" native="true">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_19">
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <item>
-                      <widget class="QLabel" name="vmixinputLabel">
-                       <property name="text">
-                        <string>Input</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="inputLineEdit_vmix">
-                       <property name="accessibleName">
-                        <string>vMix input</string>
-                       </property>
-                       <property name="toolTip">
-                        <string>The vMix input (number or name) of the title to update</string>
-                       </property>
-                       <property name="text">
-                        <string notr="true">1</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_vmix_send_same">
-                    <property name="toolTip">
-                     <string>Also send a field's value when it hasn't changed (marked “same”), at every detection, for example if someone may change the title in vMix by hand. Off: vMix gets a value only when it changes. Formerly “Send Same?”.</string>
-                    </property>
-                    <property name="text">
-                     <string>Also resend unchanged values</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
+               <layout class="QVBoxLayout" name="verticalLayout_vmix">
+                <property name="spacing"><number>4</number></property>
+                <item><layout class="QHBoxLayout" name="horizontalLayout_vmixHost">
+                 <item><widget class="QLabel" name="connectionLabel"><property name="text"><string>Connection</string></property></widget></item>
+                 <item><widget class="QLineEdit" name="lineEdit_vmixHost"><property name="accessibleName"><string>vMix host</string></property><property name="text"><string notr="true">localhost</string></property></widget></item>
+                 <item><widget class="QPushButton" name="pushButton_startvmix"><property name="text"><string>Start vMix</string></property><property name="checkable"><bool>true</bool></property></widget></item>
+                </layout></item>
+                <item><layout class="QHBoxLayout" name="horizontalLayout_vmixPorts">
+                 <item><widget class="QLabel" name="label_vmixWebPort"><property name="text"><string>Web API</string></property><property name="buddy"><cstring>lineEdit_vmixPort</cstring></property></widget></item>
+                 <item><widget class="QLineEdit" name="lineEdit_vmixPort"><property name="minimumSize"><size><width>90</width><height>0</height></size></property><property name="maximumSize"><size><width>110</width><height>16777215</height></size></property><property name="text"><string notr="true">8088</string></property><property name="accessibleName"><string>Web API port</string></property><property name="toolTip"><string>Used to fetch title fields and to send values when HTTP is selected.</string></property></widget></item>
+                 <item><widget class="QLabel" name="label_vmixTcpPort"><property name="text"><string>TCP</string></property><property name="buddy"><cstring>lineEdit_vmixTcpPort</cstring></property></widget></item>
+                 <item><widget class="QLineEdit" name="lineEdit_vmixTcpPort"><property name="minimumSize"><size><width>90</width><height>0</height></size></property><property name="maximumSize"><size><width>110</width><height>16777215</height></size></property><property name="text"><string notr="true">8099</string></property><property name="readOnly"><bool>true</bool></property><property name="accessibleName"><string>Fixed TCP port</string></property></widget></item>
+                 <item><spacer name="horizontalSpacer_vmixPorts"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>0</width><height>0</height></size></property></spacer></item>
+                </layout></item>
+                <item><layout class="QHBoxLayout" name="horizontalLayout_vmixTarget">
+                 <item><widget class="QLabel" name="inputLabel"><property name="text"><string>Send to:</string></property></widget></item>
+                 <item><widget class="QRadioButton" name="radioButton_vmixInput"><property name="text"><string>Input</string></property><property name="checked"><bool>true</bool></property></widget></item>
+                 <item><widget class="QLineEdit" name="inputLineEdit_vmix"><property name="text"><string notr="true">1</string></property><property name="toolTip"><string>The input number, full title name or input key.</string></property></widget></item>
+                </layout></item>
+                <item><widget class="QRadioButton" name="radioButton_vmixAll"><property name="text"><string>Every title that has the field</string></property></widget></item>
+                <item><layout class="QHBoxLayout" name="horizontalLayout_vmixTransport">
+                 <item><widget class="QLabel" name="label_vmixTransport"><property name="text"><string>Send using</string></property><property name="buddy"><cstring>comboBox_vmixTransport</cstring></property></widget></item>
+                 <item><widget class="QComboBox" name="comboBox_vmixTransport"><item><property name="text"><string>HTTP (Web API port)</string></property></item><item><property name="text"><string>TCP (port 8099)</string></property></item></widget></item>
+                </layout></item>
+                <item><layout class="QHBoxLayout" name="horizontalLayout_vmixFetch">
+                 <item><widget class="QPushButton" name="pushButton_vmixFetch"><property name="text"><string>Fetch fields</string></property><property name="toolTip"><string>Refresh the field list after changing titles in vMix. The list is fetched on Start and on demand; there is no periodic polling.</string></property></widget></item>
+                 <item><widget class="QLabel" name="label_vmixFields"><property name="text"><string/></property><property name="wordWrap"><bool>true</bool></property><property name="textFormat"><enum>Qt::PlainText</enum></property></widget></item>
+                </layout></item>
+                <item><widget class="QCheckBox" name="checkBox_vmix_send_same"><property name="toolTip"><string>Also send a field's value when it hasn't changed (marked “same”), at every detection, for example if someone may change the title in vMix by hand. Off: vMix gets a value only when it changes. Formerly “Send Same?”.</string></property><property name="text"><string>Also resend unchanged values</string></property></widget></item>
+                <item><widget class="QTableView" name="tableView_vmixMapping"><property name="minimumSize"><size><width>0</width><height>80</height></size></property><property name="toolTip"><string>Select a fetched vMix field name or type one manually. Clear a mapping to stop sending the field.</string></property><property name="alternatingRowColors"><bool>true</bool></property></widget></item>
                </layout>
               </widget>
               <widget class="QWidget" name="tab_uno">

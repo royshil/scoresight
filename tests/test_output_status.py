@@ -574,7 +574,6 @@ def test_destination_names():
         "HTTP server",
         "OBS",
         "vMix",
-        "vMix API+",
         "UNO",
         "HTTP API",
         "TCP / UDP",

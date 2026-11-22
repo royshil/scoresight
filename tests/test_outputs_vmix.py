@@ -392,18 +392,15 @@ def test_close_unsubscribes_from_settings(make_vmix):
 
 
 @pytest.fixture
-def vmix_ui(qapp):
-    from PySide6.QtWidgets import QLineEdit, QPushButton, QTableView
+def vmix_ui(qapp, qtbot):
+    from PySide6.QtWidgets import QMainWindow
+    from ui_mainwindow import Ui_MainWindow
 
-    ui = SimpleNamespace(
-        lineEdit_vmixHost=QLineEdit(),
-        lineEdit_vmixPort=QLineEdit(),
-        inputLineEdit_vmix=QLineEdit(),
-        tableView_vmixMapping=QTableView(),
-        pushButton_startvmix=QPushButton(),
-    )
-    ui.pushButton_startvmix.setCheckable(True)
-    return ui
+    window = QMainWindow()
+    qtbot.addWidget(window)
+    ui = Ui_MainWindow()
+    ui.setupUi(window)
+    yield ui
 
 
 @pytest.fixture
@@ -415,6 +412,9 @@ def make_handler(vmix_ui):
     def _make():
         handler = VMixUIHanlder(vmix_ui)
         handler.vmixUpdater._session = FakeSession()
+        handler.vmixUpdater._discovery_session = SimpleNamespace(
+            get=lambda *a, **kw: FakeResponse(text="<vmix><inputs/></vmix>")
+        )
         handlers.append(handler)
         return handler
 

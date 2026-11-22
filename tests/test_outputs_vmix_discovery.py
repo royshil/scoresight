@@ -1,4 +1,4 @@
-"""vMix API+ against a local Web API with several independent title inputs."""
+"""Shared vMix routing against a local HTTP/TCP API with independent titles."""
 
 import socket
 import socketserver
@@ -12,8 +12,7 @@ import pytest
 
 from output_worker import OutputError
 from storage import store_data
-from vmix_output import VMixAPI
-from vmix_plus_output import VMixPlusAPI, title_fields
+from vmix_discovery import VMixOutput, title_fields
 
 
 class FakeVmix:
@@ -25,6 +24,7 @@ class FakeVmix:
         }
         self.calls = []
         self.http_writes = []
+        self.discovery_requests = 0
         self.tcp_connections = 0
         self.tcp_clients = set()
         self.tcp_lines = []
@@ -51,6 +51,7 @@ class FakeVmix:
                     ref, name, value = (
                         query[k][0] for k in ("Input", "SelectedName", "Value")
                     )
+                    ref = state.resolve_input(ref)
                     with state.lock:
                         if state.disconnect_sends:
                             self.close_connection = True
@@ -70,6 +71,7 @@ class FakeVmix:
                 else:
                     # Capture before the delay, like an old response arriving
                     # after the operator changes connections or stops output.
+                    state.discovery_requests += 1
                     xml = state.xml()
                     state.discovery_started.set()
                     state.release_discovery.wait(3)
@@ -104,6 +106,7 @@ class FakeVmix:
                         ref, name, value = (
                             fields[k][0] for k in ("Input", "SelectedName", "Value")
                         )
+                        ref = state.resolve_input(ref)
                         with state.lock:
                             state.tcp_lines.append(line)
                             state.calls.append((ref, name, value))
@@ -149,6 +152,15 @@ class FakeVmix:
         self.port = str(self.server.server_port)
         self.thread = threading.Thread(target=self.server.serve_forever, daemon=True)
         self.thread.start()
+
+    def resolve_input(self, ref):
+        if (
+            ref not in self.inputs
+            and ref.isdigit()
+            and 1 <= int(ref) <= len(self.inputs)
+        ):
+            return list(self.inputs)[int(ref) - 1]
+        return ref
 
     def xml(self):
         with self.lock:
@@ -199,10 +211,13 @@ def vmix_servers():
 @pytest.fixture
 def plus(memory_storage, vmix_servers):
     server = vmix_servers()
-    output = VMixPlusAPI(
+    output = VMixOutput(
         "127.0.0.1",
         server.port,
+        "1",
         {"Home Score": "HOMESCORE.Text", "Time": "TIME.Text"},
+        all_titles=True,
+        transport="tcp",
         tcp_port=server.tcp_port,
     )
     yield output, server
@@ -377,31 +392,27 @@ def test_invalid_xml_and_recovery(plus):
     assert "HOMESCORE.Text" in output.fields()
 
 
-def test_automatic_refresh_is_throttled_and_off_means_no_polling(plus, monkeypatch):
+def test_discovery_is_explicit_not_periodic(plus, make_result):
     output, server = plus
-    requested = []
-    monkeypatch.setattr(output, "refresh_fields", lambda: requested.append(True))
-    output.refresh(now=100)
-    assert requested == []
-    output.running = True
-    output._refresh_at = 100
-    output.refresh(now=104)
-    assert requested == []
-    output.refresh(now=105)
-    assert requested == [True]
+    output.start()
+    flush(output)
+    count = server.discovery_requests
+    for _ in range(100):
+        output.fields()
+        output.discovery_status()
+        output.status()
+    output.update_vmix([make_result("Home Score", "5")])
+    flush(output)
+    assert server.discovery_requests == count
+    output.refresh_fields()
+    flush(output)
+    assert server.discovery_requests == count + 1
 
 
-def test_settings_are_independent_from_single_input_vmix(plus):
+def test_shared_resend_setting(plus):
     output, _ = plus
-    legacy = VMixAPI("localhost", "8088", "1", {})
-    try:
-        store_data("scoresight.json", "vmix_send_same", True)
-        assert legacy.update_same is True
-        assert output.update_same is False
-        store_data("scoresight.json", "vmix_plus_send_same", True)
-        assert output.update_same is True
-    finally:
-        legacy.close()
+    store_data("scoresight.json", "vmix_send_same", True)
+    assert output.update_same is True
 
 
 def test_field_parser_deduplicates_and_preserves_exact_names():
@@ -567,3 +578,50 @@ def test_stop_interrupts_a_pending_ack_and_cancels_the_batch(plus, make_result):
         assert output.status().pending == 0
     finally:
         server.release_reply.set()
+
+
+@pytest.mark.parametrize(
+    "all_titles,transport",
+    [(False, "http"), (True, "http"), (False, "tcp"), (True, "tcp")],
+)
+def test_target_and_transport_are_independent(plus, make_result, all_titles, transport):
+    output, server = plus
+    output.set_mode(all_titles, transport)
+    output.start()
+    output.update_vmix([make_result("Home Score", "6")])
+    flush(output)
+    expected = set(server.inputs) if all_titles else {"scoreboard-guid"}
+    assert {ref for ref, _, _ in server.calls} == expected
+    if transport == "http":
+        assert len(server.http_writes) == len(expected)
+        assert server.tcp_connections == 0
+    else:
+        assert server.http_writes == []
+        assert server.tcp_connections == 1
+
+
+def test_selected_input_changes_use_cached_fields_without_refetching(plus, make_result):
+    output, server = plus
+    output.set_mode(False, "tcp")
+    output.start()
+    output.update_vmix([make_result("Home Score", "5")])
+    flush(output)
+    count = server.discovery_requests
+    server.calls.clear()
+    output.set_connection(output.host, output.port, "2")
+    flush(output)
+    assert server.calls == [("halftime-guid", "HOMESCORE.Text", "5")]
+    assert output.fields() == {"HOMESCORE.Text": ("halftime-guid",)}
+    assert server.discovery_requests == count
+    output.set_mode(True, "tcp")
+    flush(output)
+    assert "TIME.Text" in output.fields()
+    assert server.discovery_requests == count
+
+
+def test_discovery_matches_input_number_title_key_and_preview_active():
+    xml = '<vmix><inputs><input number="3" key="guid-3" title="Scorebug.gtzip"><text name="CLOCK.Text"/></input><input number="4" key="guid-4" title="Half-time.gtzip"><text name="SCORE.Text"/></input></inputs><preview>3</preview><active>4</active></vmix>'
+    for selector in ("3", "guid-3", "Scorebug.gtzip", "0"):
+        assert title_fields(xml, selector) == {"CLOCK.Text": ("guid-3",)}
+    assert title_fields(xml, "-1") == {"SCORE.Text": ("guid-4",)}
+    assert title_fields(xml, "missing") == {}

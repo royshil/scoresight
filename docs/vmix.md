@@ -2,105 +2,101 @@
 title: vMix
 parent: Outputs
 nav_order: 4
-description: "Send ScoreSight readings to vMix title fields through the vMix Web API (Web Controller, port 8088)."
+description: "Send ScoreSight readings to one vMix input or every title with matching text-field names."
 ---
 
-# vMix Integration
-{: .no_toc }
+# vMix integration
 
-The **vMix output** updates text fields in vMix titles directly, through the vMix **Web API** (HTTP, served by vMix's **Web Controller** on port **8088**). Each new value is sent as an HTTP `GET` request that calls the vMix `SetText` function.
+The **vMix** output can update one title input, or every loaded title that contains a mapped field name. A scorebug, half-time graphic and time-out graphic can share the same scores and clocks even while off air. Both target modes share one connection, mapping table, resend setting and on/off switch.
 
-<details open markdown="block">
-  <summary>On this page</summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
+## 1. Enable the vMix APIs
 
-{: .important }
-Use port **8088** (the Web Controller / HTTP API), **not** 8099. Port 8099 is vMix's raw TCP API, which this single-input output does not use. The separate [vMix API+ output](vmix-api-plus.md) uses HTTP for discovery and TCP for live updates. ScoreSight 0.1.x and older defaulted to 8099 by mistake ([#25](https://github.com/royshil/scoresight/issues/25), [#55](https://github.com/royshil/scoresight/issues/55)). ScoreSight 0.2.0 defaults to 8088, and the first time it starts it changes a saved 8099 to 8088 (once: a port you set later is kept as you typed it).
+In vMix **Settings > Web Controller**, enable the Web Controller/API. Its HTTP port is normally **8088**. Allow API access without login; ScoreSight does not send a vMix username/password. Check the network/firewall permits the ports you use.
 
-## 1. Enable the Web Controller in vMix
-
-In vMix, open **Settings** > **Web Controller**, tick **Enabled**, and note the **Port** (8088 by default).
-
-![vMix Settings > Web Controller with the Web Controller enabled on port 8088](image-8.png)
-
-If ScoreSight runs on a different computer than vMix:
-
-- use the vMix computer's IP address as the host in ScoreSight,
-- allow port 8088 through the firewall on the vMix computer, and
-- if you set a Web Controller **Username/Password**, tick **Allow access to following pages without login: API**. ScoreSight doesn't send a vMix login.
-
-## 2. Add a title and note its field names
-
-Add a title input in vMix, for example one of the built-in scoreboard titles:
-
-![A vMix scoreboard title](image-9.png)
-
-Right-click the input and open the **Title Editor** to see the names of its text fields:
-
-![Opening the vMix Title Editor](image-10.png)
-
-Field names in the Title Editor look like `Home Score.Text`, `Away Score.Text` or `CLOCK.Text`. You need these exact names, **including the `.Text` suffix**.
-
-{: .tip }
-The repository includes a ready-made vMix preset, [`scoresight.vmix`](https://github.com/royshil/scoresight/blob/main/scoresight.vmix). It contains a scoreboard title with the fields `Home Score.Text`, `Away Score.Text`, `CLOCK.Text`, `Home Title.Text`, `Away Title.Text`, `Title 1.Text` and `Title 2.Text`. Open it in vMix (**Open** preset) to get started quickly.
-
-## 3. Configure vMix in ScoreSight
-
-Set up your boxes first (see the [Quickstart](quickstart.md)):
-
-![Boxes placed over the scores and clock in ScoreSight](image-11.png)
-
-Then select **vMix** in the **Outputs** tab on the right (or click **vMix** in the status bar). Its settings show under the list:
-
-![The vMix settings with host, port 8088, input and the field mapping (ScoreSight 0.1.x showed them on a VMix tab)](image-12.png)
-
-| Setting | Value |
+| Connection | Purpose |
 |---|---|
-| **Connection** | Host (`localhost` or the vMix computer's IP) and port `8088` |
-| **Input** | The vMix input that holds the title: its number (as shown on the input in vMix), its name, or its key |
-| **Output Mapping** | One row per ScoreSight field. In the right column, type the exact vMix field name, for example `Home Score.Text`. The default is the ScoreSight field name, which usually needs the `.Text` suffix added. The mapping the table shows is used right away, even for rows you haven't edited. Clear a cell to stop sending that field |
-| **Also resend unchanged values** (was **Send Same?**) | Off: send only new values. On: also resend unchanged values on every cycle. This is useful if someone else may overwrite the title in vMix |
+| **Web API port**, normally **8088** | Fetch title fields, and send values when **HTTP** is selected |
+| **TCP port**, fixed **8099** | Send values when **TCP** is selected |
 
-Click **Start vMix** (or the switch of the vMix row) to begin sending (the button changes to **Stop vMix**). Click it again to stop sending without losing the settings.
+The port you type in **Web API** must be the HTTP port, including when you send values over TCP. The separate **TCP** box shows 8099 and cannot be edited. With HTTP selected, only the Web API port is needed. With TCP selected, both ports must be reachable on the same vMix computer; successful field discovery alone does not confirm TCP connectivity.
 
-A change to the host, port or input takes effect when you press **Enter** or leave the field. Spaces around the values are ignored. You don't need to stop and start the output: the mapping and the Start/Stop state are kept.
+ScoreSight 0.1.x and older incorrectly defaulted the Web API port to 8099. The one-time migration of that old setting to 8088 is retained; a port you set later is kept.
 
-Once the mapping is complete, the title updates live in vMix:
+## 2. Prepare the vMix title fields
 
-![The vMix title showing live values from ScoreSight](image-13.png)
+Load the graphics as inputs in vMix. In the **Title Editor**, note their exact text-field names, including `.Text` for GT titles. For example:
 
-## Updating several title inputs
-
-To keep a scorebug, half-time graphic and time-out graphic updated together, use the separate [vMix API+ output](vmix-api-plus.md). It discovers text-field names and sends each mapped value to every matching title, including titles off air. The vMix output described on this page continues to target the one selected **Input**.
-
-## Is vMix receiving the values?
-
-The vMix row of the **Outputs** list (and **vMix** in the status bar) shows it:
-
-| State | The vMix row says |
+| ScoreSight field | vMix field |
 |---|---|
-| ● Working | *Sending to localhost:8088, input 1*, and when the last value was sent (*2 s ago*) |
-| ◐ Waiting | *Waiting for a new value for ...*: started, but no field changed yet. vMix gets a value when it changes (or every time, with **Also resend unchanged values**) |
-| ▲ Retrying | *Can't reach 192.168.1.40:8088 · retrying* or *No answer from ... · retrying*: vMix can't be reached. ScoreSight retries by itself and sends the latest values when vMix is back |
-| ▲ Needs attention | *No fields to send* (nothing mapped), or *1 of 4 failing: ...* when some fields arrive and others don't |
-| ■ Not working | *Port 8099 is vMix's TCP API: use 8088*, *HTTP 401: vMix asks for a login*, or another error vMix answered with |
+| Home Score | `Home Score.Text` |
+| Away Score | `Away Score.Text` |
+| Time | `CLOCK.Text` |
+| Period | `PERIOD.Text` |
+| Shot Clock | `SHOTCLOCK.Text` |
 
-When vMix is selected and has a problem, a box over its settings says what to do. Hover the row for the full error.
+Names are case-sensitive and spaces matter. Only fields with the exact mapped name are updated. To share data across graphics, give their corresponding text fields the same name. Use different names for unrelated fields that should not receive scoreboard data.
 
-## What ScoreSight sends
+The repository's [`scoresight.vmix`](https://github.com/royshil/scoresight/blob/main/scoresight.vmix) preset provides a starting scoreboard title.
 
-For every field with a new value (and a mapping), ScoreSight sends an HTTP `GET` request to:
+## 3. Configure the vMix output
 
-```
-http://<host>:<port>/api/?Function=SetText&Input=<input>&SelectedName=<field name>&Value=<value>
+Select **vMix** in **Outputs**, or click **vMix** in the status bar.
+
+1. Enter the vMix computer's host/IP, such as `192.168.1.92`, or `localhost` if it runs on the same computer. Enter its Web API port, normally 8088. Press Enter or leave the field to apply a connection edit.
+2. Under **Send to**, choose:
+   - **Input**: enter its number, full title name or GUID. Only that input receives values. The field list and **Titles** counts refer to the selected input.
+   - **Every title that has the field**: every loaded title with an exact field-name match receives the value, including titles off air. No input number is needed. **Titles** shows the number of matching inputs for each field.
+3. Choose **Send using**: **HTTP (Web API port)** is the existing default. **TCP (port 8099)** uses a persistent connection and acknowledges each command. This setting is shared between both target modes.
+4. Click **Fetch fields** to discover the available text-field names. Double-click a mapping cell and select a name from the dropdown. You can also type a name manually, which allows configuration before vMix is available. Manual mappings are retained if a fetch fails; fetching never renames or overwrites them. Clear a cell to stop sending that field.
+5. Click **Start vMix**, or turn on the vMix switch in Outputs. The button changes to **Stop vMix**. Stop keeps the settings.
+
+![One shared vMix output with target selection, both ports and discovered fields](vmix-output.png)
+
+**Also resend unchanged values** sends `SameNoChange` readings on every detection cycle as well as changed readings. This is useful if title values might also be changed by hand in vMix. With it off, existing titles get changed values. Newly discovered titles receive the last good published values even if those values are unchanged.
+
+The initial default mapping is the ScoreSight field name. It often needs the exact vMix spelling and `.Text` suffix; selecting a fetched name avoids typing those manually. Existing host, port, input and mappings remain usable, with **Input / HTTP** as the default. Sending starts only when you turn it on.
+
+## When are fields fetched?
+
+The title list is fetched:
+
+- on **Start vMix**;
+- after changing the connection while the output is running;
+- on **Fetch fields**, also while stopped.
+
+There is **no periodic XML polling**. The list is cached, so changing between target modes or selecting another input can reuse it. After loading, removing, renaming or changing titles in vMix, click **Fetch fields** to refresh the list. A new matching title then receives the available last good values. Failed network requests may retry with backoff; a healthy connection does not keep re-reading the preset.
+
+Discovery uses input GUIDs, so reordering existing inputs does not redirect all-title updates. The counts and dropdown reflect the last fetch, not a continuous connection monitor. Input mode also accepts vMix's special input selectors `0` (Preview) and `-1` (Active); refresh the field list after changing what those selectors refer to.
+
+## Readings, errors and performance
+
+Good readings (`Success` and `SameNoChange`) supply the cached values. Failed/empty readings keep the last good value. An explicitly cleared value sends empty text. **Pause outputs** freezes published values, and **Hold value** applies to this output like the others.
+
+Discovery and sending run in background workers. Pending sends keep the newest value per input/field. A rejected field does not block other titles. If the receiver is unreachable, unsent values are retried with backoff. Stopping or changing the connection cancels obsolete queued work.
+
+The output row reports delivery and errors. In all-title mode it also reports matching title counts and missing names. Discovery errors identify the Web API endpoint; TCP send errors identify the TCP endpoint. **Titles** counts discovered matches; successful delivery additionally requires a successful HTTP response or TCP acknowledgement.
+
+vMix documents lower processing overhead for its TCP API. No measured HTTP-versus-TCP latency advantage is claimed here: use the transport that suits your production and available ports.
+
+## Protocol
+
+Field discovery reads `GET http://<host>:<web-port>/api/` and parses vMix's input and text-field XML. It supports both one-input filtering and all-title matching.
+
+HTTP updates use percent-encoded `SetText` requests:
+
+```text
+http://<host>:<web-port>/api/?Function=SetText&Input=<input>&SelectedName=<field>&Value=<value>
 ```
 
-For example `http://localhost:8088/api/?Function=SetText&Input=1&SelectedName=CLOCK.Text&Value=4%3A27`. The field name and the value are percent-encoded, with spaces as `%20` (`SelectedName=Home%20Score.Text`); ScoreSight 0.2.0 and earlier sent spaces as `+`, which vMix may show as a literal `+`. You can paste such a URL into a browser to test vMix without ScoreSight. See the vMix [Developer API documentation](https://www.vmix.com/help28/DeveloperAPI.html) for details.
+TCP updates use one persistent connection to `<host>:8099` and UTF-8, CRLF-terminated commands:
 
-Requests are sent in the background with a 2-second timeout. If vMix is busy or unreachable, ScoreSight keeps reading, keeps only the latest value of each field, retries with an increasing delay, and sends the latest values when vMix responds again. Any 2xx response counts as success. Errors are logged at most once every 30 seconds.
+```text
+FUNCTION SetText Input=<input>&SelectedName=<field>&Value=<value>
+```
+
+Parameters use percent encoding. ScoreSight waits for `FUNCTION OK` or `FUNCTION ER` before sending the next command, handles the greeting and interleaved events, and reconnects after a disconnect or timeout. A rejected command does not close a healthy connection. There is no silent transport fallback.
+
+References: [official vMix Web API](https://www.vmix.com/help30/DeveloperAPI.html) and [official vMix TCP API](https://www.vmix.com/help30/TCPAPI.html).
 
 ## Alternative: vMix Data Sources
 
@@ -120,13 +116,10 @@ These setups are **untested**: they follow vMix's documentation (and, for JSON, 
 
 ## Troubleshooting
 
-The vMix row of the **Outputs** list says what is wrong (see [above](#is-vmix-receiving-the-values)). vMix errors in the log start with `vMix:`.
+- **Fields cannot be fetched:** check the host and Web API port, API access and network. Input mode's HTTP sender can still use manually entered mappings if discovery is unavailable.
+- **Fields are found, TCP updates fail:** check access to TCP port 8099 on that same computer. HTTP and TCP have independent connectivity.
+- **Mapped name not found / count is zero:** check spelling, case and `.Text` in the Title Editor, then Fetch fields. Input mode lists only the selected input's fields.
+- **New title does not update:** load it in the current preset and click Fetch fields. All-title mode uses the last fetched GUID/field list.
+- **Some fields fail:** inspect the output row's error and compare mappings with the Title Editor. Failed or empty OCR readings are not new values to send.
 
-| The vMix row says (the log says) | Fix |
-|---|---|
-| *Port 8099 is vMix's TCP API: use 8088* (`vMix: VMixTCPPortError: localhost:8099 answered like the vMix TCP API ('VERSION OK')...`) | You are pointing at the vMix **TCP API** port (8099). Change the port to the Web Controller port, **8088** by default |
-| *Can't reach ...* or *No answer from ...* (`vMix: ConnectionError: ...`, connection refused, or a timeout) | The vMix Web Controller is not enabled, the port is wrong, or a firewall blocks it. Open `http://<host>:8088/api` in a browser to test |
-| *HTTP 401: vMix asks for a login* (`vMix: OutputError: SetText 'Home Score.Text' returned HTTP 401`, or 403) | The Web Controller requires a login. Allow API access without login (see step 1) |
-| ◐ *Waiting for a new value*, nothing changes in vMix | The mapping names don't match the Title Editor (remember `.Text`), or the **Input** is wrong. Values are sent when they change: turn on **Also resend unchanged values** to send them every time |
-| ○ *Off* | Click **Start vMix** |
-| Some fields update, others don't (*1 of 4 failing: ...* when vMix answers some of them with an error) | Check each mapping row against the Title Editor: empty cells are not sent. Readings that are yellow or red in ScoreSight are not sent |
+Automated tests cover both targets with both transports against a local HTTP/TCP vMix simulator. The matching-title/TCP prototype has also been tested by the contributor against a real Windows vMix livestream computer, with two different graphics updating in Preview and Program. A full match-day production test is planned; the reshaped shared controls should be verified in the intended setup before relying on them during a match.

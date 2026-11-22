@@ -69,8 +69,7 @@ Our goal is simple: to be the best scoreboard-reading software on the planet, an
 | Built-in HTTP server | HTML, JSON, XML and CSV on port 18099 | [HTTP API](https://royshil.github.io/scoresight/http_server.html) |
 | Team Performance | Scoreboard and shot-clock timing device URLs, without a bridge | [Team Performance](https://royshil.github.io/scoresight/team-performance.html) |
 | OBS Studio | OBS WebSocket v5, updates text sources | [OBS](https://royshil.github.io/scoresight/obs.html) |
-| vMix | vMix Web API (port 8088), `SetText` on title fields | [vMix](https://royshil.github.io/scoresight/vmix.html) |
-| vMix API+ | Updates matching text fields in every title, including graphics off air | [vMix API+](https://royshil.github.io/scoresight/vmix-api-plus.html) |
+| vMix | One input or every matching title; field discovery, HTTP or TCP updates | [vMix](https://royshil.github.io/scoresight/vmix.html) |
 | overlays.uno | UNO control app API, including Essentials | [UNO](https://royshil.github.io/scoresight/uno.html) |
 | Browser overlays | Transparent scorebug, lower third and clock pages, pushed live | [Browser overlays](https://royshil.github.io/scoresight/overlays.html) |
 | Your own endpoint | HTTP POST/PUT/GET with JSON, XML or CSV | [Outbound API](https://royshil.github.io/scoresight/out_api.html) |
