@@ -4365,6 +4365,11 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">파일</translation>
     </message>
     <message>
+        <location filename="../src/output_status.py" line="166"/>
+        <source>Update every vMix title with matching text-field names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/output_status.py" line="162"/>
         <source>Serve scoreboard and shot-clock times to Team Performance</source>
         <translation type="unfinished"></translation>
@@ -6862,6 +6867,142 @@ Click to change the folder or its size limit; Tools &gt; Collect OCR training da
     <message>
         <location filename="../src/update_check.py" line="243"/>
         <source>Update now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VMixPlusPage</name>
+    <message>
+        <location filename="../src/vmix_plus.ui" line="6"/>
+        <source>Update every vMix title with matching field names, including titles that are off air.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus.ui" line="8"/>
+        <source>Connection</source>
+        <translation type="unfinished">연결</translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus.ui" line="9"/>
+        <source>localhost</source>
+        <translation type="unfinished">로컬호스트</translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus.ui" line="11"/>
+        <source>Web API port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus.ui" line="12"/>
+        <source>Start vMix API+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus.ui" line="15"/>
+        <source>Fetch fields</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus.ui" line="15"/>
+        <source>Find text fields in all vMix inputs. Fields are also refreshed every five seconds while this output is on.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus.ui" line="18"/>
+        <source>Also resend unchanged values</source>
+        <translation type="unfinished">바뀌지 않은 값도 다시 보내기</translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus.ui" line="19"/>
+        <source>Choose an exact vMix text-field name, including .Text for GT titles. Every matching title receives the value. Clear a mapping to stop sending it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VMixPlusUIHandler</name>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="95"/>
+        <source>Stop vMix API+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="97"/>
+        <source>Start vMix API+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="145"/>
+        <source>Could not fetch fields</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="147"/>
+        <source>Fetching fields…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="150"/>
+        <source>{fields} fields in {titles} titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="154"/>
+        <source>Fetch fields to find vMix titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="169"/>
+        <source>Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="174"/>
+        <source>Each mapped field updates every matching title, including titles off air.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="189"/>
+        <source>Fetch fields again and check the exact vMix field names in the mapping table.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="197"/>
+        <source>No fields to send</source>
+        <translation type="unfinished">보낼 필드 없음</translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="201"/>
+        <source>Discovering vMix title fields…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="206"/>
+        <source>{count} mapped fields not found in vMix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="221"/>
+        <source>Updating {count} titles at {target}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="225"/>
+        <source>Ready for {count} titles; waiting for values</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="243"/>
+        <source>Field</source>
+        <translation type="unfinished">필드</translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="243"/>
+        <source>vMix field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vmix_plus_ui_handler.py" line="243"/>
+        <source>Titles</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

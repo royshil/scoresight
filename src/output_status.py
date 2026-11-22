@@ -48,11 +48,12 @@ FILES = "files"
 HTTP = "http"
 OBS = "obs"
 VMIX = "vmix"
+VMIX_PLUS = "vmix_plus"
 UNO = "uno"
 API = "api"
 TCP = "tcp"
 TEAM_PERFORMANCE = "team_performance"
-DESTINATIONS = (FILES, HTTP, OBS, VMIX, UNO, API, TCP, TEAM_PERFORMANCE)
+DESTINATIONS = (FILES, HTTP, OBS, VMIX, VMIX_PLUS, UNO, API, TCP, TEAM_PERFORMANCE)
 
 # states
 OFF = "off"  # turned off (or not connected)
@@ -134,6 +135,8 @@ def destination_name(key: str) -> str:
         return QCoreApplication.translate("OutputStatus", "Text files")
     if key == HTTP:
         return QCoreApplication.translate("OutputStatus", "HTTP server")
+    if key == VMIX_PLUS:
+        return "vMix API+"
     if key == TEAM_PERFORMANCE:
         return "Team Performance"
     if key == API:
@@ -149,6 +152,7 @@ def short_name(key: str) -> str:
         HTTP: "HTTP",
         OBS: "OBS",
         VMIX: "vMix",
+        VMIX_PLUS: "vMix+",
         UNO: "UNO",
         API: "API",
         TCP: "TCP",
@@ -159,6 +163,9 @@ def short_name(key: str) -> str:
 def destination_description(key: str) -> str:
     """What the destination does (the output tabs' tooltips before 0.2.0)."""
     texts = {
+        VMIX_PLUS: QCoreApplication.translate(
+            "OutputStatus", "Update every vMix title with matching text-field names"
+        ),
         TEAM_PERFORMANCE: QCoreApplication.translate(
             "OutputStatus", "Serve scoreboard and shot-clock times to Team Performance"
         ),

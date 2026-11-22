@@ -27,7 +27,16 @@ class VMixTCPPortError(requests.ConnectionError):
 
 
 class VMixAPI:
-    def __init__(self, host, port, input_number, field_mapping):
+    def __init__(
+        self,
+        host,
+        port,
+        input_number,
+        field_mapping,
+        *,
+        settings_key="vmix_send_same",
+        name="vMix",
+    ):
         self.host = host
         self.port = port
         self.input_number = input_number
@@ -35,11 +44,12 @@ class VMixAPI:
         self._target = (host, port, input_number)
         self.field_mapping = field_mapping
         self.running = False
-        self.update_same = fetch_data("scoresight.json", "vmix_send_same", False)
-        subscribe_to_data("scoresight.json", "vmix_send_same", self.set_update_same)
+        self._settings_key = settings_key
+        self.update_same = fetch_data("scoresight.json", settings_key, False)
+        subscribe_to_data("scoresight.json", settings_key, self.set_update_same)
         self._session = requests.Session()  # used only by the worker thread
         self._worker = OutputWorker(
-            "vMix",
+            name,
             self._send_text,
             retry_on=(requests.ConnectionError, requests.Timeout),
         )
@@ -75,7 +85,9 @@ class VMixAPI:
     def close(self):
         """Stop sending and unsubscribe from settings changes."""
         self.stop()
-        unsubscribe_from_data("scoresight.json", "vmix_send_same", self.set_update_same)
+        unsubscribe_from_data(
+            "scoresight.json", self._settings_key, self.set_update_same
+        )
         self._worker.stop()
 
     def update_vmix(

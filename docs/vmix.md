@@ -72,6 +72,10 @@ Once the mapping is complete, the title updates live in vMix:
 
 ![The vMix title showing live values from ScoreSight](image-13.png)
 
+## Updating several title inputs
+
+To keep a scorebug, half-time graphic and time-out graphic updated together, use the separate [vMix API+ output](vmix-api-plus.md). It discovers text-field names and sends each mapped value to every matching title, including titles off air. The vMix output described on this page continues to target the one selected **Input**.
+
 ## Is vMix receiving the values?
 
 The vMix row of the **Outputs** list (and **vMix** in the status bar) shows it:

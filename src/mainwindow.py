@@ -191,6 +191,7 @@ from ui_connect_obs import Ui_Dialog as Ui_ConnectObs
 from ui_url_source import Ui_Dialog as Ui_UrlSource
 from ui_screen_capture import Ui_Dialog as Ui_ScreenCapture
 from vmix_ui_handler import VMixUIHanlder
+from vmix_plus_ui_handler import VMixPlusUIHandler
 
 DEFAULT_HTTP_PORT = 18099
 
@@ -428,6 +429,7 @@ class MainWindow(QMainWindow):
         )
 
         self.vmixUiHandler = VMixUIHanlder(self.ui)
+        self.vmixPlusUiHandler = VMixPlusUIHandler(self.ui.stackedWidget_outputs, self)
         self.unoUiHandler = UNOUIHandler(self.ui)
         # Append the additional output pages in DESTINATIONS order
         self.tcpUiHandler = TcpUIHandler(self.ui.stackedWidget_outputs, self)
@@ -1712,6 +1714,7 @@ class MainWindow(QMainWindow):
             self.ui.lineEdit_sceneName.setText(scene_name)
             self.ui.toolButton_speed.setText(speed)
             self.vmixUiHandler.restoreUiState()
+            self.vmixPlusUiHandler.retranslate()
             self.unoUiHandler.restoreUiState()
             self.tcpUiHandler.retranslate()
             self.teamPerformanceUiHandler.retranslate()
@@ -1945,6 +1948,7 @@ class MainWindow(QMainWindow):
         # the controls the switches mirror: show their changes right away
         for signal in (
             self.ui.pushButton_startvmix.toggled,
+            self.vmixPlusUiHandler.ui.pushButton_start.toggled,
             self.ui.toolButton_toggleUno.toggled,
             self.ui.checkBox_enableOutAPI.toggled,
             self.tcpUiHandler.ui.pushButton_tcpStart.toggled,
@@ -2000,6 +2004,8 @@ class MainWindow(QMainWindow):
                 self.disconnectObs()
         elif key == output_status.VMIX:
             self.ui.pushButton_startvmix.setChecked(on)
+        elif key == output_status.VMIX_PLUS:
+            self.vmixPlusUiHandler.setRunning(on)
         elif key == output_status.UNO:
             self.ui.toolButton_toggleUno.setChecked(on)
         elif key == output_status.API:
@@ -2035,6 +2041,7 @@ class MainWindow(QMainWindow):
                 vmix.field_mapping,
                 vmix.status(),
             ),
+            self.vmixPlusUiHandler.destinationStatus(),
             output_status.uno_status(
                 uno.running, uno.endpoint, uno.field_mapping, uno.status(), uno.quota()
             ),
@@ -2079,6 +2086,7 @@ class MainWindow(QMainWindow):
         statuses = self.destinationStatuses(now)
         self.destinationsModel.setStatuses(statuses)
         self.tcpUiHandler.refresh()
+        self.vmixPlusUiHandler.refresh()
         self.teamPerformanceUiHandler.refresh()
         # the times of the last activity
         self.ui.listView_destinations.viewport().update()
@@ -2536,6 +2544,7 @@ class MainWindow(QMainWindow):
             theme.media_icon("play", theme.button_text_color(palette))
         )
         self.vmixUiHandler.refreshToggleButton()
+        self.vmixPlusUiHandler.refreshToggleButton()
         self.unoUiHandler.refreshToggleButton()
         self.tcpUiHandler.refreshTheme()
         self.updateWindowTitle()
@@ -2650,6 +2659,7 @@ class MainWindow(QMainWindow):
                 self.updateHeldUi()
 
         self.vmixUiHandler.updatevMixTable(detectionTargets)
+        self.vmixPlusUiHandler.updateTable(detectionTargets)
         self.unoUiHandler.updateUNOTable(detectionTargets)
         self.tcpUiHandler.updateTable(detectionTargets)
         self.teamPerformanceUiHandler.setBoxNames(box.name for box in detectionTargets)
@@ -4831,6 +4841,7 @@ class MainWindow(QMainWindow):
             }
         if self.vmixUiHandler.vmixUpdater is not None:
             self.vmixUiHandler.vmixUpdater.update_vmix(results, resend_unchanged=resend)
+        self.vmixPlusUiHandler.output.update_vmix(results, resend_unchanged=resend)
         if self.unoUiHandler.unoUpdater is not None:
             self.unoUiHandler.unoUpdater.update_uno(results, resend_unchanged=resend)
         self.tcpUiHandler.output.update(results, resend_unchanged=resend)
@@ -5220,5 +5231,6 @@ class MainWindow(QMainWindow):
             self.obs_websocket_client = None
         # store a template being typed, close the TCP connection
         self.tcpUiHandler.close()
+        self.vmixPlusUiHandler.close()
 
         super().closeEvent(event)
