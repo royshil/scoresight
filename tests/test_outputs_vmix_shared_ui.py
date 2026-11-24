@@ -110,7 +110,7 @@ def test_settings_and_language_refresh_keep_shared_selection(page, make_target):
     assert handler.ui.comboBox_vmixTransport.currentData() == "tcp"
     assert model(handler).item(0, 1).text() == "HOMESCORE.Text"
     assert handler.ui.lineEdit_vmixPort.minimumWidth() >= 90
-    assert handler.ui.lineEdit_vmixTcpPort.isReadOnly()
+    assert "8099" in handler.ui.comboBox_vmixTransport.currentText()
 
 
 def test_all_titles_tcp_and_one_shared_switch(page, make_target, make_result):
@@ -128,32 +128,3 @@ def test_all_titles_tcp_and_one_shared_switch(page, make_target, make_result):
     handler.ui.pushButton_startvmix.setChecked(False)
     assert not handler.vmixUpdater.running
     assert handler.destinationStatus().state == "off"
-
-
-def test_development_settings_migrate_once(qtbot):
-    store_data(SETTINGS_FILE, "vmix_plus_mapping", {"Time": "CLOCK.Text"})
-    store_data(SETTINGS_FILE, "vmix_plus_host", "192.168.1.92")
-    store_data(SETTINGS_FILE, "vmix_plus_send_same", True)
-    window = QMainWindow()
-    qtbot.addWidget(window)
-    ui = Ui_MainWindow()
-    ui.setupUi(window)
-    handler = VMixUIHanlder(ui)
-    try:
-        assert handler.vmixUpdater.host == "192.168.1.92"
-        assert handler.vmixUpdater.field_mapping == {"Time": "CLOCK.Text"}
-        assert handler.vmixUpdater.all_titles
-        assert handler.vmixUpdater.transport == "tcp"
-        assert handler.vmixUpdater.update_same is True
-        assert not handler.vmixUpdater.running
-        handler.ui.radioButton_vmixInput.setChecked(True)
-        handler.close()
-        other = VMixUIHanlder(ui)
-        try:
-            assert (
-                not other.vmixUpdater.all_titles
-            )  # old settings don't overwrite edits
-        finally:
-            other.close()
-    finally:
-        handler.close()

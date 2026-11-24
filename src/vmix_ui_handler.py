@@ -9,7 +9,7 @@ from theme import button_text_color, media_icon
 from storage import fetch_data, store_data
 from sc_logging import logger
 from vmix_output import DEFAULT_VMIX_PORT, VMIX_TCP_API_PORT
-from vmix_discovery import VMixOutput, VMixFunctionError
+from vmix_discovery import VMixOutput
 
 SETTINGS_FILE = "scoresight.json"
 
@@ -60,31 +60,12 @@ class FieldDelegate(QStyledItemDelegate):
         model.setData(index, editor.currentText().strip())
 
 
-def migrate_vmix_shared_settings():
-    """Keep settings from the development-only API+ page, once, if configured."""
-    if fetch_data(SETTINGS_FILE, "vmix_shared_migrated", False):
-        return
-    mapping = fetch_data(SETTINGS_FILE, "vmix_plus_mapping", {})
-    if isinstance(mapping, dict) and any(mapping.values()):
-        for old, new, default in (
-            ("vmix_plus_host", "vmix_host", "localhost"),
-            ("vmix_plus_port", "vmix_port", DEFAULT_VMIX_PORT),
-            ("vmix_plus_mapping", "vmix_mapping", {}),
-            ("vmix_plus_send_same", "vmix_send_same", False),
-        ):
-            store_data(SETTINGS_FILE, new, fetch_data(SETTINGS_FILE, old, default))
-        store_data(SETTINGS_FILE, "vmix_all_titles", True)
-        store_data(SETTINGS_FILE, "vmix_transport", "tcp")
-    store_data(SETTINGS_FILE, "vmix_shared_migrated", True)
-
-
 class VMixUIHanlder(QObject):
     def __init__(self, ui):
         super().__init__(ui.tab_vmix)
         self.ui = ui
         self._filling = True
         migrate_vmix_port()
-        migrate_vmix_shared_settings()
         self.vmixUpdater = VMixOutput(
             str(fetch_data(SETTINGS_FILE, "vmix_host", "localhost")),
             str(fetch_data(SETTINGS_FILE, "vmix_port", DEFAULT_VMIX_PORT)),
@@ -150,8 +131,6 @@ class VMixUIHanlder(QObject):
 
     def updateModeControls(self):
         self.ui.inputLineEdit_vmix.setEnabled(not self.vmixUpdater.all_titles)
-        self.ui.lineEdit_vmixTcpPort.setText(self.vmixUpdater.tcp_port)
-        self.ui.lineEdit_vmixTcpPort.setEnabled(self.vmixUpdater.transport == "tcp")
 
     def fetchFields(self):
         self.vmixConnectionChanged()
@@ -188,10 +167,10 @@ class VMixUIHanlder(QObject):
         self.updateModeControls()
         self.refreshToggleButton()
         # Fit five digits with the actual UI font and style, including padding.
-        for edit in (self.ui.lineEdit_vmixPort, self.ui.lineEdit_vmixTcpPort):
-            width = max(90, QFontMetrics(edit.font()).horizontalAdvance("65535") + 32)
-            edit.setMinimumWidth(width)
-            edit.setMaximumWidth(width + 20)
+        edit = self.ui.lineEdit_vmixPort
+        width = max(90, QFontMetrics(edit.font()).horizontalAdvance("65535") + 32)
+        edit.setMinimumWidth(width)
+        edit.setMaximumWidth(width + 20)
         self._filling = filling
         self.refresh()
 
@@ -274,113 +253,19 @@ class VMixUIHanlder(QObject):
                         model.item(row, 2).setText(count)
 
     def destinationStatus(self):
-        key = output_status.VMIX
         output = self.vmixUpdater
-        if not output.all_titles and output.transport == "http":
-            return output_status.vmix_status(
-                output.running,
-                output.host,
-                output.port,
-                output.input_number,
-                output.field_mapping,
-                output.status(),
-            )
-        if not output.running:
-            return output_status.DestinationStatus(
-                key, output_status.OFF, self.tr("Off")
-            )
-        port = output.tcp_port if output.transport == "tcp" else output.port
-        target = f"{output.host}:{port}"
-        worker = output.status()
-        hint = self.tr(
-            "Each mapped field updates every matching title, including titles off air."
-        )
-        snapshots = [(worker, False)]
-        if output.all_titles:
-            snapshots.insert(0, (output.discovery_status(), True))
-        for status, discovery in snapshots:
-            endpoint = f"{output.host}:{output.port}" if discovery else target
-            problem = output_status.worker_problem(output_status.VMIX, status, endpoint)
-            if problem:
-                rejected = status.last_error and issubclass(
-                    status.last_error.type, VMixFunctionError
-                )
-                if rejected or (
-                    status.last_error
-                    and status.last_error.code
-                    and status.last_error.code >= 500
-                ):
-                    hint = self.tr(
-                        "Fetch fields again and check the exact vMix field names in the mapping table."
-                    )
-                elif not discovery and output.transport == "tcp":
-                    hint = self.tr(
-                        "Check that vMix's TCP API is reachable on port 8099."
-                    )
-                else:
-                    hint = problem.hint
-                return output_status.DestinationStatus(
-                    key,
-                    problem.state,
-                    self.tr("vMix rejected a title field")
-                    if rejected
-                    else problem.detail,
-                    enabled=True,
-                    hint=hint,
-                    last_activity_at=worker.last_success_at,
-                    technical=str(status.last_error or ""),
-                )
-        mapping = {name: field for name, field in output.field_mapping.items() if field}
-        fields = output.fields()
-        if not mapping:
-            state, detail = output_status.WARNING, self.tr("No fields to send")
-        elif not output.all_titles:
-            state = (
-                output_status.OK
-                if worker.last_success_at is not None
-                else output_status.SENDING
-            )
-            detail = self.tr("Sending to {target}, input {input}").format(
-                target=target, input=output.input_number
-            )
-        elif output.discovery_status().last_success_at is None:
-            state, detail = (
-                output_status.SENDING,
-                self.tr("Discovering vMix title fields…"),
-            )
-        elif missing := set(mapping.values()) - set(fields):
-            state, detail = (
-                output_status.WARNING,
-                self.tr("{count} mapped fields not found in vMix").format(
-                    count=len(missing)
-                ),
-            )
-            hint = ", ".join(sorted(missing))
-        else:
-            count = len(
-                {ref for field in mapping.values() for ref in fields.get(field, ())}
-            )
-            state = (
-                output_status.OK
-                if worker.last_success_at is not None
-                else output_status.SENDING
-            )
-            detail = (
-                self.tr("Updating {count} titles at {target}").format(
-                    count=count, target=target
-                )
-                if state == output_status.OK
-                else self.tr("Ready for {count} titles; waiting for values").format(
-                    count=count
-                )
-            )
-        return output_status.DestinationStatus(
-            key,
-            state,
-            detail,
-            enabled=True,
-            hint=hint,
-            last_activity_at=worker.last_success_at,
+        return output_status.vmix_status(
+            output.running,
+            output.host,
+            output.port,
+            output.input_number,
+            output.field_mapping,
+            output.status(),
+            all_titles=output.all_titles,
+            transport=output.transport,
+            tcp_port=output.tcp_port,
+            discovery=output.discovery_status(),
+            fields=output.fields(),
         )
 
     def close(self):

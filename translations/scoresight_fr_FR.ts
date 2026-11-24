@@ -1321,7 +1321,7 @@ Résolution&#xa0;: {width}×{height}</translation>
     <message>
         <source>The address of the vMix computer (localhost if vMix runs on this computer)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
-        <translation type="obsolete">L&apos;adresse de l&apos;ordinateur vMix (localhost si vMix tourne sur cet ordinateur)</translation>
+        <translation type="unfinished">L&apos;adresse de l&apos;ordinateur vMix (localhost si vMix tourne sur cet ordinateur)</translation>
     </message>
     <message>
         <source>vMix port</source>
@@ -1336,17 +1336,17 @@ Résolution&#xa0;: {width}×{height}</translation>
     <message>
         <source>Start or stop vMix</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
-        <translation type="obsolete">Démarrer ou arrêter vMix</translation>
+        <translation type="unfinished">Démarrer ou arrêter vMix</translation>
     </message>
     <message>
         <source>Start or stop sending the readings to vMix</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
-        <translation type="obsolete">Démarrer ou arrêter l&apos;envoi des lectures à vMix</translation>
+        <translation type="unfinished">Démarrer ou arrêter l&apos;envoi des lectures à vMix</translation>
     </message>
     <message>
         <source>vMix input</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
-        <translation type="obsolete">Entrée vMix</translation>
+        <translation type="unfinished">Entrée vMix</translation>
     </message>
     <message>
         <source>The vMix input (number or name) of the title to update</source>
@@ -2743,23 +2743,13 @@ Résolution&#xa0;: {width}×{height}</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.ui" line="4267"/>
+        <source>The Web API port (normally 8088). Used to send values over HTTP; also used to fetch fields when sending over TCP.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/mainwindow.ui" line="4205"/>
         <source>Web API port</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.ui" line="4205"/>
-        <source>Used to fetch title fields and to send values when HTTP is selected.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.ui" line="4206"/>
-        <source>TCP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.ui" line="4207"/>
-        <source>Fixed TCP port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4793,6 +4783,21 @@ Résolution&#xa0;: {width}×{height}</translation>
         <translation type="unfinished">Le serveur limite les requêtes. ScoreSight garde les dernières lectures et les envoie quand il accepte de nouveau des requêtes. Pour en envoyer moins, cochez Changements uniquement, limitez la Cadence ou baissez Détections / s.</translation>
     </message>
     <message>
+        <location filename="../src/output_status.py" line="1248"/>
+        <source>Fetch fields again and check the exact vMix field names in the mapping table.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1253"/>
+        <source>Check that vMix&apos;s TCP API is reachable on port {port}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1259"/>
+        <source>vMix rejected a title field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/output_status.py" line="1206"/>
         <source>{calls} calls left today</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
@@ -5269,6 +5274,11 @@ Résolution&#xa0;: {width}×{height}</translation>
         <translation type="unfinished">Les champs standard mettent à jour les sources texte OBS portant leur nom (Home score, Clock...). Placez-les sur l&apos;image.</translation>
     </message>
     <message>
+        <location filename="../src/output_status.py" line="1161"/>
+        <source>Click Start vMix to update matching titles at {target}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/output_status.py" line="1149"/>
         <source>Click Start vMix to update input {input} at {target}.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
@@ -5288,6 +5298,31 @@ Résolution&#xa0;: {width}×{height}</translation>
         <source>Place fields on the picture and enter their vMix field names (for example Home Score.Text) in the table.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">Placez des champs sur l&apos;image et saisissez leurs noms de champ vMix (par exemple Home Score.Text) dans le tableau.</translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1193"/>
+        <source>Each mapped field updates every matching title, including titles off air.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1200"/>
+        <source>Discovering vMix title fields…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1205"/>
+        <source>{count} mapped fields not found in vMix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1213"/>
+        <source>Updating {count} titles at {target}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1217"/>
+        <source>Ready for {count} titles; waiting for values</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/output_status.py" line="1170"/>
@@ -6966,57 +7001,17 @@ Cliquez pour changer le dossier ou sa taille maximale&#xa0;; Outils &gt; Collect
     <message>
         <location filename="../src/vmix_ui_handler.py" line="290"/>
         <source>Off</source>
-        <translation type="unfinished">Désactivé</translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="296"/>
-        <source>Each mapped field updates every matching title, including titles off air.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="314"/>
-        <source>Fetch fields again and check the exact vMix field names in the mapping table.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="318"/>
-        <source>Check that vMix&apos;s TCP API is reachable on port 8099.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="325"/>
-        <source>vMix rejected a title field</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Désactivé</translation>
     </message>
     <message>
         <location filename="../src/vmix_ui_handler.py" line="336"/>
         <source>No fields to send</source>
-        <translation type="unfinished">Aucun champ à envoyer</translation>
+        <translation type="obsolete">Aucun champ à envoyer</translation>
     </message>
     <message>
         <location filename="../src/vmix_ui_handler.py" line="343"/>
         <source>Sending to {target}, input {input}</source>
-        <translation type="unfinished">Envoi vers {target}, entrée {input}</translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="349"/>
-        <source>Discovering vMix title fields…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="354"/>
-        <source>{count} mapped fields not found in vMix</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="369"/>
-        <source>Updating {count} titles at {target}</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="373"/>
-        <source>Ready for {count} titles; waiting for values</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Envoi vers {target}, entrée {input}</translation>
     </message>
 </context>
 <context>

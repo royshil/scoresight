@@ -1324,7 +1324,7 @@ Resolution: {width}×{height}</source>
     <message>
         <source>The address of the vMix computer (localhost if vMix runs on this computer)</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
-        <translation type="obsolete">vMix 컴퓨터의 주소(이 컴퓨터에서 vMix를 실행하는 경우 localhost)</translation>
+        <translation type="unfinished">vMix 컴퓨터의 주소(이 컴퓨터에서 vMix를 실행하는 경우 localhost)</translation>
     </message>
     <message>
         <source>vMix port</source>
@@ -1339,17 +1339,17 @@ Resolution: {width}×{height}</source>
     <message>
         <source>Start or stop vMix</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
-        <translation type="obsolete">vMix 시작 또는 중지</translation>
+        <translation type="unfinished">vMix 시작 또는 중지</translation>
     </message>
     <message>
         <source>Start or stop sending the readings to vMix</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
-        <translation type="obsolete">vMix로 판독값 전송을 시작하거나 중지합니다</translation>
+        <translation type="unfinished">vMix로 판독값 전송을 시작하거나 중지합니다</translation>
     </message>
     <message>
         <source>vMix input</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
-        <translation type="obsolete">vMix 입력</translation>
+        <translation type="unfinished">vMix 입력</translation>
     </message>
     <message>
         <source>The vMix input (number or name) of the title to update</source>
@@ -2746,23 +2746,13 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.ui" line="4267"/>
+        <source>The Web API port (normally 8088). Used to send values over HTTP; also used to fetch fields when sending over TCP.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/mainwindow.ui" line="4205"/>
         <source>Web API port</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.ui" line="4205"/>
-        <source>Used to fetch title fields and to send values when HTTP is selected.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.ui" line="4206"/>
-        <source>TCP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.ui" line="4207"/>
-        <source>Fixed TCP port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4796,6 +4786,21 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">엔드포인트가 요청 수를 제한합니다. ScoreSight는 최신 판독값을 보관했다가 요청을 다시 받으면 보냅니다. 전송을 줄이려면 [변경분만]을 켜거나, [빈도]에 제한을 두거나, [감지 수 / 초]를 낮추세요.</translation>
     </message>
     <message>
+        <location filename="../src/output_status.py" line="1248"/>
+        <source>Fetch fields again and check the exact vMix field names in the mapping table.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1253"/>
+        <source>Check that vMix&apos;s TCP API is reachable on port {port}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1259"/>
+        <source>vMix rejected a title field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/output_status.py" line="1206"/>
         <source>{calls} calls left today</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
@@ -5272,6 +5277,11 @@ Resolution: {width}×{height}</source>
         <translation type="unfinished">표준 필드는 정해진 이름(Home score, Clock...)의 OBS 텍스트 소스를 업데이트합니다. 영상에 배치하세요.</translation>
     </message>
     <message>
+        <location filename="../src/output_status.py" line="1161"/>
+        <source>Click Start vMix to update matching titles at {target}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/output_status.py" line="1149"/>
         <source>Click Start vMix to update input {input} at {target}.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
@@ -5291,6 +5301,31 @@ Resolution: {width}×{height}</source>
         <source>Place fields on the picture and enter their vMix field names (for example Home Score.Text) in the table.</source>
         <translatorcomment>Machine-drafted translation; please review.</translatorcomment>
         <translation type="unfinished">영상에 필드를 배치하고 표에 vMix 필드 이름(예: Home Score.Text)을 입력하세요.</translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1193"/>
+        <source>Each mapped field updates every matching title, including titles off air.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1200"/>
+        <source>Discovering vMix title fields…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1205"/>
+        <source>{count} mapped fields not found in vMix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1213"/>
+        <source>Updating {count} titles at {target}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/output_status.py" line="1217"/>
+        <source>Ready for {count} titles; waiting for values</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/output_status.py" line="1170"/>
@@ -6967,59 +7002,14 @@ Click to change the folder or its size limit; Tools &gt; Collect OCR training da
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vmix_ui_handler.py" line="290"/>
-        <source>Off</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="296"/>
-        <source>Each mapped field updates every matching title, including titles off air.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="314"/>
-        <source>Fetch fields again and check the exact vMix field names in the mapping table.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="318"/>
-        <source>Check that vMix&apos;s TCP API is reachable on port 8099.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="325"/>
-        <source>vMix rejected a title field</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/vmix_ui_handler.py" line="336"/>
         <source>No fields to send</source>
-        <translation type="unfinished">보낼 필드 없음</translation>
+        <translation type="obsolete">보낼 필드 없음</translation>
     </message>
     <message>
         <location filename="../src/vmix_ui_handler.py" line="343"/>
         <source>Sending to {target}, input {input}</source>
-        <translation type="unfinished">{target}, 입력 {input}(으)로 전송 중</translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="349"/>
-        <source>Discovering vMix title fields…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="354"/>
-        <source>{count} mapped fields not found in vMix</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="369"/>
-        <source>Updating {count} titles at {target}</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vmix_ui_handler.py" line="373"/>
-        <source>Ready for {count} titles; waiting for values</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">{target}, 입력 {input}(으)로 전송 중</translation>
     </message>
 </context>
 <context>

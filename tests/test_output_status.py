@@ -584,3 +584,133 @@ def test_destination_names():
     assert all(
         output_status.destination_description(key) for key in output_status.DESTINATIONS
     )
+
+
+@pytest.mark.parametrize("all_titles", [False, True])
+@pytest.mark.parametrize("transport,port", [("http", "8088"), ("tcp", "8099")])
+def test_vmix_modes_off_waiting_and_delivery(all_titles, transport, port):
+    options = dict(
+        all_titles=all_titles,
+        transport=transport,
+        discovery=WorkerStatus("discovery", last_success_at=2.0),
+        fields={"CLOCK.Text": ("scorebug", "halftime")},
+    )
+    args = ("localhost", "8088", "9", {"Time": "CLOCK.Text"})
+    off = output_status.vmix_status(False, *args, None, **options)
+    assert (off.state, off.enabled, off.detail) == (OFF, False, "Off")
+    assert f"localhost:{port}" in off.hint
+    assert "matching titles" in off.hint if all_titles else "input 9" in off.hint
+    assert "Click Start vMix" in off.hint
+
+    empty = output_status.vmix_status(
+        True, "localhost", "8088", "9", {"Time": ""}, None, **options
+    )
+    assert (empty.state, empty.detail) == (WARNING, "No fields to send")
+    assert empty.hint
+
+    waiting = output_status.vmix_status(True, *args, None, **options)
+    assert waiting.state == SENDING
+    assert waiting.detail == (
+        "Ready for 2 titles; waiting for values"
+        if all_titles
+        else f"Waiting for a new value for localhost:{port}, input 9"
+    )
+    sent = output_status.vmix_status(
+        True, *args, WorkerStatus("vMix", last_success_at=4.0), **options
+    )
+    assert (sent.state, sent.last_activity_at) == (OK, 4.0)
+    assert sent.detail == (
+        f"Updating 2 titles at localhost:{port}"
+        if all_titles
+        else f"Sending to localhost:{port}, input 9"
+    )
+
+
+def test_vmix_discovery_missing_fields_and_unique_title_count():
+    args = (True, "localhost", "8088", "9", {"Time": "CLOCK.Text"}, None)
+    discovering = output_status.vmix_status(*args, all_titles=True)
+    assert (discovering.state, discovering.detail) == (
+        SENDING,
+        "Discovering vMix title fields…",
+    )
+    discovery = WorkerStatus("discovery", last_success_at=1.0)
+    missing = output_status.vmix_status(
+        *args, all_titles=True, discovery=discovery, fields={}
+    )
+    assert (missing.state, missing.detail, missing.hint) == (
+        WARNING,
+        "1 mapped fields not found in vMix",
+        "CLOCK.Text",
+    )
+    counted = output_status.vmix_status(
+        True,
+        "localhost",
+        "8088",
+        "9",
+        {"Time": "CLOCK.Text", "Home": "HOME.Text", "Other clock": "CLOCK.Text"},
+        WorkerStatus("vMix", last_success_at=3.0),
+        all_titles=True,
+        discovery=discovery,
+        fields={"CLOCK.Text": ("one", "two"), "HOME.Text": ("two", "three")},
+    )
+    assert counted.detail == "Updating 3 titles at localhost:8088"
+
+
+@pytest.mark.parametrize("all_titles", [False, True])
+@pytest.mark.parametrize("discovery_failed", [False, True])
+def test_vmix_errors_identify_discovery_or_tcp_endpoint(all_titles, discovery_failed):
+    broken = WorkerStatus(
+        "vMix",
+        retrying=True,
+        last_error=unreachable(requests.ConnectionError, "connection refused"),
+    )
+    sent = WorkerStatus("vMix", last_success_at=4.0)
+    status = output_status.vmix_status(
+        True,
+        "localhost",
+        "8088",
+        "9",
+        {"Time": "CLOCK.Text"},
+        sent if discovery_failed else broken,
+        all_titles=all_titles,
+        transport="tcp",
+        discovery=broken
+        if discovery_failed
+        else WorkerStatus("discovery", last_success_at=1.0),
+        fields={"CLOCK.Text": ("one",)},
+    )
+    if discovery_failed and not all_titles:
+        assert status.state == OK  # manually mapped input sending needs no discovery
+    else:
+        assert status.state == RETRYING
+        assert f"localhost:{'8088' if discovery_failed else '8099'}" in status.detail
+        assert "connection refused" in status.technical
+        if discovery_failed:
+            assert "TCP API" not in status.hint
+            assert status.last_activity_at == 4.0
+        else:
+            assert "port 8099" in status.hint
+
+
+def test_vmix_tcp_rejected_field_keeps_partial_failure_and_activity():
+    from vmix_discovery import VMixFunctionError
+
+    status = output_status.vmix_status(
+        True,
+        "localhost",
+        "8088",
+        "1",
+        {"Time": "CLOCK.Text"},
+        WorkerStatus(
+            "vMix",
+            ok_keys=1,
+            failing_keys=1,
+            last_success_at=4.0,
+            last_error=ErrorInfo(VMixFunctionError, "FUNCTION ER invalid field"),
+        ),
+        transport="tcp",
+    )
+    assert (status.state, status.detail) == (WARNING, "vMix rejected a title field")
+    assert status.last_activity_at == 4.0
+    assert "Fetch fields" in status.hint
+    assert "FUNCTION ER" in status.technical
