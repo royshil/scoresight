@@ -8,6 +8,8 @@ Release tags are the bare version number (for example `0.1.0`).
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-25
+
 ### Added
 
 - **vMix: every matching title.** The existing vMix output can send to one input or every title containing a mapped field name. Fetch fields supplies editable choices and title counts in both modes. HTTP and acknowledged TCP share the same connection settings and mapping table. Discovery runs on Start and on demand, without periodic preset polling ([vMix](https://royshil.github.io/scoresight/vmix.html)).
@@ -1176,7 +1178,8 @@ end to end on every platform before it ships. Highlights:
 
 - First open-source release of ScoreSight.
 
-[Unreleased]: https://github.com/royshil/scoresight/compare/0.4.4...HEAD
+[Unreleased]: https://github.com/royshil/scoresight/compare/0.5.0...HEAD
+[0.5.0]: https://github.com/royshil/scoresight/compare/0.4.4...0.5.0
 [0.4.4]: https://github.com/royshil/scoresight/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/royshil/scoresight/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/royshil/scoresight/compare/0.4.1...0.4.2
