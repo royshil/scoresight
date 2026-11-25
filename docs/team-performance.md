@@ -3,7 +3,7 @@ layout: default
 title: Team Performance
 parent: Outputs
 nav_order: 9
-description: "Serve match time and shot-clock readings to Team Performance without a separate bridge."
+description: "Serve match time and shot-clock readings to Team Performance from ScoreSight's built-in HTTP server."
 ---
 
 # Team Performance
@@ -55,8 +55,6 @@ Team Performance selects its parsing mode from the URL path: a path containing `
 | `/time` | `{"time":25}` |
 | `/time-as-array` | `[{"time":25}]` |
 
-## If you used a bridge script
-
-Before this output, some clubs ran a small bridge script (`bridge.py`) that read ScoreSight's `/json` and served these same paths on port **18100**. To switch: stop the script, turn on the Team Performance output, and change the port in Team Performance's stored URLs from **18100** to **18099**; the paths stay the same. Alternatively, start ScoreSight with `--port 18100` (once the script has stopped and the port is free) and keep the old URLs; this moves ScoreSight's other HTTP URLs to that port too.
+## Troubleshooting
 
 If Team Performance cannot connect, open each URL from the Team Performance computer. Check the address and port, the output switch, that both OCR fields have valid readings, and that the network/firewall allows connections to ScoreSight's HTTP port. The Outputs status reports a stopped server or missing readings, and records when a timing URL was requested. A request means a client polled the URL; it does not confirm that Team Performance accepted or used the value.
