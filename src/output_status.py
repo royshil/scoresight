@@ -41,7 +41,8 @@ from tcp_output import (
     TcpConfig,
     WebSocketRefused,
 )
-from vmix_output import DEFAULT_VMIX_PORT, VMixTCPPortError
+from vmix_output import DEFAULT_VMIX_PORT, VMIX_TCP_API_PORT, VMixTCPPortError
+from vmix_discovery import VMixFunctionError
 
 # the destinations, in the order of the list and of the output pages
 FILES = "files"
@@ -1145,19 +1146,32 @@ def vmix_status(
     input_number: str,
     mapping: Mapping[str, str] | None,
     worker: WorkerStatus | None,
+    *,
+    all_titles: bool = False,
+    transport: str = "http",
+    tcp_port: str = VMIX_TCP_API_PORT,
+    discovery: WorkerStatus | None = None,
+    fields: Mapping[str, Iterable] | None = None,
 ) -> DestinationStatus:
-    """vMix: on while started (Start vMix)."""
-    target = f"{host or '?'}:{port or '?'}"
+    """Build every vMix mode's status from cached discovery/sending snapshots."""
+    web_target = f"{host or '?'}:{port or '?'}"
+    target = f"{host or '?'}:{tcp_port}" if transport == "tcp" else web_target
     if not running:
-        return DestinationStatus(
-            VMIX,
-            OFF,
-            QCoreApplication.translate("OutputStatus", "Off"),
-            hint=QCoreApplication.translate(
+        hint = (
+            QCoreApplication.translate(
+                "OutputStatus",
+                "Click Start vMix to update matching titles at {target}.",
+            ).format(target=target)
+            if all_titles
+            else QCoreApplication.translate(
                 "OutputStatus", "Click Start vMix to update input {input} at {target}."
-            ).format(input=input_number or "?", target=target),
+            ).format(input=input_number or "?", target=target)
         )
-    if not any((mapping or {}).values()):
+        return DestinationStatus(
+            VMIX, OFF, QCoreApplication.translate("OutputStatus", "Off"), hint=hint
+        )
+    mapped_fields = {field for field in (mapping or {}).values() if field}
+    if not mapped_fields:
         return DestinationStatus(
             VMIX,
             WARNING,
@@ -1170,38 +1184,87 @@ def vmix_status(
             ),
         )
     last_sent = worker.last_success_at if worker is not None else None
-    if last_sent is None:
-        status = DestinationStatus(
-            VMIX,
-            SENDING,
-            QCoreApplication.translate(
-                "OutputStatus", "Waiting for a new value for {target}, input {input}"
-            ).format(target=target, input=input_number or "?"),
-            enabled=True,
-            hint=QCoreApplication.translate(
-                "OutputStatus",
-                "vMix gets a field's value when it changes (or every time, with "
-                "“Also resend unchanged values”).",
-            ),
-        )
-    else:
-        status = DestinationStatus(
-            VMIX,
-            OK,
-            QCoreApplication.translate(
-                "OutputStatus", "Sending to {target}, input {input}"
-            ).format(target=target, input=input_number or "?"),
-            enabled=True,
-            hint=QCoreApplication.translate(
-                "OutputStatus",
-                "vMix gets a field's value when it changes (or every time, with "
-                "“Also resend unchanged values”).",
-            ),
-            last_activity_at=last_sent,
-        )
-    return _with_problem(
-        status, worker_problem(VMIX, worker, target), _technical(worker)
+    hint = QCoreApplication.translate(
+        "OutputStatus",
+        "vMix gets a field's value when it changes (or every time, with "
+        "“Also resend unchanged values”).",
     )
+    if all_titles:
+        hint = QCoreApplication.translate(
+            "OutputStatus",
+            "Each mapped field updates every matching title, including titles off air.",
+        )
+        fields = fields or {}
+        if discovery is None or discovery.last_success_at is None:
+            state = SENDING
+            detail = QCoreApplication.translate(
+                "OutputStatus", "Discovering vMix title fields…"
+            )
+        elif missing := mapped_fields - fields.keys():
+            state = WARNING
+            detail = QCoreApplication.translate(
+                "OutputStatus", "{count} mapped fields not found in vMix"
+            ).format(count=len(missing))
+            hint = ", ".join(sorted(missing))
+        else:
+            count = len({ref for field in mapped_fields for ref in fields[field]})
+            state = OK if last_sent is not None else SENDING
+            detail = (
+                QCoreApplication.translate(
+                    "OutputStatus", "Updating {count} titles at {target}"
+                ).format(count=count, target=target)
+                if last_sent is not None
+                else QCoreApplication.translate(
+                    "OutputStatus", "Ready for {count} titles; waiting for values"
+                ).format(count=count)
+            )
+    elif last_sent is None:
+        state = SENDING
+        detail = QCoreApplication.translate(
+            "OutputStatus", "Waiting for a new value for {target}, input {input}"
+        ).format(target=target, input=input_number or "?")
+    else:
+        state = OK
+        detail = QCoreApplication.translate(
+            "OutputStatus", "Sending to {target}, input {input}"
+        ).format(target=target, input=input_number or "?")
+    status = DestinationStatus(
+        VMIX, state, detail, enabled=True, hint=hint, last_activity_at=last_sent
+    )
+    snapshots = [(worker, target, False)]
+    if all_titles:
+        snapshots.insert(0, (discovery, web_target, True))
+    for snapshot, endpoint, is_discovery in snapshots:
+        problem = worker_problem(VMIX, snapshot, endpoint)
+        if problem is None:
+            continue
+        rejected = snapshot.last_error and issubclass(
+            snapshot.last_error.type, VMixFunctionError
+        )
+        hint = problem.hint
+        if rejected or (
+            all_titles and snapshot.last_error.code and snapshot.last_error.code >= 500
+        ):
+            hint = QCoreApplication.translate(
+                "OutputStatus",
+                "Fetch fields again and check the exact vMix field names in the mapping table.",
+            )
+        elif transport == "tcp" and not is_discovery:
+            hint = QCoreApplication.translate(
+                "OutputStatus", "Check that vMix's TCP API is reachable on port {port}."
+            ).format(port=tcp_port)
+        return DestinationStatus(
+            VMIX,
+            problem.state,
+            QCoreApplication.translate("OutputStatus", "vMix rejected a title field")
+            if rejected
+            else problem.detail,
+            enabled=True,
+            hint=hint,
+            last_activity_at=last_sent,
+            technical=_technical(snapshot),
+        )
+    return status
 
 
 def _daily_calls_text(quota) -> str:

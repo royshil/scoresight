@@ -662,9 +662,6 @@ class MainWindow(QMainWindow):
         self.ui.checkBox_vmix_send_same.setChecked(
             fetch_data("scoresight.json", "vmix_send_same", False)
         )
-        self.ui.checkBox_vmix_send_same.toggled.connect(
-            partial(self.globalSettingsChanged, "vmix_send_same")
-        )
 
         # Pause outputs: the banner over the viewer, the status bar chip
         self.ui.frame_pausedBanner.hide()
@@ -2015,7 +2012,6 @@ class MainWindow(QMainWindow):
         the network)."""
         port = get_http_server_port()
         urls = http_server_urls(port, self.lanAddress) if port is not None else ()
-        vmix = self.vmixUiHandler.vmixUpdater
         uno = self.unoUiHandler.unoUpdater
         method_index = self.ui.comboBox_outApiMethod.currentIndex()
         encoding_index = self.ui.comboBox_api_encode.currentIndex()
@@ -2027,14 +2023,7 @@ class MainWindow(QMainWindow):
                 port, self.http_port, urls, http_server_stats(now)
             ),
             self.obsDestinationStatus(),
-            output_status.vmix_status(
-                vmix.running,
-                vmix.host,
-                vmix.port,
-                vmix.input_number,
-                vmix.field_mapping,
-                vmix.status(),
-            ),
+            self.vmixUiHandler.destinationStatus(),
             output_status.uno_status(
                 uno.running, uno.endpoint, uno.field_mapping, uno.status(), uno.quota()
             ),
@@ -2079,6 +2068,7 @@ class MainWindow(QMainWindow):
         statuses = self.destinationStatuses(now)
         self.destinationsModel.setStatuses(statuses)
         self.tcpUiHandler.refresh()
+        self.vmixUiHandler.refresh()
         self.teamPerformanceUiHandler.refresh()
         # the times of the last activity
         self.ui.listView_destinations.viewport().update()
@@ -5220,5 +5210,6 @@ class MainWindow(QMainWindow):
             self.obs_websocket_client = None
         # store a template being typed, close the TCP connection
         self.tcpUiHandler.close()
+        self.vmixUiHandler.close()
 
         super().closeEvent(event)

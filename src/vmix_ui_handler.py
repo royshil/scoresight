@@ -1,13 +1,15 @@
-from PySide6.QtGui import QStandardItemModel, QStandardItem
-from PySide6.QtCore import QCoreApplication, Qt
+"""One vMix page: shared connection/mappings, one input or every matching title."""
 
+from PySide6.QtCore import QObject, QCoreApplication, Qt
+from PySide6.QtGui import QFontMetrics, QStandardItemModel, QStandardItem
+from PySide6.QtWidgets import QComboBox, QHeaderView, QStyledItemDelegate
+
+import output_status
 from theme import button_text_color, media_icon
-
-from text_detection_target import TextDetectionTarget
-from ui_mainwindow import Ui_MainWindow
-from vmix_output import DEFAULT_VMIX_PORT, VMIX_TCP_API_PORT, VMixAPI
-from sc_logging import logger
 from storage import fetch_data, store_data
+from sc_logging import logger
+from vmix_output import DEFAULT_VMIX_PORT, VMIX_TCP_API_PORT
+from vmix_discovery import VMixOutput
 
 SETTINGS_FILE = "scoresight.json"
 
@@ -40,18 +42,64 @@ def mapping_from_model(model: QStandardItemModel) -> dict[str, str]:
     return mapping
 
 
-class VMixUIHanlder:
-    def __init__(self, ui: Ui_MainWindow):
+class FieldDelegate(QStyledItemDelegate):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.fields = []
+
+    def createEditor(self, parent, option, index):
+        combo = QComboBox(parent)
+        combo.setEditable(True)
+        combo.addItems(["", *self.fields])
+        return combo
+
+    def setEditorData(self, editor, index):
+        editor.setEditText(index.data() or "")
+
+    def setModelData(self, editor, model, index):
+        model.setData(index, editor.currentText().strip())
+
+
+class VMixUIHanlder(QObject):
+    def __init__(self, ui):
+        super().__init__(ui.tab_vmix)
         self.ui = ui
-        self.vmixUpdater = None
-        self.vmixUiSetup()
+        self._filling = True
+        migrate_vmix_port()
+        self.vmixUpdater = VMixOutput(
+            str(fetch_data(SETTINGS_FILE, "vmix_host", "localhost")),
+            str(fetch_data(SETTINGS_FILE, "vmix_port", DEFAULT_VMIX_PORT)),
+            str(fetch_data(SETTINGS_FILE, "vmix_input", "1")),
+            fetch_data(SETTINGS_FILE, "vmix_mapping", {}) or {},
+            all_titles=bool(fetch_data(SETTINGS_FILE, "vmix_all_titles", False)),
+            transport=fetch_data(SETTINGS_FILE, "vmix_transport", "http"),
+        )
+        self.ui.comboBox_vmixTransport.setItemData(0, "http")
+        self.ui.comboBox_vmixTransport.setItemData(1, "tcp")
+        self.delegate = FieldDelegate(self.ui.tableView_vmixMapping)
+        self.ui.tableView_vmixMapping.setItemDelegateForColumn(1, self.delegate)
+        self.ui.tableView_vmixMapping.horizontalHeader().show()
+        self.restoreUiState()
+        for widget in (
+            ui.lineEdit_vmixHost,
+            ui.lineEdit_vmixPort,
+            ui.inputLineEdit_vmix,
+        ):
+            widget.editingFinished.connect(self.vmixConnectionChanged)
+        ui.radioButton_vmixInput.toggled.connect(self.targetChanged)
+        ui.radioButton_vmixAll.toggled.connect(self.targetChanged)
+        ui.comboBox_vmixTransport.currentIndexChanged.connect(self.targetChanged)
+        ui.pushButton_startvmix.toggled.connect(self.togglevMix)
+        ui.pushButton_vmixFetch.clicked.connect(self.fetchFields)
+        ui.checkBox_vmix_send_same.toggled.connect(self.sendSameChanged)
+        self._filling = False
 
     def globalSettingsChanged(self, settingName, value):
         store_data(SETTINGS_FILE, settingName, value)
 
     def vmixConnectionChanged(self):
-        # Update the existing updater: recreating it lost the field mapping and
-        # stopped the output while the button still said "Stop".
+        if self._filling:
+            return
         host = self.ui.lineEdit_vmixHost.text().strip()
         port = self.ui.lineEdit_vmixPort.text().strip()
         input_number = self.ui.inputLineEdit_vmix.text().strip()
@@ -63,62 +111,68 @@ class VMixUIHanlder:
         ):
             if fetch_data(SETTINGS_FILE, name) != value:
                 self.globalSettingsChanged(name, value)
+        self.refresh()
 
-    def vmixMappingChanged(self, *_):
-        # store entire mapping data in scoresight.json
+    def sendSameChanged(self, value):
+        if not self._filling:
+            self.globalSettingsChanged("vmix_send_same", value)
+
+    def targetChanged(self, *_):
+        if self._filling:
+            return
+        self.vmixUpdater.set_mode(
+            self.ui.radioButton_vmixAll.isChecked(),
+            self.ui.comboBox_vmixTransport.currentData(),
+        )
+        self.globalSettingsChanged("vmix_all_titles", self.vmixUpdater.all_titles)
+        self.globalSettingsChanged("vmix_transport", self.vmixUpdater.transport)
+        self.updateModeControls()
+        self.refresh()
+
+    def updateModeControls(self):
+        self.ui.inputLineEdit_vmix.setEnabled(not self.vmixUpdater.all_titles)
+
+    def fetchFields(self):
+        self.vmixConnectionChanged()
+        self.vmixUpdater.refresh_fields()
+        self.refresh()
+
+    def vmixMappingChanged(self, top_left=None, bottom_right=None, *_):
+        if self._filling or (top_left is not None and top_left.column() > 1):
+            return
         model = self.ui.tableView_vmixMapping.model()
-        if isinstance(model, QStandardItemModel):
-            mapping = mapping_from_model(model)
-            self.globalSettingsChanged("vmix_mapping", mapping)
-            self.vmixUpdater.set_field_mapping(mapping)
-        else:
-            logger.error("vmixMappingChanged: model is not a QStandardItemModel")
-
-    def vmixUiSetup(self):
-        migrate_vmix_port()
-        # populate the vmix connection from storage
-        self.ui.lineEdit_vmixHost.setText(
-            str(fetch_data(SETTINGS_FILE, "vmix_host", "localhost"))
-        )
-        self.ui.lineEdit_vmixPort.setText(
-            str(fetch_data(SETTINGS_FILE, "vmix_port", DEFAULT_VMIX_PORT))
-        )
-        self.ui.inputLineEdit_vmix.setText(
-            str(fetch_data(SETTINGS_FILE, "vmix_input", "1"))
-        )
-        # apply a connection change once it's typed (Enter or leaving the
-        # field), not on every keystroke
-        self.ui.lineEdit_vmixHost.editingFinished.connect(self.vmixConnectionChanged)
-        self.ui.lineEdit_vmixPort.editingFinished.connect(self.vmixConnectionChanged)
-        self.ui.inputLineEdit_vmix.editingFinished.connect(self.vmixConnectionChanged)
-
-        # create the vmixUpdater
-        self.vmixUpdater = VMixAPI(
-            self.ui.lineEdit_vmixHost.text().strip(),
-            self.ui.lineEdit_vmixPort.text().strip(),
-            self.ui.inputLineEdit_vmix.text().strip(),
-            {},
-        )
-        # add standard item model to the tableView_vmixMapping
-        self.ui.tableView_vmixMapping.setModel(QStandardItemModel())
-        mapping = fetch_data(SETTINGS_FILE, "vmix_mapping", {})
-        if mapping:
-            self.vmixUpdater.set_field_mapping(mapping)
-
-        self.ui.tableView_vmixMapping.model().dataChanged.connect(
-            self.vmixMappingChanged
-        )
-
-        self.ui.pushButton_startvmix.toggled.connect(self.togglevMix)
+        mapping = mapping_from_model(model)
+        self.globalSettingsChanged("vmix_mapping", mapping)
+        self.vmixUpdater.set_field_mapping(mapping)
+        self.refresh()
 
     def restoreUiState(self):
-        """Show the current connection and running state again, e.g. after
-        retranslateUi() reset the fields and the button to the .ui defaults."""
-        self.ui.lineEdit_vmixHost.setText(self.vmixUpdater.host)
-        self.ui.lineEdit_vmixPort.setText(self.vmixUpdater.port)
-        self.ui.inputLineEdit_vmix.setText(self.vmixUpdater.input_number)
-        self.ui.pushButton_startvmix.setChecked(self.vmixUpdater.running)
-        self._updateToggleText(self.vmixUpdater.running)
+        filling, self._filling = self._filling, True
+        output = self.vmixUpdater
+        self.ui.lineEdit_vmixHost.setText(output.host)
+        self.ui.lineEdit_vmixPort.setText(output.port)
+        self.ui.inputLineEdit_vmix.setText(output.input_number)
+        self.ui.radioButton_vmixAll.setChecked(output.all_titles)
+        self.ui.radioButton_vmixInput.setChecked(not output.all_titles)
+        self.ui.comboBox_vmixTransport.setCurrentIndex(
+            1 if output.transport == "tcp" else 0
+        )
+        self.ui.pushButton_startvmix.setChecked(output.running)
+        self.ui.checkBox_vmix_send_same.setChecked(bool(output.update_same))
+        model = self.ui.tableView_vmixMapping.model()
+        if model is not None:
+            model.setHorizontalHeaderLabels(
+                [self.tr("Field"), self.tr("vMix field"), self.tr("Titles")]
+            )
+        self.updateModeControls()
+        self.refreshToggleButton()
+        # Fit five digits with the actual UI font and style, including padding.
+        edit = self.ui.lineEdit_vmixPort
+        width = max(90, QFontMetrics(edit.font()).horizontalAdvance("65535") + 32)
+        edit.setMinimumWidth(width)
+        edit.setMaximumWidth(width + 20)
+        self._filling = filling
+        self.refresh()
 
     def _updateToggleText(self, running):
         button = self.ui.pushButton_startvmix
@@ -134,51 +188,85 @@ class VMixUIHanlder:
         )
 
     def refreshToggleButton(self):
-        """Redraw the start/stop button, e.g. after a light/dark switch."""
-        self._updateToggleText(self.ui.pushButton_startvmix.isChecked())
+        self._updateToggleText(self.vmixUpdater.running)
 
     def togglevMix(self, value):
-        if not self.vmixUpdater:
-            return
         self._updateToggleText(value)
         if value:
             self.vmixUpdater.start()
         else:
             self.vmixUpdater.stop()
+        self.refresh()
 
-    def updatevMixTable(self, detectionTargets: list[TextDetectionTarget]):
-        mapping_storage = fetch_data(SETTINGS_FILE, "vmix_mapping")
-        # a new model with exactly one row per box, so there are no stale rows
+    def updatevMixTable(self, detectionTargets):
+        stored = fetch_data(SETTINGS_FILE, "vmix_mapping", {}) or {}
         model = QStandardItemModel()
-        model.blockSignals(True)
-
-        for box in detectionTargets:
-            # add the detection to the vmix output mapping: tableView_vmixMapping
-            # check if the table already has the detectionTarget
-            items = model.findItems(box.name, Qt.MatchFlag.MatchExactly)
-            if len(items) == 0:
-                # add the item to the list
-                row = model.rowCount()
-                model.insertRow(row)
-                model.setItem(row, 0, QStandardItem(box.name))
-                # the first item shouldn't be editable
-                model.item(row, 0).setFlags(Qt.ItemFlag.NoItemFlags)
-            else:
-                # update the item in the list
-                item = items[0]
-                row = item.row()
-
-            # get value from storage or use the box name
-            if mapping_storage and box.name in mapping_storage:
-                model.setItem(row, 1, QStandardItem(mapping_storage[box.name]))
-            else:
-                model.setItem(row, 1, QStandardItem(box.name))
-
-        model.blockSignals(False)
-        self.ui.tableView_vmixMapping.setModel(model)
-        self.ui.tableView_vmixMapping.model().dataChanged.connect(
-            self.vmixMappingChanged
+        model.setHorizontalHeaderLabels(
+            [self.tr("Field"), self.tr("vMix field"), self.tr("Titles")]
         )
-        # send with the mapping the table shows (including the defaults for boxes
-        # that have no stored mapping yet), without storing it
+        for box in detectionTargets:
+            name = QStandardItem(box.name)
+            name.setFlags(Qt.ItemFlag.NoItemFlags)
+            count = QStandardItem()
+            count.setEditable(False)
+            model.appendRow(
+                [name, QStandardItem(stored.get(box.name, box.name)), count]
+            )
+        self.ui.tableView_vmixMapping.setModel(model)
+        header = self.ui.tableView_vmixMapping.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
+        header.setSectionResizeMode(2, QHeaderView.ResizeMode.ResizeToContents)
+        model.dataChanged.connect(self.vmixMappingChanged)
         self.vmixUpdater.set_field_mapping(mapping_from_model(model))
+        self.refresh()
+
+    def refresh(self):
+        # Read cached state only. This UI timer never polls vMix.
+        fields = self.vmixUpdater.fields()
+        self.delegate.fields = sorted(fields)
+        status = self.vmixUpdater.discovery_status()
+        if status.retrying or status.failing_keys:
+            problem = output_status.worker_problem(
+                output_status.VMIX,
+                status,
+                f"{self.vmixUpdater.host}:{self.vmixUpdater.port}",
+            )
+            text = problem.detail if problem else self.tr("Could not fetch fields")
+        elif status.busy or status.pending:
+            text = self.tr("Fetching fields…")
+        elif fields or status.last_success_at is not None:
+            titles = len({ref for refs in fields.values() for ref in refs})
+            text = self.tr("{fields} fields in {titles} titles").format(
+                fields=len(fields), titles=titles
+            )
+        else:
+            text = self.tr("Fetch fields to find vMix titles")
+        self.ui.label_vmixFields.setText(text)
+        model = self.ui.tableView_vmixMapping.model()
+        if model is not None:
+            for row in range(model.rowCount()):
+                item = model.item(row, 1)
+                if item is not None:
+                    count = str(len(fields.get(item.text(), ()))) if item.text() else ""
+                    if model.item(row, 2).text() != count:
+                        model.item(row, 2).setText(count)
+
+    def destinationStatus(self):
+        output = self.vmixUpdater
+        return output_status.vmix_status(
+            output.running,
+            output.host,
+            output.port,
+            output.input_number,
+            output.field_mapping,
+            output.status(),
+            all_titles=output.all_titles,
+            transport=output.transport,
+            tcp_port=output.tcp_port,
+            discovery=output.discovery_status(),
+            fields=output.fields(),
+        )
+
+    def close(self):
+        self.vmixUpdater.close()
