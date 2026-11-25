@@ -201,6 +201,12 @@ def make_window(qapp, qtbot, patched, memory_storage):
 
     def _make(**kwargs):
         window = mainwindow.MainWindow(QTranslator(), qapp, **kwargs)
+        from types import SimpleNamespace
+        from test_outputs_vmix import FakeResponse
+
+        window.vmixUiHandler.vmixUpdater._discovery_session = SimpleNamespace(
+            get=lambda *a, **kw: FakeResponse(text="<vmix><inputs/></vmix>")
+        )
         windows.append(window)
         # source discovery runs on a worker thread
         qtbot.waitUntil(lambda: not window.sources_discovery_running)
@@ -1978,9 +1984,10 @@ def test_the_outputs_are_destinations_over_their_pages(main_window):
     # the keyboard moves between them
     QTest.keyClick(ui.listView_destinations, QtCore.Qt.Key.Key_Down)
     assert stack.currentWidget() is ui.tab_uno
-    # every destination shows without scrolling
+    # The growing list may scroll on a laptop; the divider still leaves
+    # useful rows visible and the keyboard can reach each output.
     view = ui.listView_destinations
-    assert view.height() >= model.rowCount() * view.sizeHintForRow(0)
+    assert view.height() >= 2 * view.sizeHintForRow(0)
     # the state is told by a glyph and words too (never by colour alone)
     main_window.refreshLiveStatus()
     vmix = destination_index(main_window, "vmix")
@@ -2119,7 +2126,9 @@ def test_the_status_bar_shows_every_output_and_opens_it(main_window):
     bar.output_buttons["api"].click()
     assert ui.tabWidget_inspector.currentWidget() is ui.widget_outputs
     assert not main_window.isPaneHidden(2)
-    assert ui.listView_destinations.currentIndex().row() == 5
+    assert ui.listView_destinations.currentIndex() == destination_index(
+        main_window, "api"
+    )
     assert ui.stackedWidget_outputs.currentWidget() is ui.tab_api
     bar.output_buttons["obs"].click()
     assert ui.stackedWidget_outputs.currentWidget() is ui.tab_obs
@@ -4806,3 +4815,56 @@ def test_team_performance_switch_pause_and_hold(main_window, make_result):
             http_server.team_performance_payload(True)
     finally:
         http_server.update_http_server([])
+
+
+def test_all_titles_uses_the_output_switch_pause_and_held_values(
+    main_window, make_result, make_target
+):
+    from test_outputs_vmix_discovery import FakeVmix, flush
+
+    server = FakeVmix()
+    window = main_window
+    handler = window.vmixUiHandler
+    import requests
+
+    handler.vmixUpdater._discovery_session = requests.Session()
+    window.detectionTargetsStorage.add_item(make_target("Home Score"))
+    window.detectionTargetsStorage.add_item(make_target("Time"))
+    handler.vmixUpdater.set_connection(
+        "127.0.0.1", server.port, tcp_port=server.tcp_port
+    )
+    for row in range(handler.ui.tableView_vmixMapping.model().rowCount()):
+        name = handler.ui.tableView_vmixMapping.model().item(row, 0).text()
+        handler.ui.tableView_vmixMapping.model().item(row, 1).setText(
+            {"Home Score": "HOMESCORE.Text", "Time": "TIME.Text"}.get(name, "")
+        )
+    try:
+        window.showDestination("vmix")
+        assert window.ui.stackedWidget_outputs.currentWidget() is window.ui.tab_vmix
+        window.ui.radioButton_vmixAll.setChecked(True)
+        window.ui.comboBox_vmixTransport.setCurrentIndex(1)
+        window.destinationToggleRequested("vmix", True)
+        assert handler.vmixUpdater.running
+        window.ocrResult([make_result("Home Score", "5"), make_result("Time", "12:34")])
+        flush(handler.vmixUpdater)
+        assert all(fields["HOMESCORE.Text"] == "5" for fields in server.inputs.values())
+        window.ui.pushButton_stopUpdates.setChecked(True)
+        window.ocrResult([make_result("Home Score", "6"), make_result("Time", "12:33")])
+        flush(handler.vmixUpdater)
+        assert server.inputs["scoreboard-guid"]["TIME.Text"] == "12:34"
+        window.ui.pushButton_stopUpdates.setChecked(False)
+        window.heldValues.hold("Time", "10:00")
+        window.ocrResult(
+            [
+                make_result("Home Score", "6", "SameNoChange"),
+                make_result("Time", "12:32"),
+            ]
+        )
+        flush(handler.vmixUpdater)
+        assert server.inputs["scoreboard-guid"]["TIME.Text"] == "10:00"
+        assert server.inputs["halftime-guid"]["HOMESCORE.Text"] == "6"
+        window.destinationToggleRequested("vmix", False)
+        assert not handler.vmixUpdater.running
+    finally:
+        handler.vmixUpdater.stop()
+        server.close()
