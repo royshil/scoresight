@@ -4,4 +4,4 @@ pyinstaller-hooks-contrib==2026.10
 setuptools==84.2.1
 pybind11==3.1.0 ; sys_platform == "win32"
 # scripts/fetch_models.py (the build bundles the PP-OCR models it downloads)
-PyYAML==6.0.3
+PyYAML==6.0.4

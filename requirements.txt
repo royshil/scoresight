@@ -13,7 +13,7 @@ fastapi==0.165.0
 uvicorn==0.54.0
 obsws-python==1.8.1
 pillow==13.0.0
-platformdirs==4.14.7
+platformdirs==4.14.8
 python-dotenv==1.2.4
 requests==2.34.2
 # The phone camera source (src/phone_camera.py): its HTTPS page's self-signed
